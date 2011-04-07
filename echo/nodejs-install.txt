@@ -1,0 +1,22 @@
+Building from source
+
+
+git clone https://github.com/joyent/node.git
+cd node
+export JOBS=2 # optional, sets number of parallel commands.
+mkdir ~/local
+./configure --prefix=$HOME/local/node
+make
+make install
+export PATH=$HOME/local/node/bin:$PATH
+
+Install NPM
+
+$ curl http://npmjs.org/install.sh | sh
+
+Install Express
+$ npm install express
+
+Install mysql
+
+$ npm install mysql
