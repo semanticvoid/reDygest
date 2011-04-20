@@ -37,8 +37,6 @@ abstract class BaseJournalist {
 	 * @return
 	 */
 	protected final List<Tweet> read(String file) {
-		ArrayList<Tweet> tweets = new ArrayList<Tweet>();
-
 		try {
 			BufferedReader rdr = new BufferedReader(new FileReader(new File(
 					file)));
@@ -48,7 +46,7 @@ abstract class BaseJournalist {
 				try {
 					Tweet t = new Tweet(line);
 					if (t.getText() != null) {
-						tweets.add(t);
+						addTweet(t);
 					}
 				} catch(Exception e) {
 					continue;
@@ -59,6 +57,15 @@ abstract class BaseJournalist {
 		}
 
 		return tweets;
+	}
+	
+	/**
+	 * Placeholder for future selection/sampling strategies (if any)
+	 * @param t
+	 * @return
+	 */
+	protected void addTweet(Tweet t) {
+		tweets.add(t);
 	}
 
 	/**
@@ -84,6 +91,7 @@ abstract class BaseJournalist {
 	 * @param file
 	 */
 	public final void run(String file) {
+		tweets = new ArrayList<Tweet>();
 		tweets = read(file);
 		Story s = process(tweets);
 		write(s);

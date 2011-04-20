@@ -45,6 +45,7 @@ public class MysqlStore {
 	public boolean executeUpdate(String query) {
 		try {
 			Statement stmt = conn.createStatement();
+			query.replaceAll("\"", "\\\"");
 			return stmt.execute(query);
 		} catch(Exception e) {
 			e.printStackTrace();

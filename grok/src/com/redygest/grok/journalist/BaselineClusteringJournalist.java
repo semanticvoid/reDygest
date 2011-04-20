@@ -3,6 +3,10 @@
  */
 package com.redygest.grok.journalist;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,9 +23,12 @@ import com.redygest.commons.data.Tweet;
  * 
  */
 public class BaselineClusteringJournalist extends BaseJournalist {
-	
+
 	static final int MAX_CLUSTERS = 20;
 	static final int MIN_CLUSTERS = 10;
+	static final int SAMPLE_WINDOW = 100;
+
+	int tweetsRead = 0;
 
 	/**
 	 * Jaccard distance
@@ -54,6 +61,26 @@ public class BaselineClusteringJournalist extends BaseJournalist {
 		}
 	}
 
+	/**
+	 * reservior sampling
+	 * 
+	 * @param tweets
+	 * @return sampled tweets
+	 */
+	protected void addTweet(Tweet t) {
+		tweetsRead++;
+		
+		if (tweets.size() < SAMPLE_WINDOW) {
+			tweets.add(t);
+		} else {
+			double rand = Math.random();
+			int index = (int) ((int) tweetsRead * rand);
+			if (index < tweets.size()) {
+				tweets.set(index, t);
+			}
+		}
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -72,23 +99,24 @@ public class BaselineClusteringJournalist extends BaseJournalist {
 		Dendrogram<String> clDendrogram = clClusterer
 				.hierarchicalCluster(inputSet);
 		double k = 0;
-		while(k < MIN_CLUSTERS) {
+		while (k < MIN_CLUSTERS) {
 			k = Math.random();
 			k = MAX_CLUSTERS * k;
 		}
-		
-		Set<Set<String>> clKClustering = clDendrogram.partitionK((int)k);
-		
+
+		Set<Set<String>> clKClustering = clDendrogram.partitionK((int) k);
+
 		StringBuffer buf = new StringBuffer();
-		for(Set<String> c : clKClustering) {
+		for (Set<String> c : clKClustering) {
 			// pick one from each cluster
-			for(String s : c) {
+			for (String s : c) {
 				buf.append(s);
 				break;
 			}
 		}
-		
-		Story story = new Story(buf.toString().substring(0, 200), buf.toString());
+
+		Story story = new Story(buf.toString().substring(0, 200),
+				buf.toString());
 
 		return story;
 	}
