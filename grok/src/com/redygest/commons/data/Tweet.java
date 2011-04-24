@@ -28,4 +28,8 @@ public class Tweet {
 	public String getText() {
 		return text;
 	}
+	
+	public String toString() {
+		return this.text;
+	}
 }
