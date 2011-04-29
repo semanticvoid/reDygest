@@ -48,4 +48,20 @@ public class DataVariable implements Variable {
 	public Long getRecordIdentifier() {
 		return recordIdentifier;
 	}
+
+	@Override
+	public int compareTo(Variable arg0) {
+		if(equals(arg0)) {
+			return 1;
+		}
+		return 0;
+	}
+	
+	@Override
+	public int hashCode() {
+	       final int PRIME = 31;
+	       int result = 1;
+	       result = PRIME * result + name.hashCode();
+	       return result;
+	}
 }

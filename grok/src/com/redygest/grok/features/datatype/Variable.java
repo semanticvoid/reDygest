@@ -1,9 +1,7 @@
 package com.redygest.grok.features.datatype;
 
-import java.io.Serializable;
 
-
-public interface Variable extends Serializable {
+public interface Variable extends Comparable<Variable>  {
 	String getVariableName();
 	Long getRecordIdentifier();
 	Attributes getVariableAttributes();
