@@ -52,4 +52,12 @@ public class SennaVerb {
 		this.argumentToNPs = map;
 	}
 
+	public HashMap<String, String> getArgumentToText() {
+		return argumentToText;
+	}
+
+	public HashMap<String, List<String>> getArgumentToNPs() {
+		return argumentToNPs;
+	}
+
 }

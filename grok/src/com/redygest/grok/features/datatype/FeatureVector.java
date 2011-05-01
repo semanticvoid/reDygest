@@ -21,6 +21,10 @@ public class FeatureVector implements Serializable {
 		}
 	}
 	
+	public Variable getVariable(Variable queryVariable) {
+		return variables.get(queryVariable);
+	}
+	
 	public Collection<Variable> getVariables() {
 		return variables.values();
 	}
