@@ -53,9 +53,7 @@ public class FeaturesComputation extends AbstractFeaturesComputation {
 					Tweet t = new Tweet(line);
 					if (t.getText() != null) {
 						FeatureVector fv = ext.extract(t);
-						final Map<Long, FeatureVector> m1 = new HashMap<Long, FeatureVector>();
-						m1.put((long)i++, fv);
-						fc.addFeatures(m1);
+						fc.addGlobalFeatures(fv, true);
 					}
 				} catch (Exception e) {
 					continue;
