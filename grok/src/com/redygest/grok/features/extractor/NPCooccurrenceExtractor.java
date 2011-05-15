@@ -8,6 +8,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
+import com.redygest.commons.data.Data;
+import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
@@ -52,9 +54,9 @@ public class NPCooccurrenceExtractor implements IFeatureExtractor {
 	 * .commons.data.Tweet)
 	 */
 	@Override
-	public FeatureVector extract(Tweet t) {
+	public FeatureVector extract(Data t) {
 		FeatureVector fVector = new FeatureVector();
-		List<SennaVerb> verbs = extractVerbs(t.getText());
+		List<SennaVerb> verbs = extractVerbs(t.getValue(DataType.BODY));
 
 		for (SennaVerb verb : verbs) {
 			String[] args = verb

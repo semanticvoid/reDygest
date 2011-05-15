@@ -5,8 +5,9 @@ package com.redygest.grok.journalist;
 
 import java.util.List;
 
+import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
-import com.redygest.commons.data.Tweet;
+import com.redygest.commons.data.Data;
 
 /**
  * Echo Journalist - just echos everything out
@@ -19,11 +20,11 @@ public class EchoJournalist extends BaseJournalist {
 	 * @see com.redygest.grok.journalist.BaseJournalist#process(java.util.List)
 	 */
 	@Override
-	protected Story process(List<Tweet> tweets) {
+	protected Story process(List<Data> tweets) {
 		StringBuffer body = new StringBuffer();
 		
-		for(Tweet t : tweets) {
-			body.append(t.getText() + " ");
+		for(Data t : tweets) {
+			body.append(t.getValue(DataType.BODY) + " ");
 		}
 		
 		int end = 200;

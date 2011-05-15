@@ -13,6 +13,8 @@ import java.util.List;
 
 import net.sf.json.JSONSerializer;
 
+import com.redygest.commons.data.Data;
+import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
 import com.redygest.commons.data.Tweet;
 import com.redygest.commons.store.MysqlStore;
@@ -26,9 +28,9 @@ import com.sun.corba.se.impl.resolver.FileResolverImpl;
  */
 abstract class BaseJournalist {
 
-	protected List<Tweet> tweets;
+	protected List<Data> tweets;
 
-	abstract Story process(List<Tweet> tweets);
+	abstract Story process(List<Data> tweets);
 
 	/**
 	 * Read tweets
@@ -36,7 +38,7 @@ abstract class BaseJournalist {
 	 * @param file
 	 * @return
 	 */
-	protected final List<Tweet> read(String file) {
+	protected final List<Data> read(String file) {
 		try {
 			BufferedReader rdr = new BufferedReader(new FileReader(new File(
 					file)));
@@ -45,7 +47,7 @@ abstract class BaseJournalist {
 			while ((line = rdr.readLine()) != null) {
 				try {
 					Tweet t = new Tweet(line);
-					if (t.getText() != null) {
+					if (t.getValue(DataType.BODY) != null) {
 						addTweet(t);
 					}
 				} catch(Exception e) {
@@ -64,7 +66,7 @@ abstract class BaseJournalist {
 	 * @param t
 	 * @return
 	 */
-	protected void addTweet(Tweet t) {
+	protected void addTweet(Data t) {
 		tweets.add(t);
 	}
 
@@ -91,7 +93,7 @@ abstract class BaseJournalist {
 	 * @param file
 	 */
 	public final void run(String file) {
-		tweets = new ArrayList<Tweet>();
+		tweets = new ArrayList<Data>();
 		tweets = read(file);
 		Story s = process(tweets);
 		write(s);

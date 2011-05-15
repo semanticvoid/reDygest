@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.redygest.commons.data.Data;
+import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.extractor.NPCooccurrenceExtractor;
@@ -50,8 +52,8 @@ public class FeaturesComputation extends AbstractFeaturesComputation {
 			int i = 0;
 			while ((line = rdr.readLine()) != null) {
 				try {
-					Tweet t = new Tweet(line);
-					if (t.getText() != null) {
+					Data t = new Tweet(line);
+					if (t.getValue(DataType.BODY) != null) {
 						FeatureVector fv = ext.extract(t);
 						fc.addGlobalFeatures(fv, true);
 					}

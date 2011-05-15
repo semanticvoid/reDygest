@@ -3,6 +3,8 @@
  */
 package com.redygest.commons.data;
 
+import org.apache.commons.lang.StringUtils;
+
 import net.sf.json.JSONObject;
 import net.sf.json.JSONSerializer;
 
@@ -12,7 +14,7 @@ import net.sf.json.JSONSerializer;
  * @author semanticvoid
  * 
  */
-public class Tweet {
+public class Tweet extends AbstractData {
 
 	private String text;
 
@@ -23,13 +25,13 @@ public class Tweet {
 	public Tweet(String json) {
 		JSONObject jsonObj = JSONObject.fromObject(json);
 		this.text = jsonObj.getString("text");
+		if(!StringUtils.isBlank(this.text)) {
+			data.put(DataType.BODY, this.text);
+		}
 	}
 	
-	public String getText() {
-		return text;
-	}
-	
-	public String toString() {
-		return this.text;
+	@Override
+	protected boolean isDataPopulated() {
+		return true;
 	}
 }

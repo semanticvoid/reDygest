@@ -15,6 +15,8 @@ import com.aliasi.cluster.CompleteLinkClusterer;
 import com.aliasi.cluster.Dendrogram;
 import com.aliasi.cluster.HierarchicalClusterer;
 import com.aliasi.util.Distance;
+import com.redygest.commons.data.Data;
+import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
 import com.redygest.commons.data.Tweet;
 
@@ -87,11 +89,11 @@ public class BaselineClusteringJournalist extends BaseJournalist {
 	 * @see com.redygest.grok.journalist.BaseJournalist#process(java.util.List)
 	 */
 	@Override
-	Story process(List<Tweet> tweets) {
+	Story process(List<Data> tweets) {
 		Distance<String> JACCARD_DISTANCE = new JaccardDistance();
 		Set<String> inputSet = new HashSet<String>();
-		for (Tweet t : tweets) {
-			inputSet.add(t.getText());
+		for (Data t : tweets) {
+			inputSet.add(t.getValue(DataType.BODY));
 		}
 
 		HierarchicalClusterer<String> clClusterer = new CompleteLinkClusterer<String>(

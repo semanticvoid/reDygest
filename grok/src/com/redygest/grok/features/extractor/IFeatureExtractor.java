@@ -3,6 +3,7 @@
  */
 package com.redygest.grok.features.extractor;
 
+import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.datatype.FeatureVector;
 
@@ -18,6 +19,6 @@ public interface IFeatureExtractor {
 	 * @param t - tweet
 	 * @return feature vector
 	 */
-	public FeatureVector extract(Tweet t);
+	public FeatureVector extract(Data t);
 	
 }
