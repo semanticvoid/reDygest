@@ -25,4 +25,9 @@ public abstract class AbstractData implements Data {
 			throw new RuntimeException("Data is not populated");
 		}
 	}
+	
+	@Override
+	public void setValue(DataType type, String value) {
+		data.put(type, value);
+	}
 }
