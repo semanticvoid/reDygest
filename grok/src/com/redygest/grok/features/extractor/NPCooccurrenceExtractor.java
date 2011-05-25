@@ -7,10 +7,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Tweet;
+import com.redygest.grok.features.computation.Features;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
@@ -23,7 +25,7 @@ import com.redygest.grok.srl.SennaVerb;
  * @author semanticvoid
  * 
  */
-public class NPCooccurrenceExtractor implements IFeatureExtractor {
+public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 
 	private static Senna senna = new Senna("/Library/senna");
 
@@ -44,6 +46,15 @@ public class NPCooccurrenceExtractor implements IFeatureExtractor {
 			}
 		}
 		return verbs;
+	}
+	
+	@Override
+	public Features extract(List<Data> dataList) {
+		Features features = new Features();
+		for(Data t : dataList) {
+			features.addGlobalFeatures(extract(t), true);
+		}
+		return features;
 	}
 
 	/*

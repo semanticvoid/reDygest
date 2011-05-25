@@ -12,7 +12,7 @@ import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.extractor.NPCooccurrenceExtractor;
 
-public class FeaturesComputation extends AbstractFeaturesComputation {
+public class FeaturesComputation extends Features {
 
 	public static void main(String[] args) {
 		// Variable v1 = new DataVariable("a", (long)1);
