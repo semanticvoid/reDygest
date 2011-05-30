@@ -1,6 +1,5 @@
 package com.redygest.grok.srl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 

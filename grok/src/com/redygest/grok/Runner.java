@@ -4,7 +4,6 @@
 package com.redygest.grok;
 
 import com.redygest.grok.journalist.BaselineClusteringJournalist;
-import com.redygest.grok.journalist.EchoJournalist;
 
 /**
  * Grok Invoker

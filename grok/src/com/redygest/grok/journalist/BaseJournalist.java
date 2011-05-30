@@ -5,20 +5,15 @@ package com.redygest.grok.journalist;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-import net.sf.json.JSONSerializer;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
 import com.redygest.commons.data.Tweet;
 import com.redygest.commons.store.MysqlStore;
-import com.sun.corba.se.impl.resolver.FileResolverImpl;
 
 /**
  * Class representing the base journalist template

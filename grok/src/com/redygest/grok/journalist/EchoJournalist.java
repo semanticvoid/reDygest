@@ -5,9 +5,9 @@ package com.redygest.grok.journalist;
 
 import java.util.List;
 
+import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
-import com.redygest.commons.data.Data;
 
 /**
  * Echo Journalist - just echos everything out

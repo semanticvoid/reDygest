@@ -6,7 +6,6 @@ package com.redygest.grok.features.extractor;
 import java.util.List;
 
 import com.redygest.commons.data.Data;
-import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.computation.Features;
 import com.redygest.grok.features.datatype.FeatureVector;
 

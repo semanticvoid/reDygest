@@ -1,12 +1,12 @@
 package com.redygest.metrics;
 
+import java.io.BufferedInputStream;
 import java.io.DataInputStream;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.io.FileInputStream;
-import java.io.BufferedInputStream;
 
 
 public class FMeasure implements Measure {

@@ -3,10 +3,9 @@
  */
 package com.redygest.commons.data;
 
-import org.apache.commons.lang.StringUtils;
-
 import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
+
+import org.apache.commons.lang.StringUtils;
 
 /**
  * Class representing a Tweet
