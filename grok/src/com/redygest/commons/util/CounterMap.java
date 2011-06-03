@@ -1,4 +1,4 @@
-package tst.com.redygest.grok.cs224n.util;
+package com.redygest.commons.util;
 
 import java.io.Serializable;
 import java.util.Map;
