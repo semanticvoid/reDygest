@@ -1,5 +1,7 @@
 package com.redygest.commons.data;
 
 public enum DataType {
-	BODY
+	BODY,
+	RECORD_IDENTIFIER,
+	BODY_TOKENIZED
 }
