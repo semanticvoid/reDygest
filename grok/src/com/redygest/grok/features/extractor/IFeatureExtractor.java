@@ -8,6 +8,7 @@ import java.util.List;
 import com.redygest.commons.data.Data;
 import com.redygest.grok.features.computation.Features;
 import com.redygest.grok.features.datatype.FeatureVector;
+import com.redygest.grok.repository.IFeaturesRepository;
 
 /**
  * Interface for feature extractor
@@ -24,5 +25,7 @@ public interface IFeatureExtractor {
 	 * @return feature vector
 	 */
 	public FeatureVector extract(Data t);
+	
+	public IFeaturesRepository getFeaturesRepository();
 	
 }

@@ -3,14 +3,25 @@ package com.redygest.grok.features.computation;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.datatype.FeatureVector;
+import com.redygest.grok.features.extractor.FeatureExtractorFactory;
+import com.redygest.grok.features.extractor.FeatureExtractorType;
+import com.redygest.grok.features.extractor.IFeatureExtractor;
 import com.redygest.grok.features.extractor.NPCooccurrenceExtractor;
+import com.redygest.grok.repository.FeaturesRepository;
 
-public class FeaturesComputation extends Features {
+class FeaturesComputation {
+	FeaturesRepository repository = FeaturesRepository.getInstance();
+	public void computeFeatures(List<Data> data) throws Exception {
+		FeatureExtractorFactory featureExtractorFactory = new FeatureExtractorFactory();
+		IFeatureExtractor featureExtractor = featureExtractorFactory.getFeatureExtractor(FeatureExtractorType.POSFEATURE);
+		repository.addFeatures(featureExtractor.extract(data));
+	}
 
 	public static void main(String[] args) {
 		// Variable v1 = new DataVariable("a", (long)1);
@@ -40,7 +51,7 @@ public class FeaturesComputation extends Features {
 		// System.out.println(fv.get(0).getVariables().size());
 		// System.out.println(vs.get(0).getVariableAttributes());
 
-		FeaturesComputation fc = new FeaturesComputation();
+		Features fc = new Features();
 		NPCooccurrenceExtractor ext = new NPCooccurrenceExtractor();
 		
 		try {

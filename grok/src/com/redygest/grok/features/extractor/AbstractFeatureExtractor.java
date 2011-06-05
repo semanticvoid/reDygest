@@ -7,6 +7,8 @@ import java.util.Map;
 import com.redygest.commons.data.Data;
 import com.redygest.grok.features.computation.Features;
 import com.redygest.grok.features.datatype.FeatureVector;
+import com.redygest.grok.repository.FeaturesRepository;
+import com.redygest.grok.repository.IFeaturesRepository;
 
 public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 
@@ -19,5 +21,9 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 		}
 		features.addFeatures(featuresMap);
 		return features;
+	}
+	
+	public IFeaturesRepository getFeaturesRepository() {
+		return FeaturesRepository.getInstance();
 	}
 }
