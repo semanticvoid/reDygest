@@ -38,13 +38,14 @@ abstract class BaseJournalist {
 			BufferedReader rdr = new BufferedReader(new FileReader(new File(
 					file)));
 			String line;
-
+			long i = 0;
 			while ((line = rdr.readLine()) != null) {
 				try {
-					Tweet t = new Tweet(line);
+					Tweet t = new Tweet(line, String.valueOf(i));
 					if (t.getValue(DataType.BODY) != null) {
 						addTweet(t);
 					}
+					i++;
 				} catch(Exception e) {
 					continue;
 				}

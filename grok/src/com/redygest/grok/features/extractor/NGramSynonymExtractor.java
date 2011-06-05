@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import tst.com.redygest.grok.cs224n.util.CounterMap;
-
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
+import com.redygest.commons.util.CounterMap;
 import com.redygest.grok.features.computation.Features;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;

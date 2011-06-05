@@ -50,7 +50,7 @@ public class FeaturesComputation extends Features {
 			int i = 0;
 			while ((line = rdr.readLine()) != null) {
 				try {
-					Data t = new Tweet(line);
+					Data t = new Tweet(line, String.valueOf(i));
 					if (t.getValue(DataType.BODY) != null) {
 						FeatureVector fv = ext.extract(t);
 						fc.addGlobalFeatures(fv, true);
@@ -58,6 +58,7 @@ public class FeaturesComputation extends Features {
 				} catch (Exception e) {
 					continue;
 				}
+				i++;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
