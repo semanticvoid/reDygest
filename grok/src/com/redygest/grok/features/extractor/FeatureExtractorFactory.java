@@ -12,7 +12,9 @@ public class FeatureExtractorFactory {
 		case SENTIMENTFEATURE :
 			return new SentimentFeatureExtractor();
 		case PUNCTUATIONCOUNTFEATURE :
-			return new PunctuationCountsFeatureExtractor();
+			return new PunctuationCountFeatureExtractor();
+		case PPRONOUNCOUNTFEATURE :
+			return new PPronounCountFeatureExtractor();
 		}
 		return null;
 	}
