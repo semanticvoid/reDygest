@@ -84,7 +84,7 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 				// framework
 				// at the moment
 				Variable var = fVector.getVariable(new DataVariable(headargNP,
-						(long) -1));
+						(long) Features.GLOBAL_IDENTIFIER));
 
 				for (String arg : args) {
 					for (String np : verb.getArgumentToNPs().get(arg)) {
@@ -92,7 +92,7 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 						if (!np.equalsIgnoreCase(headargNP)) {
 							// biRelations.incrementCount(headargNP, np, 1.0);
 							if (var == null) {
-								var = new DataVariable(headargNP, (long) -1);
+								var = new DataVariable(headargNP, (long) Features.GLOBAL_IDENTIFIER);
 							}
 
 							Attributes attrs = var.getVariableAttributes();

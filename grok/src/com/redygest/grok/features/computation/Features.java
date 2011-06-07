@@ -12,7 +12,7 @@ import com.redygest.grok.features.datatype.Variable;
 
 public class Features {
 
-	private static final long GLOBAL_IDENTIFIER = -1;
+	public static final long GLOBAL_IDENTIFIER = -1;
 	private Map<Long, FeatureVector> featureVectors = new HashMap<Long, FeatureVector>();
 
 	public Map<Long, FeatureVector> getFeatures() {
