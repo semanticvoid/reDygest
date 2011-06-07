@@ -6,5 +6,6 @@ public enum AttributeType {
 	POSBIGRAM,
 	FREQUENCY,
 	NPCOOCCURENCE,
-	SYNONYM
+	SYNONYM,
+	PUNCTCOUNT
 }

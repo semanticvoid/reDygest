@@ -11,6 +11,8 @@ public class FeatureExtractorFactory {
 			return new POSFeatureExtractor();
 		case SENTIMENTFEATURE :
 			return new SentimentFeatureExtractor();
+		case PUNCTUATIONCOUNTFEATURE :
+			return new PunctuationCountsFeatureExtractor();
 		}
 		return null;
 	}
