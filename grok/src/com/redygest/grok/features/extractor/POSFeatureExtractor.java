@@ -38,9 +38,9 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				
 				//bigram
 				if(prevTag != null) {
-					DataVariable var = new DataVariable(tokens[0], id);
+					DataVariable var = new DataVariable(prevTag + " " + tokens[1], id);
 					Attributes attrs = var.getVariableAttributes();
-					attrs.put(prevTag + " " + tokens[1], AttributeType.POSBIGRAM);
+					attrs.put("1", AttributeType.POSBIGRAM);
 					fVector.addVariable(var);
 				}
 				

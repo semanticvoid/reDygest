@@ -10,11 +10,25 @@ import java.util.Vector;
 
 public class SentiWordNet {
 
+	public static SentiWordNet instance = null;
+	
 	private String pathToSWN = "/Users/semanticvoid/projects/reDygest/sandbox/facop/data"
 			+ File.separator + "SentiWordNet.txt";
 	private HashMap<String, String> _dict;
 
-	public SentiWordNet() throws Exception {
+	public static SentiWordNet getInstance() {
+		if(instance == null) {
+			try {
+				instance = new SentiWordNet();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return instance;
+	}
+	
+	private SentiWordNet() throws Exception {
 		_dict = new HashMap<String, String>();
 		HashMap<String, Vector<Double>> _temp = new HashMap<String, Vector<Double>>();
 		try {
@@ -92,15 +106,15 @@ public class SentiWordNet {
 		}
 	}
 
-	public String extract(String query) {
-		return _dict.get(query);
+	public String extract(String query, String posTag) {
+		return _dict.get(query.toLowerCase() + transformPOSTag(posTag));
 	}
 
-	public boolean contains(String query) {
-		return _dict.containsKey(query);
+	public boolean contains(String query, String posTag) {
+		return _dict.containsKey(query.toLowerCase() + transformPOSTag(posTag));
 	}
 
-	private String getPOSForSentiWordnet(String posTag) {
+	private String transformPOSTag(String posTag) {
 		if (posTag.startsWith("J")) {
 			return "#a";
 		} else {
