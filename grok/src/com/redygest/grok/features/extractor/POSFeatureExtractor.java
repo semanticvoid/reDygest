@@ -1,7 +1,9 @@
 package com.redygest.grok.features.extractor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
@@ -22,10 +24,9 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 	@Override
 	public Features extract(List<Data> dataList) {
 		Features features = new Features();
-		// TODO use record identifier in the Tweet class
-		int recordIdentifier = 0;
 
 		for (Data d : dataList) {
+			long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));
 			FeatureVector fVector = new FeatureVector();
 			// TODO use cleaned/preprocessed data
 			parser.parse(d.getValue(DataType.BODY));
@@ -37,23 +38,22 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				
 				//bigram
 				if(prevTag != null) {
-					DataVariable var = new DataVariable(tokens[0], Long.valueOf(d
-							.getValue(DataType.RECORD_IDENTIFIER)));
+					DataVariable var = new DataVariable(tokens[0], id);
 					Attributes attrs = var.getVariableAttributes();
 					attrs.put(prevTag + " " + tokens[1], AttributeType.POSBIGRAM);
 					fVector.addVariable(var);
 				}
 				
 				// unigram
-				DataVariable var = new DataVariable(tokens[0], Long.valueOf(d
-						.getValue(DataType.RECORD_IDENTIFIER)));
+				DataVariable var = new DataVariable(tokens[0], id);
 				Attributes attrs = var.getVariableAttributes();
 				attrs.put(tokens[1], AttributeType.POS);
 				fVector.addVariable(var);
 			}
 
-			features.addGlobalFeatures(fVector, true);
-			recordIdentifier++;
+			Map<Long, FeatureVector> map = new HashMap<Long, FeatureVector>();
+			map.put(id, fVector);
+			features.addFeatures(map);
 		}
 
 		return features;
