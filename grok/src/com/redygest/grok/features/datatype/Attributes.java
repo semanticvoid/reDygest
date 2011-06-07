@@ -40,6 +40,10 @@ public class Attributes extends HashMap<String, AttributeType> {
 		return attributeTypeMap.get(type);
 	}
 	
+	public boolean containsAttributeType(AttributeType type) {
+		return attributeTypeMap.containsKey(type);
+	}
+	
 	public AttributeType getAttributeType(String name) {
 		return super.get(name);
 	}
