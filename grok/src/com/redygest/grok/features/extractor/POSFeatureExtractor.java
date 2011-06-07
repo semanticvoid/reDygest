@@ -27,19 +27,31 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 
 		for (Data d : dataList) {
 			FeatureVector fVector = new FeatureVector();
-			// TODO use the tokenized data
+			// TODO use cleaned/preprocessed data
 			parser.parse(d.getValue(DataType.BODY));
 			Tree t = parser.getBestParse();
 			List<String> tags = getPOSTags(t);
+			String prevTag = null;
 			for (String tag : tags) {
 				String[] tokens = tag.split("::");
-				DataVariable var = new DataVariable(tokens[0],
-						(long) recordIdentifier);
+				
+				//bigram
+				if(prevTag != null) {
+					DataVariable var = new DataVariable(tokens[0], Long.valueOf(d
+							.getValue(DataType.RECORD_IDENTIFIER)));
+					Attributes attrs = var.getVariableAttributes();
+					attrs.put(prevTag + " " + tokens[1], AttributeType.POSBIGRAM);
+					fVector.addVariable(var);
+				}
+				
+				// unigram
+				DataVariable var = new DataVariable(tokens[0], Long.valueOf(d
+						.getValue(DataType.RECORD_IDENTIFIER)));
 				Attributes attrs = var.getVariableAttributes();
 				attrs.put(tokens[1], AttributeType.POS);
 				fVector.addVariable(var);
 			}
-			
+
 			features.addGlobalFeatures(fVector, true);
 			recordIdentifier++;
 		}
