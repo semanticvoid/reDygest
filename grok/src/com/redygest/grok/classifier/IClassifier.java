@@ -1,5 +1,7 @@
 package com.redygest.grok.classifier;
 
+import java.util.List;
+
 import com.redygest.commons.data.Data;
 
 public interface IClassifier {
@@ -21,6 +23,6 @@ public interface IClassifier {
 	 * @param d the data
 	 * @return the classification result
 	 */
-	public int classifiy(Data d);
+	public List<String> classifiy(List<Data> corpus);
 	
 }
