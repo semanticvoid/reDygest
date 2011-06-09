@@ -12,6 +12,7 @@ import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
+import com.redygest.grok.features.datatype.Variable;
 
 import edu.stanford.nlp.parser.lexparser.LexicalizedParser;
 import edu.stanford.nlp.trees.Tree;
@@ -35,17 +36,44 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			String prevTag = null;
 			for (String tag : tags) {
 				String[] tokens = tag.split("::");
-				
-				//bigram
-				if(prevTag != null) {
-					DataVariable var = new DataVariable(prevTag + " " + tokens[1], id);
-					Attributes attrs = var.getVariableAttributes();
-					attrs.put("1", AttributeType.POSBIGRAM);
+
+				// bigram
+				if (prevTag != null) {
+					String bigram = prevTag + " " + tokens[1];
+					Variable var = fVector.getVariable(new DataVariable(bigram,
+							id));
+					if (var == null) {
+						var = new DataVariable(bigram, id);
+						Attributes attrs = var.getVariableAttributes();
+						attrs.put("1", AttributeType.POSBIGRAMCOUNT);
+					} else {
+						Attributes attrs = var.getVariableAttributes();
+						int count = Integer.valueOf(attrs.getAttributeNames(
+								AttributeType.POSBIGRAMCOUNT).get(0));
+						count += 1;
+						attrs.put(String.valueOf(count),
+								AttributeType.POSBIGRAMCOUNT);
+					}
+
 					fVector.addVariable(var);
 				}
-				
+
 				// unigram
-				DataVariable var = new DataVariable(tokens[0], id);
+				Variable var = fVector.getVariable(new DataVariable(tokens[0],
+						id));
+				if (var == null) {
+					var = new DataVariable(tokens[0], id);
+					Attributes attrs = var.getVariableAttributes();
+					attrs.put("1", AttributeType.POSUNIGRAMCOUNT);
+				} else {
+					Attributes attrs = var.getVariableAttributes();
+					int count = Integer.valueOf(attrs.getAttributeNames(
+							AttributeType.POSUNIGRAMCOUNT).get(0));
+					count += 1;
+					attrs.put(String.valueOf(count),
+							AttributeType.POSUNIGRAMCOUNT);
+				}
+				// pos
 				Attributes attrs = var.getVariableAttributes();
 				attrs.put(tokens[1], AttributeType.POS);
 				fVector.addVariable(var);

@@ -3,11 +3,13 @@ package com.redygest.grok.features.datatype;
 
 public enum AttributeType {
 	POS,
-	POSBIGRAM,
+	POSUNIGRAMCOUNT,
+	POSBIGRAMCOUNT,
 	FREQUENCY,
 	NPCOOCCURENCE,
 	SYNONYM,
 	PUNCTCOUNT,
 	PPRONOUNCOUNT,
-	SENTIMENT
+	SENTIMENT,
+	SENTIMENTCOUNT
 }
