@@ -12,6 +12,7 @@ import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.repository.FeaturesRepository;
+import com.redygest.grok.repository.IFeaturesRepository;
 
 /**
  * Fact Opinion Classifier
@@ -24,7 +25,7 @@ public class FacOpClassifier extends VWClassifier {
 
 	protected String getFeatures(Data d) {
 		StringBuffer features = new StringBuffer();
-		FeaturesRepository repository = FeaturesRepository.getInstance();
+		IFeaturesRepository repository = FeaturesRepository.getInstance();
 		FeatureVector fVector = repository.getFeature(d
 				.getValue(DataType.RECORD_IDENTIFIER));
 
