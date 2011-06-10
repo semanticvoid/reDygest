@@ -26,4 +26,11 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 	public IFeaturesRepository getFeaturesRepository() {
 		return FeaturesRepository.getInstance();
 	}
+	
+	/**
+	 * populate feature vector for tweet
+	 * @param t - tweet
+	 * @return feature vector
+	 */
+	protected abstract FeatureVector extract(Data t);
 }

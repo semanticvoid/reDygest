@@ -18,14 +18,7 @@ import com.redygest.grok.repository.IFeaturesRepository;
 public interface IFeatureExtractor {
 
 	public Features extract(List<Data> dataList);
-	
-	/**
-	 * populate feature vector for tweet
-	 * @param t - tweet
-	 * @return feature vector
-	 */
-	public FeatureVector extract(Data t);
-	
+		
 	public IFeaturesRepository getFeaturesRepository();
 	
 }
