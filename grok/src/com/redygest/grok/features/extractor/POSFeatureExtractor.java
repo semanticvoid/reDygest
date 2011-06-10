@@ -28,57 +28,8 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 
 		for (Data d : dataList) {
 			long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));
-			FeatureVector fVector = new FeatureVector();
-			// TODO use cleaned/preprocessed data
-			parser.parse(d.getValue(DataType.BODY));
-			Tree t = parser.getBestParse();
-			List<String> tags = getPOSTags(t);
-			String prevTag = null;
-			for (String tag : tags) {
-				String[] tokens = tag.split("::");
-
-				// bigram
-				if (prevTag != null) {
-					String bigram = prevTag + " " + tokens[1];
-					Variable var = fVector.getVariable(new DataVariable(bigram,
-							id));
-					if (var == null) {
-						var = new DataVariable(bigram, id);
-						Attributes attrs = var.getVariableAttributes();
-						attrs.put("1", AttributeType.POSBIGRAMCOUNT);
-					} else {
-						Attributes attrs = var.getVariableAttributes();
-						int count = Integer.valueOf(attrs.getAttributeNames(
-								AttributeType.POSBIGRAMCOUNT).get(0));
-						count += 1;
-						attrs.put(String.valueOf(count),
-								AttributeType.POSBIGRAMCOUNT);
-					}
-
-					fVector.addVariable(var);
-				}
-
-				// unigram
-				Variable var = fVector.getVariable(new DataVariable(tokens[0],
-						id));
-				if (var == null) {
-					var = new DataVariable(tokens[0], id);
-					Attributes attrs = var.getVariableAttributes();
-					attrs.put("1", AttributeType.POSUNIGRAMCOUNT);
-				} else {
-					Attributes attrs = var.getVariableAttributes();
-					int count = Integer.valueOf(attrs.getAttributeNames(
-							AttributeType.POSUNIGRAMCOUNT).get(0));
-					count += 1;
-					attrs.put(String.valueOf(count),
-							AttributeType.POSUNIGRAMCOUNT);
-				}
-				// pos
-				Attributes attrs = var.getVariableAttributes();
-				attrs.put(tokens[1], AttributeType.POS);
-				fVector.addVariable(var);
-			}
-
+			FeatureVector fVector = extract(d);
+			
 			Map<Long, FeatureVector> map = new HashMap<Long, FeatureVector>();
 			map.put(id, fVector);
 			features.addFeatures(map);
@@ -97,7 +48,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			Tree node = queue.remove(0);
 
 			if (!node.isLeaf() && node.firstChild().isLeaf()) {
-				tags.add(node.firstChild() + "::" + node.value());
+				tags.add(node.firstChild() + "\005" + node.value());
 			}
 
 			List<Tree> children = node.getChildrenAsList();
@@ -110,9 +61,59 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 	}
 
 	@Override
-	public FeatureVector extract(Data t) {
-		// TODO Auto-generated method stub
-		return null;
+	public FeatureVector extract(Data d) {
+		long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));
+		FeatureVector fVector = new FeatureVector();
+		parser.parse(d.getValue(DataType.BODY));
+		Tree t = parser.getBestParse();
+		List<String> tags = getPOSTags(t);
+		String prevTag = null;
+		for (String tag : tags) {
+			String[] tokens = tag.split("\005");
+
+			// bigram
+			if (prevTag != null) {
+				String bigram = prevTag + " " + tokens[1];
+				Variable var = fVector.getVariable(new DataVariable(bigram,
+						id));
+				if (var == null) {
+					var = new DataVariable(bigram, id);
+					Attributes attrs = var.getVariableAttributes();
+					attrs.put("1", AttributeType.POSBIGRAMCOUNT);
+				} else {
+					Attributes attrs = var.getVariableAttributes();
+					int count = Integer.valueOf(attrs.getAttributeNames(
+							AttributeType.POSBIGRAMCOUNT).get(0));
+					count += 1;
+					attrs.put(String.valueOf(count),
+							AttributeType.POSBIGRAMCOUNT);
+				}
+
+				fVector.addVariable(var);
+			}
+
+			// unigram
+			Variable var = fVector.getVariable(new DataVariable(tokens[1],
+					id));
+			if (var == null) {
+				var = new DataVariable(tokens[1], id);
+				Attributes attrs = var.getVariableAttributes();
+				attrs.put("1", AttributeType.POSUNIGRAMCOUNT);
+			} else {
+				Attributes attrs = var.getVariableAttributes();
+				int count = Integer.valueOf(attrs.getAttributeNames(
+						AttributeType.POSUNIGRAMCOUNT).get(0));
+				count += 1;
+				attrs.put(String.valueOf(count),
+						AttributeType.POSUNIGRAMCOUNT);
+			}
+			// pos
+			Attributes attrs = var.getVariableAttributes();
+			attrs.put(tokens[1], AttributeType.POS);
+			fVector.addVariable(var);
+		}
+		
+		return fVector;
 	}
 
 }
