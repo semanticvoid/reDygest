@@ -107,7 +107,11 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				attrs.put(String.valueOf(count),
 						AttributeType.POSUNIGRAMCOUNT);
 			}
+			fVector.addVariable(var);
+			
 			// pos
+			var = fVector.getVariable(new DataVariable(tokens[0],
+					id));
 			Attributes attrs = var.getVariableAttributes();
 			attrs.put(tokens[1], AttributeType.POS);
 			fVector.addVariable(var);

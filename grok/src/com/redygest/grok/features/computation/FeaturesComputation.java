@@ -3,6 +3,7 @@ package com.redygest.grok.features.computation;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.redygest.commons.data.Data;
@@ -13,12 +14,13 @@ import com.redygest.grok.features.extractor.FeatureExtractorFactory;
 import com.redygest.grok.features.extractor.FeatureExtractorType;
 import com.redygest.grok.features.extractor.IFeatureExtractor;
 import com.redygest.grok.features.extractor.NPCooccurrenceExtractor;
+import com.redygest.grok.features.extractor.POSFeatureExtractor;
 import com.redygest.grok.repository.FeaturesRepository;
 
 class FeaturesComputation {
 	FeaturesRepository repository = FeaturesRepository.getInstance();
 	public void computeFeatures(List<Data> data) throws Exception {
-		FeatureExtractorFactory featureExtractorFactory = new FeatureExtractorFactory();
+		FeatureExtractorFactory featureExtractorFactory = FeatureExtractorFactory.getInstance();
 		IFeatureExtractor featureExtractor = featureExtractorFactory.getFeatureExtractor(FeatureExtractorType.POSFEATURE);
 		repository.addFeatures(featureExtractor.extract(data));
 	}
@@ -52,7 +54,6 @@ class FeaturesComputation {
 		// System.out.println(vs.get(0).getVariableAttributes());
 
 		Features fc = new Features();
-		NPCooccurrenceExtractor ext = new NPCooccurrenceExtractor();
 		
 		try {
 			BufferedReader rdr = new BufferedReader(new FileReader(new File(
@@ -63,10 +64,14 @@ class FeaturesComputation {
 				try {
 					Data t = new Tweet(line, String.valueOf(i));
 					if (t.getValue(DataType.BODY) != null) {
-						FeatureVector fv = ext.extract(t);
-						fc.addGlobalFeatures(fv, true);
+						IFeatureExtractor ext = new POSFeatureExtractor();
+						List<Data> list = new ArrayList<Data>();
+						list.add(t);
+						Features fv = ext.extract(list);
+//						fc.addGlobalFeatures(fv., true);
 					}
 				} catch (Exception e) {
+					e.printStackTrace();
 					continue;
 				}
 				i++;
