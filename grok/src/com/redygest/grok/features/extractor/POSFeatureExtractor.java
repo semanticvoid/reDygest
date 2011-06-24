@@ -105,6 +105,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				int count = Integer.valueOf(attrs.getAttributeNames(
 						AttributeType.POSUNIGRAMCOUNT).get(0));
 				count += 1;
+				attrs.remove(String.valueOf(count-1));
 				attrs.put(String.valueOf(count),
 						AttributeType.POSUNIGRAMCOUNT);
 			}
@@ -119,6 +120,8 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			Attributes attrs = var.getVariableAttributes();
 			attrs.put(tokens[1], AttributeType.POS);
 			fVector.addVariable(var);
+			
+			prevTag = tokens[1];
 		}
 		
 		return fVector;

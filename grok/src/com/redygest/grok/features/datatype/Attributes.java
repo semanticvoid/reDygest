@@ -29,6 +29,14 @@ public class Attributes extends HashMap<String, AttributeType> {
 		return value;
 	}
 	
+	public AttributeType remove(String key) {
+		AttributeType value = super.remove(key);
+		if(attributeTypeMap.containsKey(value)) {
+			attributeTypeMap.get(value).remove(key);
+		}
+		return value;
+	}
+	
 	@Override
 	public void putAll(Map<? extends String, ? extends AttributeType> m) {
 		for(Map.Entry<? extends String, ? extends AttributeType> entry : m.entrySet()) {
