@@ -85,6 +85,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 					int count = Integer.valueOf(attrs.getAttributeNames(
 							AttributeType.POSBIGRAMCOUNT).get(0));
 					count += 1;
+					attrs.remove(String.valueOf(count-1));
 					attrs.put(String.valueOf(count),
 							AttributeType.POSBIGRAMCOUNT);
 				}
@@ -110,8 +111,11 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			fVector.addVariable(var);
 			
 			// pos
-			var = fVector.getVariable(new DataVariable(tokens[0],
-					id));
+			Variable queryVar = new DataVariable(tokens[0], id);
+			var = fVector.getVariable(queryVar);
+			if(var == null) {
+				var = queryVar;
+			}
 			Attributes attrs = var.getVariableAttributes();
 			attrs.put(tokens[1], AttributeType.POS);
 			fVector.addVariable(var);
