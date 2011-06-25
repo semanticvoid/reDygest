@@ -14,16 +14,16 @@ import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 
-public class PunctuationCountFeatureExtractorTest extends TestCase {
+public class NPCooccurenceFeatureExtractorTest extends TestCase {
 
 	private IFeatureExtractor extractor = FeatureExtractorFactory.getInstance()
-			.getFeatureExtractor(FeatureExtractorType.PUNCTUATIONCOUNTFEATURE);
+			.getFeatureExtractor(FeatureExtractorType.NPCOOCCURRENCE);
 
 	private Features f = null;
 	
 	protected void setUp() {
 		if(f == null) {
-			Data d1 = new Tweet("{\"text\":\"Oh! yay! Yahoo!\"}", "1");
+			Data d1 = new Tweet("{\"text\":\"John hit Mary.\"}", "1");
 			List<Data> dataList = new ArrayList<Data>();
 			dataList.add(d1);
 			f = extractor.extract(dataList);
@@ -34,14 +34,14 @@ public class PunctuationCountFeatureExtractorTest extends TestCase {
 		// do nothing
 	}
 
-	public void testPunctCount() {
-		FeatureVector fv = f.getFeature(1);
-		Variable var = fv.getVariable(new DataVariable("!", 1L));
+	public void testCooccurenceCount() {
+		FeatureVector fv = f.getFeature(Features.GLOBAL_IDENTIFIER);
+		Variable var = fv.getVariable(new DataVariable("john", Features.GLOBAL_IDENTIFIER));
 		if(var != null) {
 			Attributes attrs = var.getVariableAttributes();
-			List<String> tags = attrs.getAttributeNames(AttributeType.PUNCTCOUNT);
+			List<String> tags = attrs.getAttributeNames(AttributeType.NPCOOCCURENCE);
 			if(tags != null && tags.size() > 0) {
-				assertEquals("3", tags.get(0));
+				assertEquals("mary", tags.get(0));
 				return;
 			}
 		}

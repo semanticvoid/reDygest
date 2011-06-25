@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.redygest.commons.data.Data;
+import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.computation.Features;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.repository.FeaturesRepository;
@@ -17,7 +18,8 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 		Features features = new Features();
 		Map<Long, FeatureVector> featuresMap = new HashMap<Long, FeatureVector>();
 		for(int i = 0; i < dataList.size(); ++i) {
-			featuresMap.put((long)i, extract(dataList.get(i)));
+			Data d = dataList.get(i);
+			featuresMap.put(Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER)), extract(d));
 		}
 		features.addFeatures(featuresMap);
 		return features;
