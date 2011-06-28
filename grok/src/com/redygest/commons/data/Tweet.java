@@ -43,6 +43,6 @@ public class Tweet extends AbstractData {
 	}
 		
 	private List<String> tokenize() {
-		return Arrays.asList(text.split("[ ,\\t\\n\\r\\f\\.;:\"\'-]+"));
+		return Arrays.asList(text.split("[ ,\\t\\n\\r\\f\\.;:\"\'!-]+"));
 	}
 }
