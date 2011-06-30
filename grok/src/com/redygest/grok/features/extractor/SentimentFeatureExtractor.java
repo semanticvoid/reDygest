@@ -62,6 +62,7 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 												AttributeType.SENTIMENTCOUNT)
 										.get(0));
 								count += 1;
+								attrs.remove(String.valueOf(count-1));
 								attrs.put(String.valueOf(count),
 										AttributeType.SENTIMENTCOUNT);
 							}
