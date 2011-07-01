@@ -50,7 +50,10 @@ public class Neo4jGraphDb {
 			URI u = response.getLocation();
 			String s = u.toString();
 			String[] tokens = s.split("/");
-			return Long.valueOf(tokens[tokens.length - 1]);
+			long nodeId = Long.valueOf(tokens[tokens.length - 1]);
+			// add the id as a property for that node
+			addPropertyToNode(nodeId, "id", String.valueOf(nodeId));
+			return nodeId;
 		} else {
 			return -1;
 		}
