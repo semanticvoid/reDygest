@@ -1,7 +1,7 @@
 package com.redygest.commons.util;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Utilities for managing command line flags and arguments.

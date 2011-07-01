@@ -9,11 +9,9 @@ import java.util.List;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Tweet;
-import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.extractor.FeatureExtractorFactory;
 import com.redygest.grok.features.extractor.FeatureExtractorType;
 import com.redygest.grok.features.extractor.IFeatureExtractor;
-import com.redygest.grok.features.extractor.NPCooccurrenceExtractor;
 import com.redygest.grok.features.extractor.POSFeatureExtractor;
 import com.redygest.grok.repository.FeaturesRepository;
 

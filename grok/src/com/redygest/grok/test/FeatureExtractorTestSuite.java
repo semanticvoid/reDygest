@@ -1,13 +1,13 @@
 package com.redygest.grok.test;
 
+import junit.framework.Test;
+import junit.framework.TestSuite;
+
 import com.redygest.grok.features.extractor.NPCooccurenceFeatureExtractorTest;
 import com.redygest.grok.features.extractor.POSFeatureExtractorTest;
 import com.redygest.grok.features.extractor.PPronounCountFeatureExtractorTest;
 import com.redygest.grok.features.extractor.PunctuationCountFeatureExtractorTest;
 import com.redygest.grok.features.extractor.SentimentFeatureExtractorTest;
-
-import junit.framework.Test;
-import junit.framework.TestSuite;
 
 public class FeatureExtractorTestSuite {
 

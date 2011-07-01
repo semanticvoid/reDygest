@@ -1,9 +1,9 @@
 package com.redygest.commons.util;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
-import java.util.Collection;
 
 /**
  * A map from objects to doubles.  Includes convenience methods for getting,
