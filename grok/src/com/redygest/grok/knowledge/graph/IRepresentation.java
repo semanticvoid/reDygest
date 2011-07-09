@@ -22,6 +22,13 @@ public interface IRepresentation {
 	public boolean updateNode(Node node);
 	
 	/**
+	 * Get Node that matches query string
+	 * @param query
+	 * @return the Node
+	 */
+	public Node getNode(String query);
+	
+	/**
 	 * Add relation to representation
 	 * @param r
 	 * @return true on success false otherwise

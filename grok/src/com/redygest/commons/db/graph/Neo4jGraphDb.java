@@ -1,9 +1,6 @@
 package com.redygest.commons.db.graph;
 
-import java.net.URI;
 import java.util.Iterator;
-
-import javax.ws.rs.core.MediaType;
 
 import org.neo4j.cypher.ExecutionEngine;
 import org.neo4j.cypher.ExecutionResult;
@@ -12,13 +9,9 @@ import org.neo4j.cypher.commands.Query;
 import org.neo4j.cypher.parser.CypherParser;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
-import org.neo4j.graphdb.Relationship;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
 
 import com.redygest.grok.knowledge.graph.NodeProperty;
-import com.sun.jersey.api.client.Client;
-import com.sun.jersey.api.client.ClientResponse;
-import com.sun.jersey.api.client.WebResource;
 
 /**
  * Neo4j graph db interface
@@ -56,15 +49,18 @@ public class Neo4jGraphDb {
 		return node;
 	}
 	
-	public void query(String queryStr) {
+	public Iterator<Node> queryNode(String queryStr) {
 		Query query;
 		try {
 			query = parser.parse(queryStr);
 			ExecutionResult result = engine.execute( query );
-			System.out.println();
+			Iterator<Node> n_column = (Iterator<Node>) result.columnAs("n");
+			return n_column;
 		} catch (SyntaxError e) {
 			e.printStackTrace();
 		}
+		
+		return null;
 	}
 	
 	public void close() {

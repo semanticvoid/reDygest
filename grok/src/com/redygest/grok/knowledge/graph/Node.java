@@ -12,6 +12,16 @@ public class Node extends HashMap<NodeProperty, String> {
 
 	public static enum NodeType {
 		NOUN;
+		
+		public static NodeType getType(String str) {
+			for(NodeType type : NodeType.values()) {
+				if(type.toString().equalsIgnoreCase(str)) {
+					return type;
+				}
+			}
+			
+			return null;
+		}
 	}
 		
 	public Node(NodeType type) {
@@ -24,5 +34,4 @@ public class Node extends HashMap<NodeProperty, String> {
 		this.put(NodeProperty.TYPE, type.toString());
 		this.put(NodeProperty.NAME, name);
 	}
-	
 }
