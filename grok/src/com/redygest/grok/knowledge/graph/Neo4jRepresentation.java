@@ -46,6 +46,20 @@ public class Neo4jRepresentation implements IRepresentation {
 	 */
 	@Override
 	public boolean updateNode(Node node) {
+		// query the node
+		StringBuffer query = new StringBuffer("start n=(");
+		query.append(node.get(NodeProperty.ID));
+		query.append(") return n");
+		Iterator<org.neo4j.graphdb.Node> nodes = db.queryNode(query.toString());
+		
+		if(nodes != null) {
+			org.neo4j.graphdb.Node n = nodes.next();
+			for(NodeProperty prop : node.keySet()) {
+				n.setProperty(prop.toString(), node.get(prop));
+			}
+			
+			return true;
+		}
 		
 		return false;
 	}
