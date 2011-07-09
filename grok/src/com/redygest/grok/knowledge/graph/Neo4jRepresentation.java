@@ -3,18 +3,31 @@
  */
 package com.redygest.grok.knowledge.graph;
 
+import com.redygest.commons.db.graph.Neo4jGraphDb;
+
 /**
  *	Neo4j backing store knowledge representation
  */
 public class Neo4jRepresentation implements IRepresentation {
+	
+	private Neo4jGraphDb db;
+	
+	public Neo4jRepresentation() {
+		this.db = Neo4jGraphDb.getInstance();
+	}
 
 	/* (non-Javadoc)
 	 * @see com.redygest.grok.knowledge.graph.IGraphRepresentation#addNode(com.redygest.grok.knowledge.graph.Node)
 	 */
 	@Override
 	public boolean addNode(Node node) {
-		// TODO Auto-generated method stub
-		return false;
+		org.neo4j.graphdb.Node n = db.createNode();
+		
+		for(NodeProperty key : node.keySet()) {
+			n.setProperty(key.toString(), node.get(key));
+		}
+		
+		return true;
 	}
 
 	/* (non-Javadoc)
@@ -22,7 +35,6 @@ public class Neo4jRepresentation implements IRepresentation {
 	 */
 	@Override
 	public boolean addRelation(Relation r) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -31,7 +43,7 @@ public class Neo4jRepresentation implements IRepresentation {
 	 */
 	@Override
 	public boolean updateNode(Node node) {
-		// TODO Auto-generated method stub
+		
 		return false;
 	}
 

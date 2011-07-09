@@ -34,5 +34,6 @@ public interface IRepresentation {
 	 * @return true on success false otherwise
 	 */
 	public boolean updateRelation(Relation r);
+
 }
 

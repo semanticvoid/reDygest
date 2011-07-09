@@ -12,8 +12,10 @@ import org.neo4j.cypher.commands.Query;
 import org.neo4j.cypher.parser.CypherParser;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
+import org.neo4j.graphdb.Relationship;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
 
+import com.redygest.grok.knowledge.graph.NodeProperty;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
@@ -36,7 +38,7 @@ public class Neo4jGraphDb {
 		engine = new ExecutionEngine(db);
 	}
 
-	public static Neo4jGraphDb getInstance() {
+	public static synchronized Neo4jGraphDb getInstance() {
 		if (instance == null) {
 			try {
 				instance = new Neo4jGraphDb();
@@ -50,34 +52,32 @@ public class Neo4jGraphDb {
 
 	public Node createNode() {
 		Node node = db.createNode();
-		node.setProperty("id", node.getId());
+		node.setProperty(NodeProperty.ID.toString(), node.getId());
 		return node;
 	}
 	
-	public void query() {
+	public void query(String queryStr) {
 		Query query;
 		try {
-			query = parser.parse( "start n=(0) where 1=1 return n" );
+			query = parser.parse(queryStr);
 			ExecutionResult result = engine.execute( query );
 			System.out.println();
 		} catch (SyntaxError e) {
 			e.printStackTrace();
 		}
-		 
-
 	}
 	
 	public void close() {
 		db.shutdown();
 	}
-
-	public static void main(String[] args) {
-		Neo4jGraphDb db = Neo4jGraphDb.getInstance();
-//		long id = db.createNode();
-//		System.out.println(id);
-//		db.addPropertyToNode(id, "name", "node" + id);
-		db.query();
-		db.close();
+	
+	protected void finalize() {
+		if(db != null) {
+			try {
+				close();
+			} catch(Exception e) {
+				// do nothing
+			}
+		}
 	}
-
 }
