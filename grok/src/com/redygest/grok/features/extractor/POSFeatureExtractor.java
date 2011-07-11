@@ -1,5 +1,6 @@
 package com.redygest.grok.features.extractor;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,9 +20,8 @@ import edu.stanford.nlp.trees.Tree;
 
 public class POSFeatureExtractor extends AbstractFeatureExtractor {
 
-	private static final LexicalizedParser parser = new LexicalizedParser(
-			"/Users/semanticvoid/projects/reDygest/grok/data/englishPCFG.ser.gz");
-
+	private static final LexicalizedParser parser = new LexicalizedParser(getCurrentDirPath() + "/data/englishPCFG.ser.gz");
+	
 	@Override
 	public Features extract(List<Data> dataList) {
 		Features features = new Features();

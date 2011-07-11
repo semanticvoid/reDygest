@@ -1,5 +1,6 @@
 package com.redygest.grok.features.extractor;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,15 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 		return FeaturesRepository.getInstance();
 	}
 	
-	/**
+	public static String getCurrentDirPath() {
+		try {
+			return new java.io.File(".").getCanonicalPath();
+		} catch (IOException e) {
+			throw new RuntimeException("couldn't get current dir", e);
+		}
+	}
+	
+ 	/**
 	 * populate feature vector for tweet
 	 * @param t - tweet
 	 * @return feature vector
