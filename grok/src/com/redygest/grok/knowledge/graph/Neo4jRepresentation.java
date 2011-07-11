@@ -5,8 +5,12 @@ package com.redygest.grok.knowledge.graph;
 
 import java.util.Iterator;
 
+import org.neo4j.graphdb.RelationshipType;
+import org.neo4j.kernel.impl.cache.StrongReferenceCache;
+
 import com.redygest.commons.db.graph.Neo4jGraphDb;
 import com.redygest.grok.knowledge.graph.Node.NodeType;
+import com.redygest.grok.knowledge.graph.Relation.Relationship;
 
 /**
  *	Neo4j backing store knowledge representation
@@ -38,6 +42,34 @@ public class Neo4jRepresentation implements IRepresentation {
 	 */
 	@Override
 	public boolean addRelation(Relation r) {
+		org.neo4j.graphdb.Node neo4jNode1 = null;
+		org.neo4j.graphdb.Node neo4jNode2 = null;
+		
+		Node node1 = r.getNode1();
+		Node node2 = r.getNode2();
+		
+		StringBuffer query = new StringBuffer("start n=(");
+		query.append(node1.get(NodeProperty.ID));
+		query.append(") return n");
+		
+		Iterator<org.neo4j.graphdb.Node> nodes = db.queryNode(query.toString());
+		if(nodes != null) {
+			neo4jNode1 = nodes.next();
+		}
+		
+		query = new StringBuffer("start n=(");
+		query.append(node2.get(NodeProperty.ID));
+		query.append(") return n");
+		
+		nodes = db.queryNode(query.toString());
+		if(nodes != null) {
+			neo4jNode2 = nodes.next();
+		}
+		
+		if(neo4jNode1 != null && neo4jNode2 != null) {
+			neo4jNode1.createRelationshipTo(neo4jNode2, Relationship.getType((r.get(RelationProperty.TYPE))));
+		}
+		
 		return false;
 	}
 
