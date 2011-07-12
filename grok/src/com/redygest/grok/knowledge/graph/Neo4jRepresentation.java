@@ -147,5 +147,41 @@ public class Neo4jRepresentation implements IRepresentation {
 
 		return null;
 	}
+	
+	@Override
+	public Node getNodeWithId(String id) {
+		StringBuffer query = new StringBuffer("start n=(");
+		query.append(id);
+		query.append(") return n");
+		return getNode(query.toString());
+	}
 
+	@Override
+	public Relation getRelation(String query) {
+		// query the relationship
+		Iterator<org.neo4j.graphdb.Relationship> relatioships = db.queryRelationship(query);
+		
+		if (relatioships != null) {
+			// get the first relationship match and create a Relation
+			// by filling it with existing properties
+			org.neo4j.graphdb.Relationship r = relatioships.next();
+			org.neo4j.graphdb.Node sNode = r.getStartNode();
+			org.neo4j.graphdb.Node eNode = r.getEndNode();
+			Node n1 = getNodeWithId(String.valueOf(sNode.getId()));
+			Node n2 = getNodeWithId(String.valueOf(eNode.getId()));
+			if(n1 != null && n2 != null) {
+				Relation relation = new Relation(Relationship.getType((String) r.getProperty(RelationProperty.TYPE.toString())), n1, n2);
+				for(RelationProperty prop : RelationProperty.values()) {
+					String value = (String) r.getProperty(prop.toString());
+					if(value != null) {
+						relation.put(prop, value);
+					}
+				}
+				
+				return relation;
+			}
+		}
+		
+		return null;
+	}
 }
