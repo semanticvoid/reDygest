@@ -3,7 +3,7 @@ package com.redygest.grok.features.datatype;
 
 public class DataVariable implements Variable {
 
-	private static final long serialVersionUID = -8258439966182439178L;
+	//private static final long serialVersionUID = -8258439966182439178L;
 	private String name = "";
 	private Attributes attributes = new Attributes();
 	private Long recordIdentifier = null;
@@ -39,7 +39,7 @@ public class DataVariable implements Variable {
 	public boolean equals(Object obj) {
 		if(obj instanceof Variable) {
 			Variable variable = (Variable)obj;
-			return this.name.equals(variable.getVariableName()) && this.recordIdentifier == variable.getRecordIdentifier();
+			return this.name.equals(variable.getVariableName()) && this.recordIdentifier.equals(variable.getRecordIdentifier());
 		}
 		return false;
 	}
@@ -52,16 +52,17 @@ public class DataVariable implements Variable {
 	@Override
 	public int compareTo(Variable arg0) {
 		if(equals(arg0)) {
-			return 1;
+			return 0;
 		}
-		return 0;
+		return 1;
 	}
 	
 	@Override
 	public int hashCode() {
 	       final int PRIME = 31;
 	       int result = 1;
-	       result = PRIME * result + name.hashCode();
+	       result = PRIME * result + name.hashCode() + recordIdentifier.hashCode();	
 	       return result;
 	}
+	
 }
