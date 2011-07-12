@@ -36,7 +36,7 @@ public class Senna {
 	 */
 	public String getSennaOutput(String line) {
 		try {
-			String cmd = "echo " + line + " | " + dir + "/senna ";
+			String cmd = "echo " + line + " | " + dir + "/senna";
 			ProcessBuilder pb = new ProcessBuilder("bash", "-c", cmd);
 			pb.directory(dir);
 			Process shell = pb.start();

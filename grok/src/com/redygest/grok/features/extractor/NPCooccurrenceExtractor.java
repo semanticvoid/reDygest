@@ -24,8 +24,8 @@ import com.redygest.grok.srl.SennaVerb;
  * 
  */
 public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
-
-	private static Senna senna = new Senna("/Library/senna");
+	
+	private static Senna senna = new Senna(config.getSennaPath());
 
 	private List<SennaVerb> extractVerbs(String text) {
 		List<SennaVerb> verbs = new ArrayList<SennaVerb>();

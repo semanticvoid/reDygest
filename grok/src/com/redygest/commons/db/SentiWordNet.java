@@ -8,12 +8,13 @@ import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
 
+import com.redygest.commons.config.ConfigReader;
+
 public class SentiWordNet {
 
 	public static SentiWordNet instance = null;
 	
-	private String pathToSWN = "/Users/semanticvoid/projects/reDygest/sandbox/facop/data"
-			+ File.separator + "SentiWordNet.txt";
+	private String pathToSWN;
 	private HashMap<String, String> _dict;
 
 	public static SentiWordNet getInstance() {
@@ -31,6 +32,12 @@ public class SentiWordNet {
 	private SentiWordNet() throws Exception {
 		_dict = new HashMap<String, String>();
 		HashMap<String, Vector<Double>> _temp = new HashMap<String, Vector<Double>>();
+		
+		ConfigReader config = ConfigReader.getInstance();
+		if(config != null) {
+			pathToSWN = config.getSentiWordnetPath();
+		}
+		
 		try {
 			BufferedReader csv = new BufferedReader(new FileReader(pathToSWN));
 			String line = "";

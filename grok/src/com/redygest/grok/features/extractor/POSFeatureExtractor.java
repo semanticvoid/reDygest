@@ -20,7 +20,7 @@ import edu.stanford.nlp.trees.Tree;
 
 public class POSFeatureExtractor extends AbstractFeatureExtractor {
 
-	private static final LexicalizedParser parser = new LexicalizedParser(getCurrentDirPath() + "/data/englishPCFG.ser.gz");
+	private static final LexicalizedParser parser = new LexicalizedParser(config.getPCFGPath());
 	
 	@Override
 	public Features extract(List<Data> dataList) {
