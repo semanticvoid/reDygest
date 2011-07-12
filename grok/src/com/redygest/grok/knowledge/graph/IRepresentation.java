@@ -24,9 +24,16 @@ public interface IRepresentation {
 	/**
 	 * Get Node that matches query string
 	 * @param query
-	 * @return the Node
+	 * @return the Node or null
 	 */
 	public Node getNode(String query);
+	
+	/**
+	 * Get Node with id
+	 * @param id
+	 * @return the Node or null
+	 */
+	public Node getNodeWithId(String id);
 	
 	/**
 	 * Add relation to representation
@@ -34,6 +41,13 @@ public interface IRepresentation {
 	 * @return true on success false otherwise
 	 */
 	public boolean addRelation(Relation r);
+	
+	/**
+	 * Get Relation that matches query string
+	 * @param query
+	 * @return the Relation or null
+	 */
+	public Relation getRelation(String query);
 	
 	/**
 	 * Update relation in representation

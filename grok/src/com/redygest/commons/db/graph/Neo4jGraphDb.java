@@ -9,6 +9,7 @@ import org.neo4j.cypher.commands.Query;
 import org.neo4j.cypher.parser.CypherParser;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
+import org.neo4j.graphdb.Relationship;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
 
 import com.redygest.grok.knowledge.graph.NodeProperty;
@@ -55,6 +56,20 @@ public class Neo4jGraphDb {
 			query = parser.parse(queryStr);
 			ExecutionResult result = engine.execute( query );
 			Iterator<Node> n_column = (Iterator<Node>) result.columnAs("n");
+			return n_column;
+		} catch (SyntaxError e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public Iterator<Relationship> queryRelationship(String queryStr) {
+		Query query;
+		try {
+			query = parser.parse(queryStr);
+			ExecutionResult result = engine.execute( query );
+			Iterator<Relationship> n_column = (Iterator<Relationship>) result.columnAs("r");
 			return n_column;
 		} catch (SyntaxError e) {
 			e.printStackTrace();

@@ -2,14 +2,28 @@ package com.redygest.grok.knowledge.graph;
 
 import java.util.HashMap;
 
+import org.neo4j.graphdb.RelationshipType;
+
+import com.redygest.grok.knowledge.graph.Node.NodeType;
+
 /**
  *  Relation
  *
  */
 public class Relation extends HashMap<RelationProperty, String> {
 
-	public static enum Relationship {
+	public static enum Relationship implements RelationshipType {
 		RELATED_TO;
+		
+		public static Relationship getType(String str) {
+			for(Relationship type : Relationship.values()) {
+				if(type.toString().equalsIgnoreCase(str)) {
+					return type;
+				}
+			}
+			
+			return null;
+		}
 	}
 	
 	private Node n1, n2;
