@@ -50,4 +50,16 @@ public class Neo4jRepresentationTest extends TestCase {
 			return;
 		}
 	}
+	
+	public void testGetNode() {
+		Node n1 = new Node(NodeType.NOUN, "clinton");
+		Node n2 = new Node(NodeType.NOUN, "clinton1");
+		if(!repr.addNode(n1) || !repr.addNode(n2) ) {
+			fail();
+		} else {
+			Node n = repr.getNode("start q=(1,2) where (q.NAME = \"clinton\") return q");
+			assertEquals("clinton", n.get(NodeProperty.NAME));
+			return;
+		}
+	}
 }

@@ -50,7 +50,7 @@ public class Neo4jGraphDb {
 		Transaction tx = db.beginTx();
 		try {
 			Node node = db.createNode();
-			node.setProperty(NodeProperty.ID.toString(), node.getId());
+			node.setProperty(NodeProperty.ID.toString(), String.valueOf(node.getId()));
 			tx.success();
 			return node;
 		} catch(Exception e)  {
