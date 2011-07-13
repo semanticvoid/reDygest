@@ -75,4 +75,21 @@ public class Neo4jRepresentationTest extends TestCase {
 			return;
 		}
 	}
+	
+	public void testGetRelation() {
+		Node n1 = new Node(NodeType.NOUN, "node 1");
+		Node n2 = new Node(NodeType.NOUN, "node 2");
+		if(!repr.addNode(n1) || !repr.addNode(n2) ) {
+			fail();
+		} else {
+			Relation r = new Relation(Relationship.LOC, n1, n2);
+			if(!repr.addRelation(r)) {
+				fail();
+			}
+			
+			r = repr.getRelation("start n=(1) match (n)-[q]-() return q");
+			assertEquals(Relation.Relationship.LOC.toString(), r.get(RelationProperty.TYPE));
+			return;
+		}
+	}
 }
