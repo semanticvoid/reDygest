@@ -37,4 +37,17 @@ public class Neo4jRepresentationTest extends TestCase {
 			return;
 		}
 	}
+	
+	public void testUpdateNode() {
+		Node n = new Node(NodeType.NOUN, "clinton");
+		if(!repr.addNode(n)) {
+			fail();
+		} else {
+			n.put(NodeProperty.NAME, "clinton1");
+			repr.updateNode(n);
+			Node n1 = repr.getNodeWithId(n.get(NodeProperty.ID));
+			assertEquals("clinton1", n1.get(NodeProperty.NAME));
+			return;
+		}
+	}
 }

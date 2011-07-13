@@ -1,6 +1,6 @@
 package com.redygest.commons.db.graph;
 
-import java.util.Iterator;
+import scala.collection.Iterator;
 
 import org.neo4j.cypher.ExecutionEngine;
 import org.neo4j.cypher.ExecutionResult;
@@ -60,12 +60,12 @@ public class Neo4jGraphDb {
 		}
 	}
 	
-	public Iterator<Node> queryNode(String queryStr) {
+	public Iterator<Object> query(String queryStr) {
 		Query query;
 		try {
 			query = parser.parse(queryStr);
 			ExecutionResult result = engine.execute( query );
-			Iterator<Node> n_column = (Iterator<Node>) result.columnAs("n");
+			scala.collection.Iterator<Object> n_column = result.columnAs("q");
 			return n_column;
 		} catch (SyntaxError e) {
 			e.printStackTrace();
@@ -74,19 +74,19 @@ public class Neo4jGraphDb {
 		return null;
 	}
 	
-	public Iterator<Relationship> queryRelationship(String queryStr) {
-		Query query;
-		try {
-			query = parser.parse(queryStr);
-			ExecutionResult result = engine.execute( query );
-			Iterator<Relationship> n_column = (Iterator<Relationship>) result.columnAs("r");
-			return n_column;
-		} catch (SyntaxError e) {
-			e.printStackTrace();
-		}
-		
-		return null;
-	}
+//	public Iterator<Object> queryRelationship(String queryStr) {
+//		Query query;
+//		try {
+//			query = parser.parse(queryStr);
+//			ExecutionResult result = engine.execute( query );
+//			Iterator<Object> n_column = result.columnAs("r");
+//			return n_column;
+//		} catch (SyntaxError e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return null;
+//	}
 	
 	public void close() {
 		db.shutdown();

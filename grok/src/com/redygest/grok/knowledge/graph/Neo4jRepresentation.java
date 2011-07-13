@@ -3,7 +3,8 @@
  */
 package com.redygest.grok.knowledge.graph;
 
-import java.util.Iterator;
+
+import scala.collection.Iterator;
 
 import com.redygest.commons.db.graph.Neo4jGraphDb;
 import com.redygest.grok.knowledge.graph.Node.NodeType;
@@ -59,22 +60,22 @@ public class Neo4jRepresentation implements IRepresentation {
 		Node node1 = r.getNode1();
 		Node node2 = r.getNode2();
 
-		StringBuffer query = new StringBuffer("start n=(");
+		StringBuffer query = new StringBuffer("start q=(");
 		query.append(node1.get(NodeProperty.ID));
-		query.append(") return n");
+		query.append(") return q");
 
-		Iterator<org.neo4j.graphdb.Node> nodes = db.queryNode(query.toString());
+		Iterator<Object> nodes = db.query(query.toString());
 		if (nodes != null) {
-			neo4jNode1 = nodes.next();
+			neo4jNode1 = (org.neo4j.graphdb.Node) nodes.next();
 		}
 
-		query = new StringBuffer("start n=(");
+		query = new StringBuffer("start q=(");
 		query.append(node2.get(NodeProperty.ID));
-		query.append(") return n");
+		query.append(") return q");
 
-		nodes = db.queryNode(query.toString());
+		nodes = db.query(query.toString());
 		if (nodes != null) {
-			neo4jNode2 = nodes.next();
+			neo4jNode2 = (org.neo4j.graphdb.Node) nodes.next();
 		}
 
 		if (neo4jNode1 != null && neo4jNode2 != null) {
@@ -100,15 +101,15 @@ public class Neo4jRepresentation implements IRepresentation {
 	@Override
 	public boolean updateNode(Node node) {
 		// query the node
-		StringBuffer query = new StringBuffer("start n=(");
+		StringBuffer query = new StringBuffer("start q=(");
 		query.append(node.get(NodeProperty.ID));
-		query.append(") return n");
-		Iterator<org.neo4j.graphdb.Node> nodes = db.queryNode(query.toString());
+		query.append(") return q");
+		Iterator<Object> nodes = db.query(query.toString());
 
 		if (nodes != null) {
-			org.neo4j.graphdb.Node n = nodes.next();
+			org.neo4j.graphdb.Node n = (org.neo4j.graphdb.Node) nodes.next();
 			for (NodeProperty prop : node.keySet()) {
-				n.setProperty(prop.toString(), node.get(prop));
+				db.setNodeProperty(n, prop.toString(), node.get(prop));
 			}
 
 			return true;
@@ -133,12 +134,12 @@ public class Neo4jRepresentation implements IRepresentation {
 	@Override
 	public Node getNode(String query) {
 		// query the node
-		Iterator<org.neo4j.graphdb.Node> nodes = db.queryNode(query);
+		Iterator<Object> nodes = db.query(query);
 
 		if (nodes != null) {
 			// get the first node match and create a Node
 			// by filling it with existing properties
-			org.neo4j.graphdb.Node n = nodes.next();
+			org.neo4j.graphdb.Node n = (org.neo4j.graphdb.Node) nodes.next();
 			Node node = new Node(NodeType.getType((String) n
 					.getProperty(NodeProperty.TYPE.toString())));
 			for (NodeProperty prop : NodeProperty.values()) {
@@ -156,21 +157,21 @@ public class Neo4jRepresentation implements IRepresentation {
 	
 	@Override
 	public Node getNodeWithId(String id) {
-		StringBuffer query = new StringBuffer("start n=(");
+		StringBuffer query = new StringBuffer("start q=(");
 		query.append(id);
-		query.append(") return n");
+		query.append(") return q");
 		return getNode(query.toString());
 	}
 
 	@Override
 	public Relation getRelation(String query) {
 		// query the relationship
-		Iterator<org.neo4j.graphdb.Relationship> relatioships = db.queryRelationship(query);
+		Iterator<Object> relatioships = db.query(query);
 		
 		if (relatioships != null) {
 			// get the first relationship match and create a Relation
 			// by filling it with existing properties
-			org.neo4j.graphdb.Relationship r = relatioships.next();
+			org.neo4j.graphdb.Relationship r = (org.neo4j.graphdb.Relationship) relatioships.next();
 			org.neo4j.graphdb.Node sNode = r.getStartNode();
 			org.neo4j.graphdb.Node eNode = r.getEndNode();
 			Node n1 = getNodeWithId(String.valueOf(sNode.getId()));
