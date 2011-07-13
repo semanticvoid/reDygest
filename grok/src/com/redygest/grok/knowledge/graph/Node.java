@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class Node extends HashMap<NodeProperty, String> {
 
 	public static enum NodeType {
-		NOUN;
+		NOUN, VERB;
 		
 		public static NodeType getType(String str) {
 			for(NodeType type : NodeType.values()) {

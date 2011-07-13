@@ -13,7 +13,7 @@ import com.redygest.grok.knowledge.graph.Node.NodeType;
 public class Relation extends HashMap<RelationProperty, String> {
 
 	public static enum Relationship implements RelationshipType {
-		RELATED_TO;
+		TMP, LOC, ;
 		
 		public static Relationship getType(String str) {
 			for(Relationship type : Relationship.values()) {

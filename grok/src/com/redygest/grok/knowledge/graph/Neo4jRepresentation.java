@@ -16,8 +16,12 @@ public class Neo4jRepresentation implements IRepresentation {
 
 	private Neo4jGraphDb db;
 
-	public Neo4jRepresentation() {
-		this.db = Neo4jGraphDb.getInstance();
+	public Neo4jRepresentation(String name) {
+		try {
+			this.db = new Neo4jGraphDb(name);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -32,9 +36,11 @@ public class Neo4jRepresentation implements IRepresentation {
 		org.neo4j.graphdb.Node n = db.createNode();
 
 		for (NodeProperty key : node.keySet()) {
-			n.setProperty(key.toString(), node.get(key));
+			db.setNodeProperty(n, key.toString(), node.get(key));
 		}
 
+		node.put(NodeProperty.ID, String.valueOf(n.getId()));
+		
 		return true;
 	}
 

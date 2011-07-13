@@ -10,6 +10,7 @@ import org.neo4j.cypher.parser.CypherParser;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
+import org.neo4j.graphdb.Transaction;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
 
 import com.redygest.grok.knowledge.graph.NodeProperty;
@@ -26,28 +27,37 @@ public class Neo4jGraphDb {
 	private CypherParser parser = null;
 	private ExecutionEngine engine = null;
 	
-	private Neo4jGraphDb() throws Exception {
-		db = new EmbeddedGraphDatabase("var/graphDb");
+	public Neo4jGraphDb(String dbName) throws Exception {
+		db = new EmbeddedGraphDatabase("/tmp/var/" + dbName);
 		parser = new CypherParser();
 		engine = new ExecutionEngine(db);
 	}
 
-	public static synchronized Neo4jGraphDb getInstance() {
-		if (instance == null) {
-			try {
-				instance = new Neo4jGraphDb();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+	public boolean setNodeProperty(Node n, String key, String value) {
+		Transaction tx = db.beginTx();
+		try {
+			n.setProperty(key, value);
+			tx.success();
+			return true;
+		} catch(Exception e)  {
+			return false;
+		} finally {
+			tx.finish();
 		}
-
-		return instance;
 	}
-
+	
 	public Node createNode() {
-		Node node = db.createNode();
-		node.setProperty(NodeProperty.ID.toString(), node.getId());
-		return node;
+		Transaction tx = db.beginTx();
+		try {
+			Node node = db.createNode();
+			node.setProperty(NodeProperty.ID.toString(), node.getId());
+			tx.success();
+			return node;
+		} catch(Exception e)  {
+			return null;
+		} finally {
+			tx.finish();
+		}
 	}
 	
 	public Iterator<Node> queryNode(String queryStr) {
