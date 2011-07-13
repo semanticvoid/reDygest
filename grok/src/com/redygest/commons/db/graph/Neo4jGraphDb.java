@@ -10,6 +10,7 @@ import org.neo4j.cypher.parser.CypherParser;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
+import org.neo4j.graphdb.RelationshipType;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
 
@@ -55,6 +56,32 @@ public class Neo4jGraphDb {
 			return node;
 		} catch(Exception e)  {
 			return null;
+		} finally {
+			tx.finish();
+		}
+	}
+	
+	public Relationship createRelationship(Node n1, Node n2, RelationshipType t) {
+		Transaction tx = db.beginTx();
+		try {
+			Relationship r = n1.createRelationshipTo(n2, t);
+			tx.success();
+			return r;
+		} catch(Exception e)  {
+			return null;
+		} finally {
+			tx.finish();
+		}
+	}
+	
+	public boolean setRelationshipProperty(Relationship r, String key, String value) {
+		Transaction tx = db.beginTx();
+		try {
+			r.setProperty(key, value);
+			tx.success();
+			return true;
+		} catch(Exception e)  {
+			return false;
 		} finally {
 			tx.finish();
 		}

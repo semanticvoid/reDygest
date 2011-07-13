@@ -3,7 +3,6 @@
  */
 package com.redygest.grok.knowledge.graph;
 
-
 import scala.collection.Iterator;
 
 import com.redygest.commons.db.graph.Neo4jGraphDb;
@@ -41,7 +40,7 @@ public class Neo4jRepresentation implements IRepresentation {
 		}
 
 		node.put(NodeProperty.ID, String.valueOf(n.getId()));
-		
+
 		return true;
 	}
 
@@ -79,13 +78,15 @@ public class Neo4jRepresentation implements IRepresentation {
 		}
 
 		if (neo4jNode1 != null && neo4jNode2 != null) {
-			org.neo4j.graphdb.Relationship relationship = neo4jNode1
-					.createRelationshipTo(neo4jNode2, Relationship.getType((r
-							.get(RelationProperty.TYPE))));
+			org.neo4j.graphdb.Relationship relationship = db
+					.createRelationship(neo4jNode1, neo4jNode2, Relationship
+							.getType((r.get(RelationProperty.TYPE))));
 			// add properties
 			for (RelationProperty prop : r.keySet()) {
-				relationship.setProperty(prop.toString(), r.get(prop));
+				db.setRelationshipProperty(relationship, prop.toString(), r.get(prop));
 			}
+			
+			return true;
 		}
 
 		return false;
@@ -154,7 +155,7 @@ public class Neo4jRepresentation implements IRepresentation {
 
 		return null;
 	}
-	
+
 	@Override
 	public Node getNodeWithId(String id) {
 		StringBuffer query = new StringBuffer("start q=(");
@@ -167,28 +168,31 @@ public class Neo4jRepresentation implements IRepresentation {
 	public Relation getRelation(String query) {
 		// query the relationship
 		Iterator<Object> relatioships = db.query(query);
-		
+
 		if (relatioships != null) {
 			// get the first relationship match and create a Relation
 			// by filling it with existing properties
-			org.neo4j.graphdb.Relationship r = (org.neo4j.graphdb.Relationship) relatioships.next();
+			org.neo4j.graphdb.Relationship r = (org.neo4j.graphdb.Relationship) relatioships
+					.next();
 			org.neo4j.graphdb.Node sNode = r.getStartNode();
 			org.neo4j.graphdb.Node eNode = r.getEndNode();
 			Node n1 = getNodeWithId(String.valueOf(sNode.getId()));
 			Node n2 = getNodeWithId(String.valueOf(eNode.getId()));
-			if(n1 != null && n2 != null) {
-				Relation relation = new Relation(Relationship.getType((String) r.getProperty(RelationProperty.TYPE.toString())), n1, n2);
-				for(RelationProperty prop : RelationProperty.values()) {
+			if (n1 != null && n2 != null) {
+				Relation relation = new Relation(Relationship
+						.getType((String) r.getProperty(RelationProperty.TYPE
+								.toString())), n1, n2);
+				for (RelationProperty prop : RelationProperty.values()) {
 					String value = (String) r.getProperty(prop.toString());
-					if(value != null) {
+					if (value != null) {
 						relation.put(prop, value);
 					}
 				}
-				
+
 				return relation;
 			}
 		}
-		
+
 		return null;
 	}
 }

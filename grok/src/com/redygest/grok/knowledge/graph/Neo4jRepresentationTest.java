@@ -14,6 +14,7 @@ import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.knowledge.graph.Node.NodeType;
+import com.redygest.grok.knowledge.graph.Relation.Relationship;
 import com.redygest.grok.knowledge.graph.RepresentationFactory.RepresentationType;
 
 public class Neo4jRepresentationTest extends TestCase {
@@ -59,6 +60,18 @@ public class Neo4jRepresentationTest extends TestCase {
 		} else {
 			Node n = repr.getNode("start q=(1,2) where (q.NAME = \"clinton\") return q");
 			assertEquals("clinton", n.get(NodeProperty.NAME));
+			return;
+		}
+	}
+	
+	public void testAddRelation() {
+		Node n1 = new Node(NodeType.NOUN, "node 1");
+		Node n2 = new Node(NodeType.NOUN, "node 2");
+		if(!repr.addNode(n1) || !repr.addNode(n2) ) {
+			fail();
+		} else {
+			Relation r = new Relation(Relationship.LOC, n1, n2);
+			assertEquals(true, repr.addRelation(r));
 			return;
 		}
 	}
