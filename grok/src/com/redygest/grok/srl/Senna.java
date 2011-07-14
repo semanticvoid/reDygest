@@ -8,10 +8,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import com.redygest.commons.cache.CacheFactory;
+import com.redygest.commons.cache.ICache;
+import com.redygest.commons.cache.CacheFactory.CacheType;
+
 public class Senna {
 
 	String[] lineArr;
 	File dir;
+	ICache cache;
 
 	/**
 	 * Constructor
@@ -21,10 +26,15 @@ public class Senna {
 	 */
 	public Senna(String path) {
 		dir = new File(path);
+		init();
 	}
 	
 	public Senna(){
-		
+		init();
+	}
+	
+	private void init() {
+		cache = CacheFactory.getInstance().produceCache(CacheType.MEMORY, "senna");
 	}
 
 	/**
@@ -35,6 +45,10 @@ public class Senna {
 	 * @return - the output String
 	 */
 	public String getSennaOutput(String line) {
+		if(cache.hasKey(line)) {
+			return cache.get(line);
+		}
+		
 		try {
 			String cmd = "echo " + line + " | " + dir + "/senna";
 			ProcessBuilder pb = new ProcessBuilder("bash", "-c", cmd);
@@ -49,10 +63,12 @@ public class Senna {
 				s.append((char) c);
 			}
 
+			cache.put(line, s.toString());
 			return s.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
 
