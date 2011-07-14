@@ -81,11 +81,13 @@ public class Neo4jRepresentation implements IRepresentation {
 			org.neo4j.graphdb.Relationship relationship = db
 					.createRelationship(neo4jNode1, neo4jNode2, Relationship
 							.getType((r.get(RelationProperty.TYPE))));
+			r.put(RelationProperty.ID, String.valueOf(relationship.getId()));
 			// add properties
 			for (RelationProperty prop : r.keySet()) {
-				db.setRelationshipProperty(relationship, prop.toString(), r.get(prop));
+				db.setRelationshipProperty(relationship, prop.toString(), r
+						.get(prop));
 			}
-			
+
 			return true;
 		}
 
@@ -102,18 +104,21 @@ public class Neo4jRepresentation implements IRepresentation {
 	@Override
 	public boolean updateNode(Node node) {
 		// query the node
-		StringBuffer query = new StringBuffer("start q=(");
-		query.append(node.get(NodeProperty.ID));
-		query.append(") return q");
-		Iterator<Object> nodes = db.query(query.toString());
+		if (node != null) {
+			StringBuffer query = new StringBuffer("start q=(");
+			query.append(node.get(NodeProperty.ID));
+			query.append(") return q");
+			Iterator<Object> nodes = db.query(query.toString());
 
-		if (nodes != null) {
-			org.neo4j.graphdb.Node n = (org.neo4j.graphdb.Node) nodes.next();
-			for (NodeProperty prop : node.keySet()) {
-				db.setNodeProperty(n, prop.toString(), node.get(prop));
+			if (nodes != null) {
+				org.neo4j.graphdb.Node n = (org.neo4j.graphdb.Node) nodes
+						.next();
+				for (NodeProperty prop : node.keySet()) {
+					db.setNodeProperty(n, prop.toString(), node.get(prop));
+				}
+
+				return true;
 			}
-
-			return true;
 		}
 
 		return false;
@@ -128,7 +133,34 @@ public class Neo4jRepresentation implements IRepresentation {
 	 */
 	@Override
 	public boolean updateRelation(Relation r) {
-		// TODO Auto-generated method stub
+		// query the relation
+		if (r != null) {
+			StringBuffer query = new StringBuffer("start n=(");
+			query.append(r.getNode1().get(NodeProperty.ID));
+			query.append(") match (n)-[q, :");
+			query.append(r.get(RelationProperty.TYPE));
+			// query.append("[" + r.get(RelationProperty.ID) + "]");
+			query.append("]-() return q");
+			Iterator<Object> relations = db.query(query.toString());
+
+			if (relations != null) {
+				org.neo4j.graphdb.Relationship rel = null;
+				while (relations.hasNext()) {
+					rel = (org.neo4j.graphdb.Relationship) relations.next();
+					if (rel != null && rel.hasProperty(RelationProperty.ID.toString())
+							&& rel.getProperty(RelationProperty.ID.toString())
+									.equals(r.get(RelationProperty.ID))) {
+						for (RelationProperty prop : r.keySet()) {
+							db.setRelationshipProperty(rel, prop.toString(), r
+									.get(prop));
+						}
+					}
+				}
+
+				return true;
+			}
+		}
+
 		return false;
 	}
 
