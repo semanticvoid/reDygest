@@ -1,7 +1,7 @@
 package com.redygest.commons.util;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Utility methods related to Counters and CounterMaps.

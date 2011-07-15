@@ -3,14 +3,25 @@ package com.redygest.grok.features.computation;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Tweet;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.extractor.NPCooccurrenceExtractor;
+import com.redygest.grok.features.extractor.FeatureExtractorFactory;
+import com.redygest.grok.features.extractor.FeatureExtractorType;
+import com.redygest.grok.features.extractor.IFeatureExtractor;
+import com.redygest.grok.features.extractor.POSFeatureExtractor;
+import com.redygest.grok.repository.FeaturesRepository;
 
-public class FeaturesComputation extends Features {
+class FeaturesComputation {
+	FeaturesRepository repository = FeaturesRepository.getInstance();
+	public void computeFeatures(List<Data> data) throws Exception {
+		FeatureExtractorFactory featureExtractorFactory = FeatureExtractorFactory.getInstance();
+		IFeatureExtractor featureExtractor = featureExtractorFactory.getFeatureExtractor(FeatureExtractorType.POSFEATURE);
+		repository.addFeatures(featureExtractor.extract(data));
+	}
 
 	public static void main(String[] args) {
 		// Variable v1 = new DataVariable("a", (long)1);
@@ -40,8 +51,7 @@ public class FeaturesComputation extends Features {
 		// System.out.println(fv.get(0).getVariables().size());
 		// System.out.println(vs.get(0).getVariableAttributes());
 
-		FeaturesComputation fc = new FeaturesComputation();
-		NPCooccurrenceExtractor ext = new NPCooccurrenceExtractor();
+		Features fc = new Features();
 		
 		try {
 			BufferedReader rdr = new BufferedReader(new FileReader(new File(
@@ -50,14 +60,19 @@ public class FeaturesComputation extends Features {
 			int i = 0;
 			while ((line = rdr.readLine()) != null) {
 				try {
-					Data t = new Tweet(line);
+					Data t = new Tweet(line, String.valueOf(i));
 					if (t.getValue(DataType.BODY) != null) {
-						FeatureVector fv = ext.extract(t);
-						fc.addGlobalFeatures(fv, true);
+						IFeatureExtractor ext = new POSFeatureExtractor();
+						List<Data> list = new ArrayList<Data>();
+						list.add(t);
+						Features fv = ext.extract(list);
+//						fc.addGlobalFeatures(fv., true);
 					}
 				} catch (Exception e) {
+					e.printStackTrace();
 					continue;
 				}
+				i++;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

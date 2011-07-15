@@ -1,7 +1,5 @@
 package com.redygest.grok.features.computation;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,12 +12,15 @@ import com.redygest.grok.features.datatype.Variable;
 
 public class Features {
 
-	private static final long GLOBAL_IDENTIFIER = -1;
+	public static final long GLOBAL_IDENTIFIER = -1;
 	private Map<Long, FeatureVector> featureVectors = new HashMap<Long, FeatureVector>();
 
-	public List<FeatureVector> getFeatures() {
-		return Collections.unmodifiableList(new ArrayList<FeatureVector>(
-				featureVectors.values()));
+	public Map<Long, FeatureVector> getFeatures() {
+		return featureVectors;
+	}
+	
+	public FeatureVector getFeature(long recordIdentifier) {
+		return featureVectors.get(recordIdentifier);
 	}
 
 	public void addFeatures(Map<Long, FeatureVector> featureVectors) {

@@ -1,7 +1,11 @@
 package com.redygest.commons.util;
 
-import java.util.*;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.IdentityHashMap;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.WeakHashMap;
 
 /**
  * The MapFactory is a mechanism for specifying what kind of map is to be used

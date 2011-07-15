@@ -1,10 +1,10 @@
 package com.redygest.commons.util;
 
-import java.util.Iterator;
-import java.util.NoSuchElementException;
-import java.util.List;
-import java.util.ArrayList;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * A priority queue based on a binary heap.  Note that this implementation does
