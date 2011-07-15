@@ -1,4 +1,4 @@
-package com.redygest.grok.srl;
+package tst.com.redygest.grok.srl;
 
 import java.io.File;
 import java.io.InputStream;
@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Senna {
@@ -15,6 +14,9 @@ public class Senna {
 
 	File sennaInstallationDir = new File("/Users/tejaswi/Documents/StanfordCourses/SRL/senna-v2.0");
 
+	/*
+	 * @ 
+	 */
 	public String getSennaOutput(String line) {
 		try {
 			String cmd = "echo " + line + " | " + sennaInstallationDir
@@ -35,6 +37,8 @@ public class Senna {
 		}
 		return null;
 	}
+	
+	
 
 	public HashMap<String, Verb>  parseSennaLines(String allText, String sentence){	
 		lineArr = allText.split("\n");
@@ -60,13 +64,13 @@ public class Senna {
 	}
 	
 	public Verb getVerbArgumentNPs(int index, String verb, String sentence){
-
 		Verb v = new Verb();
 		v.text = verb;
 		HashMap<String, List<String>> argumentToText = new HashMap<String, List<String>>();
 		index = index + 4;
 		
-		for(int i=0; i < lineArr.length; i++){			
+		for(int i=0; i < lineArr.length; i++){
+			try{
 			String[] lineTokens =  lineArr[i].trim().split("\\s+");			
 			String token = lineTokens[0].trim();
 			String pos = lineTokens[1].trim();
@@ -125,6 +129,9 @@ public class Senna {
 				if(argumentToText.containsKey(arg))
 					arg = arg + "-1";
 				
+			}
+			}catch(Exception e){
+				e.printStackTrace();
 			}
 		}
 		
