@@ -27,24 +27,24 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 	
 	private static Senna senna = new Senna(config.getSennaPath());
 
-	private List<SennaVerb> extractVerbs(String text) {
-		List<SennaVerb> verbs = new ArrayList<SennaVerb>();
-		// TODO replace with tokenized tweet
-		String[] lines = text.split("[:;'\"?/><,\\.!@#$%^&()-+=~`{}|]+");
-		for (String line : lines) {
-			if ((line = line.trim()).length() == 0)
-				continue;
-			String allLines = senna.getSennaOutput(line);
-			// System.out.println(allLines);
-			HashMap<String, SennaVerb> verbArgs = senna.parseSennaLines(
-					allLines, line);
-			for (String s : verbArgs.keySet()) {
-				SennaVerb verb = verbArgs.get(s);
-				verbs.add(verb);
-			}
-		}
-		return verbs;
-	}
+//	private List<SennaVerb> extractVerbs(String text) {
+//		List<SennaVerb> verbs = new ArrayList<SennaVerb>();
+//		// TODO replace with tokenized tweet
+//		String[] lines = text.split("[:;'\"?/><,\\.!@#$%^&()-+=~`{}|]+");
+//		for (String line : lines) {
+//			if ((line = line.trim()).length() == 0)
+//				continue;
+//			String allLines = senna.getSennaOutput(line);
+//			// System.out.println(allLines);
+//			HashMap<String, SennaVerb> verbArgs = senna.parseSennaLines(
+//					allLines, line);
+//			for (String s : verbArgs.keySet()) {
+//				SennaVerb verb = verbArgs.get(s);
+//				verbs.add(verb);
+//			}
+//		}
+//		return verbs;
+//	}
 	
 	@Override
 	public Features extract(List<Data> dataList) {
@@ -65,7 +65,7 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 	@Override
 	public FeatureVector extract(Data t) {
 		FeatureVector fVector = new FeatureVector();
-		List<SennaVerb> verbs = extractVerbs(t.getValue(DataType.BODY));
+		List<SennaVerb> verbs = senna.getVerbs((t.getValue(DataType.BODY)));
 
 		for (SennaVerb verb : verbs) {
 			String[] args = verb

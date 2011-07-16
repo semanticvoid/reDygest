@@ -37,8 +37,14 @@ public class Senna {
 		cache = CacheFactory.getInstance().produceCache(CacheType.MEMORY,
 				"senna");
 	}
+	
+	public List<SennaVerb> getVerbs(String line) {
+		String allLines = getSennaOutput(line);
+		// System.out.println(allLines);
+		return parseSennaLines(allLines, line);
+	}
 
-	public String getSennaOutput(String line) {
+	private String getSennaOutput(String line) {
 		try {
 			String cmd = "echo " + line + " | " + dir + "/senna ";
 			ProcessBuilder pb = new ProcessBuilder("bash", "-c", cmd);
@@ -58,7 +64,7 @@ public class Senna {
 		return null;
 	}
 
-	public HashMap<String, SennaVerb> parseSennaLines(String allText,
+	private List<SennaVerb> parseSennaLines(String allText,
 			String sentence) {
 		lineArr = allText.split("\n");
 		HashMap<String, SennaVerb> verbsToArgs = new HashMap<String, SennaVerb>();
@@ -81,7 +87,7 @@ public class Senna {
 				verbsToArgs.put(v.getText(), v);
 			}
 		}
-		return verbsToArgs;
+		return verbs;
 	}
 
 	public SennaVerb getVerbArgumentNPs(int index, String verb, String sentence) {
