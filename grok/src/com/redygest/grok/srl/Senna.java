@@ -174,7 +174,7 @@ public class Senna {
 	// get the arguments of a SennaVerb
 	public SennaVerb getSennaVerbArguments(int index, String verb,
 			String sentence) {
-		SennaVerb v = new SennaVerb(verb);
+		SennaVerb v = new SennaVerb(verb, index);
 		HashMap<String, List<String>> argumentToText = new HashMap<String, List<String>>();
 		index = index + 4;
 

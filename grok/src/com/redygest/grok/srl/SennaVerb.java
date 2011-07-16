@@ -5,6 +5,7 @@ import java.util.List;
 
 public class SennaVerb {
 
+	private int index = -1;
 	private String text;
 	private HashMap<String, List<String>> argumentToText = new HashMap<String, List<String>>();
 	private HashMap<String, List<String>> argumentToNPs = new HashMap<String, List<String>>();
@@ -22,6 +23,15 @@ public class SennaVerb {
 	 */
 	public SennaVerb(String text) {
 		this.text = text;
+	}
+	
+	/**
+	 * Constructor
+	 * @param text
+	 */
+	public SennaVerb(String text, int index) {
+		this.text = text;
+		this.index = index;
 	}
 
 	/**
@@ -57,6 +67,10 @@ public class SennaVerb {
 
 	public HashMap<String, List<String>> getArgumentToNPs() {
 		return argumentToNPs;
+	}
+	
+	public int getIndex() {
+		return index;
 	}
 
 }
