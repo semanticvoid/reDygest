@@ -6,7 +6,7 @@ import java.util.List;
 public class SennaVerb {
 
 	private String text;
-	private HashMap<String, String> argumentToText = new HashMap<String, String>();
+	private HashMap<String, List<String>> argumentToText = new HashMap<String, List<String>>();
 	private HashMap<String, List<String>> argumentToNPs = new HashMap<String, List<String>>();
 
 	/**
@@ -38,7 +38,7 @@ public class SennaVerb {
 	 * 
 	 * @param map
 	 */
-	public void setArgumentToText(HashMap<String, String> map) {
+	public void setArgumentToText(HashMap<String, List<String>> map) {
 		this.argumentToText = map;
 	}
 
@@ -51,7 +51,7 @@ public class SennaVerb {
 		this.argumentToNPs = map;
 	}
 
-	public HashMap<String, String> getArgumentToText() {
+	public HashMap<String, List<String>> getArgumentToText() {
 		return argumentToText;
 	}
 
