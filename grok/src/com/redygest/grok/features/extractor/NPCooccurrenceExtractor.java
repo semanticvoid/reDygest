@@ -16,8 +16,8 @@ import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.knowledge.Event;
 import com.redygest.grok.srl.Senna;
-import com.redygest.grok.srl.SennaVerb;
 
 /**
  * @author semanticvoid
@@ -65,9 +65,9 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 	@Override
 	public FeatureVector extract(Data t) {
 		FeatureVector fVector = new FeatureVector();
-		List<SennaVerb> verbs = senna.getVerbs((t.getValue(DataType.BODY)));
+		List<Event> verbs = senna.getVerbs((t.getValue(DataType.BODY)));
 
-		for (SennaVerb verb : verbs) {
+		for (Event verb : verbs) {
 			String[] args = verb
 					.getArgumentToNPs()
 					.keySet()

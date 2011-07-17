@@ -1,9 +1,9 @@
-package com.redygest.grok.srl;
+package com.redygest.grok.knowledge;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class SennaVerb {
+public class Event {
 
 	private int index = -1;
 	private String text;
@@ -15,7 +15,7 @@ public class SennaVerb {
 	/**
 	 * Constructor
 	 */
-	public SennaVerb() {
+	public Event() {
 	}
 
 	/**
@@ -23,7 +23,7 @@ public class SennaVerb {
 	 * 
 	 * @param text
 	 */
-	public SennaVerb(String text) {
+	public Event(String text) {
 		this.text = text;
 	}
 	
@@ -31,7 +31,7 @@ public class SennaVerb {
 	 * Constructor
 	 * @param text
 	 */
-	public SennaVerb(String text, int index) {
+	public Event(String text, int index) {
 		this.text = text;
 		this.index = index;
 	}
