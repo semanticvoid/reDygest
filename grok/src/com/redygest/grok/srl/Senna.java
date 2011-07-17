@@ -189,13 +189,23 @@ public class Senna {
 					continue;
 				} else if (value.startsWith("S-") && !value.contains("S-V")
 						&& pos.contains("NN")) {
+					// set ranges
+					if(v.getStartRange() == -1) {
+						v.setStartRange(i);
+					} else {
+						v.setEndRange(i);
+					}
+					
 					String arg = value.split("S-")[1];
 					ArrayList<String> arr_token = new ArrayList<String>();
 					arr_token.add(token);
 					argumentToText.put(arg, arr_token);
-					// } else if(value.startsWith("B-") &&
-					// Character.isDigit(value.charAt(value.length()-1))) {
 				} else if (value.startsWith("B-")) {
+					// set ranges
+					if(v.getStartRange() == -1) {
+						v.setStartRange(i);
+					}
+					
 					String arg = value.split("B-")[1];
 					StringBuilder text = new StringBuilder();
 					boolean flag = false;
@@ -240,6 +250,10 @@ public class Senna {
 					if (argumentToText.containsKey(arg))
 						arg = arg + "-1";
 
+					// set end range
+					if(v.getStartRange() != -1) {
+						v.setEndRange(i);
+					}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
