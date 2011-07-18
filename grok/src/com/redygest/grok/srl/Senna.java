@@ -37,7 +37,7 @@ public class Senna {
 		cache = CacheFactory.getInstance().produceCache(CacheType.MEMORY,
 				"senna");
 	}
-	
+
 	public List<Verb> getVerbs(String line) {
 		String allLines = getSennaOutput(line);
 		// System.out.println(allLines);
@@ -64,8 +64,7 @@ public class Senna {
 		return null;
 	}
 
-	private List<Verb> parseSennaLines(String allText,
-			String sentence) {
+	private List<Verb> parseSennaLines(String allText, String sentence) {
 		lineArr = allText.split("\n");
 		HashMap<String, Verb> verbsToArgs = new HashMap<String, Verb>();
 		ArrayList<Verb> verbs = new ArrayList<Verb>();
@@ -81,11 +80,11 @@ public class Senna {
 			if ((!line.split("\\s+")[4].trim().equalsIgnoreCase("-"))) {
 				// Verb v = getVerbArguments(++verbCount,
 				// line.split("\\s+")[0].trim(), sentence);
-//				SennaVerb v = getVerbArgumentNPs(++verbCount, line
-//						.split("\\s+")[0].trim(), sentence);
-				
-				Verb v = getVerbArguments(++verbCount, line
-						.split("\\s+")[0].trim(), sentence);
+				// SennaVerb v = getVerbArgumentNPs(++verbCount, line
+				// .split("\\s+")[0].trim(), sentence);
+
+				Verb v = getVerbArguments(++verbCount,
+						line.split("\\s+")[0].trim(), sentence);
 				verbs.add(v);
 				verbsToArgs.put(v.getText(), v);
 			}
@@ -172,8 +171,7 @@ public class Senna {
 	}
 
 	// get the arguments of a SennaVerb
-	public Verb getVerbArguments(int index, String verb,
-			String sentence) {
+	public Verb getVerbArguments(int index, String verb, String sentence) {
 		Verb v = new Verb(verb, index);
 		HashMap<String, List<String>> argumentToText = new HashMap<String, List<String>>();
 		index = index + 4;
@@ -187,25 +185,15 @@ public class Senna {
 
 				if (value.equals("O")) {
 					continue;
+				} else if (value.startsWith("S-") && value.contains("S-V")) { 
+					v.setPosition(i);
 				} else if (value.startsWith("S-") && !value.contains("S-V")
 						&& pos.contains("NN")) {
-					// set ranges
-					if(v.getStartRange() == -1) {
-						v.setStartRange(i);
-					} else {
-						v.setEndRange(i);
-					}
-					
 					String arg = value.split("S-")[1];
 					ArrayList<String> arr_token = new ArrayList<String>();
 					arr_token.add(token);
 					argumentToText.put(arg, arr_token);
 				} else if (value.startsWith("B-")) {
-					// set ranges
-					if(v.getStartRange() == -1) {
-						v.setStartRange(i);
-					}
-					
 					String arg = value.split("B-")[1];
 					StringBuilder text = new StringBuilder();
 					boolean flag = false;
@@ -249,11 +237,6 @@ public class Senna {
 
 					if (argumentToText.containsKey(arg))
 						arg = arg + "-1";
-
-					// set end range
-					if(v.getStartRange() != -1) {
-						v.setEndRange(i);
-					}
 				}
 			} catch (Exception e) {
 				e.printStackTrace();

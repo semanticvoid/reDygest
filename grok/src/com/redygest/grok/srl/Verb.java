@@ -6,11 +6,10 @@ import java.util.List;
 public class Verb {
 
 	private int index = -1;
+	private int tokenPosition = -1;
 	private String text;
 	private HashMap<String, List<String>> argumentToText = new HashMap<String, List<String>>();
 	private HashMap<String, List<String>> argumentToNPs = new HashMap<String, List<String>>();
-	private int startRange = -1;
-	private int endRange = -1;
 	
 	/**
 	 * Constructor
@@ -34,6 +33,16 @@ public class Verb {
 	public Verb(String text, int index) {
 		this.text = text;
 		this.index = index;
+	}
+	
+	/**
+	 * Constructor
+	 * @param text
+	 */
+	public Verb(String text, int index, int position) {
+		this.text = text;
+		this.index = index;
+		this.tokenPosition = position;
 	}
 
 	/**
@@ -75,20 +84,12 @@ public class Verb {
 		return index;
 	}
 	
-	public void setStartRange(int i) {
-		this.startRange = i;
+	public void setPosition(int pos) {
+		this.tokenPosition = pos;
 	}
 	
-	public void setEndRange(int i) {
-		this.endRange = i;
-	}
-	
-	public int getStartRange() {
-		return this.startRange;
-	}
-	
-	public int getEndRange() {
-		return this.endRange;
+	public int getPosition() {
+		return tokenPosition;
 	}
 
 }
