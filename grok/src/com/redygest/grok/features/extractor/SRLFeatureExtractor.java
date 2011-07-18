@@ -36,6 +36,26 @@ public class SRLFeatureExtractor extends AbstractFeatureExtractor {
 		}
 		return features;
 	}
+	
+	private AttributeType getAttrForLabel(String label) {
+		if(label.contains("MNR")) {
+			return AttributeType.SRL_MNR;
+		} else if(label.contains("LOC")) {
+			return AttributeType.SRL_LOC;
+		} else if(label.contains("TMP")) {
+			return AttributeType.SRL_TMP;
+		} else if(label.contains("A0")) {
+			return AttributeType.SRL_A0;
+		} else if(label.contains("A1")) {
+			return AttributeType.SRL_A1;
+		} else if(label.contains("A2")) {
+			return AttributeType.SRL_A2;
+		} else if(label.contains("PNC")) {
+			return AttributeType.SRL_PNC;
+		} else {
+			return null;
+		}
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -50,22 +70,35 @@ public class SRLFeatureExtractor extends AbstractFeatureExtractor {
 		IFeaturesRepository repository = FeaturesRepository.getInstance();
 
 		String id = t.getValue(DataType.RECORD_IDENTIFIER);
-
 		List<Verb> verbs = senna.getVerbs((t.getValue(DataType.BODY)));
-
 		FeatureVector recordFVector = repository.getFeature(id);
-		List<String> tokens = t.getValues(DataType.BODY_TOKENIZED);
-		for (String token : tokens) {
-			for (Verb verb : verbs) {
-				HashMap<String, List<String>> args = verb.getArgumentToText();
-				int position = verb.getPosition();
 
-				if (args != null) {
-
+		// add semantic role labels as DataVariables for Sentence
+		for (Verb v : verbs) {
+			String srlId = "SRL_" + v.getIndex();
+			Variable var = recordFVector.getVariable(new DataVariable(srlId,
+					Long.valueOf(id)));
+			if(var == null) {
+				var = new DataVariable(srlId, Long.valueOf(id));
+			}
+			
+			Attributes attrs = var.getVariableAttributes();
+			HashMap<String, List<String>> args = v.getArgumentToText();
+			if(args != null) {
+				for(String key : args.keySet()) {
+					List<String> values = args.get(key);
+					for(String value : values) {
+						AttributeType type = getAttrForLabel(key);
+						if(type != null) {
+							attrs.put(value, type);
+						}
+					}
 				}
 			}
+			
+			fVector.addVariable(var);
 		}
-		
+
 		return fVector;
 	}
 
