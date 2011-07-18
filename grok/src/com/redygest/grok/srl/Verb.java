@@ -1,20 +1,21 @@
-package com.redygest.grok.knowledge;
+package com.redygest.grok.srl;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class Event {
+public class Verb {
 
 	private int index = -1;
 	private String text;
 	private HashMap<String, List<String>> argumentToText = new HashMap<String, List<String>>();
+	private HashMap<String, List<String>> argumentToNPs = new HashMap<String, List<String>>();
 	private int startRange = -1;
 	private int endRange = -1;
 	
 	/**
 	 * Constructor
 	 */
-	public Event() {
+	public Verb() {
 	}
 
 	/**
@@ -22,7 +23,7 @@ public class Event {
 	 * 
 	 * @param text
 	 */
-	public Event(String text) {
+	public Verb(String text) {
 		this.text = text;
 	}
 	
@@ -30,7 +31,7 @@ public class Event {
 	 * Constructor
 	 * @param text
 	 */
-	public Event(String text, int index) {
+	public Verb(String text, int index) {
 		this.text = text;
 		this.index = index;
 	}
@@ -52,12 +53,23 @@ public class Event {
 	public void setArgumentToText(HashMap<String, List<String>> map) {
 		this.argumentToText = map;
 	}
-	
+
+	/**
+	 * set argument to NPs
+	 * 
+	 * @param map
+	 */
+	public void setArgumentToNPs(HashMap<String, List<String>> map) {
+		this.argumentToNPs = map;
+	}
 
 	public HashMap<String, List<String>> getArgumentToText() {
 		return argumentToText;
 	}
 
+	public HashMap<String, List<String>> getArgumentToNPs() {
+		return argumentToNPs;
+	}
 	
 	public int getIndex() {
 		return index;

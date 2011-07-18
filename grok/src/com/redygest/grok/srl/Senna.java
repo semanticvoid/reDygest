@@ -11,7 +11,6 @@ import java.util.regex.Pattern;
 import com.redygest.commons.cache.CacheFactory;
 import com.redygest.commons.cache.ICache;
 import com.redygest.commons.cache.CacheFactory.CacheType;
-import com.redygest.grok.knowledge.Event;
 
 public class Senna {
 
@@ -39,7 +38,7 @@ public class Senna {
 				"senna");
 	}
 	
-	public List<Event> getVerbs(String line) {
+	public List<Verb> getVerbs(String line) {
 		String allLines = getSennaOutput(line);
 		// System.out.println(allLines);
 		return parseSennaLines(allLines, line);
@@ -65,11 +64,11 @@ public class Senna {
 		return null;
 	}
 
-	private List<Event> parseSennaLines(String allText,
+	private List<Verb> parseSennaLines(String allText,
 			String sentence) {
 		lineArr = allText.split("\n");
-		HashMap<String, Event> verbsToArgs = new HashMap<String, Event>();
-		ArrayList<Event> verbs = new ArrayList<Event>();
+		HashMap<String, Verb> verbsToArgs = new HashMap<String, Verb>();
+		ArrayList<Verb> verbs = new ArrayList<Verb>();
 		int verbCount = 0;
 		for (int i = 0; i < lineArr.length; i++) {
 			// String[] line = lineArr[i].trim().split("\t");
@@ -85,7 +84,7 @@ public class Senna {
 //				SennaVerb v = getVerbArgumentNPs(++verbCount, line
 //						.split("\\s+")[0].trim(), sentence);
 				
-				Event v = getSennaVerbArguments(++verbCount, line
+				Verb v = getVerbArguments(++verbCount, line
 						.split("\\s+")[0].trim(), sentence);
 				verbs.add(v);
 				verbsToArgs.put(v.getText(), v);
@@ -94,8 +93,8 @@ public class Senna {
 		return verbs;
 	}
 
-	public Event getVerbArgumentNPs(int index, String verb, String sentence) {
-		Event v = new Event(verb);
+	public Verb getVerbArgumentNPs(int index, String verb, String sentence) {
+		Verb v = new Verb(verb);
 		HashMap<String, List<String>> argumentToText = new HashMap<String, List<String>>();
 		index = index + 4;
 
@@ -173,9 +172,9 @@ public class Senna {
 	}
 
 	// get the arguments of a SennaVerb
-	public Event getSennaVerbArguments(int index, String verb,
+	public Verb getVerbArguments(int index, String verb,
 			String sentence) {
-		Event v = new Event(verb, index);
+		Verb v = new Verb(verb, index);
 		HashMap<String, List<String>> argumentToText = new HashMap<String, List<String>>();
 		index = index + 4;
 
