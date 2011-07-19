@@ -27,15 +27,6 @@ import com.redygest.grok.srl.Verb;
 public class SRLFeatureExtractor extends AbstractFeatureExtractor {
 
 	private static Senna senna = new Senna(config.getSennaPath());
-
-	@Override
-	public Features extract(List<Data> dataList) {
-		Features features = new Features();
-		for (Data t : dataList) {
-			features.addGlobalFeatures(extract(t), true);
-		}
-		return features;
-	}
 	
 	private AttributeType getAttrForLabel(String label) {
 		if(label.contains("MNR")) {
@@ -66,17 +57,20 @@ public class SRLFeatureExtractor extends AbstractFeatureExtractor {
 	 */
 	@Override
 	public FeatureVector extract(Data t) {
-		FeatureVector fVector = new FeatureVector();
+		FeatureVector fVector = null;
 		IFeaturesRepository repository = FeaturesRepository.getInstance();
 
 		String id = t.getValue(DataType.RECORD_IDENTIFIER);
 		List<Verb> verbs = senna.getVerbs((t.getValue(DataType.BODY)));
-		FeatureVector recordFVector = repository.getFeature(id);
+		fVector = repository.getFeature(id);
+		if(fVector == null) {
+			fVector = new FeatureVector();
+		}
 
 		// add semantic role labels as DataVariables for Sentence
 		for (Verb v : verbs) {
 			String srlId = "SRL_" + v.getIndex();
-			Variable var = recordFVector.getVariable(new DataVariable(srlId,
+			Variable var = fVector.getVariable(new DataVariable(srlId,
 					Long.valueOf(id)));
 			if(var == null) {
 				var = new DataVariable(srlId, Long.valueOf(id));
