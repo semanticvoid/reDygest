@@ -227,4 +227,12 @@ public class Neo4jRepresentation implements IRepresentation {
 
 		return null;
 	}
+
+	@Override
+	public Node getNodeWithName(String name) {
+		StringBuffer query = new StringBuffer("start q=(nodes, NAME, \"");
+		query.append(name);
+		query.append("\") return q");
+		return getNode(query.toString());
+	}
 }

@@ -36,6 +36,13 @@ public interface IRepresentation {
 	public Node getNodeWithId(String id);
 	
 	/**
+	 * Get Node with name
+	 * @param name
+	 * @return the Node or null
+	 */
+	public Node getNodeWithName(String name);
+	
+	/**
 	 * Add relation to representation
 	 * @param r
 	 * @return true on success false otherwise

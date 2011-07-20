@@ -3,6 +3,10 @@ package com.redygest.grok.knowledge;
 import java.util.List;
 import java.util.Set;
 
+import com.redygest.grok.features.datatype.AttributeType;
+import com.redygest.grok.features.datatype.Attributes;
+import com.redygest.grok.features.datatype.FeatureVector;
+import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.knowledge.graph.IRepresentation;
 import com.redygest.grok.knowledge.graph.Node;
 import com.redygest.grok.knowledge.graph.Relation;
@@ -10,6 +14,7 @@ import com.redygest.grok.knowledge.graph.RepresentationFactory;
 import com.redygest.grok.knowledge.graph.Node.NodeType;
 import com.redygest.grok.knowledge.graph.Relation.Relationship;
 import com.redygest.grok.knowledge.graph.RepresentationFactory.RepresentationType;
+import com.redygest.grok.repository.IFeaturesRepository;
 
 /**
  * Class which organizes knowledge events/facts
@@ -28,32 +33,55 @@ public class Curator {
 	}
 	
 	/**
-	 * Add a set of logically grouped events (e.g. events associated with a sentence)
-	 * @param events
+	 * Add all events in a Repository
+	 * @param repository
 	 * @return true on sucess false otherwise
 	 */
-	public boolean addEvents(List<Event> events) {
-		if(events != null) {
-			// add node for sentence
-			Node sentence = new Node(NodeType.SENTENCE);
-			kmodel.addNode(sentence);
-			for(Event e : events) {
-				// add node for event
-				Node event = new Node(NodeType.EVENT);
-				kmodel.addNode(event);
-				
-				// attach event to sentence
-				Relation rel = new Relation(Relationship.EVENT, sentence, event);
-				kmodel.addRelation(rel);
-				
-				// iterate over arguments and create/add entities
-				Set<String> keys = e.getArgumentToText().keySet();
-				if(keys != null) {
-					for(String key : keys) {
-						
+	public boolean addRepository(IFeaturesRepository repository) {
+		if(repository != null && repository.size() > 0) {
+			Set<Long> identifiers = repository.getIdentifiers();
+			if(identifiers != null) {
+				for(Long id : identifiers) {
+					FeatureVector fVector = repository.getFeature(String.valueOf(id));
+					if(fVector != null) {
+						List<Variable> variables = fVector.getVariablesWithAttributeType(AttributeType.HAS_SRL);
+						if(variables != null) {
+							// create Sentence
+							Node sentence = new Node(NodeType.SENTENCE);
+							kmodel.addNode(sentence);
+							
+							for(Variable var : variables) {
+								Attributes attrs = var.getVariableAttributes();
+								if(attrs != null) {
+									// create Event
+									Node event = new Node(NodeType.EVENT);
+									kmodel.addNode(event);
+									// create Relation: Sentence -> Event
+									
+									for(String attr : attrs.keySet()) {
+										AttributeType type = attrs.get(attr);
+										Relationship rType = attributeToRelationship(type);
+										if(rType != null) {
+											// create/fetch Entity
+											Node entity = kmodel.getNodeWithName(attr);
+											if(entity == null) {
+												entity = new Node(NodeType.ENTITY, attr);
+												kmodel.addNode(entity);
+											}
+											
+											// create Relation: Event -> Entity
+											Relation rel = new Relation(rType, event, entity);
+											kmodel.addRelation(rel);
+										}
+									}
+								}
+							}
+						}
 					}
 				}
 			}
+			
+			return true;
 		}
 		
 		return false;
@@ -65,6 +93,34 @@ public class Curator {
 	 */
 	public IRepresentation getModel() {
 		return this.kmodel;
+	}
+	
+	/**
+	 * Map SRL Attributes to Relationships
+	 * @param type
+	 * @return
+	 */
+	private Relationship attributeToRelationship(AttributeType type) {
+		switch (type) {
+			case SRL_A0:
+				return Relationship.A0;
+			case SRL_A1:
+				return Relationship.A1;
+			case SRL_A2:
+				return Relationship.A2;
+			case SRL_ACTION:
+				return Relationship.ACTION;
+			case SRL_LOC:
+				return Relationship.LOC;
+			case SRL_MNR:
+				return Relationship.MNR;
+			case SRL_PNC:
+				return Relationship.PNC;
+			case SRL_TMP:
+				return Relationship.TMP;
+			default:
+				return null;
+		}
 	}
 	
 }

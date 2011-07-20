@@ -12,6 +12,8 @@ public enum AttributeType {
 	PPRONOUNCOUNT,
 	SENTIMENT,
 	SENTIMENTCOUNT,
+	HAS_SRL,
+	SRL_ACTION,
 	SRL_A0,
 	SRL_A1,
 	SRL_A2,
