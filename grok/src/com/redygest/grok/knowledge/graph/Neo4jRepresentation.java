@@ -213,7 +213,7 @@ public class Neo4jRepresentation implements IRepresentation {
 		// query the relationship
 		Iterator<Object> relatioships = db.query(query);
 
-		if (relatioships != null) {
+		if (relatioships != null && !relatioships.isEmpty()) {
 			// get the first relationship match and create a Relation
 			// by filling it with existing properties
 			org.neo4j.graphdb.Relationship r = (org.neo4j.graphdb.Relationship) relatioships

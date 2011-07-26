@@ -36,6 +36,9 @@ public class Neo4jGraphDb {
 		AutoIndexer nodeAutoIndexer = db.index().getNodeAutoIndexer();
 		nodeAutoIndexer.startAutoIndexingProperty(NodeProperty.NAME.toString());
 		nodeAutoIndexer.setEnabled(true);
+		AutoIndexer relAutoIndexer = db.index().getRelationshipAutoIndexer();
+//		nodeAutoIndexer.startAutoIndexingProperty(NodeProperty.NAME.toString());
+		relAutoIndexer.setEnabled(true);
 //		System.out.println("NODE INDEX:\t" + nodeAutoIndexer.getAutoIndex().getName());
 //		Set<String> keys = nodeAutoIndexer.getAutoIndexedProperties();
 //		if(keys != null) {
