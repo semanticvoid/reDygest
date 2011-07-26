@@ -176,7 +176,7 @@ public class Neo4jRepresentation implements IRepresentation {
 		// query the node
 		Iterator<Object> nodes = db.query(query);
 
-		if (nodes != null) {
+		if (nodes != null && !nodes.isEmpty()) {
 			// get the first node match and create a Node
 			// by filling it with existing properties
 			org.neo4j.graphdb.Node n = (org.neo4j.graphdb.Node) nodes.next();
@@ -247,7 +247,7 @@ public class Neo4jRepresentation implements IRepresentation {
 
 	@Override
 	public Node getNodeWithName(String name) {
-		StringBuffer query = new StringBuffer("start q=(nodes, NAME, \"");
+		StringBuffer query = new StringBuffer("start q=(node_auto_index, \"NAME:");
 		query.append(name);
 		query.append("\") return q");
 		return getNode(query.toString());

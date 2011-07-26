@@ -1,6 +1,6 @@
 package com.redygest.commons.db.graph;
 
-import scala.collection.Iterator;
+import java.util.Set;
 
 import org.neo4j.cypher.ExecutionEngine;
 import org.neo4j.cypher.ExecutionResult;
@@ -12,7 +12,10 @@ import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Relationship;
 import org.neo4j.graphdb.RelationshipType;
 import org.neo4j.graphdb.Transaction;
+import org.neo4j.graphdb.index.AutoIndexer;
 import org.neo4j.kernel.EmbeddedGraphDatabase;
+
+import scala.collection.Iterator;
 
 import com.redygest.grok.knowledge.graph.NodeProperty;
 
@@ -30,6 +33,14 @@ public class Neo4jGraphDb {
 	
 	public Neo4jGraphDb(String dbName) throws Exception {
 		db = new EmbeddedGraphDatabase("/tmp/var/" + dbName);
+		AutoIndexer nodeAutoIndexer = db.index().getNodeAutoIndexer();
+		nodeAutoIndexer.startAutoIndexingProperty(NodeProperty.NAME.toString());
+		nodeAutoIndexer.setEnabled(true);
+//		System.out.println("NODE INDEX:\t" + nodeAutoIndexer.getAutoIndex().getName());
+//		Set<String> keys = nodeAutoIndexer.getAutoIndexedProperties();
+//		if(keys != null) {
+//			System.out.println(keys.iterator().next());
+//		}
 		parser = new CypherParser();
 		engine = new ExecutionEngine(db);
 	}
