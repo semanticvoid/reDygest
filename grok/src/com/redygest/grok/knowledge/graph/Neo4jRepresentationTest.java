@@ -34,7 +34,7 @@ public class Neo4jRepresentationTest extends TestCase {
 		if(!repr.addNode(n)) {
 			fail();
 		} else {
-			assertEquals("1", n.get(NodeProperty.ID));
+			assertEquals("2", n.get(NodeProperty.ID));
 			return;
 		}
 	}
@@ -58,7 +58,7 @@ public class Neo4jRepresentationTest extends TestCase {
 		if(!repr.addNode(n1) || !repr.addNode(n2) ) {
 			fail();
 		} else {
-			Node n = repr.getNode("start q=(1,2) where (q.NAME = \"clinton\") return q");
+			Node n = repr.getNode("start q=(2,3) where (q.NAME = \"clinton\") return q");
 			assertEquals("clinton", n.get(NodeProperty.NAME));
 			return;
 		}
@@ -74,7 +74,7 @@ public class Neo4jRepresentationTest extends TestCase {
 			if(!repr.addRelation(r)) {
 				fail();
 			} else {
-				assertEquals("0", r.get(RelationProperty.ID));
+				assertEquals("3", r.get(RelationProperty.ID));
 			}
 			return;
 		}
@@ -91,7 +91,7 @@ public class Neo4jRepresentationTest extends TestCase {
 				fail();
 			}
 			
-			r = repr.getRelation("start n=(1) match (n)-[q]-() return q");
+			r = repr.getRelation("start n=(2) match (n)-[q]->() return q");
 			assertEquals(Relation.Relationship.LOC.toString(), r.get(RelationProperty.TYPE));
 			return;
 		}
@@ -112,7 +112,7 @@ public class Neo4jRepresentationTest extends TestCase {
 			r.put(RelationProperty.COUNT, "2");
 			repr.updateRelation(r);
 			
-			r = repr.getRelation("start n=(1) match (n)-[q]-() return q");
+			r = repr.getRelation("start n=(2) match (n)-[q]->() return q");
 			assertEquals("2", r.get(RelationProperty.COUNT));
 			return;
 		}

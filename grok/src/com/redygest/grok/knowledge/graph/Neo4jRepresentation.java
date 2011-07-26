@@ -3,6 +3,8 @@
  */
 package com.redygest.grok.knowledge.graph;
 
+import org.neo4j.graphdb.NotFoundException;
+
 import scala.collection.Iterator;
 
 import com.redygest.commons.db.graph.Neo4jGraphDb;
@@ -15,10 +17,13 @@ import com.redygest.grok.knowledge.graph.Relation.Relationship;
 public class Neo4jRepresentation implements IRepresentation {
 
 	private Neo4jGraphDb db;
+	private Node root;
 
 	public Neo4jRepresentation(String name) {
 		try {
 			this.db = new Neo4jGraphDb(name);
+			root = new Node(NodeType.ROOT);
+			this.addNode(root);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -40,6 +45,8 @@ public class Neo4jRepresentation implements IRepresentation {
 		}
 
 		node.put(NodeProperty.ID, String.valueOf(n.getId()));
+		
+		addRelation(new Relation(Relationship.ROOT, root, node));
 
 		return true;
 	}
@@ -176,7 +183,12 @@ public class Neo4jRepresentation implements IRepresentation {
 			Node node = new Node(NodeType.getType((String) n
 					.getProperty(NodeProperty.TYPE.toString())));
 			for (NodeProperty prop : NodeProperty.values()) {
-				String value = (String) n.getProperty(prop.toString());
+				String value = null;
+				try { 
+					value = (String) n.getProperty(prop.toString());
+				} catch(NotFoundException nfe) {
+					continue;
+				}
 				if (value != null) {
 					node.put(prop, value);
 				}
@@ -215,7 +227,12 @@ public class Neo4jRepresentation implements IRepresentation {
 						.getType((String) r.getProperty(RelationProperty.TYPE
 								.toString())), n1, n2);
 				for (RelationProperty prop : RelationProperty.values()) {
-					String value = (String) r.getProperty(prop.toString());
+					String value = null;
+					try {
+						value = (String) r.getProperty(prop.toString());
+					} catch(NotFoundException nfe) {
+						continue;
+					}
 					if (value != null) {
 						relation.put(prop, value);
 					}
