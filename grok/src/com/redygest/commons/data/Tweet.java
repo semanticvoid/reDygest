@@ -3,8 +3,11 @@
  */
 package com.redygest.commons.data;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import net.sf.json.JSONObject;
 
@@ -17,6 +20,14 @@ import org.apache.commons.lang.StringUtils;
  * 
  */
 public class Tweet extends AbstractData {
+	
+	protected static Set<Character> punctSet;
+	
+	static {
+		Character punctuations[] = { ',', '.', '?', ':', '!', '\'', '"', '[',
+				']', '|', '(', ')', '$', '@', '-', ';'};
+		punctSet = new HashSet<Character>(Arrays.asList(punctuations));
+	}
 
 	private String text;
 
@@ -43,6 +54,21 @@ public class Tweet extends AbstractData {
 	}
 		
 	private List<String> tokenize() {
-		return Arrays.asList(text.split("[ ,\\t\\n\\r\\f\\.;:\"\'!-]+"));
+		List<String> ret = new ArrayList<String>();
+		StringBuffer str = new StringBuffer();
+		char prevC;
+		for(int i=0; i<this.text.length(); i++) {
+			char c = this.text.charAt(i);
+			if(punctSet.contains(c)) {
+				str.append(' ');
+				str.append(c);
+				str.append(' ');
+			} else {
+				str.append(c);
+			}
+		}
+		
+		String tokens[] = str.toString().split("[ ]+");
+		return new ArrayList<String>(Arrays.asList(tokens));
 	}
 }

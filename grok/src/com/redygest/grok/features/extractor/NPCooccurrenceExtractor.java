@@ -3,9 +3,7 @@
  */
 package com.redygest.grok.features.extractor;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 import com.redygest.commons.data.Data;
@@ -16,35 +14,36 @@ import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.knowledge.Event;
 import com.redygest.grok.srl.Senna;
-import com.redygest.grok.srl.SennaVerb;
+import com.redygest.grok.srl.Verb;
 
 /**
  * @author semanticvoid
  * 
  */
 public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
+	
+	private static Senna senna = new Senna(config.getSennaPath());
 
-	private static Senna senna = new Senna("/Library/senna");
-
-	private List<SennaVerb> extractVerbs(String text) {
-		List<SennaVerb> verbs = new ArrayList<SennaVerb>();
-		// TODO replace with tokenized tweet
-		String[] lines = text.split("[:;'\"?/><,\\.!@#$%^&()-+=~`{}|]+");
-		for (String line : lines) {
-			if ((line = line.trim()).length() == 0)
-				continue;
-			String allLines = senna.getSennaOutput(line);
-			// System.out.println(allLines);
-			HashMap<String, SennaVerb> verbArgs = senna.parseSennaLines(
-					allLines, line);
-			for (String s : verbArgs.keySet()) {
-				SennaVerb verb = verbArgs.get(s);
-				verbs.add(verb);
-			}
-		}
-		return verbs;
-	}
+//	private List<SennaVerb> extractVerbs(String text) {
+//		List<SennaVerb> verbs = new ArrayList<SennaVerb>();
+//		// TODO replace with tokenized tweet
+//		String[] lines = text.split("[:;'\"?/><,\\.!@#$%^&()-+=~`{}|]+");
+//		for (String line : lines) {
+//			if ((line = line.trim()).length() == 0)
+//				continue;
+//			String allLines = senna.getSennaOutput(line);
+//			// System.out.println(allLines);
+//			HashMap<String, SennaVerb> verbArgs = senna.parseSennaLines(
+//					allLines, line);
+//			for (String s : verbArgs.keySet()) {
+//				SennaVerb verb = verbArgs.get(s);
+//				verbs.add(verb);
+//			}
+//		}
+//		return verbs;
+//	}
 	
 	@Override
 	public Features extract(List<Data> dataList) {
@@ -65,9 +64,9 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 	@Override
 	public FeatureVector extract(Data t) {
 		FeatureVector fVector = new FeatureVector();
-		List<SennaVerb> verbs = extractVerbs(t.getValue(DataType.BODY));
+		List<Verb> verbs = senna.getVerbs((t.getValue(DataType.BODY)));
 
-		for (SennaVerb verb : verbs) {
+		for (Verb verb : verbs) {
 			String[] args = verb
 					.getArgumentToNPs()
 					.keySet()

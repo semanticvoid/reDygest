@@ -3,7 +3,9 @@
  */
 package com.redygest.grok.knowledge.graph;
 
-import java.util.Iterator;
+import org.neo4j.graphdb.NotFoundException;
+
+import scala.collection.Iterator;
 
 import com.redygest.commons.db.graph.Neo4jGraphDb;
 import com.redygest.grok.knowledge.graph.Node.NodeType;
@@ -15,9 +17,16 @@ import com.redygest.grok.knowledge.graph.Relation.Relationship;
 public class Neo4jRepresentation implements IRepresentation {
 
 	private Neo4jGraphDb db;
+	private Node root;
 
-	public Neo4jRepresentation() {
-		this.db = Neo4jGraphDb.getInstance();
+	public Neo4jRepresentation(String name) {
+		try {
+			this.db = new Neo4jGraphDb(name);
+			root = new Node(NodeType.ROOT);
+			this.addNode(root);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/*
@@ -32,8 +41,12 @@ public class Neo4jRepresentation implements IRepresentation {
 		org.neo4j.graphdb.Node n = db.createNode();
 
 		for (NodeProperty key : node.keySet()) {
-			n.setProperty(key.toString(), node.get(key));
+			db.setNodeProperty(n, key.toString(), node.get(key));
 		}
+
+		node.put(NodeProperty.ID, String.valueOf(n.getId()));
+		
+		addRelation(new Relation(Relationship.ROOT, root, node));
 
 		return true;
 	}
@@ -53,32 +66,36 @@ public class Neo4jRepresentation implements IRepresentation {
 		Node node1 = r.getNode1();
 		Node node2 = r.getNode2();
 
-		StringBuffer query = new StringBuffer("start n=(");
+		StringBuffer query = new StringBuffer("start q=(");
 		query.append(node1.get(NodeProperty.ID));
-		query.append(") return n");
+		query.append(") return q");
 
-		Iterator<org.neo4j.graphdb.Node> nodes = db.queryNode(query.toString());
+		Iterator<Object> nodes = db.query(query.toString());
 		if (nodes != null) {
-			neo4jNode1 = nodes.next();
+			neo4jNode1 = (org.neo4j.graphdb.Node) nodes.next();
 		}
 
-		query = new StringBuffer("start n=(");
+		query = new StringBuffer("start q=(");
 		query.append(node2.get(NodeProperty.ID));
-		query.append(") return n");
+		query.append(") return q");
 
-		nodes = db.queryNode(query.toString());
+		nodes = db.query(query.toString());
 		if (nodes != null) {
-			neo4jNode2 = nodes.next();
+			neo4jNode2 = (org.neo4j.graphdb.Node) nodes.next();
 		}
 
 		if (neo4jNode1 != null && neo4jNode2 != null) {
-			org.neo4j.graphdb.Relationship relationship = neo4jNode1
-					.createRelationshipTo(neo4jNode2, Relationship.getType((r
-							.get(RelationProperty.TYPE))));
+			org.neo4j.graphdb.Relationship relationship = db
+					.createRelationship(neo4jNode1, neo4jNode2, Relationship
+							.getType((r.get(RelationProperty.TYPE))));
+			r.put(RelationProperty.ID, String.valueOf(relationship.getId()));
 			// add properties
 			for (RelationProperty prop : r.keySet()) {
-				relationship.setProperty(prop.toString(), r.get(prop));
+				db.setRelationshipProperty(relationship, prop.toString(), r
+						.get(prop));
 			}
+
+			return true;
 		}
 
 		return false;
@@ -94,18 +111,21 @@ public class Neo4jRepresentation implements IRepresentation {
 	@Override
 	public boolean updateNode(Node node) {
 		// query the node
-		StringBuffer query = new StringBuffer("start n=(");
-		query.append(node.get(NodeProperty.ID));
-		query.append(") return n");
-		Iterator<org.neo4j.graphdb.Node> nodes = db.queryNode(query.toString());
+		if (node != null) {
+			StringBuffer query = new StringBuffer("start q=(");
+			query.append(node.get(NodeProperty.ID));
+			query.append(") return q");
+			Iterator<Object> nodes = db.query(query.toString());
 
-		if (nodes != null) {
-			org.neo4j.graphdb.Node n = nodes.next();
-			for (NodeProperty prop : node.keySet()) {
-				n.setProperty(prop.toString(), node.get(prop));
+			if (nodes != null) {
+				org.neo4j.graphdb.Node n = (org.neo4j.graphdb.Node) nodes
+						.next();
+				for (NodeProperty prop : node.keySet()) {
+					db.setNodeProperty(n, prop.toString(), node.get(prop));
+				}
+
+				return true;
 			}
-
-			return true;
 		}
 
 		return false;
@@ -120,23 +140,55 @@ public class Neo4jRepresentation implements IRepresentation {
 	 */
 	@Override
 	public boolean updateRelation(Relation r) {
-		// TODO Auto-generated method stub
+		// query the relation
+		if (r != null) {
+			StringBuffer query = new StringBuffer("start n=(");
+			query.append(r.getNode1().get(NodeProperty.ID));
+			query.append(") match (n)-[q, :");
+			query.append(r.get(RelationProperty.TYPE));
+			// query.append("[" + r.get(RelationProperty.ID) + "]");
+			query.append("]-() return q");
+			Iterator<Object> relations = db.query(query.toString());
+
+			if (relations != null) {
+				org.neo4j.graphdb.Relationship rel = null;
+				while (relations.hasNext()) {
+					rel = (org.neo4j.graphdb.Relationship) relations.next();
+					if (rel != null && rel.hasProperty(RelationProperty.ID.toString())
+							&& rel.getProperty(RelationProperty.ID.toString())
+									.equals(r.get(RelationProperty.ID))) {
+						for (RelationProperty prop : r.keySet()) {
+							db.setRelationshipProperty(rel, prop.toString(), r
+									.get(prop));
+						}
+					}
+				}
+
+				return true;
+			}
+		}
+
 		return false;
 	}
 
 	@Override
 	public Node getNode(String query) {
 		// query the node
-		Iterator<org.neo4j.graphdb.Node> nodes = db.queryNode(query);
+		Iterator<Object> nodes = db.query(query);
 
-		if (nodes != null) {
+		if (nodes != null && !nodes.isEmpty()) {
 			// get the first node match and create a Node
 			// by filling it with existing properties
-			org.neo4j.graphdb.Node n = nodes.next();
+			org.neo4j.graphdb.Node n = (org.neo4j.graphdb.Node) nodes.next();
 			Node node = new Node(NodeType.getType((String) n
 					.getProperty(NodeProperty.TYPE.toString())));
 			for (NodeProperty prop : NodeProperty.values()) {
-				String value = (String) n.getProperty(prop.toString());
+				String value = null;
+				try { 
+					value = (String) n.getProperty(prop.toString());
+				} catch(NotFoundException nfe) {
+					continue;
+				}
 				if (value != null) {
 					node.put(prop, value);
 				}
@@ -147,41 +199,57 @@ public class Neo4jRepresentation implements IRepresentation {
 
 		return null;
 	}
-	
+
 	@Override
 	public Node getNodeWithId(String id) {
-		StringBuffer query = new StringBuffer("start n=(");
+		StringBuffer query = new StringBuffer("start q=(");
 		query.append(id);
-		query.append(") return n");
+		query.append(") return q");
 		return getNode(query.toString());
 	}
 
 	@Override
 	public Relation getRelation(String query) {
 		// query the relationship
-		Iterator<org.neo4j.graphdb.Relationship> relatioships = db.queryRelationship(query);
-		
-		if (relatioships != null) {
+		Iterator<Object> relatioships = db.query(query);
+
+		if (relatioships != null && !relatioships.isEmpty()) {
 			// get the first relationship match and create a Relation
 			// by filling it with existing properties
-			org.neo4j.graphdb.Relationship r = relatioships.next();
+			org.neo4j.graphdb.Relationship r = (org.neo4j.graphdb.Relationship) relatioships
+					.next();
 			org.neo4j.graphdb.Node sNode = r.getStartNode();
 			org.neo4j.graphdb.Node eNode = r.getEndNode();
 			Node n1 = getNodeWithId(String.valueOf(sNode.getId()));
 			Node n2 = getNodeWithId(String.valueOf(eNode.getId()));
-			if(n1 != null && n2 != null) {
-				Relation relation = new Relation(Relationship.getType((String) r.getProperty(RelationProperty.TYPE.toString())), n1, n2);
-				for(RelationProperty prop : RelationProperty.values()) {
-					String value = (String) r.getProperty(prop.toString());
-					if(value != null) {
+			if (n1 != null && n2 != null) {
+				Relation relation = new Relation(Relationship
+						.getType((String) r.getProperty(RelationProperty.TYPE
+								.toString())), n1, n2);
+				for (RelationProperty prop : RelationProperty.values()) {
+					String value = null;
+					try {
+						value = (String) r.getProperty(prop.toString());
+					} catch(NotFoundException nfe) {
+						continue;
+					}
+					if (value != null) {
 						relation.put(prop, value);
 					}
 				}
-				
+
 				return relation;
 			}
 		}
-		
+
 		return null;
+	}
+
+	@Override
+	public Node getNodeWithName(String name) {
+		StringBuffer query = new StringBuffer("start q=(node_auto_index, \"NAME:");
+		query.append(name);
+		query.append("\") return q");
+		return getNode(query.toString());
 	}
 }

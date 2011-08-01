@@ -7,6 +7,7 @@ import com.redygest.grok.features.extractor.NPCooccurenceFeatureExtractorTest;
 import com.redygest.grok.features.extractor.POSFeatureExtractorTest;
 import com.redygest.grok.features.extractor.PPronounCountFeatureExtractorTest;
 import com.redygest.grok.features.extractor.PunctuationCountFeatureExtractorTest;
+import com.redygest.grok.features.extractor.SRLFeatureExtractorTest;
 import com.redygest.grok.features.extractor.SentimentFeatureExtractorTest;
 
 public class FeatureExtractorTestSuite {
@@ -20,6 +21,7 @@ public class FeatureExtractorTestSuite {
 		suite.addTestSuite(PPronounCountFeatureExtractorTest.class);
 		suite.addTestSuite(PunctuationCountFeatureExtractorTest.class);
 		suite.addTestSuite(SentimentFeatureExtractorTest.class);
+		suite.addTestSuite(SRLFeatureExtractorTest.class);
 		
 		return suite;
 	}

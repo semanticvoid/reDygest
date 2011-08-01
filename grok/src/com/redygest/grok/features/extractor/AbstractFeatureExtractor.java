@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.computation.Features;
@@ -14,6 +15,12 @@ import com.redygest.grok.repository.IFeaturesRepository;
 
 public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 
+	protected static ConfigReader config;
+	
+	static {
+		config = ConfigReader.getInstance();
+	}
+	
 	@Override
 	public Features extract(List<Data> dataList) {
 		Features features = new Features();
