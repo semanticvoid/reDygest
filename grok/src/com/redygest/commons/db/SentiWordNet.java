@@ -29,6 +29,7 @@ public class SentiWordNet {
 	}
 	
 	private SentiWordNet() throws Exception {
+		pathToSWN = new java.io.File(".").getCanonicalPath() + "/data/SentiWordNet.txt";
 		_dict = new HashMap<String, String>();
 		HashMap<String, Vector<Double>> _temp = new HashMap<String, Vector<Double>>();
 		try {
