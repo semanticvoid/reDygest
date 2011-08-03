@@ -1,5 +1,6 @@
 package com.redygest.grok.features.extractor;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -75,10 +76,8 @@ public class POSFeatureExtractorTest extends TestCase {
 			if(tags != null && tags.size() > 0) {
 				assertEquals("2", tags.get(0));
 				return;
-			}
+			}	
 		}
-		
 		fail();
-	}
-
+	}	
 }
