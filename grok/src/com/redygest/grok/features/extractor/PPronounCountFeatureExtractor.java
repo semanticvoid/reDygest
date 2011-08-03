@@ -40,7 +40,7 @@ public class PPronounCountFeatureExtractor extends AbstractFeatureExtractor {
 			DataVariable var = new DataVariable(pp, Long.valueOf(t
 					.getValue(DataType.RECORD_IDENTIFIER)));
 			Attributes attrs = var.getVariableAttributes();
-			attrs.put(String.valueOf(count), AttributeType.PPRONOUNCOUNT);
+			attrs.put(AttributeType.PPRONOUNCOUNT, String.valueOf(count));
 			fVector.addVariable(var);
 		}
 

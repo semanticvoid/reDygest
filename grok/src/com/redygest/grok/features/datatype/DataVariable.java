@@ -22,7 +22,7 @@ public class DataVariable implements Variable {
 	}
 	
 	public void addAttribute(String attributeName, AttributeType attributeType) {
-		attributes.put(attributeName, attributeType);
+		attributes.put(attributeType, attributeName);
 	}
 	
 	public void setAttributes(Attributes attributes) {

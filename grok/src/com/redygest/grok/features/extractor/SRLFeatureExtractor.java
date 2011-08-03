@@ -79,14 +79,14 @@ public class SRLFeatureExtractor extends AbstractFeatureExtractor {
 			Attributes attrs = var.getVariableAttributes();
 			HashMap<String, List<String>> args = v.getArgumentToText();
 			if(args != null) {
-				attrs.put("1", AttributeType.HAS_SRL);
-				attrs.put(v.getText(), AttributeType.SRL_ACTION);
+				attrs.put(AttributeType.HAS_SRL, "1");
+				attrs.put(AttributeType.SRL_ACTION, v.getText());
 				for(String key : args.keySet()) {
 					List<String> values = args.get(key);
 					for(String value : values) {
 						AttributeType type = getAttrForLabel(key);
 						if(type != null) {
-							attrs.put(value, type);
+							attrs.put(type, value);
 						}
 					}
 				}

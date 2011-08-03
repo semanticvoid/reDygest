@@ -38,7 +38,7 @@ public class PunctuationCountFeatureExtractor extends AbstractFeatureExtractor {
 			DataVariable var = new DataVariable(c.toString(), Long.valueOf(t
 					.getValue(DataType.RECORD_IDENTIFIER)));
 			Attributes attrs = var.getVariableAttributes();
-			attrs.put(String.valueOf(count), AttributeType.PUNCTCOUNT);
+			attrs.put(AttributeType.PUNCTCOUNT, String.valueOf(count));
 			fVector.addVariable(var);
 		}
 		

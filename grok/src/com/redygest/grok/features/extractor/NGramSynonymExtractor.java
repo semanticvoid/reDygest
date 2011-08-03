@@ -113,9 +113,9 @@ public class NGramSynonymExtractor extends AbstractFeatureExtractor{
 						}
 						
 						Attributes attrs = var.getVariableAttributes();
-						if (!attrs.containsKey(synonyms.get(j))) {
-							attrs.put(synonyms.get(j), AttributeType.SYNONYM);
-						}
+						//if (!attrs.containsKey(synonyms.get(j))) {
+							attrs.put(AttributeType.SYNONYM, synonyms.get(j));
+						//}
 					}
 				}
 				fVector.addVariable(var);

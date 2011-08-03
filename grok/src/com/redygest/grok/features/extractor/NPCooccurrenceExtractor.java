@@ -95,9 +95,9 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 							}
 
 							Attributes attrs = var.getVariableAttributes();
-							if (!attrs.containsKey(np)) {
-								attrs.put(np, AttributeType.NPCOOCCURENCE);
-							}
+							//if (!attrs.containsKey(np)) {
+								attrs.put(AttributeType.NPCOOCCURENCE, np);
+							//}
 						}
 					}
 				}

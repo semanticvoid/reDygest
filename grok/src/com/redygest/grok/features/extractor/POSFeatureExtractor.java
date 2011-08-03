@@ -79,15 +79,15 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				if (var == null) {
 					var = new DataVariable(bigram, id);
 					Attributes attrs = var.getVariableAttributes();
-					attrs.put("1", AttributeType.POSBIGRAMCOUNT);
+					attrs.put(AttributeType.POSBIGRAMCOUNT, "1");
 				} else {
 					Attributes attrs = var.getVariableAttributes();
 					int count = Integer.valueOf(attrs.getAttributeNames(
 							AttributeType.POSBIGRAMCOUNT).get(0));
 					count += 1;
-					attrs.remove(String.valueOf(count-1));
-					attrs.put(String.valueOf(count),
-							AttributeType.POSBIGRAMCOUNT);
+					//attrs.remove(String.valueOf(count-1));
+					attrs.remove(AttributeType.POSBIGRAMCOUNT);
+					attrs.put(AttributeType.POSBIGRAMCOUNT,String.valueOf(count));
 				}
 
 				fVector.addVariable(var);
@@ -99,15 +99,15 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			if (var == null) {
 				var = new DataVariable(tokens[1], id);
 				Attributes attrs = var.getVariableAttributes();
-				attrs.put("1", AttributeType.POSUNIGRAMCOUNT);
+				attrs.put(AttributeType.POSUNIGRAMCOUNT, "1");
 			} else {
 				Attributes attrs = var.getVariableAttributes();
 				int count = Integer.valueOf(attrs.getAttributeNames(
 						AttributeType.POSUNIGRAMCOUNT).get(0));
 				count += 1;
-				attrs.remove(String.valueOf(count-1));
-				attrs.put(String.valueOf(count),
-						AttributeType.POSUNIGRAMCOUNT);
+				//attrs.remove(String.valueOf(count-1));
+				attrs.remove(AttributeType.POSUNIGRAMCOUNT);
+				attrs.put(AttributeType.POSUNIGRAMCOUNT, String.valueOf(count));
 			}
 			fVector.addVariable(var);
 			
@@ -118,7 +118,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				var = queryVar;
 			}
 			Attributes attrs = var.getVariableAttributes();
-			attrs.put(tokens[1], AttributeType.POS);
+			attrs.put(AttributeType.POS, tokens[1]);
 			fVector.addVariable(var);
 			
 			prevTag = tokens[1];

@@ -58,20 +58,22 @@ public class Curator {
 									kmodel.addNode(event);
 									// create Relation: Sentence -> Event
 									
-									for(String attr : attrs.keySet()) {
-										AttributeType type = attrs.get(attr);
-										Relationship rType = attributeToRelationship(type);
-										if(rType != null) {
-											// create/fetch Entity
-											Node entity = kmodel.getNodeWithName(attr);
-											if(entity == null) {
-												entity = new Node(NodeType.ENTITY, attr);
-												kmodel.addNode(entity);
+									for(AttributeType type : attrs.getAttributesMap().keySet()) {
+										//AttributeType type = attrs.get(attr);
+										for(String attrValue : attrs.getAttributeNames(type)) {
+											Relationship rType = attributeToRelationship(type);
+											if(rType != null) {
+												// create/fetch Entity
+												Node entity = kmodel.getNodeWithName(attrValue);
+												if(entity == null) {
+													entity = new Node(NodeType.ENTITY, attrValue);
+													kmodel.addNode(entity);
+												}
+												
+												// create Relation: Event -> Entity
+												Relation rel = new Relation(rType, event, entity);
+												kmodel.addRelation(rel);
 											}
-											
-											// create Relation: Event -> Entity
-											Relation rel = new Relation(rType, event, entity);
-											kmodel.addRelation(rel);
 										}
 									}
 								}

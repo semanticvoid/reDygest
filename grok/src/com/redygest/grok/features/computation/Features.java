@@ -60,12 +60,12 @@ public class Features {
 		Attributes existingAttrs = existingVariable.getVariableAttributes();
 		Attributes rAttrs = new Attributes();
 		rAttrs.putAll(existingAttrs);
-		for(AttributeType value : newAttrs.values()) {
-				List<String> newAttributeNames = newAttrs.getAttributeNames(value);
+		for(AttributeType type : newAttrs.getAttributesMap().keySet()) {
+				List<String> newAttributeNames = newAttrs.getAttributeNames(type);
 				if(newAttributeNames != null && newAttributeNames.size() > 1) {
 					throw new RuntimeException("cannot update a multi valued attribute type in newAttributeNames");
 				}
-				List<String> existingAttributeNames = existingAttrs.getAttributeNames(value);
+				List<String> existingAttributeNames = existingAttrs.getAttributeNames(type);
 				if(existingAttributeNames != null && existingAttributeNames.size() > 1) {
 					throw new RuntimeException("cannot update a multi valued attribute type in existingAttributeNames");
 				}
@@ -75,9 +75,9 @@ public class Features {
 					if(existingAttributeNames != null) {
 						String existingAttributeName = existingAttributeNames.get(0);
 						Double rAttributeName = Double.valueOf(newAttributeName) + Double.valueOf(existingAttributeName);
-						rAttrs.put(Double.toString(rAttributeName), value);
+						rAttrs.put(type, Double.toString(rAttributeName));
 					} else {
-						rAttrs.put(newAttributeName, value);
+						rAttrs.put(type, newAttributeName);
 					}
 				}				
 		}

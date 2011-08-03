@@ -44,7 +44,7 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 									Long.valueOf(id));
 							Attributes attributes = dataVar
 									.getVariableAttributes();
-							attributes.put(sentiment, AttributeType.SENTIMENT);
+							attributes.put(AttributeType.SENTIMENT, sentiment);
 							fVector.addVariable(dataVar);
 
 							// sentiment count
@@ -54,7 +54,7 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 								var = new DataVariable(sentiment,
 										Long.valueOf(id));
 								attrs = var.getVariableAttributes();
-								attrs.put("1", AttributeType.SENTIMENTCOUNT);
+								attrs.put(AttributeType.SENTIMENTCOUNT, "1");
 							} else {
 								attrs = var.getVariableAttributes();
 								int count = Integer.valueOf(attrs
@@ -62,9 +62,8 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 												AttributeType.SENTIMENTCOUNT)
 										.get(0));
 								count += 1;
-								attrs.remove(String.valueOf(count-1));
-								attrs.put(String.valueOf(count),
-										AttributeType.SENTIMENTCOUNT);
+								attrs.remove(AttributeType.SENTIMENTCOUNT);
+								attrs.put(AttributeType.SENTIMENTCOUNT, String.valueOf(count));
 							}
 
 							fVector.addVariable(var);
