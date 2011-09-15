@@ -85,6 +85,9 @@ public class Senna {
 
 				Verb v = getVerbArguments(++verbCount,
 						line.split("\\s+")[0].trim(), sentence);
+				Verb v1 = getVerbArgumentNPs(verbCount,
+						line.split("\\s+")[0].trim(), sentence);
+				v.setArgumentToNPs(v1.getArgumentToNPs());
 				verbs.add(v);
 				verbsToArgs.put(v.getText(), v);
 			}
