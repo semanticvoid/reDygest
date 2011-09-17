@@ -123,4 +123,17 @@ public class Neo4jRepresentationTest extends TestCase {
 			return;
 		}
 	}
+	
+	public void testGetNodeWithName() {
+		Node n1 = new Node(NodeType.NOUN, "clinton");
+		if(!repr.addNode(n1)) {
+			fail();
+		} else {
+			Node n = repr.getNodeWithName("clinton");
+			assertEquals("clinton", n.get(NodeProperty.NAME));
+			return;
+		}
+		
+		fail();
+	}
 }
