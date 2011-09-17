@@ -23,9 +23,9 @@ public class RepresentationFactory {
 	private RepresentationFactory() {
 	}
 	
-	public IRepresentation produceRepresentation(RepresentationType type) {
+	public IRepresentation produceRepresentation(String name, RepresentationType type) {
 		if(type == RepresentationType.NEO4J) {
-			String name = String.valueOf(new Double(Math.random()).hashCode());
+//			String name = String.valueOf(new Double(Math.random()).hashCode());
 			return new Neo4jRepresentation(name);
 		}
 		

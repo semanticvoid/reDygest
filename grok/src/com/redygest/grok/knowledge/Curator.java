@@ -24,12 +24,23 @@ public class Curator {
 
 	// the internal representation
 	IRepresentation kmodel;
+	String name;
 	
 	/**
 	 * Constructor
+	 * @param name	the uniq curation name
+	 */
+	public Curator(String name) {
+		kmodel = RepresentationFactory.getInstance().produceRepresentation(name, RepresentationType.NEO4J);
+		this.name = name;
+	}
+	
+	/**
+	 * Constructor (auto generate name)
 	 */
 	public Curator() {
-		kmodel = RepresentationFactory.getInstance().produceRepresentation(RepresentationType.NEO4J);
+		name = String.valueOf(new Double(Math.random()).hashCode());
+		kmodel = RepresentationFactory.getInstance().produceRepresentation(name, RepresentationType.NEO4J);
 	}
 	
 	/**
@@ -95,6 +106,14 @@ public class Curator {
 	 */
 	public IRepresentation getModel() {
 		return this.kmodel;
+	}
+	
+	/**
+	 * Get the knowledge model name
+	 * @return
+	 */
+	public String getName() {
+		return this.name;
 	}
 	
 	/**
