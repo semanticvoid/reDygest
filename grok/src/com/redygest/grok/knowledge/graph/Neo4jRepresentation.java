@@ -3,6 +3,9 @@
  */
 package com.redygest.grok.knowledge.graph;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.neo4j.graphdb.NotFoundException;
 
 import scala.collection.Iterator;
@@ -173,32 +176,36 @@ public class Neo4jRepresentation implements IRepresentation {
 	}
 
 	@Override
-	public Node getNode(String query) {
+	public List<Node> getNode(String query) {
+		List<Node> results = new ArrayList<Node>();
+		
 		// query the node
 		Iterator<Object> nodes = db.query(query);
 
 		if (nodes != null && !nodes.isEmpty()) {
 			// get the first node match and create a Node
 			// by filling it with existing properties
-			org.neo4j.graphdb.Node n = (org.neo4j.graphdb.Node) nodes.next();
-			Node node = new Node(NodeType.getType((String) n
-					.getProperty(NodeProperty.TYPE.toString())));
-			for (NodeProperty prop : NodeProperty.values()) {
-				String value = null;
-				try { 
-					value = (String) n.getProperty(prop.toString());
-				} catch(NotFoundException nfe) {
-					continue;
+			org.neo4j.graphdb.Node n = null;
+			while(nodes.hasNext()) {
+				n = (org.neo4j.graphdb.Node) nodes.next();
+				Node node = new Node(NodeType.getType((String) n
+						.getProperty(NodeProperty.TYPE.toString())));
+				for (NodeProperty prop : NodeProperty.values()) {
+					String value = null;
+					try { 
+						value = (String) n.getProperty(prop.toString());
+					} catch(NotFoundException nfe) {
+						continue;
+					}
+					if (value != null) {
+						node.put(prop, value);
+					}
 				}
-				if (value != null) {
-					node.put(prop, value);
-				}
+				results.add(node);
 			}
-
-			return node;
 		}
 
-		return null;
+		return results;
 	}
 
 	@Override
@@ -206,7 +213,12 @@ public class Neo4jRepresentation implements IRepresentation {
 		StringBuffer query = new StringBuffer("start q=(");
 		query.append(id);
 		query.append(") return q");
-		return getNode(query.toString());
+		List<Node> nodes = getNode(query.toString());
+		if(nodes != null && nodes.size() >= 1) {
+			return nodes.get(0);
+		} else {
+			return null;
+		}
 	}
 
 	@Override
@@ -251,7 +263,12 @@ public class Neo4jRepresentation implements IRepresentation {
 		StringBuffer query = new StringBuffer("start q=(node_auto_index, \"NAME:");
 		query.append(name);
 		query.append("\") return q");
-		return getNode(query.toString());
+		List<Node> nodes = getNode(query.toString());
+		if(nodes != null && nodes.size() >= 1) {
+			return nodes.get(0);
+		} else {
+			return null;
+		}
 	}
 
 	@Override

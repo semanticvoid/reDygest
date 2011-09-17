@@ -59,9 +59,14 @@ public class Neo4jRepresentationTest extends TestCase {
 		if(!repr.addNode(n1) || !repr.addNode(n2) ) {
 			fail();
 		} else {
-			Node n = repr.getNode("start q=(2,3) where (q.NAME = \"clinton\") return q");
-			assertEquals("clinton", n.get(NodeProperty.NAME));
-			return;
+			List<Node> nodes = repr.getNode("start q=(2,3) where (q.NAME = \"clinton\") return q");
+			if(nodes != null && nodes.size() >= 1) {
+				Node n = nodes.get(0);
+				assertEquals("clinton", n.get(NodeProperty.NAME));
+				return;
+			} else {
+				fail();
+			}
 		}
 	}
 	

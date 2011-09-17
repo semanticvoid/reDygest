@@ -1,5 +1,7 @@
 package com.redygest.grok.knowledge.graph;
 
+import java.util.List;
+
 import com.redygest.grok.knowledge.graph.RepresentationFactory.RepresentationType;
 
 /**
@@ -34,7 +36,7 @@ public interface IRepresentation {
 	 * @param query
 	 * @return the Node or null
 	 */
-	public Node getNode(String query);
+	public List<Node> getNode(String query);
 	
 	/**
 	 * Get Node with id
