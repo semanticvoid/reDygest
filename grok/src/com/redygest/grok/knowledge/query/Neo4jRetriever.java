@@ -19,6 +19,10 @@ public class Neo4jRetriever implements IRetriever {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	private String getCypherQuery(Entity n1, Entity r, Entity n2){
+		return null;
+	}
 
 	@Override
 	public Collection<Result> query(Entity n1, Entity r, Entity n2) {
