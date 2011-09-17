@@ -36,7 +36,7 @@ public interface IRepresentation {
 	 * @param query
 	 * @return the Node or null
 	 */
-	public List<Node> getNode(String query);
+	public List<Node> getNodes(String query);
 	
 	/**
 	 * Get Node with id
@@ -64,7 +64,7 @@ public interface IRepresentation {
 	 * @param query
 	 * @return the Relation or null
 	 */
-	public Relation getRelation(String query);
+	public List<Relation> getRelations(String query);
 	
 	/**
 	 * Update relation in representation

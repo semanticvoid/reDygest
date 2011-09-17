@@ -74,14 +74,21 @@ public class CuratorTest extends TestCase {
 		if(retVal) {
 			IRepresentation rep = c.getModel();
 			Node n1 = rep.getNodeWithName("John");
-			Relation r = rep.getRelation("start n=(" + n1.get(NodeProperty.ID) + ") match (n)-[q, :A0]-() return q");
+			Relation r = null;
+			List<Relation> relations = rep.getRelations("start n=(" + n1.get(NodeProperty.ID) + ") match (n)-[q, :A0]-() return q");
+			if(relations != null && relations.size() >= 1) {
+				r = relations.get(0);
+			}
 			assertNotNull(r);
 			Node node1 = r.getNode1();
 			assertNotNull(node1);
 			assertEquals(NodeType.EVENT.toString(), node1.get(NodeProperty.TYPE));
 			
 			n1 = rep.getNodeWithName("Tom");
-			r = rep.getRelation("start n=(" + n1.get(NodeProperty.ID) + ") match (n)-[q, :A1]-() return q");
+			relations  = rep.getRelations("start n=(" + n1.get(NodeProperty.ID) + ") match (n)-[q, :A1]-() return q");
+			if(relations != null && relations.size() >= 1) {
+				r = relations.get(0);
+			}
 			assertNotNull(r);
 			node1 = r.getNode1();
 			assertNotNull(node1);
