@@ -10,6 +10,7 @@ import scala.collection.Iterator;
 import com.redygest.commons.db.graph.Neo4jGraphDb;
 import com.redygest.grok.knowledge.graph.Node.NodeType;
 import com.redygest.grok.knowledge.graph.Relation.Relationship;
+import com.redygest.grok.knowledge.graph.RepresentationFactory.RepresentationType;
 
 /**
  * Neo4j backing store knowledge representation
@@ -251,5 +252,10 @@ public class Neo4jRepresentation implements IRepresentation {
 		query.append(name);
 		query.append("\") return q");
 		return getNode(query.toString());
+	}
+
+	@Override
+	public RepresentationType getType() {
+		return RepresentationType.NEO4J;
 	}
 }

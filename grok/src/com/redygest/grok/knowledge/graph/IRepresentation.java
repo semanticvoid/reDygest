@@ -1,11 +1,19 @@
 package com.redygest.grok.knowledge.graph;
 
+import com.redygest.grok.knowledge.graph.RepresentationFactory.RepresentationType;
+
 /**
  * 
  * knowledge representation interface
  *
  */
 public interface IRepresentation {
+	
+	/**
+	 * Get the representation type
+	 * @return	RepresentationType
+	 */
+	public RepresentationType getType();
 
 	/**
 	 * Add node to representation
