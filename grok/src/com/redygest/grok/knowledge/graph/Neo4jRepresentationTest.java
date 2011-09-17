@@ -22,7 +22,8 @@ public class Neo4jRepresentationTest extends TestCase {
 	IRepresentation repr;
 	
 	protected void setUp() {
-		repr = RepresentationFactory.getInstance().produceRepresentation(RepresentationType.NEO4J);
+		String name = String.valueOf(new Double(Math.random()).hashCode());
+		repr = RepresentationFactory.getInstance().produceRepresentation(name, RepresentationType.NEO4J);
 	}
 
 	protected void tearDown() {
