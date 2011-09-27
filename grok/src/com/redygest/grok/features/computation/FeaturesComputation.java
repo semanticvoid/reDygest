@@ -15,8 +15,13 @@ import com.redygest.grok.features.extractor.IFeatureExtractor;
 import com.redygest.grok.features.extractor.POSFeatureExtractor;
 import com.redygest.grok.repository.FeaturesRepository;
 
-class FeaturesComputation {
+public class FeaturesComputation {
+	
 	FeaturesRepository repository = FeaturesRepository.getInstance();
+	
+	public FeaturesComputation() {
+	}
+	
 	public void computeFeatures(List<Data> data) throws Exception {
 		FeatureExtractorFactory featureExtractorFactory = FeatureExtractorFactory.getInstance();
 		IFeatureExtractor featureExtractor = featureExtractorFactory.getFeatureExtractor(FeatureExtractorType.POSFEATURE);
