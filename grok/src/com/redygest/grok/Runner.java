@@ -7,12 +7,20 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.computation.FeaturesComputation;
 import com.redygest.grok.knowledge.Curator;
+import com.redygest.grok.knowledge.graph.IRepresentation;
+import com.redygest.grok.knowledge.query.IRetriever;
+import com.redygest.grok.knowledge.query.RetrieverFactory;
+import com.redygest.grok.knowledge.query.datatype.Entity;
+import com.redygest.grok.knowledge.query.datatype.HeadWordEntity;
+import com.redygest.grok.knowledge.query.datatype.RelationEntity;
+import com.redygest.grok.knowledge.query.datatype.Result;
 import com.redygest.grok.repository.FeaturesRepository;
 
 /**
@@ -110,6 +118,50 @@ public class Runner {
 			FeaturesRepository repository = FeaturesRepository.getInstance();
 			Curator c = new Curator(this.modelName);
 			c.addRepository(repository);
+		}
+		
+		return true;
+	}
+	
+	/**
+	 * Search logic
+	 * @return true on success false otherwise
+	 */
+	private boolean runSearch() {
+		Curator c = new Curator(this.modelName);
+		// do not run add repository else it will nuke the model
+		IRepresentation model = c.getModel();
+		IRetriever retriever = RetrieverFactory.getInstance().produceRetriever(model);
+		
+		// parse query
+		String[] tokens = this.arg.split(",");
+		if(tokens.length < 3) {
+			System.err.println("Invalid query - not enough entities: " + this.arg);
+			return false;
+		} else {
+			Entity e1 = null, e2 = null, e3 = null;
+			
+			if(tokens[0].length() > 0) {
+				e1 = new HeadWordEntity(tokens[0]);
+			}
+			if(tokens[1].length() > 0) {
+				e2 = new RelationEntity(tokens[1]);
+			}
+			if(tokens[3].length() > 0) {
+				e3 = new HeadWordEntity(tokens[3]);
+			}
+			Collection<Result> results = retriever.query(e1, e2, e3);
+			// print results
+			System.out.println("------------------------");
+			System.out.println("        Results         ");
+			System.out.println("------------------------");
+			for(Result r : results) {
+				Entity e = r.getEntity();
+				if(e != null) {
+					System.out.println(e.getValue());
+				}
+			}
+			System.out.println("------------------------");
 		}
 		
 		return true;
