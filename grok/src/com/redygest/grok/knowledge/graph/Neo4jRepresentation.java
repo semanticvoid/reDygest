@@ -26,8 +26,8 @@ public class Neo4jRepresentation implements IRepresentation {
 	public Neo4jRepresentation(String name) {
 		try {
 			this.db = new Neo4jGraphDb(name);
-			root = new Node(NodeType.ROOT);
-			this.addNode(root);
+//			root = new Node(NodeType.ROOT);
+//			this.addNode(root);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,7 +50,7 @@ public class Neo4jRepresentation implements IRepresentation {
 
 		node.put(NodeProperty.ID, String.valueOf(n.getId()));
 
-		addRelation(new Relation(Relationship.ROOT, root, node));
+//		addRelation(new Relation(Relationship.ROOT, root, node));
 
 		return true;
 	}
