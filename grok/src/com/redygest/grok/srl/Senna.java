@@ -77,7 +77,8 @@ public class Senna {
 			lineArr[i] = line;
 			Pattern p = Pattern.compile("VB[A-Z]?\t");
 			// System.out.println(line);
-			if ((!line.split("\\s+")[4].trim().equalsIgnoreCase("-"))) {
+			String[] tokens = line.split("\\s+");
+			if (tokens != null && tokens.length >= 5 && (!tokens[4].trim().equalsIgnoreCase("-"))) {
 				// Verb v = getVerbArguments(++verbCount,
 				// line.split("\\s+")[0].trim(), sentence);
 				// SennaVerb v = getVerbArgumentNPs(++verbCount, line

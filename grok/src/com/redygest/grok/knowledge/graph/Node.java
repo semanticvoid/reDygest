@@ -32,6 +32,7 @@ public class Node extends HashMap<NodeProperty, String> {
 	public Node(NodeType type, String name) {
 		super();
 		this.put(NodeProperty.TYPE, type.toString());
+		// TODO replace space with '_' for neo4j
 		this.put(NodeProperty.NAME, name);
 	}
 }
