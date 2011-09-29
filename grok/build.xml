@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project grok">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="dist/grok.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="com.redygest.grok.Runner"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/commons-beanutils-1.8.3.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/commons-collections-3.2.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/commons-lang-2.5.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/commons-logging-1.1.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/ezmorph-1.0.6.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/json-lib-2.3-jdk15.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/junit-4.9b1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/lingpipe.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/mysql-connector-java-5.1.15-bin.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/stanford-parser.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/asm-3.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jackson-core-asl-1.7.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jackson-jaxrs-1.7.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jackson-mapper-asl-1.7.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jackson-xc-1.7.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jersey-client-1.8.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jersey-core-1.8.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jersey-json-1.8.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jersey-server-1.8.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jettison-1.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/jsr311-api-1.1.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/neo4j-community-1.4.M05.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/neo4j-kernel-1.4.M05.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/neo4j-cypher-1.4.M05.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/scala-library-2.9.0-1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/geronimo-jta_1.1_spec-1.1.1.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/ini4j-0.5.2.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/lucene-core-3.1.0.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/neo4j-graph-matching-1.4.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="lib/neo4j-lucene-index-1.4.jar"/>
+        </jar>
+    </target>
+</project>
