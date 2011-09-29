@@ -15,17 +15,35 @@ import com.redygest.grok.features.extractor.IFeatureExtractor;
 import com.redygest.grok.features.extractor.POSFeatureExtractor;
 import com.redygest.grok.repository.FeaturesRepository;
 
+import edu.stanford.nlp.parser.lexparser.Extractor;
+
 public class FeaturesComputation {
 	
-	FeaturesRepository repository = FeaturesRepository.getInstance();
+	private FeaturesRepository repository;
+	private List<IFeatureExtractor> extractors;
 	
-	public FeaturesComputation() {
+	public FeaturesComputation(String[] extractorNames) {
+		repository = FeaturesRepository.getInstance();
+		extractors = new ArrayList<IFeatureExtractor>();
+		FeatureExtractorFactory featureExtractorFactory = FeatureExtractorFactory.getInstance();
+		
+		if(extractorNames != null) {
+			for(String name : extractorNames) {
+				FeatureExtractorType type = FeatureExtractorType.getType(name);
+				if(type != null) {
+					IFeatureExtractor extractor = featureExtractorFactory.getFeatureExtractor(type);
+					if(extractor != null) {
+						extractors.add(extractor);
+					}
+				}
+			}
+		}
 	}
 	
 	public void computeFeatures(List<Data> data) throws Exception {
-		FeatureExtractorFactory featureExtractorFactory = FeatureExtractorFactory.getInstance();
-		IFeatureExtractor featureExtractor = featureExtractorFactory.getFeatureExtractor(FeatureExtractorType.SRL);
-		repository.addFeatures(featureExtractor.extract(data));
+		for(IFeatureExtractor extractor : extractors) {
+			repository.addFeatures(extractor.extract(data));
+		}
 	}
 
 	public static void main(String[] args) {

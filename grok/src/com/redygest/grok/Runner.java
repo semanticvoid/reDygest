@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.computation.FeaturesComputation;
@@ -90,7 +91,8 @@ public class Runner {
 	 * @return true on success, false otherwise
 	 */
 	private boolean runIndex() {
-		FeaturesComputation fc = new FeaturesComputation();
+		ConfigReader config = ConfigReader.getInstance();
+		FeaturesComputation fc = new FeaturesComputation(config.getExtractorsList());
 		File f = new File(this.arg);
 		if (!f.exists()) {
 			System.err.println("Data file does not exist: " + this.arg);

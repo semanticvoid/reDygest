@@ -7,5 +7,20 @@ public enum FeatureExtractorType {
 	SENTIMENTFEATURE,
 	PUNCTUATIONCOUNTFEATURE,
 	PPRONOUNCOUNTFEATURE,
-	SRL
+	SRL;
+	
+	/**
+	 * Get {@link FeatureExtractorType} from string
+	 * @param str
+	 * @return	{@link FeatureExtractorType}
+	 */
+	public static FeatureExtractorType getType(String str) {
+		for(FeatureExtractorType t : FeatureExtractorType.values()) {
+			if(t.toString().equalsIgnoreCase(str)) {
+				return t;
+			}
+		}
+		
+		return null;
+	}
 }
