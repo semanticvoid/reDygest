@@ -108,8 +108,8 @@ public class Neo4jGraphDb {
 			ExecutionResult result = engine.execute( query );
 			scala.collection.Iterator<Object> n_column = result.columnAs("q");
 			return n_column;
-		} catch (SyntaxError e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			//e.printStackTrace();
 		}
 		
 		return null;

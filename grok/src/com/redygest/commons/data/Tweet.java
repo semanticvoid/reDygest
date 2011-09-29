@@ -36,8 +36,14 @@ public class Tweet extends AbstractData {
 	 * @param json
 	 */
 	public Tweet(String json, String recordIdentifier) {
-		JSONObject jsonObj = JSONObject.fromObject(json);
-		this.text = jsonObj.getString("text");
+		JSONObject jsonObj = null;
+		try {
+			jsonObj = JSONObject.fromObject(json);
+			this.text = jsonObj.getString("text");
+		} catch (Exception e) {
+			this.text = json;
+		}
+		
 		if(!StringUtils.isBlank(this.text)) {
 			setValue(DataType.BODY, this.text);
 			setValues(DataType.BODY_TOKENIZED, tokenize());

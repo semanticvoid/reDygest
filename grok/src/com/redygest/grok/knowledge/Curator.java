@@ -78,6 +78,7 @@ public class Curator {
 												Node entity = kmodel.getNodeWithName(attrValue);
 												if(entity == null) {
 													entity = new Node(NodeType.ENTITY, attrValue);
+													System.out.println(attrValue);
 													kmodel.addNode(entity);
 												}
 												

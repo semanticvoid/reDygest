@@ -45,7 +45,7 @@ public class Neo4jRepresentation implements IRepresentation {
 		org.neo4j.graphdb.Node n = db.createNode();
 
 		for (NodeProperty key : node.keySet()) {
-			db.setNodeProperty(n, key.toString(), node.get(key));
+			db.setNodeProperty(n, key.toString(), normalize(node.get(key)));
 		}
 
 		node.put(NodeProperty.ID, String.valueOf(n.getId()));
@@ -266,6 +266,7 @@ public class Neo4jRepresentation implements IRepresentation {
 
 	@Override
 	public Node getNodeWithName(String name) {
+		name = normalize(name);
 		StringBuffer query = new StringBuffer(
 				"start q=(node_auto_index, \"NAME:");
 		query.append(name);
@@ -281,5 +282,13 @@ public class Neo4jRepresentation implements IRepresentation {
 	@Override
 	public RepresentationType getType() {
 		return RepresentationType.NEO4J;
+	}
+	
+	public static String normalize(String name) {
+		if(name != null) {
+			return name.replaceAll("[ ]+", "_");
+		}
+		
+		return null;
 	}
 }
