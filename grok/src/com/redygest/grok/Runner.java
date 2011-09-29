@@ -112,6 +112,10 @@ public class Runner {
 
 					row++;
 				}
+				
+				if (dataSet.size() > 0) {
+					fc.computeFeatures(dataSet);
+				}
 			} catch (Exception e) {
 				e.printStackTrace();
 				System.err.println("Error reading file: " + this.arg
