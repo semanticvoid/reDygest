@@ -24,7 +24,7 @@ public class FeaturesComputation {
 	
 	public void computeFeatures(List<Data> data) throws Exception {
 		FeatureExtractorFactory featureExtractorFactory = FeatureExtractorFactory.getInstance();
-		IFeatureExtractor featureExtractor = featureExtractorFactory.getFeatureExtractor(FeatureExtractorType.POSFEATURE);
+		IFeatureExtractor featureExtractor = featureExtractorFactory.getFeatureExtractor(FeatureExtractorType.SRL);
 		repository.addFeatures(featureExtractor.extract(data));
 	}
 
