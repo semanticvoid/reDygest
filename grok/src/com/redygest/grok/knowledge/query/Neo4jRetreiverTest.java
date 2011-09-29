@@ -1,20 +1,19 @@
 package com.redygest.grok.knowledge.query;
 
-import java.util.List;
+import java.util.Collection;
+
+import junit.framework.TestCase;
 
 import com.redygest.grok.knowledge.graph.IRepresentation;
 import com.redygest.grok.knowledge.graph.Node;
-import com.redygest.grok.knowledge.graph.NodeProperty;
-import com.redygest.grok.knowledge.graph.Relation;
-import com.redygest.grok.knowledge.graph.RelationProperty;
-import com.redygest.grok.knowledge.graph.RepresentationFactory;
 import com.redygest.grok.knowledge.graph.Node.NodeType;
+import com.redygest.grok.knowledge.graph.Relation;
 import com.redygest.grok.knowledge.graph.Relation.Relationship;
+import com.redygest.grok.knowledge.graph.RepresentationFactory;
 import com.redygest.grok.knowledge.graph.RepresentationFactory.RepresentationType;
 import com.redygest.grok.knowledge.query.datatype.Entity;
 import com.redygest.grok.knowledge.query.datatype.HeadWordEntity;
-
-import junit.framework.TestCase;
+import com.redygest.grok.knowledge.query.datatype.Result;
 
 public class Neo4jRetreiverTest extends TestCase{
 	
@@ -43,16 +42,14 @@ public class Neo4jRetreiverTest extends TestCase{
 		}
 	}
 	
-	public void testCypherQuery(){
-//		Neo4jRetriever nr = new Neo4jRetriever(repr);
-//		Entity e1 = new HeadWordEntity("sent");
-//		Entity e2 = new HeadWordEntity("hospital");
-//		String query = nr.getCypherQuery(e1, null, e2);
-//		List<Node> nodes = repr.getNodes(query);
-//		for(Node n : nodes){
-//			assertEquals("clinton", n.get(NodeProperty.NAME));
-//		}
-//		
+	public void testQueryE1(){
+		Neo4jRetriever nr = new Neo4jRetriever(repr);
+		Entity e1 = new HeadWordEntity("sent");
+		Entity e2 = new HeadWordEntity("hospital");
+		Collection<Result> results = nr.query(null, e1, e2);
+		for(Result r : results){
+			assertEquals("clinton", r.getEntity().getValue());
+		}
 	}
 
 	
