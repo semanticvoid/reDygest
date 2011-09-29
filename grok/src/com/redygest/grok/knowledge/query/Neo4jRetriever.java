@@ -47,21 +47,27 @@ public class Neo4jRetriever implements IRetriever {
 
 		List<Node> nonNullNodeIds = new ArrayList<Node>();
 		for (String node : nonNullNodes) {
-			nonNullNodeIds.add(representation.getNodeWithName(node));
+			Node n = representation.getNodeWithName(node);
+			if(n!=null){
+				nonNullNodeIds.add(representation.getNodeWithName(node));
+			}
 		}
+		
 		StringBuilder query = new StringBuilder();
 		if (nonNullNodeIds.size() == 1) {
 			query.append("start n=(");
 			query.append(nonNullNodeIds.get(0).get(NodeProperty.ID));
 			query.append(") match (n)--(x)--(q) return q");
 			return query.toString();
-		} else {
+		} else if(nonNullNodeIds.size()==2){
 			query.append("start n=(");
 			query.append(nonNullNodeIds.get(0).get(NodeProperty.ID));
 			query.append("), m=(");
 			query.append(nonNullNodeIds.get(1).get(NodeProperty.ID));
 			query.append(") match (n)--(x), (m)--(x), (q)--(x) return q");
 			return query.toString();
+		} else{
+			return null;
 		}
 	}
 

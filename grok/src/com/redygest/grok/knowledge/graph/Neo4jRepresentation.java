@@ -26,8 +26,8 @@ public class Neo4jRepresentation implements IRepresentation {
 	public Neo4jRepresentation(String name) {
 		try {
 			this.db = new Neo4jGraphDb(name);
-//			root = new Node(NodeType.ROOT);
-//			this.addNode(root);
+			// root = new Node(NodeType.ROOT);
+			// this.addNode(root);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -50,7 +50,7 @@ public class Neo4jRepresentation implements IRepresentation {
 
 		node.put(NodeProperty.ID, String.valueOf(n.getId()));
 
-//		addRelation(new Relation(Relationship.ROOT, root, node));
+		// addRelation(new Relation(Relationship.ROOT, root, node));
 
 		return true;
 	}
@@ -95,8 +95,8 @@ public class Neo4jRepresentation implements IRepresentation {
 			r.put(RelationProperty.ID, String.valueOf(relationship.getId()));
 			// add properties
 			for (RelationProperty prop : r.keySet()) {
-				db.setRelationshipProperty(relationship, prop.toString(),
-						r.get(prop));
+				db.setRelationshipProperty(relationship, prop.toString(), r
+						.get(prop));
 			}
 
 			return true;
@@ -163,8 +163,8 @@ public class Neo4jRepresentation implements IRepresentation {
 							&& rel.getProperty(RelationProperty.ID.toString())
 									.equals(r.get(RelationProperty.ID))) {
 						for (RelationProperty prop : r.keySet()) {
-							db.setRelationshipProperty(rel, prop.toString(),
-									r.get(prop));
+							db.setRelationshipProperty(rel, prop.toString(), r
+									.get(prop));
 						}
 					}
 				}
@@ -180,29 +180,31 @@ public class Neo4jRepresentation implements IRepresentation {
 	public List<Node> getNodes(String query) {
 		List<Node> results = new ArrayList<Node>();
 
-		// query the node
-		Iterator<Object> nodes = db.query(query);
+		if (query != null) {
+			// query the node
+			Iterator<Object> nodes = db.query(query);
 
-		if (nodes != null && !nodes.isEmpty()) {
-			// get the first node match and create a Node
-			// by filling it with existing properties
-			org.neo4j.graphdb.Node n = null;
-			while (nodes.hasNext()) {
-				n = (org.neo4j.graphdb.Node) nodes.next();
-				Node node = new Node(NodeType.getType((String) n
-						.getProperty(NodeProperty.TYPE.toString())));
-				for (NodeProperty prop : NodeProperty.values()) {
-					String value = null;
-					try {
-						value = (String) n.getProperty(prop.toString());
-					} catch (NotFoundException nfe) {
-						continue;
+			if (nodes != null && !nodes.isEmpty()) {
+				// get the first node match and create a Node
+				// by filling it with existing properties
+				org.neo4j.graphdb.Node n = null;
+				while (nodes.hasNext()) {
+					n = (org.neo4j.graphdb.Node) nodes.next();
+					Node node = new Node(NodeType.getType((String) n
+							.getProperty(NodeProperty.TYPE.toString())));
+					for (NodeProperty prop : NodeProperty.values()) {
+						String value = null;
+						try {
+							value = (String) n.getProperty(prop.toString());
+						} catch (NotFoundException nfe) {
+							continue;
+						}
+						if (value != null) {
+							node.put(prop, value);
+						}
 					}
-					if (value != null) {
-						node.put(prop, value);
-					}
+					results.add(node);
 				}
-				results.add(node);
 			}
 		}
 
@@ -240,8 +242,8 @@ public class Neo4jRepresentation implements IRepresentation {
 				Node n1 = getNodeWithId(String.valueOf(sNode.getId()));
 				Node n2 = getNodeWithId(String.valueOf(eNode.getId()));
 				if (n1 != null && n2 != null) {
-					Relation relation = new Relation(
-							Relationship.getType((String) r
+					Relation relation = new Relation(Relationship
+							.getType((String) r
 									.getProperty(RelationProperty.TYPE
 											.toString())), n1, n2);
 					for (RelationProperty prop : RelationProperty.values()) {
