@@ -10,7 +10,7 @@ import org.ini4j.Wini;
  */
 public class ConfigReader {
 
-	private static final String CONFIG_FILE = "/etc/redygest/grok.ini";
+	private static final String CONFIG_FILE = "/home/sudheer/workspace-reDygest-1/reDygest/grok/conf/grok.ini";
 	
 	private static final String EXTRACTOR_SECTION = "extractor";
 	private static final String SENNA_PATH_KEY= "senna";
@@ -57,7 +57,6 @@ public class ConfigReader {
 			String[] list = str.split(",");
 			return list;
 		}
-		
-		return null;
+		throw new RuntimeException("No extractors provided");
 	}
 }
