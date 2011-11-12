@@ -15,7 +15,7 @@ public abstract class AbstractData implements Data {
 			return null;
 		}
 		if(data.get(type).size() > 1) {
-			throw new RuntimeException(type + " is a multi valued dataType");
+			throw new RuntimeException(type + " has more than one value. use getValues instead");
 		}
 		return data.get(type).get(0);
 	}

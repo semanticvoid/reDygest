@@ -12,6 +12,7 @@ import java.util.Set;
 import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.Validate;
 
 /**
  * Class representing a Tweet
@@ -29,29 +30,27 @@ public class Tweet extends AbstractData {
 		punctSet = new HashSet<Character>(Arrays.asList(punctuations));
 	}
 
-	private String text;
+	final private String text;
+	final private String recordIdentifier;
 
 	/**
 	 * Constructor
 	 * @param json
 	 */
 	public Tweet(String json, String recordIdentifier) {
+		this.recordIdentifier = recordIdentifier;
 		JSONObject jsonObj = null;
+		String text = null;
 		try {
 			jsonObj = JSONObject.fromObject(json);
-			this.text = jsonObj.getString("text");
+			text = jsonObj.getString("text");
 		} catch (Exception e) {
-			this.text = json;
+			text = json;
 		}
-		
-		if(!StringUtils.isBlank(this.text)) {
-			setValue(DataType.BODY, this.text);
-			setValues(DataType.BODY_TOKENIZED, tokenize());
-		}
-		if(StringUtils.isBlank(recordIdentifier)) {
-			throw new RuntimeException("recordIdentifier is empty");
-		}
-		setValue(DataType.RECORD_IDENTIFIER, recordIdentifier);
+		this.text = text;
+		Validate.notEmpty(this.recordIdentifier, "recordIdentifier is empty");
+		Validate.notEmpty(this.text, "data is empty");
+		populateDataTypeElements(this.text);
 	}
 	
 	@Override
@@ -59,22 +58,30 @@ public class Tweet extends AbstractData {
 		return true;
 	}
 		
-	private List<String> tokenize() {
-		List<String> ret = new ArrayList<String>();
+	private List<String> tokenize(String text) {
+		String tokens[] = text.split("[ ]+");
+		return new ArrayList<String>(Arrays.asList(tokens));
+	}
+	
+	private void populateDataTypeElements(String text) {
+		text = StringUtils.lowerCase(text);
+		StringBuffer pStr = new StringBuffer();
 		StringBuffer str = new StringBuffer();
-		char prevC;
-		for(int i=0; i<this.text.length(); i++) {
-			char c = this.text.charAt(i);
+		for(int i=0; i<text.length(); i++) {
+			char c = text.charAt(i);
 			if(punctSet.contains(c)) {
-				str.append(' ');
-				str.append(c);
-				str.append(' ');
+				pStr.append(' ');
+				pStr.append(c);
+				pStr.append(' ');
 			} else {
+				pStr.append(c);
 				str.append(c);
 			}
 		}
-		
-		String tokens[] = str.toString().split("[ ]+");
-		return new ArrayList<String>(Arrays.asList(tokens));
+		setValue(DataType.BODY, str.toString().trim());
+		setValues(DataType.BODY_TOKENIZED, tokenize(str.toString())); 
+		setValue(DataType.BODY_PUNCTUATED, pStr.toString().trim());
+		setValue(DataType.RECORD_IDENTIFIER, recordIdentifier.trim());
+		setValue(DataType.ORIGINAL_TEXT, this.text.trim());
 	}
 }
