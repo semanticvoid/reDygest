@@ -14,8 +14,10 @@
 		<format property="current-time" pattern="hh:mm:ss a z" locale="en" />
 	</tstamp>
 	<property name="build-directory" value="build" />
-
-	<target name="war" depends="">
+	<target name="copy-grok" depends="">
+		<copy file="../grok/dist/grok.jar" todir="war/WEB-INF/lib"/>
+	</target>
+	<target name="war" depends="copy-grok">
 		<mkdir dir="${build-directory}" />
 		<delete file="${build-directory}/${war-file-name}" />
 		<war warfile="${build-directory}/${war-file-name}" webxml="${web-xml-file}">
