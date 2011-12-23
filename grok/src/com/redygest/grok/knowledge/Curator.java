@@ -3,10 +3,6 @@ package com.redygest.grok.knowledge;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.FileAppender;
-import org.apache.log4j.Logger;
-
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.FeatureVector;
@@ -29,9 +25,7 @@ public class Curator {
 	// the internal representation
 	IRepresentation kmodel;
 	String name;
-	
-	static Logger logger = Logger.getLogger(Curator.class);
-	
+		
 	/**
 	 * Constructor
 	 * @param name	the uniq curation name
@@ -73,14 +67,11 @@ public class Curator {
 									// create Event
 									Node event = new Node(NodeType.EVENT);
 									kmodel.addNode(event);
-							        logger.info("Creating Event");
 									
 									// create Relation: Sentence -> Event
-									
 									for(AttributeType type : attrs.getAttributesMap().keySet()) {
 										//AttributeType type = attrs.get(attr);
 										for(String attrValue : attrs.getAttributeNames(type)) {
-											logger.info("Attrvalue: "+attrValue+" type:"+type.toString());
 											Relationship rType = attributeToRelationship(type);
 											if(rType != null) {
 												// create/fetch Entity
