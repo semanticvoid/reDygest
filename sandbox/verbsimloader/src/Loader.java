@@ -2,13 +2,19 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.redygest.commons.db.nosql.SimpleDB;
+import com.amazonaws.auth.PropertiesCredentials;
+import com.amazonaws.services.simpledb.AmazonSimpleDB;
+import com.amazonaws.services.simpledb.AmazonSimpleDBClient;
+import com.amazonaws.services.simpledb.model.CreateDomainRequest;
+import com.amazonaws.services.simpledb.model.PutAttributesRequest;
+import com.amazonaws.services.simpledb.model.ReplaceableAttribute;
 
 
 public class Loader {
@@ -23,17 +29,26 @@ public class Loader {
 		
 		StringBuffer key = new StringBuffer();
 		for(Object s : list) {
-			key.append((String) s + "-");
+			key.append((String) s + "#");
 		}
 		return key.toString().substring(0, key.toString().length()-1);
 	}
 
-	public static void process(String accessId, String secret, String dir) {
-		SimpleDB db = new SimpleDB(accessId, secret);
+	public static void process(String credentialsFile, String dir) {
+		AmazonSimpleDB db;
+		
+		try {
+			db = new AmazonSimpleDBClient(new PropertiesCredentials(new File(credentialsFile)));
+			db.createDomain(new CreateDomainRequest("verbsimilarity"));
+		} catch (IOException e1) {
+			e1.printStackTrace();
+			return;
+		}
+		
 		File directory = new File(dir);
 		if(directory.isDirectory()) {
 			File[] files = directory.listFiles();
-			
+			int count = 0;
 			for(File file : files) {
 				BufferedReader rdr;
 				try {
@@ -57,9 +72,14 @@ public class Loader {
 						String score = tokens[0];
 						String sVerb = tokens[1];
 						Map<String, String> sim = new HashMap<String, String>();
+						if(Double.valueOf(score) == 0) {
+							continue;
+						}
 						sim.put("score", score);
 						try {
-							db.putAttributes("verbsimilarity", getKey(mVerb, sVerb), sim);
+							List<ReplaceableAttribute> attrs = new ArrayList<ReplaceableAttribute>();
+							attrs.add(new ReplaceableAttribute("score", score, new Boolean(true)));
+				            db.putAttributes(new PutAttributesRequest("verbsimilarity", getKey(mVerb, sVerb), attrs));
 //							System.out.println(getKey(mVerb, sVerb) + "\t" + score);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -69,6 +89,9 @@ public class Loader {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				
+				count++;
+				System.out.println(count + "/" + files.length);
 			}
 		}
 	}
@@ -77,15 +100,14 @@ public class Loader {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		if(args.length != 3) {
-			System.err.println("java Loader <accessid> <secret> <verb sim dir>");
+		if(args.length != 2) {
+			System.err.println("java Loader <credentials file> <verb sim dir>");
 		}
 		
-		String accessId = args[0];
-		String secret = args[1];
-		String file= args[2];
+		String credFile = args[0];
+		String file= args[1];
 		
-		process(accessId, secret, file);
+		process(credFile, file);
 	}
 
 }

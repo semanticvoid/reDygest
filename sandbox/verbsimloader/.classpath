@@ -2,6 +2,16 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/grok"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/aws-java-sdk-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/httpclient-4.1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/httpclient-cache-4.1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/httpcore-4.1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/httpmime-4.1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/semanticvoid/projects/reDygest/sandbox/verbsimloader/lib/log4j-1.2.16.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
