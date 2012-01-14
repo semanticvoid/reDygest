@@ -6,15 +6,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.amazonaws.auth.PropertiesCredentials;
 import com.amazonaws.services.simpledb.AmazonSimpleDB;
 import com.amazonaws.services.simpledb.AmazonSimpleDBClient;
+import com.amazonaws.services.simpledb.model.BatchPutAttributesRequest;
 import com.amazonaws.services.simpledb.model.CreateDomainRequest;
-import com.amazonaws.services.simpledb.model.PutAttributesRequest;
 import com.amazonaws.services.simpledb.model.ReplaceableAttribute;
+import com.amazonaws.services.simpledb.model.ReplaceableItem;
 
 
 public class Loader {
@@ -61,6 +64,9 @@ public class Loader {
 				String line;
 				String mVerb = file.getName();
 				mVerb = (mVerb.split("#"))[0];
+				List<ReplaceableItem> items = new ArrayList<ReplaceableItem>();
+				Set<String> seen = new HashSet<String>();
+				int itemCount = 0;
 				int i = 0;
 				try {
 					while((line = rdr.readLine()) != null) {
@@ -77,15 +83,28 @@ public class Loader {
 						}
 						sim.put("score", score);
 						try {
+							String key = getKey(mVerb, sVerb);
+							if(seen.contains(key)) {
+								continue;
+							}
 							List<ReplaceableAttribute> attrs = new ArrayList<ReplaceableAttribute>();
 							attrs.add(new ReplaceableAttribute("score", score, new Boolean(true)));
-				            db.putAttributes(new PutAttributesRequest("verbsimilarity", getKey(mVerb, sVerb), attrs));
-//							System.out.println(getKey(mVerb, sVerb) + "\t" + score);
+							items.add(new ReplaceableItem(key, attrs));
+							itemCount++;
+							seen.add(key);
+//				            db.putAttributes(new PutAttributesRequest("verbsimilarity", getKey(mVerb, sVerb), attrs));
+							System.out.println(getKey(mVerb, sVerb) + "\t" + score);
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
+						
+						if(itemCount == 25) {
+							itemCount = 0;
+							db.batchPutAttributes(new BatchPutAttributesRequest("verbsimilarity", items));
+							items = new ArrayList<ReplaceableItem>();
+							seen = new HashSet<String>();
+						}
 					}
-					
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
