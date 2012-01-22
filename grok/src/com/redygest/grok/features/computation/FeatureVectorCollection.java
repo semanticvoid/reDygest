@@ -10,7 +10,7 @@ import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 
-public class Features {
+public class FeatureVectorCollection {
 
 	public static final long GLOBAL_IDENTIFIER = -1;
 	private Map<Long, FeatureVector> featureVectors = new HashMap<Long, FeatureVector>();
