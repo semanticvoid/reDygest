@@ -11,8 +11,8 @@ import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
-import com.redygest.grok.repository.FeaturesRepository;
-import com.redygest.grok.repository.IFeaturesRepository;
+import com.redygest.grok.features.repository.FeaturesRepository;
+import com.redygest.grok.features.repository.IFeaturesRepository;
 
 /**
  * Fact Opinion Classifier

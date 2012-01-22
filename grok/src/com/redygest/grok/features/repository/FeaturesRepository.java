@@ -1,16 +1,16 @@
-package com.redygest.grok.repository;
+package com.redygest.grok.features.repository;
 
 import java.util.Map;
 import java.util.Set;
 
-import com.redygest.grok.features.computation.Features;
+import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.datatype.FeatureVector;
 
 public class FeaturesRepository implements IFeaturesRepository {
 	
 	private static FeaturesRepository repository = null;
 	
-	private Features features = new Features();
+	private FeatureVectorCollection features = new FeatureVectorCollection();
 	
 	public static synchronized FeaturesRepository getInstance() {
 		if(repository == null) {
@@ -24,7 +24,7 @@ public class FeaturesRepository implements IFeaturesRepository {
 	}
 	
 	@Override
-	public synchronized void addFeatures(Features features) {
+	public synchronized void addFeatures(FeatureVectorCollection features) {
 		this.features.addFeatures(features.getFeatures());
 	}
 

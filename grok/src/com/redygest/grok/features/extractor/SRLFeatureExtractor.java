@@ -9,15 +9,15 @@ import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.grok.features.computation.Features;
+import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.repository.FeaturesRepository;
+import com.redygest.grok.features.repository.IFeaturesRepository;
 import com.redygest.grok.knowledge.Event;
-import com.redygest.grok.repository.FeaturesRepository;
-import com.redygest.grok.repository.IFeaturesRepository;
 import com.redygest.grok.srl.Senna;
 import com.redygest.grok.srl.Verb;
 

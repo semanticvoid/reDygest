@@ -7,7 +7,7 @@ import java.util.List;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.util.CounterMap;
-import com.redygest.grok.features.computation.Features;
+import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
@@ -91,8 +91,8 @@ public class NGramSynonymExtractor extends AbstractFeatureExtractor{
 	
 	
 	@Override
-	public Features extract(List<Data> dataList) {
-		Features features = new Features();
+	public FeatureVectorCollection extract(List<Data> dataList) {
+		FeatureVectorCollection features = new FeatureVectorCollection();
 		TwitterPreprocessor preProcessor = new TwitterPreprocessor(); 
 		List<String> allNounPhrases = new ArrayList<String>();
 		for(Data t : dataList) {
@@ -105,11 +105,11 @@ public class NGramSynonymExtractor extends AbstractFeatureExtractor{
 		for(String label : clusters.keySet()){
 			List<String> synonyms = clusters.get(label);
 			for(int i=0; i <synonyms.size(); i++){
-				Variable var = fVector.getVariable(new DataVariable(synonyms.get(i), (long) Features.GLOBAL_IDENTIFIER));
+				Variable var = fVector.getVariable(new DataVariable(synonyms.get(i), (long) FeatureVectorCollection.GLOBAL_IDENTIFIER));
 				for(int j=0; j < synonyms.size(); j++){
 					if(i!=j){
 						if (var == null) {
-							var = new DataVariable(synonyms.get(i), (long) Features.GLOBAL_IDENTIFIER);
+							var = new DataVariable(synonyms.get(i), (long) FeatureVectorCollection.GLOBAL_IDENTIFIER);
 						}
 						
 						Attributes attrs = var.getVariableAttributes();

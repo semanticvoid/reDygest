@@ -7,7 +7,7 @@ import junit.framework.TestCase;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
-import com.redygest.grok.features.computation.Features;
+import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
@@ -19,7 +19,7 @@ public class NPCooccurenceFeatureExtractorTest extends TestCase {
 	private IFeatureExtractor extractor = FeatureExtractorFactory.getInstance()
 			.getFeatureExtractor(FeatureExtractorType.NPCOOCCURRENCE);
 
-	private Features f = null;
+	private FeatureVectorCollection f = null;
 	
 	protected void setUp() {
 		if(f == null) {
@@ -35,8 +35,8 @@ public class NPCooccurenceFeatureExtractorTest extends TestCase {
 	}
 
 	public void testCooccurenceCount() {
-		FeatureVector fv = f.getFeature(Features.GLOBAL_IDENTIFIER);
-		Variable var = fv.getVariable(new DataVariable("john", Features.GLOBAL_IDENTIFIER));
+		FeatureVector fv = f.getFeature(FeatureVectorCollection.GLOBAL_IDENTIFIER);
+		Variable var = fv.getVariable(new DataVariable("john", FeatureVectorCollection.GLOBAL_IDENTIFIER));
 		if(var != null) {
 			Attributes attrs = var.getVariableAttributes();
 			List<String> tags = attrs.getAttributeNames(AttributeType.NPCOOCCURENCE);

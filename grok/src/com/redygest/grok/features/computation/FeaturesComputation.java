@@ -13,7 +13,7 @@ import com.redygest.grok.features.extractor.FeatureExtractorFactory;
 import com.redygest.grok.features.extractor.FeatureExtractorType;
 import com.redygest.grok.features.extractor.IFeatureExtractor;
 import com.redygest.grok.features.extractor.POSFeatureExtractor;
-import com.redygest.grok.repository.FeaturesRepository;
+import com.redygest.grok.features.repository.FeaturesRepository;
 
 import edu.stanford.nlp.parser.lexparser.Extractor;
 
@@ -74,7 +74,7 @@ public class FeaturesComputation {
 		// System.out.println(fv.get(0).getVariables().size());
 		// System.out.println(vs.get(0).getVariableAttributes());
 
-		Features fc = new Features();
+		FeatureVectorCollection fc = new FeatureVectorCollection();
 		
 		try {
 			BufferedReader rdr = new BufferedReader(new FileReader(new File(
@@ -88,7 +88,7 @@ public class FeaturesComputation {
 						IFeatureExtractor ext = new POSFeatureExtractor();
 						List<Data> list = new ArrayList<Data>();
 						list.add(t);
-						Features fv = ext.extract(list);
+						FeatureVectorCollection fv = ext.extract(list);
 //						fc.addGlobalFeatures(fv., true);
 					}
 				} catch (Exception e) {

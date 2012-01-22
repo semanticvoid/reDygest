@@ -10,16 +10,16 @@ import junit.framework.TestCase;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
-import com.redygest.grok.features.computation.Features;
+import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.extractor.FeatureExtractorFactory;
 import com.redygest.grok.features.extractor.FeatureExtractorType;
 import com.redygest.grok.features.extractor.IFeatureExtractor;
+import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.knowledge.graph.IRepresentation;
 import com.redygest.grok.knowledge.graph.Node;
 import com.redygest.grok.knowledge.graph.NodeProperty;
 import com.redygest.grok.knowledge.graph.Relation;
 import com.redygest.grok.knowledge.graph.Node.NodeType;
-import com.redygest.grok.repository.FeaturesRepository;
 
 /**
  * Unit test cases for Curator
@@ -28,7 +28,7 @@ public class CuratorTest extends TestCase {
 
 	private IFeatureExtractor extractor = FeatureExtractorFactory.getInstance()
 			.getFeatureExtractor(FeatureExtractorType.SRL);
-	private Features f = null;
+	private FeatureVectorCollection f = null;
 
 	protected void setUp() {
 		if(f == null) {

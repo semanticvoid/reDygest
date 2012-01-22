@@ -8,10 +8,10 @@ import java.util.Map;
 import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.grok.features.computation.Features;
+import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.repository.FeaturesRepository;
-import com.redygest.grok.repository.IFeaturesRepository;
+import com.redygest.grok.features.repository.FeaturesRepository;
+import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 
@@ -22,8 +22,8 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 	}
 	
 	@Override
-	public Features extract(List<Data> dataList) {
-		Features features = new Features();
+	public FeatureVectorCollection extract(List<Data> dataList) {
+		FeatureVectorCollection features = new FeatureVectorCollection();
 		Map<Long, FeatureVector> featuresMap = new HashMap<Long, FeatureVector>();
 		for(int i = 0; i < dataList.size(); ++i) {
 			Data d = dataList.get(i);

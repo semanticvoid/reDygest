@@ -14,6 +14,7 @@ import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.computation.FeaturesComputation;
+import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.knowledge.Curator;
 import com.redygest.grok.knowledge.graph.IRepresentation;
 import com.redygest.grok.knowledge.query.IRetriever;
@@ -22,7 +23,6 @@ import com.redygest.grok.knowledge.query.datatype.Entity;
 import com.redygest.grok.knowledge.query.datatype.HeadWordEntity;
 import com.redygest.grok.knowledge.query.datatype.RelationEntity;
 import com.redygest.grok.knowledge.query.datatype.Result;
-import com.redygest.grok.repository.FeaturesRepository;
 
 /**
  * Grok Invoker

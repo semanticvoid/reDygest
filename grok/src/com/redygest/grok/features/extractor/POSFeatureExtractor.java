@@ -8,7 +8,7 @@ import java.util.Map;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.grok.features.computation.Features;
+import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
@@ -23,8 +23,8 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 	private static final LexicalizedParser parser = new LexicalizedParser(config.getPCFGPath());
 	
 	@Override
-	public Features extract(List<Data> dataList) {
-		Features features = new Features();
+	public FeatureVectorCollection extract(List<Data> dataList) {
+		FeatureVectorCollection features = new FeatureVectorCollection();
 
 		for (Data d : dataList) {
 			long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));

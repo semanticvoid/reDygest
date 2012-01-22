@@ -8,7 +8,7 @@ import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.grok.features.computation.Features;
+import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
@@ -46,8 +46,8 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 //	}
 	
 	@Override
-	public Features extract(List<Data> dataList) {
-		Features features = new Features();
+	public FeatureVectorCollection extract(List<Data> dataList) {
+		FeatureVectorCollection features = new FeatureVectorCollection();
 		for(Data t : dataList) {
 			features.addGlobalFeatures(extract(t), true);
 		}
@@ -83,7 +83,7 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 				// framework
 				// at the moment
 				Variable var = fVector.getVariable(new DataVariable(headargNP,
-						(long) Features.GLOBAL_IDENTIFIER));
+						(long) FeatureVectorCollection.GLOBAL_IDENTIFIER));
 
 				for (String arg : args) {
 					for (String np : verb.getArgumentToNPs().get(arg)) {
@@ -91,7 +91,7 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 						if (!np.equalsIgnoreCase(headargNP)) {
 							// biRelations.incrementCount(headargNP, np, 1.0);
 							if (var == null) {
-								var = new DataVariable(headargNP, (long) Features.GLOBAL_IDENTIFIER);
+								var = new DataVariable(headargNP, (long) FeatureVectorCollection.GLOBAL_IDENTIFIER);
 							}
 
 							Attributes attrs = var.getVariableAttributes();
