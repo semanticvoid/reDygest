@@ -14,15 +14,15 @@ import java.util.Set;
 import com.amazonaws.auth.PropertiesCredentials;
 import com.amazonaws.services.simpledb.AmazonSimpleDB;
 import com.amazonaws.services.simpledb.AmazonSimpleDBClient;
-import com.amazonaws.services.simpledb.model.BatchPutAttributesRequest;
 import com.amazonaws.services.simpledb.model.CreateDomainRequest;
+import com.amazonaws.services.simpledb.model.PutAttributesRequest;
 import com.amazonaws.services.simpledb.model.ReplaceableAttribute;
 import com.amazonaws.services.simpledb.model.ReplaceableItem;
 
 
 public class Loader {
 	
-	public static String getKey(String w1, String w2) {
+	public static String getKey(String w1, String w2, String delimiter) {
 		String[] words = new String[2];
 		words[0] = w1;
 		words[1] = w2;
@@ -32,7 +32,7 @@ public class Loader {
 		
 		StringBuffer key = new StringBuffer();
 		for(Object s : list) {
-			key.append((String) s + "#");
+			key.append((String) s + delimiter);
 		}
 		return key.toString().substring(0, key.toString().length()-1);
 	}
@@ -62,8 +62,10 @@ public class Loader {
 				}
 				
 				String line;
-				String mVerb = file.getName();
-				mVerb = (mVerb.split("#"))[0];
+				String mVerb;
+				String fileName = file.getName();
+				mVerb = (fileName.split("#"))[0];
+				String mVerbSysnet = (fileName.split("\\."))[0];
 				List<ReplaceableItem> items = new ArrayList<ReplaceableItem>();
 				Set<String> seen = new HashSet<String>();
 				int itemCount = 0;
@@ -74,37 +76,42 @@ public class Loader {
 							i++;
 							continue;
 						}
-						String[] tokens = line.split("[ #]+");
+						String[] tokens = line.split("[ ]+");
 						String score = tokens[0];
-						String sVerb = tokens[1];
+						String sVerbSysnet = tokens[1];
+						String sVerb = (tokens[1].split("#"))[0];
 						Map<String, String> sim = new HashMap<String, String>();
 						if(Double.valueOf(score) == 0) {
 							continue;
 						}
 						sim.put("score", score);
 						try {
-							String key = getKey(mVerb, sVerb);
+							String key = getKey(mVerb, sVerb, "#");
 							if(seen.contains(key)) {
 								continue;
 							}
 							List<ReplaceableAttribute> attrs = new ArrayList<ReplaceableAttribute>();
-							attrs.add(new ReplaceableAttribute("score", score, new Boolean(true)));
-							items.add(new ReplaceableItem(key, attrs));
+							attrs.add(new ReplaceableAttribute(getKey(mVerbSysnet, sVerbSysnet, "~"), score, new Boolean(true)));
+//							items.add(new ReplaceableItem(key, attrs));
 							itemCount++;
-							seen.add(key);
-//				            db.putAttributes(new PutAttributesRequest("verbsimilarity", getKey(mVerb, sVerb), attrs));
-							System.out.println(getKey(mVerb, sVerb) + "\t" + score);
+//							seen.add(key);
+				            db.putAttributes(new PutAttributesRequest("verbsimilarity", key, attrs));
+//							System.out.println(key + "\t" + score);
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
-						
-						if(itemCount == 25) {
-							itemCount = 0;
-							db.batchPutAttributes(new BatchPutAttributesRequest("verbsimilarity", items));
-							items = new ArrayList<ReplaceableItem>();
-							seen = new HashSet<String>();
-						}
+//						
+//						if(itemCount == 25) {
+//							itemCount = 0;
+//							db.batchPutAttributes(new BatchPutAttributesRequest("verbsimilarity", items));
+//							items = new ArrayList<ReplaceableItem>();
+//							seen = new HashSet<String>();
+//						}
 					}
+					
+//					if(itemCount > 0) {
+//						db.batchPutAttributes(new BatchPutAttributesRequest("verbsimilarity", items));
+//					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
