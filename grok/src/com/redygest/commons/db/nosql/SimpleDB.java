@@ -21,7 +21,7 @@ public class SimpleDB extends AmazonSimpleDBClient {
 		super(creds);
 	}
 	
-	public static SimpleDB getDB() {
+	public static synchronized SimpleDB getDB() {
 		if(instance == null) {
 			ConfigReader config = ConfigReader.getInstance();
 			try {
