@@ -1,11 +1,13 @@
 package com.redygest.commons.db.similarity;
 
+import java.util.Map;
+
 public class NounSimilaritySimpleDb implements ISimilarityDb {
 
 	@Override
-	public double getSimilarity(String w1, String w2) {
+	public Map<String, Double> getSimilarity(String w1, String w2) {
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 
 }

@@ -10,5 +10,6 @@ public class ConfigReaderTest extends TestCase {
 		assertNotNull(reader.getPCFGPath());
 		assertNotNull(reader.getSennaPath());
 		assertNotNull(reader.getSentiWordnetPath());
+		assertNotNull(reader.getAWSCredentialsPath());
 	}
 }
