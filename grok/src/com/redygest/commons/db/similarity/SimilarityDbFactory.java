@@ -13,7 +13,7 @@ public class SimilarityDbFactory {
 	private SimilarityDbFactory() {
 	}
 	
-	public static SimilarityDbFactory getInstance() {
+	public static synchronized SimilarityDbFactory getInstance() {
 		if(instance == null) {
 			instance = new SimilarityDbFactory();
 		}
