@@ -207,6 +207,7 @@ public class Loader {
 //				 System.out.println(key + "\t" + score);
 			} catch (Exception e) {
 				e.printStackTrace();
+				System.err.println("failed to upload...\t" + mVerb + "\t" + mVerbSysnet + "\t" + sVerb + "\t" + sVerbSysnet + "\t" + score);
 			}
 		}
 	}
