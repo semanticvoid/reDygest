@@ -146,7 +146,7 @@ public class Loader {
 					e.printStackTrace();
 				}
 
-				ThreadPoolExecutor pool = new ThreadPoolExecutor(50, 50, 10,
+				ThreadPoolExecutor pool = new ThreadPoolExecutor(10, 10, 10,
 						TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(
 								lines.size()));
 				for (final String l : lines) {
