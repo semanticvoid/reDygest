@@ -17,6 +17,7 @@ public class ConfigReader {
 	private static final String SENTINET_PATH_KEY= "sentinet";
 	private static final String PCFG_PATH_KEY= "pcfg";
 	private static final String EXTRACTOR_LIST_KEY= "extractors";
+	private static final String AWS_CRED_PATH_KEY= "awscred";
 
 	
 	private static ConfigReader instance = null;
@@ -49,6 +50,10 @@ public class ConfigReader {
 	
 	public String getPCFGPath() {
 		return ini.get(EXTRACTOR_SECTION, PCFG_PATH_KEY);
+	}
+	
+	public String getAWSCredentialsPath() {
+		return ini.get(EXTRACTOR_SECTION, AWS_CRED_PATH_KEY);
 	}
 	
 	public String[] getExtractorsList() {
