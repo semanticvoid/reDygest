@@ -7,7 +7,7 @@ public class FeatureExtractorFactory {
 	private FeatureExtractorFactory() {
 	}
 
-	public static FeatureExtractorFactory getInstance() {
+	public static synchronized FeatureExtractorFactory getInstance() {
 		if (instance == null) {
 			instance = new FeatureExtractorFactory();
 		}
