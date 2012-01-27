@@ -1,0 +1,402 @@
+Loading classifier from /Users/semanticvoid/Downloads/stanford-ner-2012-01-06/classifiers/conll.4class.distsim.crf.ser.gz ... done [2.9 sec].
+Entity: Bill Clinton
+Co-occurances [Clinton : 448.0, New York : 430.0, US : 429.0, U.S. : 233.0, -LRB-/OReuters : 184.0, NEW YORK : 163.0, NEW YORK -LRB-/OReuters : 109.0, -LRB-/OReuters Reuters : 107.0, CNN : 105.0, ABC News : 97.0, Herzen : 79.0, Nueva York : 63.0, Obama : 54.0, New York City : 54.0, Estados Unidos : 51.0, Haiti : 50.0, Bill : 46.0, Anderson Cooper : 42.0, Bill Clinton Rushed : 39.0, EUA : 39.0, New York Hospital : 36.0, Mantan : 35.0, RT : 29.0, Nova York : 26.0, USA : 25.0, ...]
+Entity: Clinton
+Co-occurances [Bill Clinton : 448.0, US : 277.0, Obama : 110.0, New York : 98.0, Google : 92.0, Twilight : 91.0, IQ Quiz : 91.0, Washington : 79.0, Haiti : 58.0, Undergoes Heart : 50.0, U.S. : 41.0, Herzen : 37.0, Good Spirits After Hospital Procedure : 31.0, NEW YORK : 31.0, RT : 30.0, Bill : 29.0, Blair : 28.0, Hillary Clinton : 23.0, Mideast : 22.0, Bush : 21.0, -LRB-/OPolitico : 21.0, CNN : 20.0, New York Presbyterian Hospital : 18.0, -/OLM : 18.0, Estados Unidos : 17.0, ...]
+Entity: New York
+Co-occurances [Bill Clinton : 430.0, Clinton : 98.0, Washington : 83.0, ABC News : 64.0, US : 46.0, Herzen : 38.0, Bill Clinton Rushed : 27.0, New York Hospital : 27.0, Bill Clinton Hospitalized : 21.0, Hillary Clinton : 20.0, Following Heart Surgery : 17.0, U.S. : 17.0, Rodham Clinton : 7.0, Amerikaanse : 6.0, Clinton Leaves Washington : 6.0, FOXNews : 5.0, CNN : 5.0, Celebrities : 4.0, ABC Ne : 4.0, RT : 4.0, Truth About Heart : 4.0, Bill Clinton Bill Clinton : 3.0, Bill CLinton has Heart Attack : 3.0, Hillary Clinton Leaves Washington : 3.0, Chest Pains Cause : 3.0, ...]
+Entity: US
+Co-occurances [Bill Clinton : 429.0, Clinton : 277.0, New York : 46.0, Washington : 15.0, -LRB-/ODPA : 14.0, Bill : 7.0, Nate Guenin : 7.0, NAFTA : 6.0, NEW YORK : 6.0, Sydney : 6.0, Clinton Bill Clinton : 5.0, Bill Clint : 5.0, Clinton Hospitalized : 4.0, Blacks & Latinos : 4.0, US Clinton : 4.0, U.S. : 4.0, Hospital : 3.0, Bill Clinton Taken : 3.0, Columbia : 3.0, RT : 3.0, Washington Clinton : 3.0, Haiti : 2.0, Yahoo News NEW YORK : 2.0, -LRB-/OGuardian : 2.0, AFP : 2.0, ...]
+Entity: U.S.
+Co-occurances [Bill Clinton : 233.0, Clinton : 41.0, -LRB-/OReuters Reuters : 35.0, New York : 17.0, NEW YORK -LRB-/OReuters : 14.0, Barack Obama : 7.0, Obama : 7.0, Hospital : 6.0, New Yo : 6.0, Ex-U.S. : 4.0, US : 4.0, Bill : 3.0, New York City : 2.0, CNN : 2.0, N.Y. : 2.0, NEW YORK : 2.0, CBC : 2.0, -LRB-/OXinhua : 2.0, Sarah Palin Hilary Clinton : 1.0, Reuters : 1.0, Haiti : 1.0, UN : 1.0, Gujarat Times : 1.0, New York C. : 1.0, -LRB-/OReuters : 1.0, ...]
+Entity: Obama
+Co-occurances [Clinton : 110.0, Bill Clinton : 54.0, WJC : 16.0, Barack Obama : 8.0, U.S. : 7.0, Haiti : 6.0, White House : 6.0, -LRB-/OUPI : 6.0, Kennedy : 6.0, G. : 5.0, Giggle Smile : 5.0, Bill : 5.0, Washington Post : 4.0, Broken Hearts : 3.0, Obama Grandpa : 3.0, Haiti MIAMI : 3.0, University of Michigan : 2.0, Hilary Clinton : 2.0, EMU : 2.0, Dubya : 2.0, Zibel : 2.0, Michigan : 2.0, George W Bush : 2.0, Bill ClintonPreside : 1.0, DD : 1.0, ...]
+Entity: Google
+Co-occurances [Clinton : 92.0, IQ Quiz : 91.0, Twilight : 91.0, Bill Clinton : 2.0, Google Buzz : 1.0, Barack Obama : 1.0, Software Engineer : 1.0]
+Entity: Twilight
+Co-occurances [IQ Quiz : 91.0, Google : 91.0, Clinton : 91.0]
+Entity: IQ Quiz
+Co-occurances [Clinton : 91.0, Twilight : 91.0, Google : 91.0]
+Entity: Washington
+Co-occurances [New York : 83.0, Clinton : 79.0, Hillary Clinton : 17.0, US : 15.0, Rodham Clinton : 12.0, Bill Clinton : 8.0, -LRB-/ODPA : 8.0, Bill Clint : 3.0, Bill : 3.0, Beazley : 2.0, -LRB-/OEFE : 2.0, Hillary Rodham Clinton : 2.0, de Estado : 2.0, Houston : 2.0, News : 2.0, N. : 2.0, USA : 2.0, USATODAY.com : 1.0, MATTHEW : 1.0, Hillary Clin : 1.0, La secretaria de Estado : 1.0, News Former : 1.0, Minneapolis Star Tribune : 1.0, husband/O|/OWASHINGTON : 1.0, Washington Post : 1.0, ...]
+Entity: NEW YORK
+Co-occurances [Bill Clinton : 163.0, Clinton : 31.0, Amerikaanse : 14.0, -LRB-/OUPI : 6.0, US : 6.0, Reuters : 5.0, -LRB-/OReuters Clinto : 3.0, Mantan Serikat Bill Clinton : 3.0, Pascaoperasi Jantung Clinton Tinggalkan : 3.0, -LRB-/OXinhua : 2.0, U.S. : 2.0, Bill Clinton Hospital Release Expected Day : 2.0, Trentonian : 1.0, Bill Clin : 1.0, -LRB-/OReuters Clinton : 1.0, -LRB-/OConroe News : 1.0, De Amerikaanse : 1.0, Forme : 1.0, News : 1.0, Ex-U.S. : 1.0, Fonte : 1.0, Charleston Gazette : 1.0, DailyAmerican : 1.0, Herzoperation : 1.0, Undergoes Heart : 1.0, ...]
+Entity: Hillary Clinton
+Co-occurances [Clinton : 23.0, New York Presbyterian Hospital : 20.0, New York : 20.0, Washington : 17.0, Nueva York : 14.0, Bill : 13.0, Hospital : 11.0, Bill Clinton : 10.0, Arabia Saudita : 9.0, Good News : 7.0, Michelle Obama Sarah Palin Nancy Pelosy : 4.0, Rodham Clinton : 4.0, WASHINGTON : 4.0, As Super Bowl : 4.0, Chelsea : 4.0, Mideast : 4.0, La secretaria de Estado : 3.0, Menteri Luar Negeri Amerika : 3.0, Tunda Keberangkatan : 3.0, Qatar : 2.0, EU : 2.0, Golfo : 2.0, Chelsea Clinton : 2.0, CNN : 2.0, Golfe : 2.0, ...]
+Entity: Haiti
+Co-occurances [Clinton : 58.0, Bill Clinton : 50.0, Foundation : 8.0, Obama : 6.0, Douglas Band : 5.0, Sydney Morning : 4.0, St. Cloud : 4.0, U.N. : 4.0, Bill Clinton Undergoes Procedure for Chest Pains : 4.0, CNN : 4.0, Module Module : 3.0, Justin Bieber : 3.0, TT : 2.0, Dr. Sanjay Gupta : 2.0, US : 2.0, EUA : 2.0, UN : 2.0, WTF : 2.0, Sanjay Gupta : 2.0, -LRB-/OUPI : 2.0, America : 2.0, RT : 2.0, Good Will Ambassador : 1.0, W. Bush : 1.0, Lula : 1.0, ...]
+Entity: CNN
+Co-occurances [Bill Clinton : 105.0, Anderson Cooper : 20.0, Clinton : 20.0, Nueva York : 10.0, Terry McAuliffe : 6.0, Larry King : 5.0, New York : 5.0, Haiti : 4.0, U.S. : 2.0, Dr. Sanjay Gupta : 2.0, Bill Clinton Hospitalized : 2.0, John King : 2.0, Mideast : 2.0, Hillary Clinton : 2.0, McAuliffe : 2.0, Chelsea Clinton : 2.0, Qatar : 1.0, intervention/O./OClinton : 1.0, WH : 1.0, Pa : 1.0, NelsonBocaranda : 1.0, Iran : 1.0, McAuliffe Clinton : 1.0, Saudi Arabia : 1.0, David Gergen : 1.0, ...]
+Entity: ABC News
+Co-occurances [Bill Clinton : 97.0, New York : 64.0, New York City : 10.0, Clinton : 10.0, Bill Clinton Hospitalized : 5.0, Columbia Presbyterian Hospital : 4.0, Bill Clinton Rushed : 2.0, New York Hospital : 2.0, CNN Breaking : 2.0, #Bill/O_/OClinton : 2.0, Leave Hospital : 1.0, ABC News Reporting : 1.0, Manhattan : 1.0, Released From Hospital : 1.0, GuardianBill : 1.0, WABC Channel : 1.0, -LRB-/OChelsea : 1.0, Undergoes Heart Procedure : 1.0, Bill Clinton Transported : 1.0, Hospital : 1.0, ABC : 1.0, Diane Sawye : 1.0, `/OBill Clinton : 1.0, Hospital After Heart Surgery : 1.0, -LRB-/ONECN ABC News : 1.0, ...]
+Entity: Bill Clinton Rushed
+Co-occurances [New York Hospital : 78.0, Bill Clinton : 39.0, New York : 27.0, Hospital : 12.0, DouglasCastle Former : 7.0, NYC Hospital : 6.0, N.Y. Hospital : 5.0, News : 2.0, New Yo : 2.0, Manhattan Hospital : 2.0, ABC News : 2.0, Celebrity News : 2.0, The Hospital : 2.0, Heart Complications : 2.0, To Hospital : 1.0, ABC NEWS : 1.0, RT : 1.0, DIGG : 1.0, Bill : 1.0, NY Hospital : 1.0, GN : 1.0, Celebrity : 1.0, N.Y. : 1.0, Hollywood : 1.0, Digg : 1.0, ...]
+Entity: -LRB-/OReuters
+Co-occurances [Bill Clinton : 184.0, Clinton : 2.0, NOVA : 2.0, Estados U. : 1.0, Mark : 1.0, Estados Unidos Bil : 1.0, NUEVA : 1.0, U.S. : 1.0, Reuters : 1.0, EUA : 1.0, Bil : 1.0, Estados : 1.0]
+Entity: Herzen
+Co-occurances [Bill Clinton : 79.0, New York : 38.0, Clinton : 37.0, USA : 7.0, Notfall : 3.0, Wieder : 3.0, Vereinigte Staaten : 3.0, ARD : 2.0, Notoperation New York : 2.0, Bill : 2.0, Spiegel : 2.0, Neue : 1.0, Blick : 1.0, Herzprob : 1.0, SPIEGEL_alles USA : 1.0, Nachrichtzeiger : 1.0, Sorge : 1.0, -LRB-/OWissenschaft : 1.0, Bill C. : 1.0, Notoperation : 1.0, Welt Online : 1.0, Clinton Bangen : 1.0, Politik : 1.0, NZZ Online : 1.0, FAZ Vereinigte : 1.0]
+Entity: Bill
+Co-occurances [Bill Clinton : 46.0, Clinton : 29.0, Hillary Clinton : 13.0, Nueva York : 9.0, US : 7.0, Bieber : 5.0, Hmm/O.../OJustin Bieber : 5.0, Obama : 5.0, Relax : 4.0, NEW YORK -LRB-/OReuters : 3.0, Washington : 3.0, U.S. : 3.0, -LRB-/OWashington Post : 2.0, -LRB-/ODPA : 2.0, New York : 2.0, USA : 2.0, -LRB-/OReuters Reuters : 2.0, Herzen : 2.0, Gente : 1.0, Best : 1.0, MSNBC : 1.0, Hillary R. : 1.0, Undergoes Heart Procedure : 1.0, Riley : 1.0, Anderson : 1.0, ...]
+Entity: New York Hospital
+Co-occurances [Bill Clinton Rushed : 78.0, Bill Clinton : 36.0, New York : 27.0, DouglasCastle Former : 7.0, Bill Clinton Hospitalized : 2.0, ABC News : 2.0, Clinton : 1.0, Hillary Clinton : 1.0, Digg : 1.0, EMILY FRIEDMAN : 1.0, US : 1.0, New Yo : 1.0, KEYC : 1.0, DIGG : 1.0, News FOXNews.com : 1.0, Husband Given Heart History : 1.0, ABC NEWS : 1.0]
+Entity: New York City
+Co-occurances [Bill Clinton : 54.0, Bill Clinton Hospitalized : 29.0, Clinton : 10.0, ABC News : 10.0, Columbia Presbyterian Hospital : 7.0, Heart : 3.0, CBS News : 2.0, Reportedly Hospitalized : 2.0, Source Says : 2.0, CNN Breaking : 2.0, FOXNews.com : 2.0, US : 2.0, Clinton Hospitalized : 2.0, NBC News : 2.0, RT : 2.0, U.S. : 2.0, FOXNews : 1.0, Yor : 1.0, Presbyterian : 1.0, FOX News : 1.0, CBS News Android : 1.0, Clinton Bill Clinton : 1.0, Green : 1.0, Undergoes Heart Procedure : 1.0, ABC : 1.0, ...]
+Entity: NEW YORK -LRB-/OReuters
+Co-occurances [Bill Clinton : 109.0, U.S. : 14.0, News : 4.0, Megite Bill Clinton : 4.0, Bill : 3.0, India : 2.0, US : 2.0, Ex-U.S. : 1.0, UK : 1.0, Reuters World News : 1.0, Reuters Top News : 1.0, U.S : 1.0, U.S News : 1.0, World News : 1.0, Indian News : 1.0, Nouvel Observateur : 1.0, India Top News Ex-U.S. : 1.0, Bill Clint : 1.0]
+Entity: -LRB-/OReuters Reuters
+Co-occurances [Bill Clinton : 107.0, U.S. : 35.0, Ex-U.S. : 2.0, Bill : 2.0, Bill Cli : 1.0, Bi : 1.0, Gujarat Times : 1.0]
+Entity: Bill Clinton Hospitalized
+Co-occurances [New York City : 29.0, New York : 21.0, Undergoes Heart Surgery : 14.0, Bill Clinton : 13.0, Columbia Presbyterian Hospital : 7.0, ABC News : 5.0, Receives Heart Stents : 4.0, NYC With Chest Pains : 3.0, Heart : 3.0, New York City Area : 3.0, Chest Pains Results in Stents : 3.0, Clinton : 3.0, New York Hospital : 2.0, Hollywood : 2.0, CNN : 2.0, CBS News : 2.0, Media Newswire : 2.0, New York Huntsville : 1.0, Gets Stents : 1.0, Receives Two Stents : 1.0, `/OGood Spirits : 1.0, Good Clinton : 1.0, Bill Clint : 1.0, Readit India News : 1.0, Newsweek.com : 1.0, ...]
+Entity: Nueva York
+Co-occurances [Bill Clinton : 63.0, Hillary Clinton : 14.0, CNN : 10.0, Bill : 9.0, Clinton : 5.0, Spain : 3.0, Estados Unidos : 3.0, coronaria/O./OHillary Clinton : 2.0, La secretaria de Estado : 2.0, Mexico : 2.0, GN Espa : 2.0, ABC : 1.0, Ex : 1.0, GN EEUU : 1.0, Hospitalizan : 1.0, EU : 1.0, Pa : 1.0, NelsonBocaranda : 1.0, Estados Unidos LA PRENSA : 1.0, EE Clinton : 1.0, La Vanguardia : 1.0, La Tercera : 1.0, Internacional : 1.0, Mira : 1.0, Parece : 1.0, ...]
+Entity: Blair
+Co-occurances [Mideast : 70.0, Clinton : 28.0, Medio Oriente : 7.0, Tony Blair : 5.0, WASHINGTON Middle East : 3.0, Work More : 2.0, Washington Post : 2.0, Mideast Middle East : 2.0, Univisi : 2.0, Mitchell : 2.0, Mexico : 1.0, Bmore : 1.0, Palestinians : 1.0, Mideast Peace : 1.0, Israel : 1.0, Rodham Clinton : 1.0, Reuters : 1.0, Mideast WASHINGTON : 1.0, Tony Bl : 1.0, -LRB-/OReuters East : 1.0, Intensify Work : 1.0]
+Entity: Mideast
+Co-occurances [Blair : 70.0, Clinton : 22.0, Hillary Clinton : 4.0, Play Bigger Role : 3.0, Clinton Says Blair : 3.0, Bill Clinton : 3.0, Deans News Post Blair : 2.0, Washington Post : 2.0, CNN : 2.0, Clinton Blair : 2.0, Palestinians : 1.0, Tony Blair : 1.0, Rodham Clinton : 1.0, Reuters : 1.0, Sec : 1.0, Middle East : 1.0, Clinton Yahoo : 1.0, Mr. Clinton : 1.0, Israel : 1.0, New York : 1.0]
+Entity: RT
+Co-occurances [Clinton : 30.0, Bill Clinton : 29.0, Mr Bill Clinton : 7.0, New York : 4.0, Larry King Live : 3.0, US : 3.0, Haiti : 2.0, New York City : 2.0, Edwards : 2.0, Mr. Clinton : 1.0, Hope Clinton : 1.0, Bill Cli : 1.0, Breitbart Bill Clinton : 1.0, Larry King : 1.0, Clinton artery/O.../OSaid : 1.0, Bush : 1.0, -LRB-/OBill : 1.0, Stupidest Thing Said : 1.0, Bill Clinton Rushed : 1.0, Jesus Clinton : 1.0, NYC : 1.0, Wats Clinton : 1.0, Douglas Band : 1.0, Hospital : 1.0, DAMN Clinton Hospitalized : 1.0, ...]
+Entity: Hospital
+Co-occurances [Bill Clinton : 24.0, Bill Clinton Rushed : 12.0, Hillary Clinton : 11.0, Bill Clinton Taken : 11.0, Good News : 7.0, U.S. : 6.0, Dr. Keith Churchwell : 5.0, Hillary Clinton Arrives : 4.0, Heart Problems : 3.0, Rodham Clinton : 3.0, US : 3.0, Heart Problems CBS News : 3.0, Clinton : 2.0, Celebrity News : 2.0, Vemma : 2.0, Mama : 2.0, News : 2.0, Clinton Rushed : 1.0, News Videos : 1.0, Bill Clinton Transported : 1.0, Chelsea Clinton : 1.0, GN : 1.0, Hilary Makes : 1.0, BREAKING NEWS : 1.0, State Hillary Rodham : 1.0, ...]
+Entity: Estados Unidos
+Co-occurances [Bill Clinton : 51.0, Clinton : 17.0, Nueva York : 3.0, Hospitalizan : 2.0, Nova York : 2.0, Bill C. : 2.0, WASHINGTON : 1.0, EUA : 1.0, EFE : 1.0, Hospital Presbiteriano de Manhattan : 1.0, BT : 1.0]
+Entity: Undergoes Heart
+Co-occurances [Clinton : 50.0, FOXNews : 7.0, FOXNews Telegraph : 6.0, Bill Clinton : 3.0, Clinton Undergoe : 3.0, Clint : 2.0, NEW YORK : 1.0, Sydney Morning : 1.0, Bill Clinton Hospitalized : 1.0, GN : 1.0]
+Entity: USA
+Co-occurances [Bill Clinton : 25.0, Clinton : 9.0, Herzen : 7.0, Herzen Bill Clinton : 3.0, Herzproblemen : 3.0, Marxist Clinton : 2.0, Canada : 2.0, Washington : 2.0, -LRB-/ODPA : 2.0, US : 2.0, Clinton Bangen : 2.0, American : 2.0, Bill : 2.0, NAFTA : 1.0, Fuck Bull Clinton and Fuck : 1.0, News : 1.0, NK : 1.0, News Former : 1.0, Bangen : 1.0, Kra : 1.0, Herzoperation : 1.0, Onet Bill Clinton : 1.0, Drica Moraes Fabiana Karla : 1.0, News Clinton : 1.0]
+Entity: Anderson Cooper
+Co-occurances [Bill Clinton : 42.0, CNN : 20.0, Clinton : 2.0, David Gergen : 2.0, Blog Archive : 2.0, Larry King : 1.0]
+Entity: EUA
+Co-occurances [Bill Clinton : 39.0, Nova York : 14.0, Haiti : 2.0, NOVA : 1.0, -LRB-/OReuters : 1.0, ABC : 1.0, C.F. : 1.0, Clinton : 1.0, Nova Iorque : 1.0, GN Brasil : 1.0, Estados U. : 1.0, Estados Unidos : 1.0, GN : 1.0]
+Entity: Mantan
+Co-occurances [Bill Clinton : 35.0, Amerika Serikat Bill Clinton Kamis : 8.0, Usai : 3.0, Amerika Serikat Bill Clinton : 2.0, ANTARA : 2.0, Kamis : 2.0, New York : 2.0, Bill : 1.0, Clinton : 1.0, KLIK : 1.0, World News : 1.0, Bill Clinton Dilarikan : 1.0, News : 1.0, Bill Clinton Jalani Operasi Jantung Mendadak : 1.0, Bill Clinton Terkena : 1.0, BBC : 1.0, Amerika Bill Clinton : 1.0]
+Entity: Nova York
+Co-occurances [Bill Clinton : 26.0, EUA : 14.0, Clinton : 6.0, Bill Cli : 2.0, Estados Unidos : 2.0, Columbia Presbyterian Hospital : 2.0, GN Brasil : 1.0, Bill Pinton : 1.0, RT : 1.0, ABC : 1.0, GN : 1.0, DC : 1.0]
+Entity: News
+Co-occurances [Bill Clinton : 24.0, NEW YORK -LRB-/OReuters : 4.0, Clinton : 3.0, Bill C. : 2.0, Washington : 2.0, Hospital : 2.0, Bill Clinton Rushed : 2.0, Celebrity News : 2.0, India : 2.0, US : 2.0, U.S : 1.0, Hillary Clinton : 1.0, MATTHEW : 1.0, WASHINGTON : 1.0, Mantan : 1.0, -LRB-/ODPA : 1.0, NEW YORK : 1.0, USA : 1.0, Clinton Said : 1.0, UK : 1.0, Lowery : 1.0, New York : 1.0, Bill Cli : 1.0]
+Entity: Amerikaanse
+Co-occurances [Bill Clinton : 25.0, NEW YORK : 14.0, Clinton : 7.0, New York : 6.0, Bill Clin : 1.0, Slechte : 1.0]
+Entity: Rodham Clinton
+Co-occurances [Washington : 12.0, Clinton : 8.0, New York : 7.0, Hillary Clinton : 4.0, Hospital : 3.0, Bill Clinton : 2.0, Bill : 1.0, Blair : 1.0, San Francisco : 1.0, ABC New : 1.0, Seattle Pos : 1.0, Good Spirits : 1.0, LSU The Reveille : 1.0, south/O.../ODC : 1.0, Leave Hospital After Heart Procedure : 1.0, Europe : 1.0, Loop : 1.0, BusinessWeek : 1.0, Mideast : 1.0, Qatar Saudi Arabia : 1.0, U.S. : 1.0, European : 1.0]
+Entity: WASHINGTON
+Co-occurances [Bill Clinton : 15.0, Clinton : 11.0, Hillary Clinton : 4.0, Menteri Luar Negeri Amerika : 3.0, Tunda Keberangkatan : 3.0, US : 2.0, Hillary Clin : 2.0, Setiausaha Negara Amerika Syarikat : 2.0, New York : 2.0, -LRB-/OMarine Corps Times : 1.0, Estados Unidos : 1.0, MATTHEW : 1.0, Panorama -LRB-/OANSA : 1.0, News : 1.0, Bill Clinto : 1.0, New York Fonte : 1.0]
+Entity: New York Presbyterian Hospital
+Co-occurances [Hillary Clinton : 20.0, Clinton : 18.0, Bill Clinton : 12.0]
+Entity: FOXNews
+Co-occurances [Clinton : 16.0, Undergoes Heart : 7.0, New York : 5.0, Clinton Leaves Washington : 4.0, Clinton Most Likely Recognized Chest Pain : 3.0, Leave Hospital After Heart Procedure : 2.0, Sydney Morning : 2.0, Sydney Morning HeraldClinton : 1.0, RT : 1.0, New York City : 1.0, Reportedly Hospitalized : 1.0, Undergoes Heart Procedure After Chest Pains : 1.0, GN : 1.0, Redding News Clinton Expected : 1.0, Undergoes Heart Surgery After Chest Pains : 1.0, Hillary Clinton Leaves Washington : 1.0]
+Entity: Alexander McQueen
+Co-occurances [death/O,/OBill Clinton : 21.0, Bill Clinton : 13.0, Clinton : 2.0, Mr. Clinton : 1.0, Giambrone : 1.0, Ashley Cole : 1.0, Calder : 1.0, death/O,/OClinton : 1.0, Joe Jonas : 1.0, TTC : 1.0, Charlie Wilson : 1.0, Dallas : 1.0, Alec Baldwin : 1.0]
+Entity: Best
+Co-occurances [Bill Clinton : 21.0, Clinton : 14.0, Bubba : 2.0, Justin Bieber : 1.0, Bill : 1.0, Fmr : 1.0, Haiti : 1.0, Malkin Bill Clinton : 1.0, Americans : 1.0]
+Entity: DC
+Co-occurances [Clinton : 9.0, Arabia : 6.0, Sec : 6.0, State Dept : 6.0, Justin Fishel : 5.0, Manhattan : 3.0, Bill Clinton : 3.0, Obama : 1.0, DNC : 1.0, Nova York : 1.0]
+Entity: Sec
+Co-occurances [Clinton : 9.0, State Dept : 6.0, Arabia : 6.0, DC : 6.0, Justin Fishel : 5.0, Clinton Clinton : 4.0, Hillary Clinton : 1.0, New York : 1.0, Mideast : 1.0, Weird : 1.0, Oval Office : 1.0]
+Entity: -LRB-/ODPA
+Co-occurances [US : 14.0, Washington : 8.0, Clinton : 6.0, Bill Clint : 3.0, Bill Clinton : 3.0, Bill : 2.0, USA : 2.0, News : 1.0, News Network : 1.0, News Former : 1.0]
+Entity: Bill Clinton Taken
+Co-occurances [Hospital : 11.0, Hospital With Chest Pains White House Spokesman Says : 11.0, Dr. Keith Churchwell : 5.0, US : 3.0, Heart Problems CBS News : 3.0, Vemma : 2.0, Heart Problems : 2.0, Hollywood Grind : 1.0, Hospital for Heart Problems : 1.0, Gets Two Heart Stents Gateway Pundit : 1.0, U.S. : 1.0]
+Entity: Barack Obama
+Co-occurances [Bill Clinton : 14.0, Obama : 8.0, U.S. : 7.0, Clinton : 5.0, recovery/O|/OU.S. : 1.0, Obama News Obama : 1.0, New York : 1.0, Great Society : 1.0, Peace Corps : 1.0, Google : 1.0]
+Entity: Columbia Presbyterian Hospital
+Co-occurances [Bill Clinton : 10.0, New York City : 7.0, Bill Clinton Hospitalized : 7.0, ABC News : 4.0, Heart : 3.0, New York : 2.0, Nova York : 2.0, Mr Clinton : 1.0, Mahnattan US : 1.0, US : 1.0, Manhattan : 1.0]
+Entity: Following Heart Surgery
+Co-occurances [Bill Clinton : 20.0, New York : 17.0, Politics Daily : 1.0]
+Entity: -LRB-/OUPI
+Co-occurances [Bill Clinton : 18.0, NEW YORK : 6.0, Obama : 6.0, Haiti MIAMI : 3.0, Haiti : 2.0, MIAMI : 1.0, Haiti plan/O|/OMIAMI : 1.0]
+Entity: Geweld
+Co-occurances [Rouw : 7.0, Sterft : 7.0, Clinton : 7.0, Nationale : 6.0, Baexem : 6.0, Baexem _ Nationale : 1.0]
+Entity: Bush
+Co-occurances [Clinton : 21.0, Bill Clinton : 2.0, FCH/O,/OVFQ/O,/OEZPL : 1.0, Shiiido : 1.0, Cli : 1.0, RT : 1.0, Haiti : 1.0, Arbusto : 1.0, Obama : 1.0, cerebro/O.../O\/Ou00bfcu/O\/Ou00e1ndo/O?/O-RRB-/OEstan : 1.0, Undergoes Heart Procedure : 1.0, US Economy : 1.0, Cheney : 1.0]
+Entity: Sterft
+Co-occurances [Rouw : 7.0, Geweld : 7.0, Clinton : 7.0, Baexem : 6.0, Nationale : 6.0, Baexem _ Nationale : 1.0]
+Entity: Good Spirits After Hospital Procedure
+Co-occurances [Clinton : 31.0, Perez Hilton : 1.0, PerezHilton.com : 1.0, Gossip : 1.0]
+Entity: Rouw
+Co-occurances [Clinton : 7.0, Sterft : 7.0, Geweld : 7.0, Baexem : 6.0, Nationale : 6.0, Baexem _ Nationale : 1.0]
+Entity: Chelsea
+Co-occurances [Clinton : 12.0, Hillary Clinton : 4.0, Bill Clinton : 3.0, Pres Bush & Barbara : 2.0, Hilary : 2.0, POTUS : 2.0, Terry McCauliffe : 1.0, Frater Bill Clinton : 1.0, Haiti : 1.0, Pres Bush & Laura : 1.0, Columbia Presbyteria : 1.0, Molly Nichelson : 1.0, Hillary : 1.0, New York-Presbyterian Hospital : 1.0, New York : 1.0]
+Entity: Columbia
+Co-occurances [Bill Clinton : 11.0, Clinton : 10.0, US : 3.0, Patakon : 2.0, Wash Heights : 2.0, Drs : 1.0, Milstein Hospital : 1.0, Hospitalized Chest Pains : 1.0, Bill Clinton Gets : 1.0, Former Heart Attack : 1.0]
+Entity: America
+Co-occurances [Clinton : 15.0, Bill Clinton : 5.0, Haiti : 2.0, TT : 2.0, Bill Clinton Signs Repeal of Glass-Steagall : 2.0, Justin Bieber : 2.0, :/OBill Clinton : 1.0, Pelosi : 1.0, Obama : 1.0, American : 1.0, Truth About Heart : 1.0]
+Entity: Fmr
+Co-occurances [Clinton : 16.0, Bill Clinton : 6.0, George W. : 3.0, George : 2.0, H.W. Bush Both Wish : 2.0, Best : 1.0, Savannah Guthrie : 1.0, Bush Both Wish : 1.0, NBC : 1.0]
+Entity: Larry King
+Co-occurances [Clinton : 11.0, Bill Clinton : 7.0, CNN : 5.0, Mr. Bill Clinton : 2.0, American : 1.0, Lary King : 1.0, Anderson Cooper : 1.0, RT : 1.0, David Gergen : 1.0, Steph : 1.0, Larry King Live : 1.0]
+Entity: Alec Baldwin
+Co-occurances [Bill Clinton : 16.0, Clinton : 4.0, Yeerks : 2.0, Sounds : 2.0, Dems : 1.0, Charlie Wilson : 1.0, Jeeze : 1.0, Alexander McQueen : 1.0, Dick Cheney : 1.0, Sarah Palin : 1.0, Yankees : 1.0]
+Entity: Arabia
+Co-occurances [Clinton : 7.0, State Dept : 6.0, Sec : 6.0, DC : 6.0, Justin Fishel : 5.0, US : 1.0]
+Entity: Washington Post
+Co-occurances [Clinton : 12.0, Obama : 4.0, Bill Clinton : 3.0, Blair : 2.0, Mideast : 2.0, Hillary Clinton : 1.0, MARILYNN MARCHIONE : 1.0, Washington : 1.0, New York : 1.0, United : 1.0, LaVar Arrington : 1.0, Clinton Portis : 1.0]
+Entity: Baexem
+Co-occurances [Rouw : 6.0, Geweld : 6.0, Nationale : 6.0, Sterft : 6.0, Clinton : 6.0]
+Entity: Nationale
+Co-occurances [Rouw : 6.0, Geweld : 6.0, Sterft : 6.0, Clinton : 6.0, Baexem : 6.0]
+Entity: Americans
+Co-occurances [Bill Clinton : 9.0, Clinton : 7.0, Reagan : 6.0, Aurora Baycare : 1.0, American : 1.0, Best : 1.0, Bill : 1.0, Haiti : 1.0, Pres./OClinton : 1.0, Hillary Clinton : 1.0, Middle East : 1.0]
+Entity: State Dept
+Co-occurances [Clinton : 6.0, Arabia : 6.0, Sec : 6.0, DC : 6.0, Justin Fishel : 5.0]
+Entity: Clinton Hospitalized
+Co-occurances [US : 4.0, Paltalk News : 4.0, Rundown : 2.0, Source Says : 2.0, New York City : 2.0, Undergoes Heart Procedure : 2.0, GA : 1.0, -LRB-/OAmericas : 1.0, Cincinnati : 1.0, Gates of Vienna News : 1.0, Clinton : 1.0, Help Athens : 1.0, FOXNews.com : 1.0, Aide Says : 1.0, Readit India News Fmr : 1.0, Greece : 1.0, Best Celebrity : 1.0, New York : 1.0, Press Conference : 1.0]
+Entity: Reuters
+Co-occurances [Bill Clinton : 12.0, NEW YORK : 5.0, -LRB-/OReuters Clinto : 3.0, Deans News Post : 1.0, Blair : 1.0, Estados : 1.0, Mideast : 1.0, NUEVA : 1.0, U.S. : 1.0, Latina NUEVA YORK : 1.0, Hillary C. : 1.0, -LRB-/OReuters : 1.0]
+Entity: Manhattan
+Co-occurances [Bill Clinton : 18.0, DC : 3.0, New York : 1.0, US : 1.0, ABC News : 1.0, Undergoes Heart Procedure : 1.0, New York City : 1.0, Clinton : 1.0, Columbia Presbyterian Hospital : 1.0]
+Entity: United States
+Co-occurances [Bill Clinton : 18.0, Clinton : 5.0, Newt : 1.0, New York City : 1.0, American : 1.0, Coro : 1.0, Laden : 1.0]
+Entity: Yahoo News
+Co-occurances [Bill Clinton : 14.0, Clinton : 10.0, Bill Clinto : 3.0, US : 1.0]
+Entity: Hillary
+Co-occurances [Clinton : 7.0, Bill Clinton : 5.0, Chegou : 4.0, N. : 4.0, TeamObama : 3.0, Nice : 1.0, Chelsea : 1.0, V-day : 1.0, US : 1.0]
+Entity: Bill Clint
+Co-occurances [US : 5.0, Bill Clinton : 5.0, Clinton : 3.0, -LRB-/ODPA : 3.0, Washington : 3.0, U.S. : 1.0, GuardianBill Clinton : 1.0, Megite Bill Clinton : 1.0, -LRB-/OWashington Post : 1.0, Krify Flash News : 1.0, Bill Clinton Hospitalized : 1.0, ABD Ba : 1.0, NEW YORK -LRB-/OReuters : 1.0]
+Entity: Kennedy
+Co-occurances [Clinton : 12.0, Obama : 6.0, Broken Hearts : 6.0, Bill Clinton : 1.0, Dems : 1.0]
+Entity: Ex-U.S.
+Co-occurances [Bill Clinton : 10.0, Clinton : 8.0, U.S. : 4.0, -LRB-/OReuters Reuters : 2.0, NEW YORK -LRB-/OReuters : 1.0, NEW YORK : 1.0]
+Entity: White House
+Co-occurances [Clinton : 11.0, Bill Clinton : 6.0, Obama : 6.0, US : 1.0, Our First Lady Hillary : 1.0, Hillary Rodham Clinton : 1.0]
+Entity: Undergoes Heart Procedure
+Co-occurances [Clinton : 12.0, Rundown : 2.0, Bill Clinton : 2.0, Clinton Hospitalized : 2.0, ABC News : 1.0, Bush : 1.0, White : 1.0, Manhattan : 1.0, News Network : 1.0, New York City : 1.0, Bill : 1.0]
+Entity: WJC
+Co-occurances [Obama : 16.0, Clinton : 8.0, W. Bush : 1.0]
+Entity: Herzproblemen
+Co-occurances [Bill Clinton : 9.0, Herzen Bill Clinton : 4.0, USA : 3.0, New York : 2.0, Krankenhaus : 2.0, Clinton : 1.0, Problemi : 1.0, Klinik : 1.0, Kra : 1.0, Spiegel USA : 1.0]
+Entity: NAFTA
+Co-occurances [Bill Clinton : 9.0, US : 6.0, Blacks & Latinos : 4.0, EEUU : 3.0, Blacks & Brown : 2.0, USA : 1.0]
+Entity: Justin Fishel
+Co-occurances [Clinton : 5.0, Sec : 5.0, State Dept : 5.0, DC : 5.0, Arabia : 5.0]
+Entity: death/O,/OBill Clinton
+Co-occurances [Alexander McQueen : 21.0, news/O:/OAlexander McQueen : 2.0, Dallas : 1.0]
+Entity: George
+Co-occurances [Clinton : 5.0, H.W. Bush Both Wish : 5.0, George W. : 5.0, Bill Clinton : 3.0, Fmr : 2.0, Pat Robertson : 1.0, Haiti : 1.0, Karl Rove : 1.0, Rush : 1.0]
+Entity: GuardianBill Clinton
+Co-occurances [Bill Clinton : 12.0, Los Angeles : 9.0, Bill Clin : 1.0, Bill C. : 1.0, Bill Clint : 1.0]
+Entity: McQueen
+Co-occurances [Clinton : 8.0, Mandela : 3.0, Bill Clinton : 2.0, Iran Greece : 2.0, Baldwin : 1.0, Garrett Clinton Mandela : 1.0, Dude : 1.0, TTs : 1.0, Bieber : 1.0, Douglas-Tyson : 1.0, Garrett Clinton Mandella : 1.0, Nelson Mandela : 1.0]
+Entity: Los Angeles
+Co-occurances [Bill Clinton : 13.0, GuardianBill Clinton : 9.0, Leave Hospital : 1.0]
+Entity: Bil
+Co-occurances [Bill Clinton : 9.0, Clinton : 4.0, CNN Sydney Morning : 2.0, -LRB-/OReuters : 1.0, Brokaw : 1.0, Clinton York : 1.0, Mark : 1.0, Grassley : 1.0, HoodaThunk : 1.0, Chuck Grassley : 1.0, Presbitaryen Hastanesi : 1.0]
+Entity: American
+Co-occurances [Bill Clinton : 9.0, Clinton : 3.0, USA : 2.0, Americans : 1.0, America : 1.0, Mr. Bill Clinton : 1.0, Slick Willie : 1.0, United States : 1.0, PIMP : 1.0, Larry King : 1.0, Pres./OClinton : 1.0]
+Entity: CBS News
+Co-occurances [Bill Clinton : 14.0, New York City : 2.0, Bill Clinton Hospitalized : 2.0, Clinton : 1.0, New York Presby : 1.0, Dr. Alan Schwartz : 1.0, New York : 1.0]
+Entity: George W.
+Co-occurances [Clinton : 6.0, H.W. Bush Both Wish : 5.0, George : 5.0, Fmr : 3.0, Bush Both Wish : 1.0, Bill Clinton : 1.0, Mrs. Bush : 1.0]
+Entity: The Hospital
+Co-occurances [Bill Clinton : 12.0, Haiti Blog : 4.0, Bill Clinton Rushed : 2.0, CELEB : 1.0, New York Presb : 1.0, Weasel : 1.0, Cuban : 1.0]
+Entity: NBC
+Co-occurances [Clinton : 6.0, Bill Clinton : 6.0, Dr. Snyderman : 1.0, Ba : 1.0, US : 1.0, Qatar Saudi Arabia : 1.0, Fmr : 1.0, Conan : 1.0, Brian Williams : 1.0, New York City : 1.0, New York : 1.0, Savannah Guthrie : 1.0]
+Entity: NewYork-Presbyterian
+Co-occurances [Bill Clinton : 22.0]
+Entity: Mr. Clinton
+Co-occurances [Bill Clinton : 4.0, Clinton : 2.0, God : 2.0, New Heart : 2.0, Alexander McQueen : 1.0, Kalaignar Insurance Scheme : 1.0, Mr. Bill Clinton : 1.0, Caucus Blog : 1.0, Sydne Evans : 1.0, Mideast : 1.0, RT : 1.0, New Heart Procedure : 1.0, Improper Relationship : 1.0, Franklin Delano Roosevelt : 1.0, Biiillllllll : 1.0]
+Entity: -LRB-/OPolitico
+Co-occurances [Clinton : 21.0]
+Entity: Reportan
+Co-occurances [Clinton : 13.0, Bill Clinton : 5.0, El Financiero : 1.0, -LRB-/OELIMPARCIAL : 1.0, GN EEUU : 1.0]
+Entity: RS
+Co-occurances [Bill Clinton Stabil : 6.0, Sempat Dilarikan : 6.0, Bill Clinton : 4.0, RS di : 1.0, Mantan Presiden : 1.0, Bill Clinton Stabil Mantan Presiden : 1.0, Menurut CNN : 1.0, Chappaqua New York : 1.0]
+Entity: Sydney
+Co-occurances [Clinton : 11.0, US : 6.0, Bill Clinton : 4.0]
+Entity: Bill C.
+Co-occurances [Bill Clinton : 10.0, Estados Unidos : 2.0, News : 2.0, US : 1.0, Clusterstock Bill Clinton : 1.0, Wieder : 1.0, GuardianBill Clinton : 1.0, Clinton : 1.0, Herzen : 1.0]
+Entity: Notoperation
+Co-occurances [Bill Clinton : 18.0, Herzen : 1.0, Zwei Stents : 1.0]
+Entity: FOXNews Telegraph
+Co-occurances [Clinton : 10.0, Undergoes Heart : 6.0, Clint : 2.0, Clinton Leaves Washington : 1.0, New York : 1.0]
+Entity: N.
+Co-occurances [Hillary : 4.0, Clinton : 2.0, Washington : 2.0, de Estado : 2.0, -LRB-/OEFE : 2.0, Bill Clinton : 2.0, Chegou : 2.0, EFE : 1.0, Estado : 1.0, Hillary Clinton : 1.0]
+Entity: Undergoes Heart Surgery
+Co-occurances [Bill Clinton Hospitalized : 14.0, Hollywood : 2.0, US : 1.0, Bill Clinton : 1.0, Clinton : 1.0]
+Entity: New Yo
+Co-occurances [U.S. : 6.0, Bill Clinton : 5.0, Clinton : 3.0, Bill Clinton Rushed : 2.0, New York Hospital : 1.0, N.Y. : 1.0]
+Entity: Dems
+Co-occurances [Clinton : 3.0, Bill Clinton : 3.0, Congress : 2.0, Impeach Bush : 2.0, Has Stents Inserted During Emergency Heart Surgery http:\/\/ow.ly\/16A5D Hell : 1.0, Newsmax : 1.0, Dick Cheney : 1.0, Yankees : 1.0, Kennedy : 1.0, Michelle Obama : 1.0, Alec Baldwin : 1.0, Bill : 1.0]
+Entity: GN
+Co-occurances [Bill Clinton : 5.0, Clinton : 2.0, Undergoes Heart : 1.0, FOXNews : 1.0, Nova York : 1.0, Correo : 1.0, ABC : 1.0, Hospital : 1.0, Bill Clinton Rushed : 1.0, Hait : 1.0, Univisi : 1.0, Los Angeles Times : 1.0, EUA : 1.0]
+Entity: -/OLM
+Co-occurances [Clinton : 18.0]
+Entity: Qatar
+Co-occurances [Clinton : 6.0, Saudi Arabia : 5.0, Saudi Arab : 3.0, Hillary Clinton : 2.0, CNN : 1.0, State Department Sec : 1.0]
+Entity: Tony Blair
+Co-occurances [Blair : 5.0, Clinton : 4.0, WASHINGTON Middle East : 3.0, Mideast WASHINGTON : 1.0, Middle East : 1.0, Mideast Middle East : 1.0, Clinton Yahoo : 1.0, -LRB-/OReuters East : 1.0, Mideast : 1.0]
+Entity: Amerika Serikat Bill Clinton Kamis
+Co-occurances [Mantan : 8.0, Bill Clinton : 6.0, ANTARA : 2.0, New York : 2.0]
+Entity: New Heart Procedure
+Co-occurances [Bill Clinton : 12.0, Caucus Blog : 4.0, New York : 1.0, Mr. Clinton : 1.0]
+Entity: Sassy Bill Clinton Hospitalized
+Co-occurances [Bill Clinton : 18.0]
+Entity: Bieber
+Co-occurances [Hmm/O.../OJustin Bieber : 5.0, Bill Clinton : 5.0, Bill : 5.0, TTs : 1.0, Clinton : 1.0, McQueen : 1.0]
+Entity: Washington Heights
+Co-occurances [Bill Clinton : 17.0, Presbyterian Hospital : 1.0]
+Entity: Brokaw
+Co-occurances [Clinton : 11.0, Bill Clinton : 4.0, Bil : 1.0, Bill : 1.0]
+Entity: Hospitalizan
+Co-occurances [Bill Clinton : 8.0, William Clinton : 2.0, Estados Unidos : 2.0, Clinton Bill Clinton : 1.0, Nueva York : 1.0, Clinton : 1.0, BT : 1.0, EE : 1.0]
+Entity: G.
+Co-occurances [Obama : 5.0, Giggle Smile : 4.0, Bill Clinton : 4.0, Obama Grandpa : 3.0, DD : 1.0]
+Entity: ABC
+Co-occurances [Bill Clinton : 5.0, ABC News Reporting : 1.0, Nueva York : 1.0, Hrt Attk : 1.0, GN : 1.0, ABC News : 1.0, Nova York : 1.0, New York : 1.0, New York City : 1.0, Clinton : 1.0, Hait : 1.0, EUA : 1.0, WABC Channel : 1.0]
+Entity: Tours Haiti Hospital
+Co-occurances [Bill Clinton : 5.0, Port-au-Prince : 4.0, -LRB-/OABC News Fmr : 3.0, General Hospital : 3.0, Fmr Hospital : 1.0, -LRB-/OABC News : 1.0]
+Entity: Hilary
+Co-occurances [Bill Clinton : 8.0, Chelsea : 2.0, Billy Clinton : 1.0, Monica Lawinski : 1.0, Frater Bill Clinton : 1.0, Lewinski : 1.0, Bill -LRB-/OClinton : 1.0, Valentine : 1.0, Clinton : 1.0]
+Entity: Nate Guenin
+Co-occurances [US : 7.0, Bill Clinton : 7.0, Clinton : 1.0, Guess Hockey Moms : 1.0, Pittsburgh : 1.0]
+Entity: H.W. Bush Both Wish
+Co-occurances [George W. : 5.0, George : 5.0, Clinton : 4.0, Fmr : 2.0, Bill Clinton : 1.0]
+Entity: Giggle Smile
+Co-occurances [Obama : 5.0, G. : 4.0, Bill Clinton : 4.0, Obama Grandpa : 3.0, DD : 1.0]
+Entity: Herzoperation
+Co-occurances [Bill Clinton : 7.0, Clinton : 3.0, US : 2.0, Keine Stunden : 2.0, USA : 1.0, NEW YORK : 1.0, Beinen : 1.0]
+Entity: Bill Cli
+Co-occurances [Clinton : 6.0, Bill Clinton : 3.0, Nova York : 2.0, News : 1.0, -LRB-/OReuters Reuters : 1.0, DailyAmerican : 1.0, RT : 1.0, NEW YORK : 1.0, Nova Iorque : 1.0]
+Entity: Nova Iorque
+Co-occurances [Bill Clinton : 9.0, Clinton : 3.0, Bill Clinto : 1.0, EUA : 1.0, Bill Cli : 1.0, Ultimas Clinton : 1.0]
+Entity: Common for Bypass Patients
+Co-occurances [Clinton : 15.0, Bill Clinton : 1.0]
+Entity: George Clinton
+Co-occurances [FFS : 1.0, Bernie Mac : 1.0, Boi : 1.0, Mama Jama : 1.0, Corey : 1.0, Motown : 1.0, Manilow : 1.0, Ramones : 1.0, Rap Basement : 1.0, Hip Hop Lifestyle Network : 1.0, Byron Funkhouser : 1.0, Roy Orbison : 1.0, Barry Manilow : 1.0, Sam Waterston : 1.0, A.V. Club Chicago : 1.0, AHHHHH : 1.0]
+Entity: Good News
+Co-occurances [Hillary Clinton : 7.0, Hospital : 7.0, Clinton : 2.0]
+Entity: -LRB-/OBill Clinton
+Co-occurances [Bill Clinton : 3.0, Suami Sakit : 2.0, IMF : 1.0, Amerika Serikat Bill Clinto : 1.0, Liputan : 1.0, Luar Negeri Amerika : 1.0, Menlu Tunda Kunjungan : 1.0, FBI : 1.0, Menlu Kunjungan : 1.0, Redskins : 1.0, Amerika : 1.0, Mulder : 1.0, Mantan Presiden Amerika : 1.0]
+Entity: Middle East
+Co-occurances [Clinton : 9.0, Tony Blair : 1.0, D.C. : 1.0, Americans : 1.0, Bill Clinton : 1.0, Clinton Yahoo : 1.0, Mideast : 1.0, Hillary Clinton : 1.0]
+Entity: UN
+Co-occurances [Bill Clinton : 7.0, UNITED NATIONS : 2.0, -LRB-/OXinhua : 2.0, Haiti : 2.0, Vancouver Sun : 1.0, Hillary Clinton : 1.0, U.S. : 1.0]
+Entity: John Mayer
+Co-occurances [Clinton : 4.0, Bill Clinton : 3.0, Crystal Renn : 2.0, Haaaa : 1.0, N-bomb la Bubba : 1.0, Lees : 1.0, Verhagen : 1.0, Sexual Education : 1.0, Plus Responses : 1.0, Tsss : 1.0]
+Entity: Foundation
+Co-occurances [Haiti : 8.0, Clinton : 8.0]
+Entity: New Yor
+Co-occurances [Bill Clinton : 16.0]
+Entity: Sydney Morning
+Co-occurances [Haiti : 4.0, Clinton : 3.0, Bill Clinton : 3.0, FOXNews : 2.0, Leave Hospital After Heart Procedure : 1.0, Redding News Clinton Expected : 1.0, Undergoes Heart : 1.0, San Francisco Chronicle : 1.0]
+Entity: World
+Co-occurances [Bill Clinton : 13.0, Clinton : 1.0, US : 1.0]
+Entity: Dr. Keith Churchwell
+Co-occurances [Hospital : 5.0, Bill Clinton Taken : 5.0, Heart Problems CBS News : 3.0, Vemma : 2.0]
+Entity: Reagan
+Co-occurances [Bill Clinton : 8.0, Americans : 6.0, Clinton : 1.0]
+Entity: Port-au-Prince
+Co-occurances [Bill Clinton : 4.0, Tours Haiti Hospital : 4.0, -LRB-/OABC News Fmr : 3.0, General Hospital : 3.0, Fmr Hospital : 1.0]
+Entity: CNN Sydney Morning
+Co-occurances [Clinton : 6.0, Bill Clinton : 6.0, Bil : 2.0, B. : 1.0]
+Entity: NY Presbyterian
+Co-occurances [Clinton : 6.0, James O'Keefe : 6.0, Bill Clinton : 1.0, RT : 1.0, Columbia Campus of : 1.0]
+Entity: Notfall
+Co-occurances [Bill Clinton : 9.0, Herzen Sorge : 3.0, Herzen : 3.0]
+Entity: Justin Bieber
+Co-occurances [Bill Clinton : 4.0, Haiti : 3.0, TT : 3.0, America : 2.0, Clinton : 2.0, Best : 1.0]
+Entity: Broken Hearts
+Co-occurances [Clinton : 6.0, Kennedy : 6.0, Obama : 3.0]
+Entity: Hmm/O.../OJustin Bieber
+Co-occurances [Bieber : 5.0, Bill Clinton : 5.0, Bill : 5.0]
+Entity: Iran
+Co-occurances [Clinton : 5.0, Bill Clinton : 3.0, Biden : 1.0, CNN : 1.0, intervention/O./OClinton : 1.0, Clinton Palin : 1.0, Fed : 1.0, China : 1.0]
+Entity: Bill Clinto
+Co-occurances [Bill Clinton : 5.0, Yahoo News : 3.0, Clinton : 2.0, Nova Iorque : 1.0, WASHINGTON : 1.0, NUEVA YORK : 1.0, Ultimas Clinton : 1.0]
+Entity: `/OGood Spirits
+Co-occurances [Bill Clinton : 6.0, Said : 5.0, Procedure/O.../OSaid : 1.0, Clinton : 1.0, Bill Clinton Hospitalized : 1.0]
+Entity: Chelsea Clinton
+Co-occurances [Clinton : 4.0, Hillary Clinton : 2.0, CNN : 2.0, Bill : 1.0, Leave Hospital : 1.0, Hospital : 1.0, Hilary Clinton : 1.0, Lynn Sweet : 1.0, Hope Bill Clinton : 1.0]
+Entity: DouglasCastle Former
+Co-occurances [New York Hospital : 7.0, Bill Clinton Rushed : 7.0]
+Entity: Heart
+Co-occurances [Bill Clinton : 5.0, Bill Clinton Hospitalized : 3.0, Columbia Presbyterian Hospital : 3.0, New York City : 3.0]
+Entity: Larry King Live
+Co-occurances [Clinton : 9.0, RT : 3.0, Bill Clinton : 1.0, Larry King : 1.0]
+Entity: Ravell
+Co-occurances [Clinton : 4.0, Globo : 3.0, Cierre : 3.0, Luzme : 1.0, Faltan Buenas Noches y La Hojilla : 1.0, Faltan Buenas Noche : 1.0, Chavez : 1.0]
+Entity: Douglas Band
+Co-occurances [Haiti : 5.0, Clinton : 5.0, Bill Clinton : 3.0, RT : 1.0]
+Entity: #Bill/O_/OClinton
+Co-occurances [Clinton : 6.0, ABC News : 2.0, Copenhagen : 2.0, #ABC/O_/ONews USATODAY.com News : 1.0, -/OBill Clinton : 1.0, #ABC/O_/ONews News : 1.0, Politics-Clinton : 1.0]
+Entity: Bubba
+Co-occurances [Bill Clinton : 7.0, Clinton : 2.0, Best : 2.0, Mrs. Clinton : 1.0, Keef Clinton : 1.0, Madam : 1.0]
+Entity: CBS
+Co-occurances [Clinton : 7.0, Craig Smith : 2.0, PCI : 2.0, Haitian : 1.0, Haiti : 1.0]
+Entity: Herzen Bill Clinton
+Co-occurances [Bill Clinton : 4.0, Herzproblemen : 4.0, USA : 3.0, Kra : 1.0, Spiegel USA : 1.0]
+Entity: Hospital With Chest Pains White House Spokesman Says
+Co-occurances [Bill Clinton Taken : 11.0, ALERT/O:/OBill Clinton Taken : 1.0, NYT : 1.0]
+Entity: Bill CLinton has Heart Attack
+Co-occurances [Hospitalized New York : 4.0, New York Methodist Hospital : 3.0, Bill Clinton : 3.0, New York : 3.0]
+Entity: Baldwin
+Co-occurances [Clinton : 3.0, Alec : 2.0, Aduh : 2.0, Bill Clinton : 2.0, Goodbye McQ : 1.0, Gw : 1.0, McQueen : 1.0, Walter F Morrison : 1.0]
+Entity: Whoa
+Co-occurances [Bill Clinton : 11.0, RT : 1.0, Godbless : 1.0]
+Entity: -LRB-/OXinhua
+Co-occurances [Clinton : 2.0, U.S. : 2.0, NEW YORK : 2.0, UNITED NATIONS : 2.0, Bill Clinton : 2.0, UN : 2.0, Forme : 1.0]
+Entity: Obama Grandpa
+Co-occurances [Giggle Smile : 3.0, Obama : 3.0, G. : 3.0, Bill Clinton : 3.0, DD : 1.0]
+Entity: James O'Keefe
+Co-occurances [Clinton : 6.0, NY Presbyterian : 6.0, RT : 1.0]
+Entity: McDonald
+Co-occurances [Bing : 3.0, -LRB-/OAll-America Clinton : 3.0, PSA : 2.0, Clinton : 2.0, Bill Clinton : 2.0, No More Trips : 1.0]
+Entity: Truth About Heart
+Co-occurances [Clinton : 4.0, New York : 4.0, Celebrities : 2.0, America : 1.0, -LRB-/OVIN : 1.0, American Heart Association : 1.0]
+Entity: Clint
+Co-occurances [Clinton : 4.0, Undergoes Heart : 2.0, FOXNews Telegraph : 2.0, Washington Washington : 2.0, U.S. : 1.0, Bill Clinton : 1.0, SPOX/O:/O-LRB-/OClinton : 1.0]
+Entity: Terry McAuliffe
+Co-occurances [Bill Clinton : 6.0, CNN : 6.0]
+Entity: GN Brasil
+Co-occurances [Clinton : 4.0, Estad : 2.0, Bill Clinton : 2.0, O Globo : 1.0, Nova York : 1.0, EUA : 1.0, Abril : 1.0]
+Entity: Globo
+Co-occurances [Clinton : 3.0, Cierre : 3.0, Ravell : 3.0, Luzme : 1.0, Faltan Buenas Noches y La Hojilla : 1.0, Faltan Buenas Noche : 1.0]
+Entity: Blacks & Latinos
+Co-occurances [US : 4.0, NAFTA : 4.0, Bill Clinton : 4.0]
+Entity: Leave Hospital After Heart Procedure
+Co-occurances [Clinton : 4.0, FOXNews : 2.0, Redding News Clinton Expected : 1.0, Rodham Clinton : 1.0, Leave Hospi : 1.0, Sydney Morning : 1.0, FOXNews Washington : 1.0, Sydney Morning HeraldClinton : 1.0]
+Entity: Leave Hospital
+Co-occurances [Bill Clinton : 7.0, Los Angeles : 1.0, Chelsea Clinton : 1.0, Clinton : 1.0, ABC News : 1.0, Hillary Clinton : 1.0]
+Entity: ABC Ne
+Co-occurances [Bill Clinton : 8.0, New York : 4.0]
+Entity: Not Health Care Reform
+Co-occurances [Bill Clinton : 11.0, James P. Pinkerton : 1.0]
+Entity: Haiti Blog
+Co-occurances [Bill Clinton : 6.0, The Hospital : 4.0, Cuban : 1.0, New York Presb : 1.0]
+Entity: Bill Clinton Stabil
+Co-occurances [RS : 6.0, Sempat Dilarikan : 6.0]
+Entity: Ba
+Co-occurances [Bill Clinton : 8.0, Clinton : 3.0, NBC : 1.0]
+Entity: Boston
+Co-occurances [Clinton : 5.0, White Coat Notes : 2.0, Bosto : 2.0, Bill Clinton : 1.0, Obama Clinton : 1.0, Boston.com : 1.0]
+Entity: Bill Clinton Undergoes Procedure for Chest Pains
+Co-occurances [Haiti : 4.0, Bill Clinton : 4.0, U.N. : 4.0]
+Entity: U.N.
+Co-occurances [Haiti : 4.0, Bill Clinton : 4.0, Bill Clinton Undergoes Procedure for Chest Pains : 4.0]
+Entity: Lord
+Co-occurances [Bill Clinton : 11.0, Help : 1.0]
+Entity: News Videos
+Co-occurances [Clinton : 4.0, Bill Clinton : 4.0, Dr. Alan Schwartz Updates Media : 1.0, Hillary Clinton Arrives : 1.0, Hospital : 1.0, Bill Clinton Hospitalized : 1.0]
+Entity: Cierre
+Co-occurances [Clinton : 3.0, Globo : 3.0, Ravell : 3.0, Faltan Buenas Noche : 1.0, Faltan Buenas Noches y La Hojilla : 1.0, Luzme : 1.0]
+Entity: -LRB-/OABC News Fmr
+Co-occurances [General Hospital : 3.0, Tours Haiti Hospital : 3.0, Port-au-Prince : 3.0, Bill Clinton : 3.0]
+Entity: General Hospital
+Co-occurances [Bill Clinton : 3.0, Tours Haiti Hospital : 3.0, Port-au-Prince : 3.0, -LRB-/OABC News Fmr : 3.0]
+Entity: GN EEUU
+Co-occurances [Bill Clinton : 4.0, La Vanguardia : 2.0, El Pa : 1.0, El Financiero : 1.0, Reportan : 1.0, Reuters Latina : 1.0, Nueva York : 1.0, Clinton : 1.0]
+Entity: La secretaria de Estado
+Co-occurances [Hillary Clinton : 3.0, Bill Clinton : 2.0, Nueva York : 2.0, La Tercera : 1.0, Hillary Clin : 1.0, -LRB-/ONews : 1.0, Washington : 1.0, EE : 1.0]
+Entity: Sempat Dilarikan
+Co-occurances [Bill Clinton Stabil : 6.0, RS : 6.0]
+Entity: David Patterson
+Co-occurances [Clinton : 12.0]
+Entity: Bill Clin
+Co-occurances [Bill Clinton : 4.0, US : 2.0, GuardianBill Clinton : 1.0, Amerikaanse : 1.0, Washington : 1.0, New York : 1.0, NEW YORK : 1.0, Clinton : 1.0]
+Entity: Checks Into NY Hospital
+Co-occurances [Bill Clinton : 11.0]
+Entity: Dr. Alan Schwartz
+Co-occurances [Bill Clinton : 5.0, Clinton : 3.0, NY Presbyterian Hospital : 1.0, CBS News : 1.0, New York : 1.0]
+Entity: BBC
+Co-occurances [Bill Clinton : 8.0, Mantan : 1.0, World News : 1.0, Clinton : 1.0]
+Entity: UK
+Co-occurances [`/OBill Clinton Hospitalised : 2.0, `/OBill Clinton Hospitalized : 2.0, Bill Clinton : 2.0, News : 1.0, NEW YORK -LRB-/OReuters : 1.0, Clinton : 1.0, News Blair : 1.0, Candada France : 1.0]
+
