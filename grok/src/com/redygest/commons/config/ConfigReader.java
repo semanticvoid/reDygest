@@ -10,7 +10,7 @@ import org.ini4j.Wini;
  */
 public class ConfigReader {
 
-	private static final String CONFIG_FILE = "/home/sudheer/workspace-reDygest-1/reDygest/grok/conf/grok.ini";
+	private static final String CONFIG_FILE = "/Users/semanticvoid/projects/reDygest/grok/conf/grok.ini";
 	
 	private static final String EXTRACTOR_SECTION = "extractor";
 	private static final String SENNA_PATH_KEY= "senna";
@@ -18,6 +18,7 @@ public class ConfigReader {
 	private static final String PCFG_PATH_KEY= "pcfg";
 	private static final String EXTRACTOR_LIST_KEY= "extractors";
 	private static final String AWS_CRED_PATH_KEY= "awscred";
+	private static final String WORDNET_DICT_PATH_KEY= "wordnetdict";
 
 	
 	private static ConfigReader instance = null;
@@ -50,6 +51,10 @@ public class ConfigReader {
 	
 	public String getPCFGPath() {
 		return ini.get(EXTRACTOR_SECTION, PCFG_PATH_KEY);
+	}
+	
+	public String getWordNetDictPath() {
+		return ini.get(EXTRACTOR_SECTION, WORDNET_DICT_PATH_KEY);
 	}
 	
 	public String getAWSCredentialsPath() {
