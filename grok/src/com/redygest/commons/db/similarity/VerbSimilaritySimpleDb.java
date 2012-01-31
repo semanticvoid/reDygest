@@ -81,7 +81,7 @@ public class VerbSimilaritySimpleDb implements ISimilarityDb {
 	public static void main(String[] args) {
 		ISimilarityDb db = SimilarityDbFactory.getInstance().produce(
 				SimilarityDbType.VERBSDB);
-		Map<String, Double> map = db.getSimilarity("aah", "increase");
+		Map<String, Double> map = db.getSimilarity("abandon", "increase");
 		for(String k : map.keySet()) {
 			System.out.println(k + "\t" + map.get(k));
 		}

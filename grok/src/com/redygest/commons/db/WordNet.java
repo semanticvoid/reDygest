@@ -11,9 +11,10 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import jsl.measure.jwi.LinSimilarity;
+
 import com.redygest.commons.config.ConfigReader;
 
-import jsl.measure.jwi.LinSimilarity;
 import edu.mit.jwi.Dictionary;
 import edu.mit.jwi.IDictionary;
 import edu.mit.jwi.item.IIndexWord;
@@ -54,7 +55,7 @@ public class WordNet {
 	 * ﻿ * Method that returns the singleton WordNet obj ﻿ * @return the
 	 * singleton object ﻿
 	 */
-	public static WordNet getSingleton() {
+	public static synchronized WordNet getSingleton() {
 		if (wn == null) {
 			try {
 				wn = new WordNet();
@@ -122,12 +123,13 @@ public class WordNet {
 	public static void main(String[] args) {
 		try {
 			WordNet wn = new WordNet();
-			List<ISynsetID> syns1 = wn.getSynsets("check out", POS.VERB);
+			List<ISynsetID> syns1 = wn.getSynsets("run", POS.VERB);
 			List<ISynsetID> syns2 = wn.getSynsets("run down", POS.VERB);
 			for (ISynsetID syn1 : syns1) {
 				for (ISynsetID syn2 : syns2) {
-					System.out.println(wn.getSimilarity(syn1, syn2));
+					System.out.println(syn1 + "\t" + syn2 + "\t" + wn.getSimilarity(syn1, syn2));
 				}
+//				System.out.println(syn1.toString());
 			}
 		} catch (Exception ex) {
 			Logger.getLogger(WordNet.class.getName()).log(Level.SEVERE, null,

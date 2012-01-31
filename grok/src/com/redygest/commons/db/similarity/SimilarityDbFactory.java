@@ -34,6 +34,12 @@ public class SimilarityDbFactory {
 			case NOUNSDB:
 				return new NounSimilaritySimpleDb();
 				
+			case VERBLOCAL:
+				return new VerbSimilarityLocal();
+				
+			case NOUNLOCAL:
+				return new NounSimilarityLocal();
+				
 			default:
 				break;
 		}
