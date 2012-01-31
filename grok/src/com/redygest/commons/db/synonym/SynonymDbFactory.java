@@ -28,8 +28,8 @@ public class SynonymDbFactory {
 	 */
 	public ISynonymDb produce(SynonymDbType type) {
 		switch (type) {
-			case NOUNSDB:
-				return new NounSynonymSimpleDb();
+			case NOUNWIKIPEDIAREDIRECT:
+				return new NounSynonymWikipediaRedirects();
 				
 			default:
 				break;
