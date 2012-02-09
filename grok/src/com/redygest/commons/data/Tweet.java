@@ -64,7 +64,7 @@ public class Tweet extends AbstractData {
 	}
 	
 	private void populateDataTypeElements(String text) {
-		text = StringUtils.lowerCase(text);
+		//text = StringUtils.lowerCase(text);
 		StringBuffer pStr = new StringBuffer();
 		StringBuffer str = new StringBuffer();
 		for(int i=0; i<text.length(); i++) {
