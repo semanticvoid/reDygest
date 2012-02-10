@@ -31,6 +31,10 @@ public class FeatureExtractorFactory {
 				return new PPronounCountFeatureExtractor();
 			case SRL:
 				return new SRLFeatureExtractor();
+			case NER:
+				return new NERFeatureExtractor();
+			case DBSYNONYM:
+				return new SynonymFeatureExtractor();
 		}
 		
 		return null;
