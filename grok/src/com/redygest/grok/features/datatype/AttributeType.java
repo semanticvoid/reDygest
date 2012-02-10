@@ -20,5 +20,6 @@ public enum AttributeType {
 	SRL_MNR,
 	SRL_PNC,
 	SRL_TMP,
-	SRL_LOC
+	SRL_LOC,
+	NER_CLASS
 }
