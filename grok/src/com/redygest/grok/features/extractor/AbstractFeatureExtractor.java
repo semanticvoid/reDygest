@@ -22,12 +22,12 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 	}
 	
 	@Override
-	public FeatureVectorCollection extract(List<Data> dataList) {
+	public FeatureVectorCollection extract(List<Data> dataList, FeaturesRepository repository) {
 		FeatureVectorCollection features = new FeatureVectorCollection();
 		Map<Long, FeatureVector> featuresMap = new HashMap<Long, FeatureVector>();
 		for(int i = 0; i < dataList.size(); ++i) {
 			Data d = dataList.get(i);
-			featuresMap.put(Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER)), extract(d));
+			featuresMap.put(Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER)), extract(d, repository));
 		}
 		features.addFeatures(featuresMap);
 		return features;
@@ -50,5 +50,5 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 	 * @param t - tweet
 	 * @return feature vector
 	 */
-	protected abstract FeatureVector extract(Data t);
+	protected abstract FeatureVector extract(Data t, FeaturesRepository repository);
 }
