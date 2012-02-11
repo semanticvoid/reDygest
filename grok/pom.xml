@@ -215,7 +215,7 @@
 		<dependency>
 			<groupId>lingpipe</groupId>
 			<artifactId>lingpipe</artifactId>
-			<systemPath>/usr/local/grok/jars/lingpipe.jar</systemPath>
+			<systemPath>${basedir}/lib/lingpipe.jar</systemPath>
 			<scope>system</scope>
 			<version>1.0</version>
 		</dependency>
@@ -224,7 +224,7 @@
 			<artifactId>jsimlib</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>/usr/local/grok/jars/jsimlib.jar</systemPath>
+			<systemPath>${basedir}/lib/jsimlib.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>edu.stanford.nlp</groupId>
