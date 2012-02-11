@@ -3,12 +3,14 @@ package com.redygest.grok.test;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 
+import com.redygest.grok.features.extractor.NERFeatureExtractionTest;
 import com.redygest.grok.features.extractor.NPCooccurenceFeatureExtractorTest;
 import com.redygest.grok.features.extractor.POSFeatureExtractorTest;
 import com.redygest.grok.features.extractor.PPronounCountFeatureExtractorTest;
 import com.redygest.grok.features.extractor.PunctuationCountFeatureExtractorTest;
 import com.redygest.grok.features.extractor.SRLFeatureExtractorTest;
 import com.redygest.grok.features.extractor.SentimentFeatureExtractorTest;
+import com.redygest.grok.features.extractor.SynonymFeatureExtractorTest;
 
 public class FeatureExtractorTestSuite {
 
@@ -22,6 +24,8 @@ public class FeatureExtractorTestSuite {
 		suite.addTestSuite(PunctuationCountFeatureExtractorTest.class);
 		suite.addTestSuite(SentimentFeatureExtractorTest.class);
 		suite.addTestSuite(SRLFeatureExtractorTest.class);
+		suite.addTestSuite(SynonymFeatureExtractorTest.class);
+		suite.addTestSuite(NERFeatureExtractionTest.class);
 		
 		return suite;
 	}

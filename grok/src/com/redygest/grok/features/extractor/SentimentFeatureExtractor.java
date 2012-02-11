@@ -10,15 +10,13 @@ import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
-import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 
 	@Override
-	public FeatureVector extract(Data t) {
+	public FeatureVector extract(Data t, IFeaturesRepository repository) {
 		FeatureVector fVector = new FeatureVector();
-		IFeaturesRepository repository = FeaturesRepository.getInstance();
 		SentiWordNet swn = SentiWordNet.getInstance();
 
 		String id = t.getValue(DataType.RECORD_IDENTIFIER);
@@ -63,7 +61,8 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 										.get(0));
 								count += 1;
 								attrs.remove(AttributeType.SENTIMENTCOUNT);
-								attrs.put(AttributeType.SENTIMENTCOUNT, String.valueOf(count));
+								attrs.put(AttributeType.SENTIMENTCOUNT,
+										String.valueOf(count));
 							}
 
 							fVector.addVariable(var);

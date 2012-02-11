@@ -2,6 +2,7 @@ package com.redygest.grok.features.extractor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
@@ -12,72 +13,37 @@ import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
-import edu.stanford.nlp.ie.AbstractSequenceClassifier;
-import edu.stanford.nlp.ie.crf.CRFClassifier;
+import edu.stanford.nlp.ling.CoreAnnotations.NamedEntityTagAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.SentencesAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.TextAnnotation;
+import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.pipeline.Annotation;
+import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import edu.stanford.nlp.util.CoreMap;
 
 public class NERFeatureExtractor extends AbstractFeatureExtractor {
 
-	private static final AbstractSequenceClassifier classifier = CRFClassifier
-			.getClassifierNoExceptions(config.getNERClassifierPath());
+	private static StanfordCoreNLP pipeline = null;
+	static {
+		Properties props = new Properties();
+		props.put("annotators", "tokenize, ssplit, pos, lemma, ner");
+		pipeline = new StanfordCoreNLP(props);
+	}
 
-	List<NamedEntity> getEntities(String nerOutput) {
+	List<NamedEntity> getEntities(String data) {
 		List<NamedEntity> entities = new ArrayList<NamedEntity>();
-		String curLabel = "null";
-		String prevLabel = "null";
 
-		String[] tokens = nerOutput.split("\\s+");
-		StringBuffer sb = new StringBuffer();
-		boolean flag = false;
-		for (String token : tokens) {
-			String[] entityClass = token.split("/");
-			String ent = "";
-			String label = "";
-			if (entityClass.length < 2)
-				continue;
+		Annotation document = new Annotation(data);
+		pipeline.annotate(document);
+		List<CoreMap> sentences = document.get(SentencesAnnotation.class);
 
-			if (entityClass.length > 2) {
-				NamedEntity ne = correctBadEntries(token);
-				if (ne == null || ne.getText() == null
-						|| ne.getEntityClass() == null) {
-					continue;
-				}
-				ent = ne.getText();
-				label = ne.getEntityClass();
-			} else {
-				ent = entityClass[0].trim();
-				label = entityClass[1].trim();
+		for (CoreMap sentence : sentences) {
+			for (CoreLabel token : sentence.get(TokensAnnotation.class)) {
+				String word = token.get(TextAnnotation.class);
+				String ne = token.get(NamedEntityTagAnnotation.class);
+				entities.add(new NamedEntity(word, ne));
 			}
-
-			if (label.equalsIgnoreCase("O")) {
-				if (flag == true) {
-					NamedEntity ne = new NamedEntity(sb.toString().trim(),
-							prevLabel);
-					entities.add(ne);
-					flag = false;
-					sb = new StringBuffer();
-					prevLabel = "null";
-				}
-				continue;
-			}
-
-			curLabel = label;
-			if (prevLabel.equalsIgnoreCase("null")
-					|| prevLabel.equalsIgnoreCase(curLabel)) {
-				sb.append(ent + " ");
-				flag = true;
-			} else if (flag == true) {
-				NamedEntity ne = new NamedEntity(sb.toString().trim(),
-						prevLabel);
-				entities.add(ne);
-				flag = false;
-				sb = new StringBuffer();
-				sb.append(ent + " ");
-			}
-			prevLabel = curLabel;
-		}
-		if (flag == true && sb.length() > 0) {
-			NamedEntity ne = new NamedEntity(sb.toString().trim(), prevLabel);
-			entities.add(ne);
 		}
 
 		return entities;
@@ -103,9 +69,7 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 	protected FeatureVector extract(Data d, IFeaturesRepository repository) {
 		long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));
 		FeatureVector fVector = new FeatureVector();
-		String ner_output = classifier.classifyToString(d
-				.getValue(DataType.BODY));
-		List<NamedEntity> nes = getEntities(ner_output);
+		List<NamedEntity> nes = getEntities(d.getValue(DataType.BODY));
 		for (NamedEntity ne : nes) {
 			Variable var = fVector.getVariable(new DataVariable(ne.getText(),
 					id));

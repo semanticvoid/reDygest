@@ -26,12 +26,14 @@ public class SentimentFeatureExtractorTest extends TestCase {
 
 	protected void setUp() {
 		if (f == null) {
-			Data d1 = new Tweet("{\"text\":\"an abundant supply of water in these lush gardens\"}", "1");
+			Data d1 = new Tweet(
+					"{\"text\":\"an abundant supply of water in these lush gardens\"}",
+					"1");
 			List<Data> dataList = new ArrayList<Data>();
 			dataList.add(d1);
 			FeaturesRepository repository = FeaturesRepository.getInstance();
-			repository.addFeatures(posExtractor.extract(dataList));
-			f = extractor.extract(dataList);
+			repository.addFeatures(posExtractor.extract(dataList, repository));
+			f = extractor.extract(dataList, repository);
 		}
 	}
 
@@ -54,7 +56,7 @@ public class SentimentFeatureExtractorTest extends TestCase {
 
 		fail();
 	}
-	
+
 	public void testSentimentCount() {
 		FeatureVector fv = f.getFeature(1);
 		Variable var = fv.getVariable(new DataVariable("weak_negative", 1L));

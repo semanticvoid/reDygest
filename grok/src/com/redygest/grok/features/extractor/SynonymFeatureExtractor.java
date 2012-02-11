@@ -10,35 +10,36 @@ import com.redygest.commons.db.synonym.SynonymDbType;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
-import com.redygest.grok.features.repository.FeaturesRepository;
+import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
-	
-	ISynonymDb db =null;
-	
-	public SynonymFeatureExtractor(){
-		db = SynonymDbFactory.getInstance().produce(SynonymDbType.NOUNWIKIPEDIAREDIRECT);
+
+	ISynonymDb db = null;
+
+	public SynonymFeatureExtractor() {
+		db = SynonymDbFactory.getInstance().produce(
+				SynonymDbType.NOUNWIKIPEDIAREDIRECT);
 	}
 
 	@Override
-	protected FeatureVector extract(Data t, FeaturesRepository repository) {
+	protected FeatureVector extract(Data t, IFeaturesRepository repository) {
 		FeatureVector fVector = new FeatureVector();
 		String id = t.getValue(DataType.RECORD_IDENTIFIER);
-		FeatureVector fVector_old  = repository.getFeature(id);
-		if(fVector_old==null){
+		FeatureVector fVector_old = repository.getFeature(id);
+		if (fVector_old == null) {
 			return fVector;
 		}
-		List<Variable> variables = fVector_old.getVariablesWithAttributeType(AttributeType.NER_CLASS);
-		for(Variable var : variables){
+		List<Variable> variables = fVector_old
+				.getVariablesWithAttributeType(AttributeType.NER_CLASS);
+		for (Variable var : variables) {
 			String named_entity = var.getVariableName();
 			String root = db.getSynonym(named_entity);
-			if(root!=null){
+			if (root != null) {
 				var.addAttribute(root, AttributeType.SYNONYM);
 			}
 			fVector.addVariable(var);
 		}
 		return fVector;
 	}
-	
 
 }
