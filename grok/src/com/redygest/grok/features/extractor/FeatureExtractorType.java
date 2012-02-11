@@ -7,7 +7,8 @@ public enum FeatureExtractorType {
 	SENTIMENTFEATURE,
 	PUNCTUATIONCOUNTFEATURE,
 	PPRONOUNCOUNTFEATURE,
-	SRL;
+	SRL,
+	NER;
 	
 	/**
 	 * Get {@link FeatureExtractorType} from string
@@ -20,7 +21,7 @@ public enum FeatureExtractorType {
 				return t;
 			}
 		}
-		
+
 		return null;
 	}
 }
