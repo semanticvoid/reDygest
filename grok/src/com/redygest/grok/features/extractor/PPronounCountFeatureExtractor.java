@@ -9,6 +9,7 @@ import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
+import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class PPronounCountFeatureExtractor extends AbstractFeatureExtractor {
 
@@ -17,7 +18,7 @@ public class PPronounCountFeatureExtractor extends AbstractFeatureExtractor {
 			"us", "them", "mine", "your", "yourself", "our", "ours", "yours" };
 
 	@Override
-	public FeatureVector extract(Data t) {
+	public FeatureVector extract(Data t, IFeaturesRepository repository) {
 		HashMap<String, Integer> ppCounts = new HashMap<String, Integer>();
 		FeatureVector fVector = new FeatureVector();
 

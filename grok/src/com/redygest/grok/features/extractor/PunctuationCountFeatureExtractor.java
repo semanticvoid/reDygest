@@ -8,13 +8,14 @@ import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
+import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class PunctuationCountFeatureExtractor extends AbstractFeatureExtractor {
 
 	char[] puncts = { '.', '!', '?', '@', '#', ',' };
 
 	@Override
-	public FeatureVector extract(Data t) {
+	public FeatureVector extract(Data t, IFeaturesRepository repository) {
 		HashMap<Character, Integer> pCounts = new HashMap<Character, Integer>();
 		FeatureVector fVector = new FeatureVector();
 
@@ -41,7 +42,7 @@ public class PunctuationCountFeatureExtractor extends AbstractFeatureExtractor {
 			attrs.put(AttributeType.PUNCTCOUNT, String.valueOf(count));
 			fVector.addVariable(var);
 		}
-		
+
 		return fVector;
 	}
 

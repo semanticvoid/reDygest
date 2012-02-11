@@ -13,6 +13,7 @@ import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class PunctuationCountFeatureExtractorTest extends TestCase {
 
@@ -20,13 +21,13 @@ public class PunctuationCountFeatureExtractorTest extends TestCase {
 			.getFeatureExtractor(FeatureExtractorType.PUNCTUATIONCOUNTFEATURE);
 
 	private FeatureVectorCollection f = null;
-	
+
 	protected void setUp() {
-		if(f == null) {
+		if (f == null) {
 			Data d1 = new Tweet("{\"text\":\"Oh! yay! Yahoo!\"}", "1");
 			List<Data> dataList = new ArrayList<Data>();
 			dataList.add(d1);
-			f = extractor.extract(dataList);
+			f = extractor.extract(dataList, FeaturesRepository.getInstance());
 		}
 	}
 
@@ -37,15 +38,16 @@ public class PunctuationCountFeatureExtractorTest extends TestCase {
 	public void testPunctCount() {
 		FeatureVector fv = f.getFeature(1);
 		Variable var = fv.getVariable(new DataVariable("!", 1L));
-		if(var != null) {
+		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
-			List<String> tags = attrs.getAttributeNames(AttributeType.PUNCTCOUNT);
-			if(tags != null && tags.size() > 0) {
+			List<String> tags = attrs
+					.getAttributeNames(AttributeType.PUNCTCOUNT);
+			if (tags != null && tags.size() > 0) {
 				assertEquals("3", tags.get(0));
 				return;
 			}
 		}
-		
+
 		fail();
 	}
 
