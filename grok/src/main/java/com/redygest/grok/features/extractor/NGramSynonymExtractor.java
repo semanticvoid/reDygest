@@ -19,7 +19,7 @@ import com.redygest.preprocessor.TwitterPreprocessor;
 
 public class NGramSynonymExtractor extends AbstractFeatureExtractor {
 
-	private static Senna senna = new Senna(config.getSennaPath());
+	private static Senna senna = new Senna();
 
 	public List<String> getNGrams(String text, int n) {
 		List<String> ngrams = new ArrayList<String>();

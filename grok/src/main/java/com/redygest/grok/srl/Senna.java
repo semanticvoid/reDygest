@@ -10,11 +10,13 @@ import java.util.regex.Pattern;
 import com.redygest.commons.cache.CacheFactory;
 import com.redygest.commons.cache.CacheFactory.CacheType;
 import com.redygest.commons.cache.ICache;
+import com.redygest.commons.config.ConfigReader;
 
 public class Senna {
 
 	String[] lineArr;
 	File dir;
+	String exec;
 	ICache cache;
 
 	/**
@@ -23,12 +25,10 @@ public class Senna {
 	 * @param path
 	 *            - the path to the senna directory
 	 */
-	public Senna(String path) {
-		dir = new File(path);
-		init();
-	}
-
 	public Senna() {
+		ConfigReader config = ConfigReader.getInstance();
+		dir = new File(config.getSennaPath());
+		exec = config.getSennaExec();
 		init();
 	}
 
@@ -45,7 +45,7 @@ public class Senna {
 
 	private String getSennaOutput(String line) {
 		try {
-			String cmd = "echo " + line + " | " + dir + "/senna ";
+			String cmd = "echo " + line + " | " + dir + "/" + exec;
 			ProcessBuilder pb = new ProcessBuilder("bash", "-c", cmd);
 			pb.directory(dir);
 			Process shell = pb.start();

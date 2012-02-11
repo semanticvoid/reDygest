@@ -22,7 +22,7 @@ import com.redygest.grok.srl.Verb;
  */
 public class SRLFeatureExtractor extends AbstractFeatureExtractor {
 
-	private static Senna senna = new Senna(config.getSennaPath());
+	private static Senna senna = new Senna();
 
 	private AttributeType getAttrForLabel(String label) {
 		if (label.contains("MNR")) {
