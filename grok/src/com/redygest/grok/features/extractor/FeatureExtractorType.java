@@ -8,7 +8,8 @@ public enum FeatureExtractorType {
 	PUNCTUATIONCOUNTFEATURE,
 	PPRONOUNCOUNTFEATURE,
 	SRL,
-	NER;
+	NER,
+	SYNONYM;
 	
 	/**
 	 * Get {@link FeatureExtractorType} from string

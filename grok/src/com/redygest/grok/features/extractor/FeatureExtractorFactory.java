@@ -17,26 +17,26 @@ public class FeatureExtractorFactory {
 
 	public IFeatureExtractor getFeatureExtractor(FeatureExtractorType type) {
 		switch (type) {
-			case NGRAMSYNONYM:
-				return new NGramSynonymExtractor();
-			case NPCOOCCURRENCE:
-				return new NPCooccurrenceExtractor();
-			case POSFEATURE:
-				return new POSFeatureExtractor();
-			case SENTIMENTFEATURE:
-				return new SentimentFeatureExtractor();
-			case PUNCTUATIONCOUNTFEATURE:
-				return new PunctuationCountFeatureExtractor();
-			case PPRONOUNCOUNTFEATURE:
-				return new PPronounCountFeatureExtractor();
-			case SRL:
-				return new SRLFeatureExtractor();
-			case NER:
-				return new NERFeatureExtractor();
-			case DBSYNONYM:
-				return new SynonymFeatureExtractor();
+		case NGRAMSYNONYM:
+			return new NGramSynonymExtractor();
+		case NPCOOCCURRENCE:
+			return new NPCooccurrenceExtractor();
+		case POSFEATURE:
+			return new POSFeatureExtractor();
+		case SENTIMENTFEATURE:
+			return new SentimentFeatureExtractor();
+		case PUNCTUATIONCOUNTFEATURE:
+			return new PunctuationCountFeatureExtractor();
+		case PPRONOUNCOUNTFEATURE:
+			return new PPronounCountFeatureExtractor();
+		case SRL:
+			return new SRLFeatureExtractor();
+		case NER:
+			return new NERFeatureExtractor();
+		case SYNONYM:
+			return new SynonymFeatureExtractor();
 		}
-		
+
 		return null;
 	}
 
