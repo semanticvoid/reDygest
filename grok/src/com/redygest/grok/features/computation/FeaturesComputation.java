@@ -1,21 +1,13 @@
 package com.redygest.grok.features.computation;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.redygest.commons.data.Data;
-import com.redygest.commons.data.DataType;
-import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.extractor.FeatureExtractorFactory;
 import com.redygest.grok.features.extractor.FeatureExtractorType;
 import com.redygest.grok.features.extractor.IFeatureExtractor;
-import com.redygest.grok.features.extractor.POSFeatureExtractor;
 import com.redygest.grok.features.repository.FeaturesRepository;
-
-import edu.stanford.nlp.parser.lexparser.Extractor;
 
 public class FeaturesComputation {
 	
@@ -40,9 +32,15 @@ public class FeaturesComputation {
 		}
 	}
 	
+	/**
+	 * Run the extractors
+	 * @param data
+	 * @throws Exception
+	 */
 	public void computeFeatures(List<Data> data) throws Exception {
 		for(IFeatureExtractor extractor : extractors) {
-			repository.addFeatures(extractor.extract(data));
+			FeatureVectorCollection fVectors = extractor.extract(data, repository);
+			repository.addFeatures(fVectors);
 		}
 	}
 
@@ -74,33 +72,33 @@ public class FeaturesComputation {
 		// System.out.println(fv.get(0).getVariables().size());
 		// System.out.println(vs.get(0).getVariableAttributes());
 
-		FeatureVectorCollection fc = new FeatureVectorCollection();
-		
-		try {
-			BufferedReader rdr = new BufferedReader(new FileReader(new File(
-					args[0])));
-			String line;
-			int i = 0;
-			while ((line = rdr.readLine()) != null) {
-				try {
-					Data t = new Tweet(line, String.valueOf(i));
-					if (t.getValue(DataType.BODY) != null) {
-						IFeatureExtractor ext = new POSFeatureExtractor();
-						List<Data> list = new ArrayList<Data>();
-						list.add(t);
-						FeatureVectorCollection fv = ext.extract(list);
-//						fc.addGlobalFeatures(fv., true);
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-					continue;
-				}
-				i++;
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println();
+		// FeatureVectorCollection fc = new FeatureVectorCollection();
+		//
+		// try {
+		// BufferedReader rdr = new BufferedReader(new FileReader(new File(
+		// args[0])));
+		// String line;
+		// int i = 0;
+		// while ((line = rdr.readLine()) != null) {
+		// try {
+		// Data t = new Tweet(line, String.valueOf(i));
+		// if (t.getValue(DataType.BODY) != null) {
+		// IFeatureExtractor ext = new POSFeatureExtractor();
+		// List<Data> list = new ArrayList<Data>();
+		// list.add(t);
+		// FeatureVectorCollection fv = ext.extract(list);
+		// // fc.addGlobalFeatures(fv., true);
+		// }
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// continue;
+		// }
+		// i++;
+		// }
+		// } catch (Exception e) {
+		// e.printStackTrace();
+		// }
+		//
+		// System.out.println();
 	}
 }
