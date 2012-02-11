@@ -2,8 +2,6 @@ package com.redygest.commons.db;
 
 import java.util.List;
 
-import com.sun.corba.se.impl.logging.InterceptorsSystemException;
-
 import junit.framework.TestCase;
 import edu.mit.jwi.item.ISynsetID;
 import edu.mit.jwi.item.POS;

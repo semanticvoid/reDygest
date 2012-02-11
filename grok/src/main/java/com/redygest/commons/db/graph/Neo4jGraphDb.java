@@ -1,10 +1,7 @@
 package com.redygest.commons.db.graph;
 
-import java.util.Set;
-
 import org.neo4j.cypher.ExecutionEngine;
 import org.neo4j.cypher.ExecutionResult;
-import org.neo4j.cypher.SyntaxError;
 import org.neo4j.cypher.commands.Query;
 import org.neo4j.cypher.parser.CypherParser;
 import org.neo4j.graphdb.GraphDatabaseService;

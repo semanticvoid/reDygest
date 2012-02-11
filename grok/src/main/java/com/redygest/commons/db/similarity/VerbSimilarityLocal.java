@@ -1,17 +1,10 @@
 package com.redygest.commons.db.similarity;
 
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.amazonaws.services.simpledb.model.Attribute;
-import com.amazonaws.services.simpledb.model.Item;
-import com.amazonaws.services.simpledb.model.SelectRequest;
-import com.amazonaws.services.simpledb.model.SelectResult;
 import com.redygest.commons.db.WordNet;
-import com.redygest.commons.db.nosql.SimpleDB;
 
 import edu.mit.jwi.item.ISynsetID;
 import edu.mit.jwi.item.POS;

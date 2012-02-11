@@ -7,7 +7,6 @@ import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.grok.features.computation.FeatureVectorCollection;
-import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 /**

@@ -1,6 +1,5 @@
 package com.redygest.grok.features.extractor;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 

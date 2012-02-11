@@ -2,8 +2,6 @@ package com.redygest.commons.cache;
 
 import java.util.HashMap;
 
-import sun.security.jca.GetInstance.Instance;
-
 public class CacheFactory {
 
 	public enum CacheType {

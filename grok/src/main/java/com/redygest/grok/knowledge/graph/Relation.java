@@ -4,8 +4,6 @@ import java.util.HashMap;
 
 import org.neo4j.graphdb.RelationshipType;
 
-import com.redygest.grok.knowledge.graph.Node.NodeType;
-
 /**
  *  Relation
  *

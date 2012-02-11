@@ -1,8 +1,6 @@
 package com.redygest.commons.db.nosql;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.PropertiesCredentials;

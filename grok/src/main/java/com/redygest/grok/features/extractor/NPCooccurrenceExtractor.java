@@ -15,7 +15,6 @@ import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.IFeaturesRepository;
-import com.redygest.grok.knowledge.Event;
 import com.redygest.grok.srl.Senna;
 import com.redygest.grok.srl.Verb;
 

@@ -3,14 +3,13 @@ package com.redygest.grok.srl;
 import java.io.File;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 
 import com.redygest.commons.cache.CacheFactory;
-import com.redygest.commons.cache.ICache;
 import com.redygest.commons.cache.CacheFactory.CacheType;
+import com.redygest.commons.cache.ICache;
 
 public class Senna {
 

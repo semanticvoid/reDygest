@@ -10,10 +10,10 @@ import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 import com.redygest.grok.knowledge.graph.IRepresentation;
 import com.redygest.grok.knowledge.graph.Node;
-import com.redygest.grok.knowledge.graph.Relation;
-import com.redygest.grok.knowledge.graph.RepresentationFactory;
 import com.redygest.grok.knowledge.graph.Node.NodeType;
+import com.redygest.grok.knowledge.graph.Relation;
 import com.redygest.grok.knowledge.graph.Relation.Relationship;
+import com.redygest.grok.knowledge.graph.RepresentationFactory;
 import com.redygest.grok.knowledge.graph.RepresentationFactory.RepresentationType;
 
 /**
