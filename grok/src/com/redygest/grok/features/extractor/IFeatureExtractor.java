@@ -17,7 +17,7 @@ import com.redygest.grok.features.repository.IFeaturesRepository;
  */
 public interface IFeatureExtractor {
 
-	public FeatureVectorCollection extract(List<Data> dataList, FeaturesRepository repository);
+	public FeatureVectorCollection extract(List<Data> dataList, IFeaturesRepository repository);
 		
 	public IFeaturesRepository getFeaturesRepository();
 	

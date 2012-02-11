@@ -13,30 +13,33 @@ import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
-public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
+public abstract class AbstractFeatureExtractor implements IFeatureExtractor {
 
 	protected static ConfigReader config;
-	
+
 	static {
 		config = ConfigReader.getInstance();
 	}
-	
+
 	@Override
-	public FeatureVectorCollection extract(List<Data> dataList, FeaturesRepository repository) {
+	public FeatureVectorCollection extract(List<Data> dataList,
+			IFeaturesRepository repository) {
 		FeatureVectorCollection features = new FeatureVectorCollection();
 		Map<Long, FeatureVector> featuresMap = new HashMap<Long, FeatureVector>();
-		for(int i = 0; i < dataList.size(); ++i) {
+		for (int i = 0; i < dataList.size(); ++i) {
 			Data d = dataList.get(i);
-			featuresMap.put(Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER)), extract(d, repository));
+			featuresMap.put(
+					Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER)),
+					extract(d, repository));
 		}
 		features.addFeatures(featuresMap);
 		return features;
 	}
-	
+
 	public IFeaturesRepository getFeaturesRepository() {
 		return FeaturesRepository.getInstance();
 	}
-	
+
 	public static String getCurrentDirPath() {
 		try {
 			return new java.io.File(".").getCanonicalPath();
@@ -44,11 +47,14 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor{
 			throw new RuntimeException("couldn't get current dir", e);
 		}
 	}
-	
- 	/**
+
+	/**
 	 * populate feature vector for tweet
-	 * @param t - tweet
+	 * 
+	 * @param t
+	 *            - tweet
 	 * @return feature vector
 	 */
-	protected abstract FeatureVector extract(Data t, FeaturesRepository repository);
+	protected abstract FeatureVector extract(Data t,
+			IFeaturesRepository repository);
 }
