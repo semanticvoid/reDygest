@@ -14,6 +14,7 @@ import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.repository.IFeaturesRepository;
 import com.redygest.grok.knowledge.Event;
 import com.redygest.grok.srl.Senna;
 import com.redygest.grok.srl.Verb;
@@ -23,33 +24,34 @@ import com.redygest.grok.srl.Verb;
  * 
  */
 public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
-	
+
 	private static Senna senna = new Senna(config.getSennaPath());
 
-//	private List<SennaVerb> extractVerbs(String text) {
-//		List<SennaVerb> verbs = new ArrayList<SennaVerb>();
-//		// TODO replace with tokenized tweet
-//		String[] lines = text.split("[:;'\"?/><,\\.!@#$%^&()-+=~`{}|]+");
-//		for (String line : lines) {
-//			if ((line = line.trim()).length() == 0)
-//				continue;
-//			String allLines = senna.getSennaOutput(line);
-//			// System.out.println(allLines);
-//			HashMap<String, SennaVerb> verbArgs = senna.parseSennaLines(
-//					allLines, line);
-//			for (String s : verbArgs.keySet()) {
-//				SennaVerb verb = verbArgs.get(s);
-//				verbs.add(verb);
-//			}
-//		}
-//		return verbs;
-//	}
-	
+	// private List<SennaVerb> extractVerbs(String text) {
+	// List<SennaVerb> verbs = new ArrayList<SennaVerb>();
+	// // TODO replace with tokenized tweet
+	// String[] lines = text.split("[:;'\"?/><,\\.!@#$%^&()-+=~`{}|]+");
+	// for (String line : lines) {
+	// if ((line = line.trim()).length() == 0)
+	// continue;
+	// String allLines = senna.getSennaOutput(line);
+	// // System.out.println(allLines);
+	// HashMap<String, SennaVerb> verbArgs = senna.parseSennaLines(
+	// allLines, line);
+	// for (String s : verbArgs.keySet()) {
+	// SennaVerb verb = verbArgs.get(s);
+	// verbs.add(verb);
+	// }
+	// }
+	// return verbs;
+	// }
+
 	@Override
-	public FeatureVectorCollection extract(List<Data> dataList) {
+	public FeatureVectorCollection extract(List<Data> dataList,
+			IFeaturesRepository repository) {
 		FeatureVectorCollection features = new FeatureVectorCollection();
-		for(Data t : dataList) {
-			features.addGlobalFeatures(extract(t), true);
+		for (Data t : dataList) {
+			features.addGlobalFeatures(extract(t, repository), true);
 		}
 		return features;
 	}
@@ -62,7 +64,7 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 	 * .commons.data.Tweet)
 	 */
 	@Override
-	public FeatureVector extract(Data t) {
+	public FeatureVector extract(Data t, IFeaturesRepository repository) {
 		FeatureVector fVector = new FeatureVector();
 		List<Verb> verbs = senna.getVerbs((t.getValue(DataType.BODY)));
 
@@ -91,17 +93,19 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 						if (!np.equalsIgnoreCase(headargNP)) {
 							// biRelations.incrementCount(headargNP, np, 1.0);
 							if (var == null) {
-								var = new DataVariable(headargNP, (long) FeatureVectorCollection.GLOBAL_IDENTIFIER);
+								var = new DataVariable(
+										headargNP,
+										(long) FeatureVectorCollection.GLOBAL_IDENTIFIER);
 							}
 
 							Attributes attrs = var.getVariableAttributes();
-							//if (!attrs.containsKey(np)) {
-								attrs.put(AttributeType.NPCOOCCURENCE, np);
-							//}
+							// if (!attrs.containsKey(np)) {
+							attrs.put(AttributeType.NPCOOCCURENCE, np);
+							// }
 						}
 					}
 				}
-				
+
 				fVector.addVariable(var);
 			}
 		}

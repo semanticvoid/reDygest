@@ -13,6 +13,7 @@ import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class NPCooccurenceFeatureExtractorTest extends TestCase {
 
@@ -26,7 +27,7 @@ public class NPCooccurenceFeatureExtractorTest extends TestCase {
 			Data d1 = new Tweet("{\"text\":\"John hit Mary.\"}", "1");
 			List<Data> dataList = new ArrayList<Data>();
 			dataList.add(d1);
-			f = extractor.extract(dataList);
+			f = extractor.extract(dataList, FeaturesRepository.getInstance());
 		}
 	}
 
