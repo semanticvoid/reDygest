@@ -1,4 +1,4 @@
-package com.redygest.commons.db.synonym;
+package com.redygest.commons.nlp.synonym;
 
 import junit.framework.TestCase;
 

@@ -1,4 +1,4 @@
-package com.redygest.commons.db;
+package com.redygest.commons.nlp;
 
 import java.util.List;
 

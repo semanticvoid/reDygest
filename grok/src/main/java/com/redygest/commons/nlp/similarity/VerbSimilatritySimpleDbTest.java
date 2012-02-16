@@ -1,4 +1,4 @@
-package com.redygest.commons.db.similarity;
+package com.redygest.commons.nlp.similarity;
 
 import junit.framework.TestCase;
 

@@ -1,10 +1,10 @@
-package com.redygest.commons.db.similarity;
+package com.redygest.commons.nlp.similarity;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.redygest.commons.db.WordNet;
+import com.redygest.commons.nlp.WordNet;
 
 import edu.mit.jwi.item.ISynsetID;
 import edu.mit.jwi.item.POS;

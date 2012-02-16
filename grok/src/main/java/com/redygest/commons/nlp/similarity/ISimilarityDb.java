@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.redygest.commons.db.similarity;
+package com.redygest.commons.nlp.similarity;
 
 import java.util.Map;
 

@@ -1,8 +1,8 @@
-package com.redygest.commons.db.similarity;
+package com.redygest.commons.nlp.similarity;
 
 import java.util.Map;
 
-public class NounSimilarityLocal implements ISimilarityDb {
+public class NounSimilaritySimpleDb implements ISimilarityDb {
 
 	public Map<String, Double> getSimilarity(String w1, String w2) {
 		// TODO Auto-generated method stub

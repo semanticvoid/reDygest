@@ -4,9 +4,9 @@ import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.commons.db.synonym.ISynonymDb;
-import com.redygest.commons.db.synonym.SynonymDbFactory;
-import com.redygest.commons.db.synonym.SynonymDbType;
+import com.redygest.commons.nlp.synonym.ISynonymDb;
+import com.redygest.commons.nlp.synonym.SynonymDbFactory;
+import com.redygest.commons.nlp.synonym.SynonymDbType;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;

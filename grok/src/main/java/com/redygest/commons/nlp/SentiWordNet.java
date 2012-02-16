@@ -1,4 +1,4 @@
-package com.redygest.commons.db;
+package com.redygest.commons.nlp;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

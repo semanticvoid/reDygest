@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.redygest.commons.db;
+package com.redygest.commons.nlp;
 
 import java.net.URL;
 import java.util.ArrayList;

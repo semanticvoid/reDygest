@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.redygest.commons.db.synonym;
+package com.redygest.commons.nlp.synonym;
 
 
 public class SynonymDbFactory {
