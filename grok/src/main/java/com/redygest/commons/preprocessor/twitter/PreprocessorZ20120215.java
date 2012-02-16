@@ -6,6 +6,7 @@ package com.redygest.commons.preprocessor.twitter;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * Preprocessor approach M1
@@ -17,7 +18,7 @@ public class PreprocessorZ20120215 implements ITweetPreprocessor {
 
 	static {
 		Character punctuations[] = { ',', '.', '?', ':', '!', '\'', '"', '[',
-				']', '|', '(', ')', '$', '@', '-', ';' };
+				']', '|', '(', ')', '$', '@', '-', ';', ' ' };
 		punctSet = new HashSet<Character>(Arrays.asList(punctuations));
 	}
 
@@ -29,8 +30,17 @@ public class PreprocessorZ20120215 implements ITweetPreprocessor {
 	 * (java.lang.String)
 	 */
 	public String preprocess(String text) {
-
 		return null;
+	}
+	
+	/**
+	 * Function to remove RT's
+	 * @param text
+	 * @return
+	 */
+	public String removeRT(String text) {
+		String temp = text.replaceAll("(?i)RT[ ]+@[\\w\\d\\-:]+", "");
+		return temp.replaceAll("(?i)[(]via[ ]+@[\\w\\d\\-:]+[)]", "");
 	}
 
 	/**
@@ -42,6 +52,7 @@ public class PreprocessorZ20120215 implements ITweetPreprocessor {
 	public String removeRepeatedPunctuation(String text) {
 		StringBuffer buf = new StringBuffer();
 		
+		// TODO handle http://
 		if(text != null) {
 			char pChar = 'a';
 			boolean flag = false;
