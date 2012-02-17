@@ -4,14 +4,16 @@
 package com.redygest.commons.data;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.Validate;
+
+import com.redygest.commons.nlp.POSTagger;
+import com.redygest.commons.nlp.TaggedToken;
+import com.redygest.commons.nlp.Tokenizer;
+import com.redygest.commons.preprocessor.twitter.ITweetPreprocessor;
 
 /**
  * Class representing a Tweet
@@ -20,24 +22,40 @@ import org.apache.commons.lang.Validate;
  * 
  */
 public class Tweet extends AbstractData {
-	
-	protected static Set<Character> punctSet;
-	
-	static {
-		Character punctuations[] = { ',', '.', '?', ':', '!', '\'', '"', '[',
-				']', '|', '(', ')', '$', '@', '-', ';'};
-		punctSet = new HashSet<Character>(Arrays.asList(punctuations));
-	}
 
-	final private String text;
-	final private String recordIdentifier;
+	private String text;
+	private String recordIdentifier;
+	
+	private ITweetPreprocessor preprocessor;
 
 	/**
 	 * Constructor
 	 * @param json
 	 */
 	public Tweet(String json, String recordIdentifier) {
-		this.recordIdentifier = recordIdentifier;
+		init(json, recordIdentifier);
+	}
+	
+	/**
+	 * Constructor with preprocessor
+	 * @param json
+	 * @param recordIdentifier
+	 * @param preprocessor
+	 */
+	public Tweet(String json, String recordIdentifier, ITweetPreprocessor preprocessor) {
+		this.preprocessor = preprocessor;
+		init(json, recordIdentifier);
+	}
+	
+	/**
+	 * Function to init the Tweet object
+	 * @param json
+	 * @param recordIdentifier
+	 */
+	private void init(String json, String recordIdentifier) {
+		Validate.notNull(json, "invalid json");
+		Validate.notNull(recordIdentifier, "invalid record identifier");
+		this.recordIdentifier = recordIdentifier.trim();
 		JSONObject jsonObj = null;
 		String text = null;
 		try {
@@ -49,38 +67,49 @@ public class Tweet extends AbstractData {
 		this.text = text;
 		Validate.notEmpty(this.recordIdentifier, "recordIdentifier is empty");
 		Validate.notEmpty(this.text, "data is empty");
-		populateDataTypeElements(this.text);
+		populateDataTypes(this.text);
 	}
 	
 	@Override
 	protected boolean isDataPopulated() {
 		return true;
 	}
-		
-	private List<String> tokenize(String text) {
-		String tokens[] = text.split("[ ]+");
-		return new ArrayList<String>(Arrays.asList(tokens));
+	
+	/**
+	 * Setter for Preprocessor
+	 * @param preprocessor
+	 */
+	public void setPreprocessor(ITweetPreprocessor preprocessor) {
+		this.preprocessor = preprocessor;
 	}
 	
-	private void populateDataTypeElements(String text) {
-		//text = StringUtils.lowerCase(text);
-		StringBuffer pStr = new StringBuffer();
-		StringBuffer str = new StringBuffer();
-		for(int i=0; i<text.length(); i++) {
-			char c = text.charAt(i);
-			if(punctSet.contains(c)) {
-				pStr.append(' ');
-				pStr.append(c);
-				pStr.append(' ');
-			} else {
-				pStr.append(c);
-				str.append(c);
-			}
+	/**
+	 * Function to tokenize a tweet
+	 * @param text
+	 * @return
+	 */
+	private List<String> tokenize(String text) {
+		Tokenizer tokenizer = Tokenizer.getInstance();
+		List<TaggedToken> tokens = tokenizer.tokenize(text);
+		List<String> words = new ArrayList<String>();
+		
+		for(int i=0; i<tokens.size(); i++) {
+			words.add(tokens.get(i).getWord());
 		}
-		setValue(DataType.BODY, str.toString().trim());
-		setValues(DataType.BODY_TOKENIZED, tokenize(str.toString())); 
-		setValue(DataType.BODY_PUNCTUATED, pStr.toString().trim());
-		setValue(DataType.RECORD_IDENTIFIER, recordIdentifier.trim());
+		
+		return words; 
+	}
+	
+	private void populateDataTypes(String text) {
 		setValue(DataType.ORIGINAL_TEXT, this.text.trim());
+		String tmpText = this.text.trim();
+		if(preprocessor != null) {
+			tmpText = preprocessor.preprocess(tmpText);
+		}
+		setValue(DataType.BODY, tmpText);
+		setValues(DataType.BODY_TOKENIZED, tokenize(tmpText)); 
+//		setValue(DataType.BODY_PUNCTUATED, pStr.toString().trim()); // TODO don't remember what this was for
+		setValue(DataType.RECORD_IDENTIFIER, recordIdentifier.trim());
+		
 	}
 }

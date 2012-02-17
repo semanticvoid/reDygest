@@ -14,34 +14,10 @@ import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
 
-public class Tagger {
-	
-	public class TaggedToken {
-		private String word;
-		private String posTag;
-		private String ner;
-		
-		public TaggedToken(String word, String posTag, String ner) {
-			this.word = word;
-			this.posTag = posTag;
-			this.ner = ner;
-		}
-
-		public String getWord() {
-			return word;
-		}
-
-		public String getPosTag() {
-			return posTag;
-		}
-
-		public String getNer() {
-			return ner;
-		}
-	}
+public class NERTagger {
 
 	private static StanfordCoreNLP pipeline = null;
-	private static Tagger tagg = null;
+	private static NERTagger tagg = null;
 	
 	static {
 		Properties props = new Properties();
@@ -49,12 +25,12 @@ public class Tagger {
 		pipeline = new StanfordCoreNLP(props);
 	}
 	
-	private Tagger() {
+	private NERTagger() {
 	}
 	
-	public synchronized static Tagger getInstance() {
+	public synchronized static NERTagger getInstance() {
 		if(tagg == null) {
-			tagg = new Tagger();
+			tagg = new NERTagger();
 		}
 		
 		return tagg;

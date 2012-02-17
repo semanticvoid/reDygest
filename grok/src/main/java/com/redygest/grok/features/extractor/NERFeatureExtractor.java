@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.commons.nlp.Tagger;
-import com.redygest.commons.nlp.Tagger.TaggedToken;
+import com.redygest.commons.nlp.NERTagger;
+import com.redygest.commons.nlp.TaggedToken;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.DataVariable;
 import com.redygest.grok.features.datatype.FeatureVector;
@@ -34,7 +34,7 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 	protected FeatureVector extract(Data d, IFeaturesRepository repository) {
 		long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));
 		FeatureVector fVector = new FeatureVector();
-		Tagger tagger = Tagger.getInstance();
+		NERTagger tagger = NERTagger.getInstance();
 		List<TaggedToken> tokens = tagger.tag(d.getValue(DataType.BODY));
 		for (TaggedToken token : tokens) {
 			Variable var = fVector.getVariable(new DataVariable(token.getWord(),

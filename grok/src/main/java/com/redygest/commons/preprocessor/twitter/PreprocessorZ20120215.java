@@ -5,11 +5,14 @@ package com.redygest.commons.preprocessor.twitter;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
-import java.util.regex.Pattern;
+
+import com.redygest.commons.nlp.POSTagger;
+import com.redygest.commons.nlp.TaggedToken;
 
 /**
- * Preprocessor approach M1
+ * Preprocessor approach Z20120215
  * 
  */
 public class PreprocessorZ20120215 implements ITweetPreprocessor {
@@ -30,7 +33,10 @@ public class PreprocessorZ20120215 implements ITweetPreprocessor {
 	 * (java.lang.String)
 	 */
 	public String preprocess(String text) {
-		return null;
+		String preprocessedText = removeRT(text);
+		preprocessedText = removeRepeatedPunctuation(preprocessedText);
+		preprocessedText = removeHashTags(preprocessedText);
+		return preprocessedText;
 	}
 	
 	/**
@@ -81,5 +87,49 @@ public class PreprocessorZ20120215 implements ITweetPreprocessor {
 		}
 		
 		return buf.toString();
+	}
+
+	/**
+	 * Function to remove/process hashtags
+	 * @param text
+	 * @return
+	 */
+	public String removeHashTags(String text) {
+		POSTagger tagger = POSTagger.getInstance();
+		List<TaggedToken> tokens = tagger.tag(text);
+		int size = tokens.size();
+		int midStart = (int) (0.25*size);
+		int midEnd = (int) (0.75*size);
+		
+		boolean lastFlag = true;
+		for(int i=size-1; i>=0; i--) {
+			TaggedToken token = tokens.get(i);
+			// if *still* last token and is hashtag
+			if(lastFlag && token.getWord().startsWith("#")) {
+				if((i-1) >= 0) {
+					TaggedToken pToken = tokens.get((i-1));
+					if(pToken.getWord().startsWith("#") || pToken.getPosTag().equals(".")) {
+						tokens.remove(i);
+					} else if(pToken.getPosTag().equals("CC") || pToken.getPosTag().equals("IN")) { 
+						lastFlag = false;
+					} else {
+						tokens.remove(i);
+					}
+				}
+			} else {
+				lastFlag = false;
+				if(token.getWord().startsWith("#")) {
+					token.setWord(token.getWord().replaceAll("^#", ""));
+				}
+			}
+		}
+		
+		// form the text back
+		StringBuffer buf = new StringBuffer();
+		for(TaggedToken token : tokens) {
+			buf.append(token.getWord() + " ");
+		}
+		
+		return buf.toString().trim();
 	}
 }

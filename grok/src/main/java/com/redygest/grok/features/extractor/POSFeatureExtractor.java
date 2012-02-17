@@ -6,8 +6,8 @@ import java.util.Map;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.commons.nlp.Tagger;
-import com.redygest.commons.nlp.Tagger.TaggedToken;
+import com.redygest.commons.nlp.POSTagger;
+import com.redygest.commons.nlp.TaggedToken;
 import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
@@ -39,7 +39,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 	public FeatureVector extract(Data d, IFeaturesRepository repository) {
 		long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));
 		FeatureVector fVector = new FeatureVector();
-		Tagger tagger = Tagger.getInstance();
+		POSTagger tagger = POSTagger.getInstance();
 		List<TaggedToken> tags = tagger.tag(d.getValue(DataType.BODY));
 		String prevTag = null;
 		for (TaggedToken token : tags) {
