@@ -23,4 +23,10 @@ public class PreprocessorZ20120215Test extends TestCase {
 		pText = p.removeHashTags("Bill Clinton, stents, and Demcare: Teachable moment. http://bit.ly/9zYa8g #ksky #txtcot");
 		assertEquals("Bill Clinton , stents , and Demcare : Teachable moment . http:\\/\\/bit.ly\\/9zYa8g", pText);
 	}
+	
+	public void testEmoticons() {
+		PreprocessorZ20120215 p = new PreprocessorZ20120215();
+		String pText = p.removeEmoticons("RT @XYZ rt @a_and_not: Awesome!!!!!! seriously???????? really. :) obviously.... (via @a_and_not)");
+		assertEquals("RT @XYZ rt @a_and_not: Awesome!!!!!! seriously???????? really. obviously.... (via @a_and_not)", pText);
+	}
 }
