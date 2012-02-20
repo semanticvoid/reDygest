@@ -14,5 +14,6 @@ public class ConfigReaderTest extends TestCase {
 		assertNotNull(reader.getAWSCredentialsPath());
 		assertNotNull(reader.getWordNetDictPath());
 		assertNotNull(reader.getNERClassifierPath());
+		assertNotNull(reader.getLangProfilesPath());
 	}
 }

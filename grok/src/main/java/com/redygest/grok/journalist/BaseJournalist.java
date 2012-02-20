@@ -13,6 +13,8 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
 import com.redygest.commons.data.Tweet;
+import com.redygest.commons.preprocessor.twitter.ITweetPreprocessor;
+import com.redygest.commons.preprocessor.twitter.PreprocessorZ20120215;
 import com.redygest.commons.store.MysqlStore;
 
 /**
@@ -39,9 +41,10 @@ abstract class BaseJournalist {
 					file)));
 			String line;
 			long i = 0;
+			ITweetPreprocessor preprocessor = new PreprocessorZ20120215();
 			while ((line = rdr.readLine()) != null) {
 				try {
-					Tweet t = new Tweet(line, String.valueOf(i));
+					Tweet t = new Tweet(line, String.valueOf(i), preprocessor);
 					if (t.getValue(DataType.BODY) != null) {
 						addTweet(t);
 					}

@@ -15,7 +15,6 @@ import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 import com.redygest.grok.srl.Senna;
-import com.redygest.preprocessor.TwitterPreprocessor;
 
 public class NGramSynonymExtractor extends AbstractFeatureExtractor {
 
@@ -99,10 +98,9 @@ public class NGramSynonymExtractor extends AbstractFeatureExtractor {
 	public FeatureVectorCollection extract(List<Data> dataList,
 			IFeaturesRepository repository) {
 		FeatureVectorCollection features = new FeatureVectorCollection();
-		TwitterPreprocessor preProcessor = new TwitterPreprocessor();
 		List<String> allNounPhrases = new ArrayList<String>();
 		for (Data t : dataList) {
-			String tweet = preProcessor.preprocess(t).getValue(DataType.BODY);
+			String tweet = t.getValue(DataType.BODY);
 			allNounPhrases.addAll(senna.getNounPhrases(tweet));
 		}
 		HashMap<String, ArrayList<String>> clusters = collapseSimilarEntities(allNounPhrases);

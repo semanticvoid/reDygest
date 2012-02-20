@@ -21,6 +21,7 @@ public class ConfigReader {
 	private static final String AWS_CRED_PATH_KEY = "awscred";
 	private static final String WORDNET_DICT_PATH_KEY = "wordnetdict";
 	private static final String NER_CLASSIFIER_KEY = "nerclassifier";
+	private static final String LANGDETECT_PROFILES_PATH_KEY = "langdetectprofiles";
 
 	private static ConfigReader instance = null;
 
@@ -64,6 +65,10 @@ public class ConfigReader {
 	
 	public String getNERClassifierPath() {
 		return ini.get(EXTRACTOR_SECTION, NER_CLASSIFIER_KEY);
+	}
+	
+	public String getLangProfilesPath() {
+		return ini.get(EXTRACTOR_SECTION, LANGDETECT_PROFILES_PATH_KEY);
 	}
 
 	public String getAWSCredentialsPath() {
