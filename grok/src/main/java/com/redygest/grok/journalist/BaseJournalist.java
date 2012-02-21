@@ -16,6 +16,7 @@ import com.redygest.commons.data.Tweet;
 import com.redygest.commons.preprocessor.twitter.ITweetPreprocessor;
 import com.redygest.commons.preprocessor.twitter.PreprocessorZ20120215;
 import com.redygest.commons.store.MysqlStore;
+import com.redygest.grok.prefilter.PrefilterRunner;
 
 /**
  * Class representing the base journalist template
@@ -26,7 +27,9 @@ import com.redygest.commons.store.MysqlStore;
 abstract class BaseJournalist {
 
 	protected List<Data> tweets;
-
+	protected ITweetPreprocessor preprocessor = null;
+	protected PrefilterRunner prefilterRunner = null;
+	
 	abstract Story process(List<Data> tweets);
 
 	/**
@@ -41,13 +44,19 @@ abstract class BaseJournalist {
 					file)));
 			String line;
 			long i = 0;
-			ITweetPreprocessor preprocessor = new PreprocessorZ20120215();
 			while ((line = rdr.readLine()) != null) {
 				try {
+					boolean pass = true;
 					Tweet t = new Tweet(line, String.valueOf(i), preprocessor);
-					if (t.getValue(DataType.BODY) != null) {
+					// prefilter code
+					if(prefilterRunner != null) {
+						pass = prefilterRunner.runFilters(t.getValue(DataType.ORIGINAL_TEXT));
+					}
+					
+					if (pass && t.getValue(DataType.BODY) != null) {
 						addTweet(t);
 					}
+					
 					i++;
 				} catch(Exception e) {
 					continue;
