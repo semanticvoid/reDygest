@@ -1,0 +1,20 @@
+e1 clinton
+e2 new york
+e3 hospital
+e4 stent
+e5 artery
+e6 obama
+e7 bush
+e8 haiti
+e9 heart
+e10 operation, bypass, surgery
+e11 chest
+e12 attack, pain, discomfort
+e13 u.n 
+e14 chelsea
+e15 hillary
+e16 qatar
+e17 saudi
+e18 earthquake
+e19 whitehouse
+ 
