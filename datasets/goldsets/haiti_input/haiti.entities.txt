@@ -1,0 +1,17 @@
+e1 haiti
+e2 earthquake
+e3 Rene Preval
+e4 Port-au-Prince
+e5 survivor
+e6 dead, happy people
+e7 injured, victim
+e8 u.n
+e9 cuba
+e10 magnitude
+e11 aid
+e12 hospital
+e13 clinton
+e14 obama
+e15 relief, red cross
+e16 rescue
+e17 palace
