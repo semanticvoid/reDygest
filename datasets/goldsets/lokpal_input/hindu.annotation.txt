@@ -1,0 +1,13 @@
+e4 e20 e21 e2 e22
+e4 e23 e2 e24
+e24 e2 e4
+e20 e21
+e25 e2
+e25 e26 e4
+e4 e24
+e27 e29 e28 e4
+e27 e29
+e24 e30 e27 e29
+e27 e9 e2 e6 e26 e21 e4 e23
+e24 e21
+e31 e4 e2 e24

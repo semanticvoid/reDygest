@@ -1,0 +1,31 @@
+e1	ram jethmalani, jethmalani, bjp leader
+e2	rajya sabha, the house, upper house
+e3	swiss bank
+e4	lokpal (as in bill), lokpal bill, bill
+e5	article, magzine
+e6	congress
+e7	mani shankar aiyar, aiyar
+e8	deputy chairman k rahman khan, the chair, khan
+e9	member
+e10 prime minister
+e11	india
+e12	protocol
+e13	swiss
+e14 double taxation avoidance treaty, double tax avoidance
+e15	government
+e16	bench
+e17 order
+e18	bjp
+e19	aiadmk
+e20 Lokpal
+e21 lokayukta
+e22	thursday
+e23	lok sabha
+e24 MOS V Narayanasamy
+e25 UPA
+e26 allies
+e27	trinamool
+e28 lokayukta provision
+e29 amendment, deletion
+e30 pranab mukherjee
+e31 joint session
