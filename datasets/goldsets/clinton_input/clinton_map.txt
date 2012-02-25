@@ -17,4 +17,4 @@ e16 qatar
 e17 saudi
 e18 earthquake
 e19 whitehouse
- 
+e20 schwartz 
