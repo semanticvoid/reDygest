@@ -42,7 +42,7 @@ public class SentimentFeatureExtractorTest extends TestCase {
 	}
 
 	public void testSentiment() {
-		FeatureVector fv = f.getFeature(1);
+		FeatureVector fv = f.getFeatureVector(1);
 		Variable var = fv.getVariable(new DataVariable("abundant", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
@@ -58,7 +58,7 @@ public class SentimentFeatureExtractorTest extends TestCase {
 	}
 
 	public void testSentimentCount() {
-		FeatureVector fv = f.getFeature(1);
+		FeatureVector fv = f.getFeatureVector(1);
 		Variable var = fv.getVariable(new DataVariable("weak_negative", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();

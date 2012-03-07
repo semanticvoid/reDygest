@@ -38,7 +38,7 @@ public class POSFeatureExtractorTest extends TestCase {
 	}
 
 	public void testPOS() {
-		FeatureVector fv = f.getFeature(1);
+		FeatureVector fv = f.getFeatureVector(1);
 		Variable var = fv.getVariable(new DataVariable("This", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
@@ -53,7 +53,7 @@ public class POSFeatureExtractorTest extends TestCase {
 	}
 
 	public void testPOSUnigramCount() {
-		FeatureVector fv = f.getFeature(1);
+		FeatureVector fv = f.getFeatureVector(1);
 		Variable var = fv.getVariable(new DataVariable("DT", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
@@ -69,7 +69,7 @@ public class POSFeatureExtractorTest extends TestCase {
 	}
 
 	public void testPOSBigramCount() {
-		FeatureVector fv = f.getFeature(2);
+		FeatureVector fv = f.getFeatureVector(2);
 		Variable var = fv.getVariable(new DataVariable("DT VBZ", 2L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();

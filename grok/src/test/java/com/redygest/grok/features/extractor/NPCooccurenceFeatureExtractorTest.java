@@ -36,7 +36,7 @@ public class NPCooccurenceFeatureExtractorTest extends TestCase {
 	}
 
 	public void testCooccurenceCount() {
-		FeatureVector fv = f.getFeature(FeatureVectorCollection.GLOBAL_IDENTIFIER);
+		FeatureVector fv = f.getFeatureVector(FeatureVectorCollection.GLOBAL_IDENTIFIER);
 		Variable var = fv.getVariable(new DataVariable("john", FeatureVectorCollection.GLOBAL_IDENTIFIER));
 		if(var != null) {
 			Attributes attrs = var.getVariableAttributes();

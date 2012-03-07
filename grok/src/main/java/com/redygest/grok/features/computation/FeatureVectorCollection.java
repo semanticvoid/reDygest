@@ -19,7 +19,7 @@ public class FeatureVectorCollection {
 		return featureVectors;
 	}
 	
-	public FeatureVector getFeature(long recordIdentifier) {
+	public FeatureVector getFeatureVector(long recordIdentifier) {
 		return featureVectors.get(recordIdentifier);
 	}
 

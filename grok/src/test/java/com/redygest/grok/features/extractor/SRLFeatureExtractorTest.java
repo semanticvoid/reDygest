@@ -35,7 +35,7 @@ public class SRLFeatureExtractorTest extends TestCase {
 	}
 
 	public void testLabels() {
-		FeatureVector fv = f.getFeature(1L);
+		FeatureVector fv = f.getFeatureVector(1L);
 		List<Variable> variables = fv
 				.getVariablesWithAttributeType(AttributeType.SRL_A0);
 		if (variables != null) {

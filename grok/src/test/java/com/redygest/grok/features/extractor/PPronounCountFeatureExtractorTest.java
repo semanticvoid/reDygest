@@ -36,7 +36,7 @@ public class PPronounCountFeatureExtractorTest extends TestCase {
 	}
 
 	public void testPPronounCount() {
-		FeatureVector fv = f.getFeature(1);
+		FeatureVector fv = f.getFeatureVector(1);
 		Variable var = fv.getVariable(new DataVariable("i", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();

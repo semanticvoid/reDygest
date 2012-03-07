@@ -10,38 +10,44 @@ import com.redygest.grok.features.extractor.IFeatureExtractor;
 import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class FeaturesComputation {
-	
-	private FeaturesRepository repository;
-	private List<IFeatureExtractor> extractors;
-	
+
+	private final FeaturesRepository repository;
+	private final List<IFeatureExtractor> extractors;
+
 	public FeaturesComputation(String[] extractorNames) {
 		repository = FeaturesRepository.getInstance();
 		extractors = new ArrayList<IFeatureExtractor>();
-		FeatureExtractorFactory featureExtractorFactory = FeatureExtractorFactory.getInstance();
-		
-		if(extractorNames != null) {
-			for(String name : extractorNames) {
+		FeatureExtractorFactory featureExtractorFactory = FeatureExtractorFactory
+				.getInstance();
+
+		if (extractorNames != null) {
+			for (String name : extractorNames) {
 				FeatureExtractorType type = FeatureExtractorType.getType(name);
-				if(type != null) {
-					IFeatureExtractor extractor = featureExtractorFactory.getFeatureExtractor(type);
-					if(extractor != null) {
+				if (type != null) {
+					IFeatureExtractor extractor = featureExtractorFactory
+							.getFeatureExtractor(type);
+					if (extractor != null) {
 						extractors.add(extractor);
 					}
 				}
 			}
 		}
 	}
-	
+
 	/**
 	 * Run the extractors
+	 * 
 	 * @param data
 	 * @throws Exception
 	 */
-	public void computeFeatures(List<Data> data) throws Exception {
-		for(IFeatureExtractor extractor : extractors) {
-			FeatureVectorCollection fVectors = extractor.extract(data, repository);
+	public FeaturesRepository computeFeatures(List<Data> data) throws Exception {
+		for (IFeatureExtractor extractor : extractors) {
+			FeatureVectorCollection fVectors = extractor.extract(data,
+					repository);
 			repository.addFeatures(fVectors);
 		}
+
+		return repository;
 	}
 
 	public static void main(String[] args) {

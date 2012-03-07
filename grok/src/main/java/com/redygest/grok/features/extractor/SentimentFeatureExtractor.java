@@ -22,7 +22,7 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 		String id = t.getValue(DataType.RECORD_IDENTIFIER);
 
 		if (swn != null) {
-			FeatureVector recordFVector = repository.getFeature(id);
+			FeatureVector recordFVector = repository.getFeatureVector(id);
 			List<String> tokens = t.getValues(DataType.BODY_TOKENIZED);
 			for (String token : tokens) {
 				Variable var = recordFVector.getVariable(new DataVariable(

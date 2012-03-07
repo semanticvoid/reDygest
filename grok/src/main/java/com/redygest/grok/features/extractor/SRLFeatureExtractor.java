@@ -57,7 +57,7 @@ public class SRLFeatureExtractor extends AbstractFeatureExtractor {
 
 		String id = t.getValue(DataType.RECORD_IDENTIFIER);
 		List<Verb> verbs = senna.getVerbs((t.getValue(DataType.BODY)));
-		fVector = repository.getFeature(id);
+		fVector = repository.getFeatureVector(id);
 		if (fVector == null) {
 			fVector = new FeatureVector();
 		}

@@ -53,7 +53,7 @@ public class Curator {
 			Set<Long> identifiers = repository.getIdentifiers();
 			if(identifiers != null) {
 				for(Long id : identifiers) {
-					FeatureVector fVector = repository.getFeature(String.valueOf(id));
+					FeatureVector fVector = repository.getFeatureVector(String.valueOf(id));
 					if(fVector != null) {
 						List<Variable> variables = fVector.getVariablesWithAttributeType(AttributeType.HAS_SRL);
 						if(variables != null) {

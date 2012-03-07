@@ -32,7 +32,7 @@ public class NERFeatureExtractionTest extends TestCase {
 	}
 
 	public void testNER() {
-		FeatureVector fv = f.getFeature(1);
+		FeatureVector fv = f.getFeatureVector(1);
 		Variable var = fv.getVariable(new DataVariable("Obama", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();

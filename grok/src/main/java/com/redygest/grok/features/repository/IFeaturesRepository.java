@@ -9,7 +9,7 @@ public interface IFeaturesRepository {
 		
 	public void addFeatures(FeatureVectorCollection features);
 	
-	public FeatureVector getFeature(String recordIdentifier);
+	public FeatureVector getFeatureVector(String recordIdentifier);
 	
 	public int size();
 	

@@ -36,7 +36,7 @@ public class PunctuationCountFeatureExtractorTest extends TestCase {
 	}
 
 	public void testPunctCount() {
-		FeatureVector fv = f.getFeature(1);
+		FeatureVector fv = f.getFeatureVector(1);
 		Variable var = fv.getVariable(new DataVariable("!", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();

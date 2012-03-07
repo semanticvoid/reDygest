@@ -26,7 +26,7 @@ public class FacOpClassifier extends VWClassifier {
 	protected String getFeatures(Data d) {
 		StringBuffer features = new StringBuffer();
 		IFeaturesRepository repository = FeaturesRepository.getInstance();
-		FeatureVector fVector = repository.getFeature(d
+		FeatureVector fVector = repository.getFeatureVector(d
 				.getValue(DataType.RECORD_IDENTIFIER));
 
 		// pos bigrams

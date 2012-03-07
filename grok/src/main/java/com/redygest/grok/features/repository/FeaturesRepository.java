@@ -27,8 +27,8 @@ public class FeaturesRepository implements IFeaturesRepository {
 		this.features.addFeatures(features.getFeatures());
 	}
 
-	public FeatureVector getFeature(String recordIdentifier) {
-		return features.getFeature(Long.valueOf(recordIdentifier));
+	public FeatureVector getFeatureVector(String recordIdentifier) {
+		return features.getFeatureVector(Long.valueOf(recordIdentifier));
 	}
 
 	public int size() {
