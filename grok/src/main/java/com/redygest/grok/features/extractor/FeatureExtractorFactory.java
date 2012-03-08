@@ -21,6 +21,8 @@ public class FeatureExtractorFactory {
 			return new NGramSynonymExtractor();
 		case NPCOOCCURRENCE:
 			return new NPCooccurrenceExtractor();
+		case NPENTITY:
+			return new NPEntityExtractor();
 		case POSFEATURE:
 			return new POSFeatureExtractor();
 		case SENTIMENTFEATURE:
