@@ -25,7 +25,7 @@ public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
 	protected FeatureVector extract(Data t, IFeaturesRepository repository) {
 		FeatureVector fVector = new FeatureVector();
 		String id = t.getValue(DataType.RECORD_IDENTIFIER);
-		FeatureVector fVector_old = repository.getFeature(id);
+		FeatureVector fVector_old = repository.getFeatureVector(id);
 		if (fVector_old == null) {
 			return fVector;
 		}
