@@ -2,7 +2,9 @@ package com.redygest.commons.data;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+ * List of Data items.
+ */
 public class Cluster {
 	private List<Data> data;
 
