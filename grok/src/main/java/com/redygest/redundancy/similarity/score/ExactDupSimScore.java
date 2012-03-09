@@ -1,11 +1,24 @@
 package com.redygest.redundancy.similarity.score;
 
+import java.util.List;
+
 import com.redygest.commons.data.Data;
+import com.redygest.commons.data.DataType;
 
 public class ExactDupSimScore implements ISimilarityScore {
 
 	public double score(Data d1, Data d2) {
-		return 0;
+		List<String> toks1 = d1.getValues(DataType.BODY_TOKENIZED);
+		List<String> toks2 = d2.getValues(DataType.BODY_TOKENIZED);
+		if (toks1.size() != toks2.size()) {
+			return 0;
+		}
+		for (int i = 0; i < toks1.size(); i++) {
+			if (!toks1.get(i).equalsIgnoreCase(toks2.get(i))) {
+				return 0;
+			}
+		}
+		return 1;
 	}
 
 }

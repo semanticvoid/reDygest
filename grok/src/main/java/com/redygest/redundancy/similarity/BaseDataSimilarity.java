@@ -12,7 +12,7 @@ public class BaseDataSimilarity implements IDataSimilarity {
 		this.scoringFunctions = scoringFunctions;
 	}
 
-	public double isSimilar(Data d1, Data d2) {
+	public double similarity(Data d1, Data d2) {
 		return 0.0;
 	}
 
