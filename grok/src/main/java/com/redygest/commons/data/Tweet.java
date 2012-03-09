@@ -10,7 +10,6 @@ import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.Validate;
 
-import com.redygest.commons.nlp.POSTagger;
 import com.redygest.commons.nlp.TaggedToken;
 import com.redygest.commons.nlp.Tokenizer;
 import com.redygest.commons.preprocessor.twitter.ITweetPreprocessor;
@@ -24,31 +23,36 @@ import com.redygest.commons.preprocessor.twitter.ITweetPreprocessor;
 public class Tweet extends AbstractData {
 
 	private String text;
+	private String time;
 	private String recordIdentifier;
-	
+
 	private ITweetPreprocessor preprocessor;
 
 	/**
 	 * Constructor
+	 * 
 	 * @param json
 	 */
 	public Tweet(String json, String recordIdentifier) {
 		init(json, recordIdentifier);
 	}
-	
+
 	/**
 	 * Constructor with preprocessor
+	 * 
 	 * @param json
 	 * @param recordIdentifier
 	 * @param preprocessor
 	 */
-	public Tweet(String json, String recordIdentifier, ITweetPreprocessor preprocessor) {
+	public Tweet(String json, String recordIdentifier,
+			ITweetPreprocessor preprocessor) {
 		this.preprocessor = preprocessor;
 		init(json, recordIdentifier);
 	}
-	
+
 	/**
 	 * Function to init the Tweet object
+	 * 
 	 * @param json
 	 * @param recordIdentifier
 	 */
@@ -61,6 +65,9 @@ public class Tweet extends AbstractData {
 		try {
 			jsonObj = JSONObject.fromObject(json);
 			text = jsonObj.getString("text");
+			if (jsonObj.containsKey("created_at")) {
+				time = jsonObj.getString("created_at");
+			}
 		} catch (Exception e) {
 			text = json;
 		}
@@ -69,22 +76,24 @@ public class Tweet extends AbstractData {
 		Validate.notEmpty(this.text, "data is empty");
 		populateDataTypes(this.text);
 	}
-	
+
 	@Override
 	protected boolean isDataPopulated() {
 		return true;
 	}
-	
+
 	/**
 	 * Setter for Preprocessor
+	 * 
 	 * @param preprocessor
 	 */
 	public void setPreprocessor(ITweetPreprocessor preprocessor) {
 		this.preprocessor = preprocessor;
 	}
-	
+
 	/**
 	 * Function to tokenize a tweet
+	 * 
 	 * @param text
 	 * @return
 	 */
@@ -92,24 +101,26 @@ public class Tweet extends AbstractData {
 		Tokenizer tokenizer = Tokenizer.getInstance();
 		List<TaggedToken> tokens = tokenizer.tokenize(text);
 		List<String> words = new ArrayList<String>();
-		
-		for(int i=0; i<tokens.size(); i++) {
+
+		for (int i = 0; i < tokens.size(); i++) {
 			words.add(tokens.get(i).getWord());
 		}
-		
-		return words; 
+
+		return words;
 	}
-	
+
 	private void populateDataTypes(String text) {
 		setValue(DataType.ORIGINAL_TEXT, this.text.trim());
 		String tmpText = this.text.trim();
-		if(preprocessor != null) {
+		if (preprocessor != null) {
 			tmpText = preprocessor.preprocess(tmpText);
 		}
 		setValue(DataType.BODY, tmpText);
-		setValues(DataType.BODY_TOKENIZED, tokenize(tmpText)); 
-//		setValue(DataType.BODY_PUNCTUATED, pStr.toString().trim()); // TODO don't remember what this was for
+		setValue(DataType.TIME, time);
+		setValues(DataType.BODY_TOKENIZED, tokenize(tmpText));
+		// setValue(DataType.BODY_PUNCTUATED, pStr.toString().trim()); // TODO
+		// don't remember what this was for
 		setValue(DataType.RECORD_IDENTIFIER, recordIdentifier.trim());
-		
+
 	}
 }
