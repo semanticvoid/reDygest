@@ -14,7 +14,6 @@ import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
 import com.redygest.commons.data.Tweet;
 import com.redygest.commons.preprocessor.twitter.ITweetPreprocessor;
-import com.redygest.commons.preprocessor.twitter.PreprocessorZ20120215;
 import com.redygest.commons.store.MysqlStore;
 import com.redygest.grok.prefilter.PrefilterRunner;
 
@@ -29,7 +28,7 @@ abstract class BaseJournalist {
 	protected List<Data> tweets;
 	protected ITweetPreprocessor preprocessor = null;
 	protected PrefilterRunner prefilterRunner = null;
-	
+
 	abstract Story process(List<Data> tweets);
 
 	/**
@@ -49,16 +48,17 @@ abstract class BaseJournalist {
 					boolean pass = true;
 					Tweet t = new Tweet(line, String.valueOf(i), preprocessor);
 					// prefilter code
-					if(prefilterRunner != null) {
-						pass = prefilterRunner.runFilters(t.getValue(DataType.ORIGINAL_TEXT));
+					if (prefilterRunner != null) {
+						pass = prefilterRunner.runFilters(t
+								.getValue(DataType.ORIGINAL_TEXT));
 					}
-					
+
 					if (pass && t.getValue(DataType.BODY) != null) {
 						addTweet(t);
 					}
-					
+
 					i++;
-				} catch(Exception e) {
+				} catch (Exception e) {
 					continue;
 				}
 			}
@@ -68,9 +68,10 @@ abstract class BaseJournalist {
 
 		return tweets;
 	}
-	
+
 	/**
 	 * Placeholder for future selection/sampling strategies (if any)
+	 * 
 	 * @param t
 	 * @return
 	 */
@@ -80,14 +81,16 @@ abstract class BaseJournalist {
 
 	/**
 	 * Write story to db
+	 * 
 	 * @param s
 	 * @return
 	 */
-	protected final boolean write(Story s) {
+	protected boolean write(Story s) {
 		try {
 			MysqlStore store = new MysqlStore("localhost", "root", "", "dygest");
-			return store.executeUpdate("INSERT INTO stories (title, body) values (\""
-					+ s.getTitle() + "\",\"" + s.getBody() + "\")");
+			return store
+					.executeUpdate("INSERT INTO stories (title, body) values (\""
+							+ s.getTitle() + "\",\"" + s.getBody() + "\")");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
