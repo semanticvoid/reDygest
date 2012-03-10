@@ -1,13 +1,12 @@
-package test.java.com.redygest.redundancy.similarity.score;
+package com.redygest.redundancy.similarity.score;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import junit.framework.TestCase;
+
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
-import com.redygest.redundancy.similarity.score.ExactDupSimScore;
-
-import junit.framework.TestCase;
 
 public class ExactDupSimScoreTest extends TestCase {
 
