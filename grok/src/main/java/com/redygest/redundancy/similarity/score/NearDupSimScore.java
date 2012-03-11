@@ -65,7 +65,7 @@ public class NearDupSimScore implements ISimilarityScore {
 	}
 
 	private boolean isPunct(String s) {
-		return !s.matches("^[a-zA-Z0-9]");
+		return !s.matches("^[a-zA-Z0-9].*");
 	}
 
 	/**

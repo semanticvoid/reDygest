@@ -27,4 +27,5 @@ public class NearDupSimScoreTest extends TestCase {
 			fail();
 		}
 	}
+
 }
