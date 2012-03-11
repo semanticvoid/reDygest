@@ -105,8 +105,13 @@ public class Journalist001 extends BaseJournalist {
 	}
 
 	public static void main(String[] args) {
+		if (args.length != 1) {
+			System.out.println("usage: java jar ..... <dataset>");
+			System.exit(1);
+		}
+
 		Journalist001 j = new Journalist001();
-		j.run("/Users/akishore/projects/redygest/reDygest/datasets/t");
+		j.run(args[0]);
 	}
 
 }

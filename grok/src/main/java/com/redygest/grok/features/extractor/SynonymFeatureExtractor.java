@@ -1,5 +1,6 @@
 package com.redygest.grok.features.extractor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.redygest.commons.data.Data;
@@ -24,13 +25,19 @@ public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
 	@Override
 	protected FeatureVector extract(Data t, IFeaturesRepository repository) {
 		FeatureVector fVector = new FeatureVector();
+
 		String id = t.getValue(DataType.RECORD_IDENTIFIER);
 		FeatureVector fVector_old = repository.getFeatureVector(id);
 		if (fVector_old == null) {
 			return fVector;
 		}
-		List<Variable> variables = fVector_old
-				.getVariablesWithAttributeType(AttributeType.NER_CLASS);
+
+		List<Variable> variables = new ArrayList<Variable>();
+		variables.addAll(fVector_old
+				.getVariablesWithAttributeType(AttributeType.NER_CLASS));
+		variables.addAll(fVector_old
+				.getVariablesWithAttributeType(AttributeType.NPENTITY));
+
 		for (Variable var : variables) {
 			String named_entity = var.getVariableName();
 			String root = db.getSynonym(named_entity);
