@@ -37,9 +37,9 @@ public class NearDupSimScore implements ISimilarityScore {
 			// remove stop words
 			Set<String> seen = new HashSet<String>();
 			for (String t : tokens1) {
-				if (!StopWord.isStopWord(t) && !seen.contains(t)) {
-					tokens1NoStopWords.add(t);
-					seen.add(t);
+				if (!StopWord.isStopWord(t) && !seen.contains(t) && !isPunct(t)) {
+					tokens1NoStopWords.add(t.toLowerCase());
+					seen.add(t.toLowerCase());
 				}
 			}
 			Collections.sort(tokens1NoStopWords);
@@ -47,9 +47,9 @@ public class NearDupSimScore implements ISimilarityScore {
 			// remove stop words
 			seen = new HashSet<String>();
 			for (String t : tokens2) {
-				if (!StopWord.isStopWord(t) && !seen.contains(t)) {
-					tokens2NoStopWords.add(t);
-					seen.add(t);
+				if (!StopWord.isStopWord(t) && !seen.contains(t) && !isPunct(t)) {
+					tokens2NoStopWords.add(t.toLowerCase());
+					seen.add(t.toLowerCase());
 				}
 			}
 			Collections.sort(tokens2NoStopWords);
@@ -62,6 +62,10 @@ public class NearDupSimScore implements ISimilarityScore {
 		}
 
 		return 0;
+	}
+
+	private boolean isPunct(String s) {
+		return !s.matches("^[a-zA-Z0-9]");
 	}
 
 	/**

@@ -16,8 +16,8 @@ public class NearDupSimScoreTest extends TestCase {
 	}
 
 	public void testNearDup() {
-		Data d1 = new Tweet("{\"text\":\"1 2 3 4 5 6 7 8 9 0\"}", "1");
-		Data d2 = new Tweet("{\"text\":\"1 2 3 4 5 6 7 8 9 0\"}", "2");
+		Data d1 = new Tweet("{\"text\":\"1 2 A 4 5 6, 7 8, 9 0\"}", "1");
+		Data d2 = new Tweet("{\"text\":\"1 2 a 4, 5 6 7 8 9 0\"}", "2");
 		double score = scoreFn.score(d1, d2);
 		assertEquals(1.0, score, 0);
 
