@@ -17,6 +17,7 @@ import com.redygest.commons.data.Story;
 import com.redygest.commons.preprocessor.twitter.PreprocessorZ20120215;
 import com.redygest.grok.features.computation.FeaturesComputation;
 import com.redygest.grok.features.datatype.AttributeType;
+import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
@@ -75,13 +76,27 @@ public class Journalist001 extends BaseJournalist {
 			// collect NP entities
 			for (Variable v : fv
 					.getVariablesWithAttributeType(AttributeType.NPENTITY)) {
-				entities.add(v.getVariableName());
+				Attributes attrs = v.getVariableAttributes();
+				List<String> attrNames = attrs
+						.getAttributeNames(AttributeType.SYNONYM);
+				if (attrNames != null) {
+					entities.add(attrNames.get(0));
+				} else {
+					entities.add(v.getVariableName());
+				}
 			}
 
 			// collect NERs
 			for (Variable v : fv
 					.getVariablesWithAttributeType(AttributeType.NER_CLASS)) {
-				entities.add(v.getVariableName());
+				Attributes attrs = v.getVariableAttributes();
+				List<String> attrNames = attrs
+						.getAttributeNames(AttributeType.SYNONYM);
+				if (attrNames != null) {
+					entities.add(attrNames.get(0));
+				} else {
+					entities.add(v.getVariableName());
+				}
 			}
 
 			// form json
