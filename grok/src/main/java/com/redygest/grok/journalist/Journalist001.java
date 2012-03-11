@@ -79,7 +79,7 @@ public class Journalist001 extends BaseJournalist {
 				Attributes attrs = v.getVariableAttributes();
 				List<String> attrNames = attrs
 						.getAttributeNames(AttributeType.SYNONYM);
-				if (attrNames != null) {
+				if (attrNames != null && attrNames.size() > 0) {
 					entities.add(attrNames.get(0));
 				} else {
 					entities.add(v.getVariableName());
@@ -92,7 +92,7 @@ public class Journalist001 extends BaseJournalist {
 				Attributes attrs = v.getVariableAttributes();
 				List<String> attrNames = attrs
 						.getAttributeNames(AttributeType.SYNONYM);
-				if (attrNames != null) {
+				if (attrNames != null && attrNames.size() > 0) {
 					entities.add(attrNames.get(0));
 				} else {
 					entities.add(v.getVariableName());
