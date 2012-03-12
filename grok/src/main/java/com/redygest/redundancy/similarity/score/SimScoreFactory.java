@@ -3,7 +3,7 @@ package com.redygest.redundancy.similarity.score;
 public class SimScoreFactory {
 
 	public enum Score {
-		EXACTDUP, NEARDUP, SEMANTICDUP
+		EXACTDUP, NEARDUP, PHRASENEARDUP, SEMANTICDUP
 	}
 
 	public static ISimilarityScore produceScore(Score e) {
@@ -11,6 +11,8 @@ public class SimScoreFactory {
 			return new ExactDupSimScore();
 		} else if (e == Score.NEARDUP) {
 			return new NearDupSimScore(100);
+		} else if (e == Score.PHRASENEARDUP) {
+			return new PhraseNearDupSimScore(100);
 		} else if (e == Score.SEMANTICDUP) {
 			return new SemanticSimScore();
 		} else {
