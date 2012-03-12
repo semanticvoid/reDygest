@@ -21,7 +21,7 @@ public class NearDupSimScoreTest extends TestCase {
 		double score = scoreFn.score(d1, d2);
 		assertEquals(1.0, score, 0);
 
-		Data d3 = new Tweet("{\"text\":\"1 2 3 4 5 10 11 8 9 0\"}", "2");
+		Data d3 = new Tweet("{\"text\":\"1 2 B 4 5 6, 7 8, 9 0\"}", "2");
 		score = scoreFn.score(d1, d3);
 		if (score < 0.5 || score == 1) {
 			fail();
@@ -38,6 +38,13 @@ public class NearDupSimScoreTest extends TestCase {
 		double score1 = scoreFn.score(d1, d2);
 		double score2 = scoreFn.score(d2, d1);
 		assertEquals(score1, score2);
+	}
+
+	public void testNoSimilarity() {
+		Data d1 = new Tweet("{\"text\":\"tt is a fool with good thing\"}", "1");
+		Data d2 = new Tweet("{\"text\":\"foolish things happen\"}", "2");
+		double score = scoreFn.score(d1, d2);
+		assertEquals(0.0, score);
 	}
 
 }

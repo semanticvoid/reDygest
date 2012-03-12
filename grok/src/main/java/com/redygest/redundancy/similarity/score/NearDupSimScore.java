@@ -120,7 +120,8 @@ public class NearDupSimScore implements ISimilarityScore {
 					for (int j = i - 1; j <= i; j++) {
 						buf.append(tokens.get(j) + " ");
 					}
-					int sig = hash.hash(buf.toString().trim().getBytes(), 2, n);
+					int sig = hash.hash(buf.toString().trim().getBytes(), buf
+							.toString().trim().getBytes().length, n);
 					nSigs.add(sig);
 				}
 			}
