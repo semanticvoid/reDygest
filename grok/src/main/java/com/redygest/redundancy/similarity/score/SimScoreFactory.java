@@ -10,7 +10,7 @@ public class SimScoreFactory {
 		if (e == Score.EXACTDUP) {
 			return new ExactDupSimScore();
 		} else if (e == Score.NEARDUP) {
-			return new NearDupSimScore(100);
+			return new NearDupSimScore(1000);
 		} else if (e == Score.SEMANTICDUP) {
 			return new SemanticSimScore();
 		} else {

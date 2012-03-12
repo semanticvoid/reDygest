@@ -42,7 +42,7 @@ public class NearDupSimScore implements ISimilarityScore {
 					seen.add(t.toLowerCase());
 				}
 			}
-			Collections.sort(tokens1NoStopWords);
+			// Collections.sort(tokens1NoStopWords);
 
 			// remove stop words
 			seen = new HashSet<String>();
@@ -52,7 +52,7 @@ public class NearDupSimScore implements ISimilarityScore {
 					seen.add(t.toLowerCase());
 				}
 			}
-			Collections.sort(tokens2NoStopWords);
+			// Collections.sort(tokens2NoStopWords);
 
 			List<Integer> sigs1 = generateSigs(tokens1NoStopWords);
 			List<Integer> sigs2 = generateSigs(tokens2NoStopWords);
@@ -90,7 +90,16 @@ public class NearDupSimScore implements ISimilarityScore {
 			}
 		}
 
-		double sim = ((2.0 * aNb) / (tokens1.size() + tokens2.size()));
+		for (int i = 0; i < tokens2.size(); i++) {
+			for (int j = 0; j < tokens1.size(); j++) {
+				if (tokens2.get(i).compareTo(tokens1.get(j)) == 0) {
+					aNb++;
+					break;
+				}
+			}
+		}
+
+		double sim = ((aNb * 1.0) / (tokens1.size() + tokens2.size()));
 		if (sim > 1) {
 			sim = 1;
 		}

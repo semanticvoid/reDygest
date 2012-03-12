@@ -28,4 +28,16 @@ public class NearDupSimScoreTest extends TestCase {
 		}
 	}
 
+	public void testOrderSwap() {
+		Data d1 = new Tweet(
+				"{\"text\":\"Hilary arrives home after heart surgery http://bit.ly/buIScC #US #politics #news\"}",
+				"1");
+		Data d2 = new Tweet(
+				"{\"text\":\"Clinton arrives home after heart surgery http://bit.ly/buIScC #US #politics #news\"}",
+				"2");
+		double score1 = scoreFn.score(d1, d2);
+		double score2 = scoreFn.score(d2, d1);
+		assertEquals(score1, score2);
+	}
+
 }
