@@ -127,7 +127,9 @@ public class NearDupSimScore implements ISimilarityScore {
 			}
 
 			Collections.sort(nSigs);
-			signatures.add(nSigs.get(0));
+			if (nSigs.size() > 0) {
+				signatures.add(nSigs.get(0));
+			}
 		}
 
 		return signatures;

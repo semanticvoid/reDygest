@@ -47,4 +47,14 @@ public class NearDupSimScoreTest extends TestCase {
 		assertEquals(0.0, score);
 	}
 
+	public void testNoSigsForText() {
+		Data d1 = new Tweet(
+				"{\"text\":\"Jethmalani refers to Rajiv Gandhi as having a Swiss bank account, revealed by Swiss Banks !!!CON\"}",
+				"1");
+		Data d2 = new Tweet(
+				"{\"text\":\"#Jethmalani is on fire at the #RajyaSabha #Lokpal\"}",
+				"2");
+		double score = scoreFn.score(d1, d2);
+		assertEquals(0.0, score);
+	}
 }
