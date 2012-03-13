@@ -18,7 +18,10 @@ public class BaselineSelector implements ISelector {
 		Counter<String> sig = new Counter<String>();
 		List<Data> data = c.getData();
 		for (Data d : data) {
-			sig.incrementAll(d.getValues(DataType.BODY_TOKENIZED), 1.0);
+			List<String> tokens = d.getValues(DataType.BODY_TOKENIZED);
+			if(tokens==null)
+				continue;
+			sig.incrementAll(tokens, 1.0);
 		}
 		return sig;
 	}
@@ -27,7 +30,7 @@ public class BaselineSelector implements ISelector {
 		List<Data> data = new ArrayList<Data>();
 		List<Cluster> merged_clusters = new ArrayList<Cluster>();
 		List<Boolean> done = new ArrayList<Boolean>();
-		for (int i = 0; i < data.size(); i++) {
+		for (int i = 0; i < clusters.size(); i++) {
 			done.add(false);
 		}
 		for (int i = 0; i < clusters.size(); i++) {
@@ -49,29 +52,30 @@ public class BaselineSelector implements ISelector {
 				}
 				Counter<String> sig_j = getSignature(clusters.get(j));
 
-				String[] tokens1 = (String[]) sig_i.keySet().toArray();
-				String[] tokens2 = (String[]) sig_j.keySet().toArray();
+				List<String> tokens1 = new ArrayList<String>(sig_i.keySet());
+				List<String> tokens2 = new ArrayList<String>(sig_j.keySet());
 				int aNb = 0;
-				for (int x = 0; x < tokens1.length; x++) {
-					for (int y = 0; y < tokens2.length; y++) {
-						if (tokens1[x].equalsIgnoreCase(tokens2[y])) {
+				for (int x = 0; x < tokens1.size(); x++) {
+					for (int y = 0; y < tokens2.size(); y++) {
+						if (tokens1.get(x).equalsIgnoreCase(tokens2.get(y))) {
 							aNb++;
 							break;
 						}
 					}
 				}
 
-				for (int x = 0; x < tokens2.length; x++) {
-					for (int y = 0; y < tokens1.length; y++) {
-						if (tokens2[x].equalsIgnoreCase(tokens1[y])) {
+				for (int x = 0; x < tokens2.size(); x++) {
+					for (int y = 0; y < tokens1.size(); y++) {
+						if (tokens2.get(x).equalsIgnoreCase(tokens1.get(y))) {
 							aNb++;
 							break;
 						}
 					}
 				}
+				
 				double sim = 0;
-				double sim1 = ((aNb * 1.0) / (tokens1.length));
-				double sim2 = ((aNb * 1.0) / (tokens2.length));
+				double sim1 = ((aNb * 1.0) / (tokens1.size()));
+				double sim2 = ((aNb * 1.0) / (tokens2.size()));
 				if (sim1 > sim2) {
 					sim = sim1;
 				} else {
@@ -84,10 +88,10 @@ public class BaselineSelector implements ISelector {
 					for (int z = 0; z < data_j.size(); z++) {
 						c.add(data_j.get(z));
 					}
-					merged_clusters.add(c);
-					done.set(j, false);
+					done.set(j, true);
 				}
 			}
+			merged_clusters.add(c);
 		}
 
 		for (Cluster c : merged_clusters) {
@@ -135,20 +139,21 @@ public class BaselineSelector implements ISelector {
 					Cluster c = new Cluster();
 					line = br.readLine().trim();
 					while (!line.contains("===")) {
-						if (line.length() == 0)
-							continue;
-						try {
-							String json = "{\"text\":\"" + line + "\"}";
-							Data d = new Tweet(json, "1");
-							c.add(d);
-						} catch (Exception e) {
-							e.printStackTrace();
+						if (line.length() != 0) {
+							try {
+								String json = "{\"text\":\"" + line + "\"}";
+								Data d = new Tweet(json, "1");
+								c.add(d);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
 						}
 						line = br.readLine();
 					}
 					clusters.add(c);
 				}
 			}
+			System.out.println("num cluster : " + clusters.size());
 			List<Data> data = bls.select(clusters);
 			for (Data d : data) {
 				System.out.println(d.getValue(DataType.BODY));
