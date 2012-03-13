@@ -243,6 +243,8 @@ public class Journalist001 extends BaseJournalist {
 			String line;
 			while ((line = br.readLine()) != null) {
 				String[] split = line.split("#");
+				if (split.length != 2)
+					continue;
 				if (memberships.containsKey(split[0])) {
 					memberships.get(split[0]).add(split[1].trim());
 				} else {
