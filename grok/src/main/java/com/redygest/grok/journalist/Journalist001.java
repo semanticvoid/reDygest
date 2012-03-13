@@ -6,9 +6,13 @@ package com.redygest.grok.journalist;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,6 +21,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import com.redygest.commons.config.ConfigReader;
+import com.redygest.commons.data.Cluster;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
@@ -29,6 +34,8 @@ import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.prefilter.PrefilterRunner;
 import com.redygest.grok.prefilter.PrefilterType;
+import com.redygest.redundancy.clustering.BaselineClustering;
+import com.redygest.redundancy.selection.BaselineSelector;
 
 /**
  * Journalist 001 (Naming convention 'Journalist 0.0.1')
@@ -88,8 +95,8 @@ public class Journalist001 extends BaseJournalist {
 		step6();
 		step7();
 		step8();
-		step9();
-		return step10();
+		List<Cluster> clusters = step9();
+		return step10(clusters);
 	}
 
 	/**
@@ -97,8 +104,8 @@ public class Journalist001 extends BaseJournalist {
 	 */
 	protected void step3() {
 		ConfigReader config = ConfigReader.getInstance();
-		FeaturesComputation fc = new FeaturesComputation(
-				config.getExtractorsList());
+		FeaturesComputation fc = new FeaturesComputation(config
+				.getExtractorsList());
 		try {
 			FeaturesRepository repository = fc.computeFeatures(tweets);
 		} catch (Exception e) {
@@ -226,11 +233,60 @@ public class Journalist001 extends BaseJournalist {
 		exec(cmd);
 	}
 
-	protected void step9() {
-
+	protected List<Cluster> step9() {
+		List<Cluster> clusters = new ArrayList<Cluster>();
+		// tmp/membership
+		HashMap<String, List<String>> memberships = new HashMap<String, List<String>>();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(
+					"/tmp/membership"));
+			String line;
+			while ((line = br.readLine()) != null) {
+				String[] split = line.split("#");
+				if (memberships.containsKey(split[0])) {
+					memberships.get(split[0]).add(split[1].trim());
+				} else {
+					List<String> members = new ArrayList<String>();
+					members.add(split[1].trim());
+					memberships.put(split[0], members);
+				}
+			}
+			for (String key : memberships.keySet()) {
+				List<Data> data = new ArrayList<Data>();
+				HashSet<String> ids = new HashSet<String>();
+				for (String member : memberships.get(key)) {
+					for (Data d : tweets) {
+						if (!ids.contains(d
+								.getValue(DataType.RECORD_IDENTIFIER))) {
+							data.add(d);
+							ids.add(d.getValue(DataType.RECORD_IDENTIFIER));
+						}
+					}
+				}
+				BaselineClustering bc = new BaselineClustering();
+				List<Cluster> community_clusters = bc.cluster(data);
+				if (community_clusters != null) {
+					clusters.addAll(community_clusters);
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return clusters;
 	}
 
-	protected Story step10() {
+	protected Story step10(List<Cluster> clusters) {
+		BaselineSelector bs = new BaselineSelector();
+		List<Data> data = bs.select(clusters);
+		StringBuffer sb = new StringBuffer();
+		if (data != null) {
+			for (Data d : data) {
+				sb.append(d.getValue(DataType.ORIGINAL_TEXT));
+				sb.append("\n");
+			}
+			return new Story("", sb.toString());
+		}
+		System.err.println("Null story generated");
 		return null;
 	}
 
