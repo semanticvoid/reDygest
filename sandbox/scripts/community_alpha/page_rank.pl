@@ -72,4 +72,4 @@ print FILE $edges;
 close FILE;
 
 `cp graph /tmp/graph`;
-`R --no-save < pg.R`;
+#`R --no-save < pg.R`;

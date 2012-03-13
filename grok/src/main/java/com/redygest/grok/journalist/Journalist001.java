@@ -3,6 +3,12 @@
  */
 package com.redygest.grok.journalist;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -29,14 +35,39 @@ import com.redygest.grok.prefilter.PrefilterType;
  * 
  * This is the first version of the production journalist for alpha release
  * 
+ * Algo:
+ * 
+ * Step 1: Prefilter (done in BaseJournalist)
+ * 
+ * Step 2: Preprocess (done in BaseJournalist)
+ * 
+ * Step 3: Feature Extraction
+ * 
+ * Step 4: Generate graph
+ * 
+ * Step 5: Compute PageRanks
+ * 
+ * Step 6: Get top PageRank nodes
+ * 
+ * Step 7: Filter Graph to top PageRank nodes
+ * 
+ * Step 8: Community Detection
+ * 
+ * Step 9: Cluster (Community Tweets)
+ * 
+ * Step 10: Selection (form Story)
+ * 
  */
 public class Journalist001 extends BaseJournalist {
+
+	protected String scriptsDir;
 
 	/**
 	 * Constructor
 	 */
-	public Journalist001() {
+	public Journalist001(String scriptsDir) {
 		super();
+		this.scriptsDir = scriptsDir;
 		// default twitter preprocessor
 		this.preprocessor = new PreprocessorZ20120215();
 		// prefilter setup
@@ -51,6 +82,20 @@ public class Journalist001 extends BaseJournalist {
 	 */
 	@Override
 	protected Story process(List<Data> tweets) {
+		step3();
+		step4();
+		step5();
+		step6();
+		step7();
+		step8();
+		step9();
+		return step10();
+	}
+
+	/**
+	 * Compute Features
+	 */
+	protected void step3() {
 		ConfigReader config = ConfigReader.getInstance();
 		FeaturesComputation fc = new FeaturesComputation(
 				config.getExtractorsList());
@@ -59,13 +104,25 @@ public class Journalist001 extends BaseJournalist {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		return null;
 	}
 
-	@Override
-	protected boolean write(Story s) {
+	/**
+	 * Write Tweets and generate graph
+	 */
+	protected void step4() {
 		FeaturesRepository repository = FeaturesRepository.getInstance();
+		File tweetFile = null;
+		BufferedWriter writer = null;
+
+		try {
+			tweetFile = File
+					.createTempFile("j001", "tweets", new File("/tmp/"));
+			System.out.println("Graph file: " + tweetFile.getAbsolutePath());
+			writer = new BufferedWriter(new FileWriter(tweetFile));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		for (Data t : tweets) {
 			Set<String> entities = new HashSet<String>();
@@ -113,20 +170,86 @@ public class Journalist001 extends BaseJournalist {
 			}
 			jObj.accumulate("entities", jEntityArr);
 
-			System.out.println(jObj.toString());
+			try {
+				writer.write(jObj.toString() + "\n");
+			} catch (IOException ioe) {
+				ioe.printStackTrace();
+			}
 		}
 
-		return true;
+		try {
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		// compute graph
+		String cmd = "perl " + scriptsDir + "/page_rank.pl "
+				+ tweetFile.getAbsolutePath();
+		exec(cmd);
+	}
+
+	/**
+	 * Compute pagerank
+	 */
+	protected void step5() {
+		// `R --no-save < pg.R`;
+		String cmd = "R --no-save < " + scriptsDir + "/pg.R";
+		exec(cmd);
+	}
+
+	protected void step6() {
+
+	}
+
+	protected void step7() {
+
+	}
+
+	protected void step8() {
+
+	}
+
+	protected void step9() {
+
+	}
+
+	protected Story step10() {
+		return null;
+	}
+
+	protected void exec(String cmd) {
+		try {
+			Process p = Runtime.getRuntime().exec(cmd);
+
+			BufferedReader stdInput = new BufferedReader(new InputStreamReader(
+					p.getInputStream()));
+
+			BufferedReader stdError = new BufferedReader(new InputStreamReader(
+					p.getErrorStream()));
+
+			String s;
+			while ((s = stdInput.readLine()) != null) {
+				System.out.println(s);
+			}
+
+			while ((s = stdError.readLine()) != null) {
+				System.out.println(s);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(-1);
+		}
 	}
 
 	public static void main(String[] args) {
-		if (args.length != 1) {
-			System.out.println("usage: java jar ..... <dataset>");
+		if (args.length != 2) {
+			System.out.println("usage: java jar ..... <scripts dir> <dataset>");
 			System.exit(1);
 		}
 
-		Journalist001 j = new Journalist001();
-		j.run(args[0]);
+		Journalist001 j = new Journalist001(args[0]);
+		j.run(args[1]);
 	}
 
 }
