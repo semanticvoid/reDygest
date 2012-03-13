@@ -72,4 +72,5 @@ print FILE $edges;
 close FILE;
 
 `cp graph /tmp/graph`;
+`cp eids /tmp/eids`;
 #`R --no-save < pg.R`;

@@ -34,8 +34,8 @@ while(<FILE>) {
 
 $str = "*vertices " . $max_id . "\n*edges\n" . $str;
 
-open FILE, ">graph.filter" or die $!;
+open FILE, ">graph.top" or die $!;
 print FILE "$str\n";
 close FILE;
 
-`cp graph.filter /tmp/graph`;
+`cp graph.filter /tmp/graph.top`;

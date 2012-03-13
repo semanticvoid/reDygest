@@ -86,13 +86,16 @@ abstract class BaseJournalist {
 	 * @return
 	 */
 	protected boolean write(Story s) {
-		try {
-			MysqlStore store = new MysqlStore("localhost", "root", "", "dygest");
-			return store
-					.executeUpdate("INSERT INTO stories (title, body) values (\""
-							+ s.getTitle() + "\",\"" + s.getBody() + "\")");
-		} catch (Exception e) {
-			e.printStackTrace();
+		if (s != null) {
+			try {
+				MysqlStore store = new MysqlStore("localhost", "root", "",
+						"dygest");
+				return store
+						.executeUpdate("INSERT INTO stories (title, body) values (\""
+								+ s.getTitle() + "\",\"" + s.getBody() + "\")");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 
 		return false;

@@ -198,16 +198,32 @@ public class Journalist001 extends BaseJournalist {
 		exec(cmd);
 	}
 
+	/**
+	 * Compute top pagerank nodes
+	 */
 	protected void step6() {
-
+		String cmd = "perl " + scriptsDir
+				+ "/top_pagerank_nodes.pl /tmp/pagerank /tmp/eids";
+		exec(cmd);
+		cmd = "R --no-save < " + scriptsDir + "/top_pg.R";
+		exec(cmd);
 	}
 
+	/**
+	 * Filter graph (top pagerank)
+	 */
 	protected void step7() {
-
+		String cmd = "perl "
+				+ scriptsDir
+				+ "/filter_graph_top_nodes.pl /tmp/top_pagerank.nodes /tmp/graph";
 	}
 
+	/**
+	 * Community detection
+	 */
 	protected void step8() {
-
+		String cmd = "R --no-save < " + scriptsDir + "/community.R";
+		exec(cmd);
 	}
 
 	protected void step9() {

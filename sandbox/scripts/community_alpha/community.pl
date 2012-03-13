@@ -12,7 +12,7 @@ while(<FILE>) {
 	my ($id, $text, $pg) = split("\t", $_);
 	$max_id = ($id > $max_id) ? $id : $max_id;
 	$top_node_ids{$id} = $text;
-	last if $i > 105;
+	#last if $i > 105;
 }
 
 
