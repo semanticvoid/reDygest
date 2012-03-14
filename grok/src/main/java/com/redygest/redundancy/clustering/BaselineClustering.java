@@ -29,7 +29,7 @@ public class BaselineClustering implements IClustering {
 		scoringFunctions.add(SimScoreFactory.produceScore(Score.EXACTDUP));
 		scoringFunctions.add(SimScoreFactory.produceScore(Score.NEARDUP));
 		scoringFunctions.add(SimScoreFactory.produceScore(Score.PHRASENEARDUP));
-		IDataSimilarity baseDataSimilarity = new BaseLineDataSimilarity(
+		IDataSimilarity baseDataSimilarity = new BaseLineDataSimilarity(0.5,
 				scoringFunctions);
 
 		for (int i = 0; i < data.size(); i++) {
@@ -63,18 +63,21 @@ public class BaselineClustering implements IClustering {
 		try {
 			BufferedReader br = new BufferedReader(
 					new FileReader(
-							"/Users/tejaswi/Documents/workspace/reDygest/sandbox/experiments/1.clinton"));
+							"/Users/akishore/projects/redygest/reDygest/sandbox/experiments/1.lokpal"));
 			String line = null;
 			List<Data> data = new ArrayList<Data>();
 			int id = 0;
 			while ((line = br.readLine()) != null) {
-				String json = "{\"text\":\"" + line.split("\\s+", 3)[2] + "\"}";
-				try {
-					id++;
-					Data d = new Tweet(json, String.valueOf(id));
-					data.add(d);
-				} catch (Exception e) {
-					e.printStackTrace();
+				String[] tokens = line.split("\t");
+				if (tokens.length >= 3) {
+					String json = "{\"text\":\"" + tokens[2] + "\"}";
+					try {
+						id++;
+						Data d = new Tweet(json, String.valueOf(id));
+						data.add(d);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			}
 			List<Cluster> clusters = bsc.cluster(data);
@@ -89,7 +92,7 @@ public class BaselineClustering implements IClustering {
 						.println("==============================================");
 			}
 			System.out.println("Total time: "
-					+ (end.getTime() - start.getTime()));
+					+ (end.getTime() - start.getTime()) / 1000);
 
 		} catch (Exception e) {
 			e.printStackTrace();

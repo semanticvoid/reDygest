@@ -6,10 +6,14 @@ import com.redygest.commons.data.Data;
 import com.redygest.redundancy.similarity.score.ISimilarityScore;
 
 public class BaseLineDataSimilarity implements IDataSimilarity {
-	List<ISimilarityScore> scoringFunctions = null;
 
-	public BaseLineDataSimilarity(List<ISimilarityScore> scoringFunctions) {
+	private List<ISimilarityScore> scoringFunctions = null;
+	private double threshold = 0.5; // default
+
+	public BaseLineDataSimilarity(double threshold,
+			List<ISimilarityScore> scoringFunctions) {
 		this.scoringFunctions = scoringFunctions;
+		this.threshold = threshold;
 	}
 
 	public double similarity(Data d1, Data d2) {
@@ -18,7 +22,7 @@ public class BaseLineDataSimilarity implements IDataSimilarity {
 		for (ISimilarityScore iss : scoringFunctions) {
 			try {
 				double curScore = iss.score(d1, d2);
-				if (curScore >= 0.5) {
+				if (curScore >= this.threshold) {
 					return 1.0;
 				}
 			} catch (Exception e) {
