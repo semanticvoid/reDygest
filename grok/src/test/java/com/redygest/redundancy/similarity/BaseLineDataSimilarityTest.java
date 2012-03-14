@@ -3,13 +3,13 @@ package com.redygest.redundancy.similarity;
 import java.util.ArrayList;
 import java.util.List;
 
+import junit.framework.TestCase;
+
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.redundancy.similarity.score.ISimilarityScore;
 import com.redygest.redundancy.similarity.score.SimScoreFactory;
 import com.redygest.redundancy.similarity.score.SimScoreFactory.Score;
-
-import junit.framework.TestCase;
 
 public class BaseLineDataSimilarityTest extends TestCase {
 	IDataSimilarity sim = null;
@@ -20,7 +20,7 @@ public class BaseLineDataSimilarityTest extends TestCase {
 		scoringFunctions.add(SimScoreFactory.produceScore(Score.EXACTDUP));
 		scoringFunctions.add(SimScoreFactory.produceScore(Score.NEARDUP));
 		scoringFunctions.add(SimScoreFactory.produceScore(Score.PHRASENEARDUP));
-		sim = new BaseLineDataSimilarity(scoringFunctions);
+		sim = new BaseLineDataSimilarity(0.5, scoringFunctions);
 	}
 
 	public void testDataSimilarity() {
