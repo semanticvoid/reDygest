@@ -86,15 +86,22 @@ abstract class BaseJournalist {
 	 * @return
 	 */
 	protected boolean write(Story s) {
+		MysqlStore store = null;
+
 		if (s != null) {
 			try {
-				MysqlStore store = new MysqlStore("localhost", "root", "",
-						"dygest");
+				store = new MysqlStore("localhost", "root", "", "dygest");
 				return store
 						.executeUpdate("INSERT INTO stories (title, body) values (\""
 								+ s.getTitle() + "\",\"" + s.getBody() + "\")");
 			} catch (Exception e) {
 				e.printStackTrace();
+			}
+
+			// write to console if store not valid
+			if (store == null) {
+				System.out.println("---------- Story ----------");
+				System.out.println(s.getBody());
 			}
 		}
 
