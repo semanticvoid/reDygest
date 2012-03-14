@@ -28,10 +28,10 @@ while(<FILE>) {
 }
 close FILE;
 
-open FILE, ">top_pagerank.nodes" or die $!; 
+open FILE, ">/tmp/pagerank.nodes" or die $!; 
 for my $key (sort { $pagerank{$b} <=> $pagerank{$a} }  keys %pagerank) {
 	print FILE "$key\t" . $eids{$key} . "\t" . $pagerank{$key} . "\n";
 }
 close FILE;
 
-`cp top_pagerank.nodes /tmp/top_pagerank.nodes`;
+#`cp top_pagerank.nodes /tmp/top_pagerank.nodes`;

@@ -11,7 +11,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -104,8 +103,8 @@ public class Journalist001 extends BaseJournalist {
 	 */
 	protected void step3() {
 		ConfigReader config = ConfigReader.getInstance();
-		FeaturesComputation fc = new FeaturesComputation(config
-				.getExtractorsList());
+		FeaturesComputation fc = new FeaturesComputation(
+				config.getExtractorsList());
 		try {
 			FeaturesRepository repository = fc.computeFeatures(tweets);
 		} catch (Exception e) {
@@ -201,7 +200,7 @@ public class Journalist001 extends BaseJournalist {
 	 */
 	protected void step5() {
 		// `R --no-save < pg.R`;
-		String cmd = "R --no-save < " + scriptsDir + "/pg.R";
+		String cmd = "R CMD BATCH --slave " + scriptsDir + "/pg.R";
 		exec(cmd);
 	}
 
@@ -212,7 +211,7 @@ public class Journalist001 extends BaseJournalist {
 		String cmd = "perl " + scriptsDir
 				+ "/top_pagerank_nodes.pl /tmp/pagerank /tmp/eids";
 		exec(cmd);
-		cmd = "R --no-save < " + scriptsDir + "/top_pg.R";
+		cmd = "R CMD BATCH --slave " + scriptsDir + "/top_pg.R";
 		exec(cmd);
 	}
 
@@ -229,7 +228,10 @@ public class Journalist001 extends BaseJournalist {
 	 * Community detection
 	 */
 	protected void step8() {
-		String cmd = "R --no-save < " + scriptsDir + "/community.R";
+		String cmd = "R CMD BATCH --slave " + scriptsDir + "/community.R";
+		exec(cmd);
+		cmd = "perl " + scriptsDir
+				+ "/community.pl /tmp/top_pagerank.nodes /tmp/membership";
 		exec(cmd);
 	}
 
@@ -239,7 +241,7 @@ public class Journalist001 extends BaseJournalist {
 		HashMap<String, List<String>> memberships = new HashMap<String, List<String>>();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(
-					"/tmp/membership"));
+					"/tmp/community"));
 			String line;
 			while ((line = br.readLine()) != null) {
 				String[] split = line.split("#");

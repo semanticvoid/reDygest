@@ -95,7 +95,7 @@ abstract class BaseJournalist {
 						.executeUpdate("INSERT INTO stories (title, body) values (\""
 								+ s.getTitle() + "\",\"" + s.getBody() + "\")");
 			} catch (Exception e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 			}
 
 			// write to console if store not valid
