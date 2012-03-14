@@ -2,7 +2,6 @@ package com.redygest.redundancy.clustering;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.security.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -44,14 +43,14 @@ public class BaselineClustering implements IClustering {
 				if (j == i || done.get(j)) {
 					continue;
 				}
-				double score = baseDataSimilarity.similarity(data.get(i), data
-						.get(j));
+				double score = baseDataSimilarity.similarity(data.get(i),
+						data.get(j));
 				if (score == 1) {
 					c.add(data.get(j));
 					done.set(j, true);
 				}
 			}
-			if (c.getData().size() != 0) {
+			if (c.size() != 0) {
 				clusters.add(c);
 			}
 		}
@@ -83,7 +82,7 @@ public class BaselineClustering implements IClustering {
 			for (Cluster c : clusters) {
 				System.out
 						.println("=====================Cluster==================");
-				for (Data d : c.getData()) {
+				for (Data d : c) {
 					System.out.println(d.getValue(DataType.BODY));
 				}
 				System.out

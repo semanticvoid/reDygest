@@ -3,7 +3,6 @@ package com.redygest.redundancy.selection;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import com.redygest.commons.data.Cluster;
@@ -16,10 +15,9 @@ public class BaselineSelector implements ISelector {
 
 	private Counter<String> getSignature(Cluster c) {
 		Counter<String> sig = new Counter<String>();
-		List<Data> data = c.getData();
-		for (Data d : data) {
+		for (Data d : c) {
 			List<String> tokens = d.getValues(DataType.BODY_TOKENIZED);
-			if(tokens==null)
+			if (tokens == null)
 				continue;
 			sig.incrementAll(tokens, 1.0);
 		}
@@ -40,9 +38,8 @@ public class BaselineSelector implements ISelector {
 			Cluster c = new Cluster();
 			done.set(i, true);
 
-			List<Data> data_i = clusters.get(i).getData();
-			for (int z = 0; z < data_i.size(); z++) {
-				c.add(data_i.get(z));
+			for (int z = 0; z < clusters.get(i).size(); z++) {
+				c.add(clusters.get(i).get(z));
 			}
 
 			Counter<String> sig_i = getSignature(clusters.get(i));
@@ -72,7 +69,7 @@ public class BaselineSelector implements ISelector {
 						}
 					}
 				}
-				
+
 				double sim = 0;
 				double sim1 = ((aNb * 1.0) / (tokens1.size()));
 				double sim2 = ((aNb * 1.0) / (tokens2.size()));
@@ -84,9 +81,8 @@ public class BaselineSelector implements ISelector {
 
 				if (sim > 0.5) {
 					System.out.println("Merging clusters");
-					List<Data> data_j = clusters.get(j).getData();
-					for (int z = 0; z < data_j.size(); z++) {
-						c.add(data_j.get(z));
+					for (int z = 0; z < clusters.get(j).size(); z++) {
+						c.add(clusters.get(j).get(z));
 					}
 					done.set(j, true);
 				}
@@ -95,8 +91,7 @@ public class BaselineSelector implements ISelector {
 		}
 
 		for (Cluster c : merged_clusters) {
-			List<Data> data_cluster = c.getData();
-			data.add(data_cluster.get(0));
+			data.add(c.get(0));
 		}
 
 		return data;
