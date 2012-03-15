@@ -77,6 +77,11 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				attrs.put(AttributeType.POSUNIGRAMCOUNT, "1");
 			} else {
 				Attributes attrs = var.getVariableAttributes();
+				if(attrs.getAttributeNames(
+						AttributeType.POSUNIGRAMCOUNT)==null || attrs.getAttributeNames(
+								AttributeType.POSUNIGRAMCOUNT).size()==0){
+					attrs.put(AttributeType.POSUNIGRAMCOUNT, "1");	
+				}
 				int count = Integer.valueOf(attrs.getAttributeNames(
 						AttributeType.POSUNIGRAMCOUNT).get(0));
 				count += 1;
