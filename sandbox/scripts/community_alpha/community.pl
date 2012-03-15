@@ -16,7 +16,7 @@ while(<FILE>) {
 }
 
 
-open CFILE, ">node.community" or die $!;
+open CFILE, ">/tmp/community" or die $!;
 
 my $comm_file = shift @ARGV;
 open FILE, "<$comm_file" or die;
