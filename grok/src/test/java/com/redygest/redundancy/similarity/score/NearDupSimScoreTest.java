@@ -4,7 +4,9 @@ import junit.framework.TestCase;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
-import com.redygest.redundancy.similarity.score.SimScoreFactory.Score;
+import com.redygest.similarity.score.ISimilarityScore;
+import com.redygest.similarity.score.SimilarityScoreFactory;
+import com.redygest.similarity.score.SimilarityScoreFactory.Score;
 
 public class NearDupSimScoreTest extends TestCase {
 
@@ -12,7 +14,7 @@ public class NearDupSimScoreTest extends TestCase {
 
 	@Override
 	protected void setUp() {
-		scoreFn = SimScoreFactory.produceScore(Score.NEARDUP);
+		scoreFn = SimilarityScoreFactory.produceScore(Score.NEARDUP);
 	}
 
 	public void testNearDup() {

@@ -33,8 +33,8 @@ import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.prefilter.PrefilterRunner;
 import com.redygest.grok.prefilter.PrefilterType;
+import com.redygest.grok.selection.BaselineSelector;
 import com.redygest.redundancy.clustering.BaselineClustering;
-import com.redygest.redundancy.selection.BaselineSelector;
 
 /**
  * Journalist 001 (Naming convention 'Journalist 0.0.1')

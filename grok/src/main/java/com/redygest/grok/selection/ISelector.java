@@ -4,6 +4,29 @@ import java.util.List;
 
 import com.redygest.commons.data.Data;
 
+/**
+ * Selector Interface
+ * 
+ */
 public interface ISelector {
-	List<Data> select(List<Data> data, List<String> members);
+
+	/**
+	 * Select logic
+	 * 
+	 * @param size
+	 * @param data
+	 * @param queryMembers
+	 * @return
+	 */
+	List<Data> select(int size, List<Data> data, List<String> queryMembers);
+
+	/**
+	 * Select logic
+	 * 
+	 * @param size
+	 * @param data
+	 * @return
+	 */
+	List<Data> select(int size, List<Data> data);
+
 }

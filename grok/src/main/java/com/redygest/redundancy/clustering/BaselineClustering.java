@@ -10,11 +10,9 @@ import com.redygest.commons.data.Cluster;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Tweet;
-import com.redygest.redundancy.similarity.BaseLineDataSimilarity;
-import com.redygest.redundancy.similarity.IDataSimilarity;
-import com.redygest.redundancy.similarity.score.ISimilarityScore;
-import com.redygest.redundancy.similarity.score.SimScoreFactory;
-import com.redygest.redundancy.similarity.score.SimScoreFactory.Score;
+import com.redygest.similarity.score.ISimilarityScore;
+import com.redygest.similarity.score.SimilarityScoreFactory;
+import com.redygest.similarity.score.SimilarityScoreFactory.Score;
 
 public class BaselineClustering implements IClustering {
 
@@ -25,12 +23,8 @@ public class BaselineClustering implements IClustering {
 			done.add(false);
 		}
 
-		List<ISimilarityScore> scoringFunctions = new ArrayList<ISimilarityScore>();
-		scoringFunctions.add(SimScoreFactory.produceScore(Score.EXACTDUP));
-		scoringFunctions.add(SimScoreFactory.produceScore(Score.NEARDUP));
-		scoringFunctions.add(SimScoreFactory.produceScore(Score.PHRASENEARDUP));
-		IDataSimilarity baseDataSimilarity = new BaseLineDataSimilarity(0.5,
-				scoringFunctions);
+		ISimilarityScore simScore = SimilarityScoreFactory
+				.produceScore(Score.HYBRIDMAX);
 
 		for (int i = 0; i < data.size(); i++) {
 			if (done.get(i)) {
@@ -43,8 +37,7 @@ public class BaselineClustering implements IClustering {
 				if (j == i || done.get(j)) {
 					continue;
 				}
-				double score = baseDataSimilarity.similarity(data.get(i),
-						data.get(j));
+				double score = simScore.score(data.get(i), data.get(j));
 				if (score == 1) {
 					c.add(data.get(j));
 					done.set(j, true);
