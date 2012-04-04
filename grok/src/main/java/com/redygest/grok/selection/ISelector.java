@@ -3,6 +3,7 @@ package com.redygest.grok.selection;
 import java.util.List;
 
 import com.redygest.commons.data.Data;
+import com.redygest.commons.data.Query;
 
 /**
  * Selector Interface
@@ -15,10 +16,10 @@ public interface ISelector {
 	 * 
 	 * @param size
 	 * @param data
-	 * @param queryMembers
+	 * @param query
 	 * @return
 	 */
-	List<Data> select(int size, List<Data> data, List<String> queryMembers);
+	List<Data> select(int size, List<Data> data, Query query);
 
 	/**
 	 * Select logic

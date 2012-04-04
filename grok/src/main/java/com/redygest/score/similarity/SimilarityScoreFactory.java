@@ -1,4 +1,6 @@
-package com.redygest.similarity.score;
+package com.redygest.score.similarity;
+
+import com.redygest.score.IScore;
 
 /**
  * Similarity Score Factory
@@ -18,9 +20,9 @@ public class SimilarityScoreFactory {
 	 * 
 	 * @param score
 	 *            function type
-	 * @return {@link ISimilarityScore}
+	 * @return {@link IScore}
 	 */
-	public static ISimilarityScore produceScore(Score e) {
+	public static IScore produceScore(Score e) {
 
 		switch (e) {
 		case EXACTDUP:

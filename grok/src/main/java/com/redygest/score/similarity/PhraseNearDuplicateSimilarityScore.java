@@ -1,4 +1,4 @@
-package com.redygest.similarity.score;
+package com.redygest.score.similarity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -10,8 +10,9 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.hash.MurmurHash;
 import com.redygest.commons.nlp.StopWord;
+import com.redygest.score.IScore;
 
-public class PhraseNearDuplicateSimilarityScore implements ISimilarityScore {
+public class PhraseNearDuplicateSimilarityScore implements IScore {
 
 	// number of hash functions
 	private final int numHash;

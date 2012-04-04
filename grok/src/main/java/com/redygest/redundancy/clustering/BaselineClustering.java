@@ -10,9 +10,9 @@ import com.redygest.commons.data.Cluster;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Tweet;
-import com.redygest.similarity.score.ISimilarityScore;
-import com.redygest.similarity.score.SimilarityScoreFactory;
-import com.redygest.similarity.score.SimilarityScoreFactory.Score;
+import com.redygest.score.IScore;
+import com.redygest.score.similarity.SimilarityScoreFactory;
+import com.redygest.score.similarity.SimilarityScoreFactory.Score;
 
 public class BaselineClustering implements IClustering {
 
@@ -23,7 +23,7 @@ public class BaselineClustering implements IClustering {
 			done.add(false);
 		}
 
-		ISimilarityScore simScore = SimilarityScoreFactory
+		IScore simScore = SimilarityScoreFactory
 				.produceScore(Score.HYBRIDMAX);
 
 		for (int i = 0; i < data.size(); i++) {
