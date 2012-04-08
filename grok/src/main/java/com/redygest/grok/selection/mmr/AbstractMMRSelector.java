@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.commons.data.Query;
 import com.redygest.grok.selection.ISelector;
 import com.redygest.score.IScore;
 
@@ -60,11 +59,9 @@ public abstract class AbstractMMRSelector implements ISelector {
 	 * Select logic
 	 * 
 	 * @param size
-	 * @param data
-	 * @param query
 	 * @return
 	 */
-	public List<Data> select(int size, Query query) {
+	public List<Data> select(int size) {
 		List<Integer> selectedIndices = new ArrayList<Integer>();
 		List<Data> selectedData = new ArrayList<Data>();
 
@@ -85,7 +82,7 @@ public abstract class AbstractMMRSelector implements ISelector {
 						continue;
 					} else {
 						// TODO increment lambda
-						double mmrScore = computeMMR(rankedData.get(j), query,
+						double mmrScore = computeMMR(rankedData.get(j),
 								selectedIndices, initialLambda);
 						// save score and index if max (yet)
 						if (mmrScore > maxMMRScore) {
@@ -109,27 +106,14 @@ public abstract class AbstractMMRSelector implements ISelector {
 	}
 
 	/**
-	 * Select logic
-	 * 
-	 * @param size
-	 * @param data
-	 * @return
-	 */
-	public List<Data> select(int size) {
-		// not supported
-		return null;
-	}
-
-	/**
 	 * Function to compute the MMR score
 	 * 
 	 * @param d
-	 * @param q
 	 * @param selectedIndices
 	 * @param lambda
 	 * @return the mmr score
 	 */
-	protected double computeMMR(Data d, Query q, List<Integer> selectedIndices,
+	protected double computeMMR(Data d, List<Integer> selectedIndices,
 			double lambda) {
 		double relevanceScore = 0;
 
