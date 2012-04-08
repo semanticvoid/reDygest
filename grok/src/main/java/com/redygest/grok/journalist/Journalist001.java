@@ -220,9 +220,8 @@ public class Journalist001 extends BaseJournalist {
 	 * Filter graph (top pagerank)
 	 */
 	protected void step7() {
-		String cmd = "perl "
-				+ scriptsDir
-				+ "/filter_graph_top_nodes.pl /tmp/top_pagerank.nodes /tmp/graph";
+		String cmd = "perl " + scriptsDir
+				+ "/filter_graph_top_nodes.pl /tmp/pagerank.nodes /tmp/graph";
 	}
 
 	/**
@@ -232,7 +231,7 @@ public class Journalist001 extends BaseJournalist {
 		String cmd = "R CMD BATCH --slave " + scriptsDir + "/community.R";
 		exec(cmd);
 		cmd = "perl " + scriptsDir
-				+ "/community.pl /tmp/top_pagerank.nodes /tmp/membership";
+				+ "/community.pl /tmp/pagerank.nodes /tmp/membership";
 		exec(cmd);
 	}
 
@@ -320,7 +319,7 @@ public class Journalist001 extends BaseJournalist {
 				}
 				String entity = split[1];
 				// chomp
-				entity.replaceAll("'$", "");
+				entity = entity.replaceAll("'$", "");
 				eidMap.put(Integer.valueOf(split[0]), entity);
 			}
 		} catch (Exception e) {
@@ -331,7 +330,7 @@ public class Journalist001 extends BaseJournalist {
 		// read pageranks and map to eids in 'pageranks' data struct
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(
-					"/tmp/pageranks"));
+					"/tmp/pagerank"));
 			String line;
 			boolean skip = true;
 			while ((line = br.readLine()) != null) {

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.redygest.commons.data.Data;
+import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Query;
 
 /**
@@ -32,8 +33,20 @@ public class ClusterEntityPagerankSumRanking extends BaseRanking {
 	 */
 	@Override
 	double score(Data d, Query q) {
-		// TODO
-		return 0;
+		double score = 0;
+
+		if (q != null && d != null) {
+			List<String> terms = q.getValues(DataType.BODY_TOKENIZED);
+			if (terms != null) {
+				for (String t : terms) {
+					if (this.entityPageranks.containsKey(t)) {
+						score += this.entityPageranks.get(t);
+					}
+				}
+			}
+		}
+
+		return score;
 	}
 
 }
