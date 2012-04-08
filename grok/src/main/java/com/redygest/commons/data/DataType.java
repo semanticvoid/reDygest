@@ -6,5 +6,6 @@ public enum DataType {
 	BODY_TOKENIZED,
 	BODY_PUNCTUATED,
 	ORIGINAL_TEXT,
-	TIME
+	TIME,
+	SCORE
 }

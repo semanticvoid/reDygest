@@ -19,7 +19,7 @@ public interface ISelector {
 	 * @param query
 	 * @return
 	 */
-	List<Data> select(int size, List<Data> data, Query query);
+	List<Data> select(int size, Query query);
 
 	/**
 	 * Select logic
@@ -28,6 +28,6 @@ public interface ISelector {
 	 * @param data
 	 * @return
 	 */
-	List<Data> select(int size, List<Data> data);
+	List<Data> select(int size);
 
 }

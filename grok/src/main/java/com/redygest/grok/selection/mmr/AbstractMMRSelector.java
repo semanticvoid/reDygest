@@ -1,5 +1,9 @@
 package com.redygest.grok.selection.mmr;
 
+import java.util.List;
+
+import com.redygest.commons.data.Data;
+import com.redygest.commons.data.Query;
 import com.redygest.grok.selection.ISelector;
 import com.redygest.score.IScore;
 
@@ -15,23 +19,24 @@ public abstract class AbstractMMRSelector implements ISelector {
 	protected double initialLambda = 0.3; // default
 	protected double maxLambda = 0.4; // default
 
+	// ranked data
+	protected List<Data> rankedData;
 	// scoring functions
-	protected IScore sim1;
-	protected IScore sim2;
+	protected IScore redundancyScore;
 
 	/**
 	 * Constructor
 	 */
-	public AbstractMMRSelector(IScore sim1, IScore sim2) {
-		setSim1(sim1);
-		setSim2(sim2);
+	public AbstractMMRSelector(List<Data> rankedData, IScore sim2) {
+		setRedundancyScore(sim2);
+		setRankedData(rankedData);
 	}
 
 	/**
 	 * Constructor
 	 * 
-	 * @param sim1
-	 *            the relevance scoring function
+	 * @param rankedData
+	 *            the ranked Data list
 	 * @param sim2
 	 *            the redundancy scoring function
 	 * @param initialLambda
@@ -39,14 +44,39 @@ public abstract class AbstractMMRSelector implements ISelector {
 	 * @param maxLambda
 	 *            the max lambda score
 	 */
-	public AbstractMMRSelector(IScore sim1, IScore sim2, double initialLambda,
-			double maxLambda) {
+	public AbstractMMRSelector(List<Data> rankedData, IScore sim2,
+			double initialLambda, double maxLambda) {
 		if (initialLambda < maxLambda) {
 			setInitialLambda(initialLambda);
 			setMaxLambda(maxLambda);
 		}
-		setSim1(sim1);
-		setSim2(sim2);
+		setRedundancyScore(sim2);
+		setRankedData(rankedData);
+	}
+
+	/**
+	 * Select logic
+	 * 
+	 * @param size
+	 * @param data
+	 * @param query
+	 * @return
+	 */
+	public List<Data> select(int size, Query query) {
+		// TODO basic MMR logic
+		return null;
+	}
+
+	/**
+	 * Select logic
+	 * 
+	 * @param size
+	 * @param data
+	 * @return
+	 */
+	public List<Data> select(int size) {
+		// not supported
+		return null;
 	}
 
 	/**
@@ -82,33 +112,33 @@ public abstract class AbstractMMRSelector implements ISelector {
 	}
 
 	/**
-	 * @return the sim1
+	 * @return the rankedData
 	 */
-	public IScore getSim1() {
-		return sim1;
+	public List<Data> getRankedData() {
+		return rankedData;
 	}
 
 	/**
-	 * @param sim1
-	 *            the sim1 to set
+	 * @param rankedData
+	 *            the rankedData to set
 	 */
-	public void setSim1(IScore sim1) {
-		this.sim1 = sim1;
+	public void setRankedData(List<Data> rankedData) {
+		this.rankedData = rankedData;
 	}
 
 	/**
-	 * @return the sim2
+	 * @return the redundancyScore
 	 */
-	public IScore getSim2() {
-		return sim2;
+	public IScore getRedundancyScore() {
+		return redundancyScore;
 	}
 
 	/**
-	 * @param sim2
-	 *            the sim2 to set
+	 * @param redundancyScore
+	 *            the redundancyScore to set
 	 */
-	public void setSim2(IScore sim2) {
-		this.sim2 = sim2;
+	public void setRedundancyScore(IScore redundancyScore) {
+		this.redundancyScore = redundancyScore;
 	}
 
 }

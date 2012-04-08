@@ -1,17 +1,9 @@
 package com.redygest.grok.selection.mmr;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import com.redygest.commons.data.Data;
-import com.redygest.commons.data.DataType;
-import com.redygest.commons.data.Query;
-import com.redygest.commons.data.Tweet;
-import com.redygest.score.relevance.PagerankSumRelevanceScore;
 import com.redygest.score.similarity.SimilarityScoreFactory;
 import com.redygest.score.similarity.SimilarityScoreFactory.Score;
 
@@ -23,10 +15,17 @@ import com.redygest.score.similarity.SimilarityScoreFactory.Score;
  */
 public class BaselineMMRSelector extends AbstractMMRSelector {
 
-	public BaselineMMRSelector(double initialLambda, double maxLambda,
-			Map<String, Double> entityPagerank) {
-		super(new PagerankSumRelevanceScore(entityPagerank),
-				SimilarityScoreFactory.produceScore(Score.HYBRIDMAX),
+	/**
+	 * Constructor
+	 * 
+	 * @param rankedData
+	 * @param initialLambda
+	 * @param maxLambda
+	 * @param entityPagerank
+	 */
+	public BaselineMMRSelector(List<Data> rankedData, double initialLambda,
+			double maxLambda, Map<String, Double> entityPagerank) {
+		super(rankedData, SimilarityScoreFactory.produceScore(Score.HYBRIDMAX),
 				initialLambda, maxLambda);
 	}
 
@@ -96,63 +95,4 @@ public class BaselineMMRSelector extends AbstractMMRSelector {
 	// return selectedData;
 	// }
 
-	public static void main(String[] args) {
-		BaselineMMRSelector mmr = new BaselineMMRSelector();
-
-		Date start = new Date();
-		try {
-			BufferedReader br = new BufferedReader(
-					new FileReader(
-							"/Users/tejaswi/Documents/workspace/reDygest/sandbox/experiments/1.clinton"));
-			String line = null;
-			List<Data> data = new ArrayList<Data>();
-			int id = 0;
-			while ((line = br.readLine()) != null) {
-				double pagerank = Double.parseDouble(line.split("\\s+", 3)[1]);
-				if (pagerank < 0.015) {
-					continue;
-				}
-				String json = "{\"text\":\"" + line.split("\\s+", 3)[2] + "\"}";
-				try {
-					id++;
-					Data d = new Tweet(json, String.valueOf(id));
-					data.add(d);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			System.out.println("Num tweets considered: " + data.size());
-			List<String> membership = new ArrayList<String>();
-			membership.add("Chelsea");
-			membership.add("Chelsea Clinton");
-			membership.add("Hillary");
-			membership.add("Hillary Clinton");
-			membership.add("New York");
-
-			List<Data> selectedData = mmr.select(data, membership);
-
-			System.out
-					.println("================Selected Tweet================");
-			for (Data tweet : selectedData) {
-				System.out.println(tweet.getValue(DataType.BODY));
-			}
-
-			Date end = new Date();
-			System.out.println("Total time: "
-					+ (end.getTime() - start.getTime()));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-	}
-
-	public List<Data> select(int size, List<Data> data, Query query) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public List<Data> select(int size, List<Data> data) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
