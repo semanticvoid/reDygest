@@ -80,7 +80,8 @@ public class Journalist001 extends BaseJournalist {
 		this.preprocessor = new PreprocessorZ20120215();
 		// prefilter setup
 		this.prefilterRunner = new PrefilterRunner(
-				PrefilterType.NONENLGISH_LANG_FILTER);
+				PrefilterType.NONENLGISH_LANG_FILTER,
+				PrefilterType.REPLY_TWEET_FILTER);
 	}
 
 	/*
@@ -357,7 +358,10 @@ public class Journalist001 extends BaseJournalist {
 		}
 
 		// for all communities
+		int clusterNum = 1;
 		for (String communityId : memberships.keySet()) {
+			System.out.println("processing cluster " + clusterNum++ + " of "
+					+ memberships.keySet().size());
 			List<String> members = memberships.get(communityId);
 			// form community query
 			Query query = new Query(members);

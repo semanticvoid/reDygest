@@ -8,13 +8,13 @@ import com.redygest.commons.nlp.LanguageDetector;
 import com.redygest.grok.prefilter.IPrefilter;
 
 /**
- * @author akishore
- *
+ * Filter to filter out non-english tweets/data
+ * 
  */
 public class NonEnglishFilter implements IPrefilter {
 
 	LanguageDetector ld = null;
-	
+
 	public NonEnglishFilter() {
 		try {
 			ld = new LanguageDetector();
@@ -22,22 +22,24 @@ public class NonEnglishFilter implements IPrefilter {
 			e.printStackTrace();
 		}
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.redygest.grok.prefilter.IPrefilter#pass(java.lang.String)
 	 */
 	public boolean pass(String text) {
-		if(ld != null) {
+		if (ld != null) {
 			try {
 				String lang = ld.detect(text);
-				if(!lang.equalsIgnoreCase("en")) {
+				if (!lang.equalsIgnoreCase("en")) {
 					return false;
 				}
 			} catch (LangDetectException e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return true;
 	}
 
