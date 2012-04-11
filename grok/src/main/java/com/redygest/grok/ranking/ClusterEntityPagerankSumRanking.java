@@ -39,7 +39,8 @@ public class ClusterEntityPagerankSumRanking extends BaseRanking {
 			List<String> terms = q.getValues(DataType.BODY_TOKENIZED);
 			if (terms != null) {
 				for (String t : terms) {
-					if (this.entityPageranks.containsKey(t)) {
+					if (this.entityPageranks.containsKey(t)
+							&& d.getValue(DataType.ORIGINAL_TEXT).contains(t)) {
 						score += this.entityPageranks.get(t);
 					}
 				}

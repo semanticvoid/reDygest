@@ -377,6 +377,10 @@ public class Journalist001 extends BaseJournalist {
 
 			// add to community data chunks
 			communitySelectedDataChunks.add(data);
+
+			if (clusterNum == 11) {
+				break;
+			}
 		}
 
 		// form story from community data chunks
@@ -389,7 +393,8 @@ public class Journalist001 extends BaseJournalist {
 					if (title == null) {
 						title = d.getValue(DataType.ORIGINAL_TEXT);
 					}
-					sb.append(d.getValue(DataType.ORIGINAL_TEXT));
+					sb.append(d.getValue(DataType.ORIGINAL_TEXT)
+							+ d.getValue(DataType.SCORE));
 					sb.append("\n");
 				}
 

@@ -57,7 +57,7 @@ public abstract class BaseRanking implements IRanking {
 					}
 
 					if (score1 > score2) {
-						return 1;
+						return -1;
 					} else {
 						return 0;
 					}

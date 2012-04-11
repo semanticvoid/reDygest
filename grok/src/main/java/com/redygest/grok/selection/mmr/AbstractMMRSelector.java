@@ -72,7 +72,7 @@ public abstract class AbstractMMRSelector implements ISelector {
 				selectedIndices.add(i);
 			} else {
 				// bookkeeping for index with max mmr score
-				double maxMMRScore = 0;
+				double maxMMRScore = Double.MIN_VALUE;
 				int maxMMRScoreIndex = -1;
 
 				// iterate through the entire ranked list
@@ -93,7 +93,9 @@ public abstract class AbstractMMRSelector implements ISelector {
 				}
 
 				// add max score index as selected
-				selectedIndices.add(maxMMRScoreIndex);
+				if (maxMMRScoreIndex != -1) {
+					selectedIndices.add(maxMMRScoreIndex);
+				}
 			}
 		}
 
