@@ -67,36 +67,37 @@ public abstract class AbstractMMRSelector implements ISelector {
 
 		// extract only n=size number of items
 		for (int i = 0; i < size; i++) {
-			// always add index '0' as the first element
-			if (i == 0) {
-				selectedIndices.add(i);
-			} else {
-				// bookkeeping for index with max mmr score
-				double maxMMRScore = Double.MIN_VALUE;
-				int maxMMRScoreIndex = -1;
+			// bookkeeping for index with max mmr score
+			double maxMMRScore = Double.MIN_VALUE;
+			int maxMMRScoreIndex = -1;
 
-				// iterate through the entire ranked list
-				for (int j = 0; j < rankedData.size(); j++) {
-					// ignore rankedData if its already been selected
-					if (selectedIndices.contains(j)) {
-						continue;
-					} else {
-						// TODO increment lambda
-						double mmrScore = computeMMR(rankedData.get(j),
-								selectedIndices, initialLambda);
-						// save score and index if max (yet)
-						if (mmrScore > maxMMRScore) {
-							maxMMRScore = mmrScore;
-							maxMMRScoreIndex = j;
+			// iterate through the entire ranked list
+			for (int j = 0; j < rankedData.size(); j++) {
+				// ignore rankedData if its already been selected
+				if (selectedIndices.contains(j)) {
+					continue;
+				} else {
+					// TODO increment lambda
+					double mmrScore = computeMMR(rankedData.get(j),
+							selectedIndices, initialLambda);
+					// save score and index if max (yet)
+					if (mmrScore > maxMMRScore) {
+						maxMMRScore = mmrScore;
+						maxMMRScoreIndex = j;
+
+						// ignore the other and just add this if first
+						if (selectedIndices.size() == 0) {
+							break;
 						}
 					}
 				}
-
-				// add max score index as selected
-				if (maxMMRScoreIndex != -1) {
-					selectedIndices.add(maxMMRScoreIndex);
-				}
 			}
+
+			// add max score index as selected
+			if (maxMMRScoreIndex != -1) {
+				selectedIndices.add(maxMMRScoreIndex);
+			}
+
 		}
 
 		// form selected data list

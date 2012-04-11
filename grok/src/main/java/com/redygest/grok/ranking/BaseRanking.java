@@ -3,6 +3,7 @@
  */
 package com.redygest.grok.ranking;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -33,13 +34,19 @@ public abstract class BaseRanking implements IRanking {
 	 * 
 	 */
 	public List<Data> rank(Query query) {
-		List<Data> rankedList = this.dataset;
-		if (rankedList != null && query != null) {
-			for (Data d : rankedList) {
+		List<Data> rankedList = new ArrayList<Data>();
+		if (this.dataset != null && query != null) {
+			for (Data d : this.dataset) {
 				// score the data
 				double score = score(d, query);
-				// add score to data
-				d.setValue(DataType.SCORE, String.valueOf(score));
+
+				// only if score is > 0
+				// i.e. Data is relevant to query
+				if (score > 0) {
+					// add score to data
+					d.setValue(DataType.SCORE, String.valueOf(score));
+					rankedList.add(d);
+				}
 			}
 
 			// rank the list
@@ -59,7 +66,7 @@ public abstract class BaseRanking implements IRanking {
 					if (score1 > score2) {
 						return -1;
 					} else {
-						return 0;
+						return +1;
 					}
 				}
 			});
