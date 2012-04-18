@@ -1,23 +1,36 @@
-/**
- * 
- */
 package com.redygest.piggybank.twitter;
 
-import java.io.IOException;
-
-import org.apache.pig.EvalFunc;
-import org.apache.pig.data.Tuple;
+import net.sf.json.JSONObject;
+import net.sf.json.JSONSerializer;
 
 /**
- * Piggybank Tweet Class
+ * Tweet Class
  * 
  */
-public class Tweet extends EvalFunc<Tuple> {
+public class Tweet {
 
-	@Override
-	public Tuple exec(Tuple arg0) throws IOException {
-		// TODO Auto-generated method stub
-		return null;
+	private final JSONObject object;
+
+	public Tweet(String jsonStr) throws Exception {
+		object = (JSONObject) JSONSerializer.toJSON(jsonStr);
+	}
+
+	public String getId() {
+		String id = null;
+		if (object.containsKey("id")) {
+			id = object.getString("id");
+		}
+
+		return id;
+	}
+
+	public String getText() {
+		String txt = null;
+		if (object.containsKey("text")) {
+			txt = object.getString("text");
+		}
+
+		return txt;
 	}
 
 }
