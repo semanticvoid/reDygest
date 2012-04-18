@@ -43,7 +43,7 @@ public class Shingle extends EvalFunc<Tuple> {
 		Tuple oTuple = tFactory.newTuple();
 
 		try {
-			String line = ((String) ((Tuple) input.get(0)).get(0));
+			String line = (String) input.get(0);
 			int k = (Integer) input.get(1);
 
 			// lower & tokenize
@@ -86,5 +86,4 @@ public class Shingle extends EvalFunc<Tuple> {
 
 		return null;
 	}
-
 }
