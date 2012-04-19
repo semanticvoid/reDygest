@@ -8,5 +8,7 @@ C = FOREACH A GENERATE $0 as id, $1 as text, com.redygest.piggybank.text.Shingle
 D1 = FOREACH C GENERATE id, text, com.redygest.piggybank.text.MinHashSketch(shingles, 10) AS sketch;
 D2 = FOREACH D1 GENERATE id, text, sketch;
 F = CROSS D1, D2 PARALLEL 200;
-G = FOREACH F GENERATE D1::id, D1::text, D2::id, D2::text, flatten(com.redygest.piggybank.similarity.JaccardCoeff(D1::sketch, D2::sketch)) AS (sim:double);
-DUMP G;
+G = FOREACH F GENERATE FLATTEN(com.redygest.piggybank.twitter.GetSmallerId(D1::id, D2::id)) AS key, D1::id, D1::text, D2::id, D2::text, flatten(com.redygest.piggybank.similarity.JaccardCoeff(D1::sketch, D2::sketch)) AS (sim:double);
+H = FILTER G BY (NOT (D1::id == D2::id)) AND ((sim >= 0.5) AND (sim <= 1));
+I = GROUP H BY key;
+DUMP I;
