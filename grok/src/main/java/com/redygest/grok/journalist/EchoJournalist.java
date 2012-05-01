@@ -11,29 +11,26 @@ import com.redygest.commons.data.Story;
 
 /**
  * Echo Journalist - just echos everything out
+ * 
  * @author semanticvoid
- *
+ * 
  */
 public class EchoJournalist extends BaseJournalist {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see com.redygest.grok.journalist.BaseJournalist#process(java.util.List)
 	 */
 	@Override
 	protected Story process(List<Data> tweets) {
 		StringBuffer body = new StringBuffer();
-		
-		for(Data t : tweets) {
-			body.append(t.getValue(DataType.BODY) + " ");
+		Story s = new Story();
+
+		for (Data t : tweets) {
+			s.addLine(t.getValue(DataType.BODY));
 		}
-		
-		int end = 200;
-		if(body.length() < 200) {
-			end = body.length();
-		}
-		
-		Story s = new Story(body.substring(0, end), body.toString());
-		
+
 		return s;
 	}
 

@@ -3,27 +3,51 @@
  */
 package com.redygest.commons.data;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 /**
  * Class representing a Story
+ * 
  * @author semanticvoid
- *
+ * 
  */
 public class Story {
-	
-	private int id;
-	private String title;
-	private String body;
-	
+
+	private final long id;
+	private String title = null;
+	private List<String> body = null;
+
 	/**
 	 * Constructor
 	 */
-	public Story(String title, String body) {
+	public Story(String title) {
 		this.title = title;
-		this.body = body;
+		this.body = new ArrayList<String>();
 		this.id = title.hashCode();
 	}
 
-	public int getId() {
+	/**
+	 * Constructor
+	 */
+	public Story() {
+		this.body = new ArrayList<String>();
+		this.id = new Date().getTime();
+	}
+
+	public void addLine(String line) {
+		this.body.add(line);
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public long getId() {
 		return id;
 	}
 
@@ -31,8 +55,25 @@ public class Story {
 		return title;
 	}
 
-	public String getBody() {
+	public List<String> getBody() {
 		return body;
 	}
 
+	public String toJSON() {
+		JSONObject jObj = new JSONObject();
+
+		if (title != null) {
+			jObj.accumulate("title", title);
+		}
+
+		if (body != null) {
+			JSONArray body = new JSONArray();
+			for (String line : this.body) {
+				body.add(line);
+			}
+			jObj.accumulate("body", body);
+		}
+
+		return jObj.toString();
+	}
 }

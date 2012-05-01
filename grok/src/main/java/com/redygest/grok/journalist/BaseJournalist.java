@@ -90,10 +90,10 @@ abstract class BaseJournalist {
 
 		if (s != null) {
 			try {
-				store = new MysqlStore("localhost", "root", "", "dygest");
+				store = new MysqlStore("localhost", "root", "", "redygest");
 				return store
-						.executeUpdate("INSERT INTO stories (title, body) values (\""
-								+ s.getTitle() + "\",\"" + s.getBody() + "\")");
+						.executeUpdate("INSERT INTO stories (story_json) values (\""
+								+ s.toJSON() + "\")");
 			} catch (Exception e) {
 				// e.printStackTrace();
 			}

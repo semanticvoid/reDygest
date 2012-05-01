@@ -384,28 +384,25 @@ public class Journalist001 extends BaseJournalist {
 		}
 
 		// form story from community data chunks
-		StringBuffer sb = new StringBuffer();
-		String title = null;
+		Story s = new Story();
 		double maxScore = Double.MIN_VALUE;
 		if (communitySelectedDataChunks != null) {
+
 			for (List<Data> dataChunk : communitySelectedDataChunks) {
 				for (Data d : dataChunk) {
-					sb.append(d.getValue(DataType.ORIGINAL_TEXT) + "\t"
+					s.addLine(d.getValue(DataType.ORIGINAL_TEXT) + "\t"
 							+ d.getValue(DataType.SCORE));
 					double score = Double.valueOf(d.getValue(DataType.SCORE));
-					sb.append("\n");
 
 					if (score > maxScore) {
 						maxScore = score;
-						title = d.getValue(DataType.ORIGINAL_TEXT);
+						String title = d.getValue(DataType.ORIGINAL_TEXT);
+						s.setTitle(title);
 					}
 				}
-
-				// add new paragraph
-				sb.append("\n");
 			}
 
-			return new Story(title, sb.toString());
+			return s;
 		}
 
 		return null;

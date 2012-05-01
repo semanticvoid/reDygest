@@ -35,7 +35,7 @@ public class BaselineClusteringJournalist extends BaseJournalist {
 	 * 
 	 */
 	static class JaccardDistance implements Distance<String> {
-		
+
 		public double distance(String s1, String s2) {
 			String[] tokens1 = s1.split("[ ]+");
 			String[] tokens2 = s2.split("[ ]+");
@@ -67,12 +67,12 @@ public class BaselineClusteringJournalist extends BaseJournalist {
 	 */
 	protected void addTweet(Tweet t) {
 		tweetsRead++;
-		
+
 		if (tweets.size() < SAMPLE_WINDOW) {
 			tweets.add(t);
 		} else {
 			double rand = Math.random();
-			int index = (int) ((int) tweetsRead * rand);
+			int index = (int) (tweetsRead * rand);
 			if (index < tweets.size()) {
 				tweets.set(index, t);
 			}
@@ -104,17 +104,14 @@ public class BaselineClusteringJournalist extends BaseJournalist {
 
 		Set<Set<String>> clKClustering = clDendrogram.partitionK((int) k);
 
-		StringBuffer buf = new StringBuffer();
+		Story story = new Story();
 		for (Set<String> c : clKClustering) {
 			// pick one from each cluster
 			for (String s : c) {
-				buf.append(s);
+				story.addLine(s);
 				break;
 			}
 		}
-
-		Story story = new Story(buf.toString().substring(0, 200),
-				buf.toString());
 
 		return story;
 	}
