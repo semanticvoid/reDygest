@@ -5,9 +5,9 @@ var articlely = {
 	// fetch the story json
 	getStory : function(id) {
 		$.ajax({
-  			url: 'api/story?id=' + id,
+  			url: 'api/story.php?id=' + id,
   			success: function(data) {
-    			var obj = jQuery.parseJSON('{"title":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.", "body":["Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis."]}');
+    			var obj = jQuery.parseJSON(data);
 				this.setTitle(obj.title);
 				this.setBody(obj.body);
     			alert('Load was performed.');
