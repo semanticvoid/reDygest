@@ -92,9 +92,9 @@ abstract class BaseJournalist {
 			try {
 				store = new MysqlStore("localhost", "root", "", "redygest");
 				String storyJSON = s.toJSON();
-				storyJSON = storyJSON.replaceAll("\"", "\\\\\"");
-				String query = "INSERT INTO stories (story_json) values (\""
-						+ storyJSON + "\")";
+				// storyJSON = storyJSON.replaceAll("{cntrl}", "");
+				String query = "INSERT INTO stories (story_json) values ('"
+						+ storyJSON + "')";
 				return store.executeUpdate(query);
 			} catch (Exception e) {
 				// e.printStackTrace();

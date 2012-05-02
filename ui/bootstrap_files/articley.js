@@ -7,10 +7,11 @@ var articlely = {
 		$.ajax({
   			url: 'api/story.php?id=' + id,
   			success: function(data) {
-    			var obj = jQuery.parseJSON(data);
-				this.setTitle(obj.title);
-				this.setBody(obj.body);
-    			alert('Load was performed.');
+				//alert(data);
+    				var obj = jQuery.parseJSON(data);
+				articlely.setTitle(obj.title);
+				articlely.setBody(obj.body);
+    				//alert('Load was performed.');
   			}
 		});
 	},

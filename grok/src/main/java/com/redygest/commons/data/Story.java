@@ -41,7 +41,7 @@ public class Story {
 
 	public void addLine(String line) {
 		if (line != null) {
-			this.body.add(line.replaceAll("\"", ""));
+			this.body.add(line.replaceAll("['\"]", ""));
 		}
 	}
 
