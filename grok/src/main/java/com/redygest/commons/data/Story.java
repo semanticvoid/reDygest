@@ -40,7 +40,9 @@ public class Story {
 	}
 
 	public void addLine(String line) {
-		this.body.add(line);
+		if (line != null) {
+			this.body.add(line.replaceAll("\"", ""));
+		}
 	}
 
 	public void setTitle(String title) {
