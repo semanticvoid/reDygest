@@ -26,6 +26,9 @@ public class Tweet extends AbstractData {
 	private String time;
 	private String recordIdentifier;
 
+	private final boolean retweeted = false;
+	private final int retweetCount = 0;
+
 	private ITweetPreprocessor preprocessor;
 
 	/**
@@ -65,8 +68,17 @@ public class Tweet extends AbstractData {
 		try {
 			jsonObj = JSONObject.fromObject(json);
 			text = jsonObj.getString("text");
+
 			if (jsonObj.containsKey("created_at")) {
 				time = jsonObj.getString("created_at");
+			}
+
+			if (jsonObj.containsKey("retweeted")) {
+
+			}
+
+			if (jsonObj.containsKey("retweet_count")) {
+
 			}
 		} catch (Exception e) {
 			text = json;
@@ -118,9 +130,23 @@ public class Tweet extends AbstractData {
 		setValue(DataType.BODY, tmpText);
 		setValue(DataType.TIME, time);
 		setValues(DataType.BODY_TOKENIZED, tokenize(tmpText));
-		// setValue(DataType.BODY_PUNCTUATED, pStr.toString().trim()); // TODO
+		setValue(DataType.BODY_PUNCTUATED, tmpText.trim());
 		// don't remember what this was for
 		setValue(DataType.RECORD_IDENTIFIER, recordIdentifier.trim());
 
+	}
+
+	/**
+	 * @return the retweeted
+	 */
+	public boolean isRetweeted() {
+		return retweeted;
+	}
+
+	/**
+	 * @return the retweetCount
+	 */
+	public int getRetweetCount() {
+		return retweetCount;
 	}
 }
