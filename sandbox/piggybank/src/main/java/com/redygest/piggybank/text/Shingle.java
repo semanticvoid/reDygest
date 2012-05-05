@@ -46,37 +46,39 @@ public class Shingle extends EvalFunc<Tuple> {
 			String line = (String) input.get(0);
 			int k = (Integer) input.get(1);
 
-			// lower & tokenize
-			line = line.replaceAll("[\\.!?%$#@*()':;,\"]", "");
-			// remove html tags if any
-			line = line.replaceAll("<.*>", "");
-			String[] tokens = line.toLowerCase().split("[\\s]+");
+			if (line != null) {
+				// lower & tokenize
+				line = line.replaceAll("[\\.!?%$#@*()':;,\"]", "");
+				// remove html tags if any
+				line = line.replaceAll("<.*>", "");
+				String[] tokens = line.toLowerCase().split("[\\s]+");
 
-			// remove stop words
-			ArrayList<String> terms = new ArrayList<String>();
-			for (String s : tokens) {
-				if (!stopWords.contains(s)) {
-					terms.add(s);
-				}
-			}
-
-			// generate shingles of size k
-			for (int i = 0; i <= terms.size(); i++) {
-				if (i - k >= 0) {
-					StringBuffer buf = new StringBuffer();
-					for (int j = (i - k); j < i; j++) {
-						buf.append(terms.get(j) + " ");
-					}
-					String s = buf.toString().trim();
-					if (!shingles.containsKey(s)) {
-						shingles.put(s, mh.hash(s.getBytes()));
+				// remove stop words
+				ArrayList<String> terms = new ArrayList<String>();
+				for (String s : tokens) {
+					if (!stopWords.contains(s)) {
+						terms.add(s);
 					}
 				}
-			}
 
-			// add shingles to output tuple
-			for (String key : shingles.keySet()) {
-				oTuple.append(shingles.get(key));
+				// generate shingles of size k
+				for (int i = 0; i <= terms.size(); i++) {
+					if (i - k >= 0) {
+						StringBuffer buf = new StringBuffer();
+						for (int j = (i - k); j < i; j++) {
+							buf.append(terms.get(j) + " ");
+						}
+						String s = buf.toString().trim();
+						if (!shingles.containsKey(s)) {
+							shingles.put(s, mh.hash(s.getBytes()));
+						}
+					}
+				}
+
+				// add shingles to output tuple
+				for (String key : shingles.keySet()) {
+					oTuple.append(shingles.get(key));
+				}
 			}
 
 			return oTuple;
