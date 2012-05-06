@@ -22,12 +22,17 @@ import com.redygest.commons.preprocessor.twitter.ITweetPreprocessor;
  */
 public class Tweet extends AbstractData {
 
+	private static final String FIELD_TEXT = "text";
+	private static final String FIELD_TIME = "created_at";
+	private static final String FIELD_RETWEETED = "retweeted";
+	private static final String FIELD_RETWEET_COUNT = "retweet_count";
+
 	private String text;
 	private String time;
 	private String recordIdentifier;
 
-	private final boolean retweeted = false;
-	private final int retweetCount = 0;
+	private boolean retweeted = false;
+	private int retweetCount = 0;
 
 	private ITweetPreprocessor preprocessor;
 
@@ -67,18 +72,18 @@ public class Tweet extends AbstractData {
 		String text = null;
 		try {
 			jsonObj = JSONObject.fromObject(json);
-			text = jsonObj.getString("text");
+			text = jsonObj.getString(FIELD_TEXT);
 
-			if (jsonObj.containsKey("created_at")) {
-				time = jsonObj.getString("created_at");
+			if (jsonObj.containsKey(FIELD_TIME)) {
+				time = jsonObj.getString(FIELD_TIME);
 			}
 
-			if (jsonObj.containsKey("retweeted")) {
-
+			if (jsonObj.containsKey(FIELD_RETWEETED)) {
+				this.retweeted = jsonObj.getBoolean(FIELD_RETWEETED);
 			}
 
-			if (jsonObj.containsKey("retweet_count")) {
-
+			if (jsonObj.containsKey(FIELD_RETWEET_COUNT)) {
+				this.retweetCount = jsonObj.getInt(FIELD_RETWEET_COUNT);
 			}
 		} catch (Exception e) {
 			text = json;
