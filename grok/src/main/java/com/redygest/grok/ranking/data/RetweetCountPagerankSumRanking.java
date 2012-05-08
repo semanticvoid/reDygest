@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.redygest.grok.ranking;
+package com.redygest.grok.ranking.data;
 
 import java.util.List;
 import java.util.Map;

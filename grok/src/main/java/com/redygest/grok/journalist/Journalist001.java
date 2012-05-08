@@ -33,8 +33,8 @@ import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.prefilter.PrefilterRunner;
 import com.redygest.grok.prefilter.PrefilterType;
-import com.redygest.grok.ranking.ClusterEntityPagerankSumRanking;
-import com.redygest.grok.ranking.IRanking;
+import com.redygest.grok.ranking.data.ClusterEntityPagerankSumRanking;
+import com.redygest.grok.ranking.data.IRanking;
 import com.redygest.grok.selection.ISelector;
 import com.redygest.grok.selection.mmr.BaselineMMRSelector;
 
@@ -373,7 +373,7 @@ public class Journalist001 extends BaseJournalist {
 			// select
 			ISelector selector = new BaselineMMRSelector(rankedData, pageranks);
 			// TODO default size 10
-			List<Data> data = selector.select(10);
+			List<Data> data = selector.select(3);
 
 			// add to community data chunks
 			communitySelectedDataChunks.add(data);
@@ -390,7 +390,7 @@ public class Journalist001 extends BaseJournalist {
 
 			for (List<Data> dataChunk : communitySelectedDataChunks) {
 				for (Data d : dataChunk) {
-					s.addLine(d.getValue(DataType.ORIGINAL_TEXT));
+					s.addLine(d.getValue(DataType.BODY_PUNCTUATED));
 					double score = Double.valueOf(d.getValue(DataType.SCORE));
 
 					if (score > maxScore) {
