@@ -10,7 +10,7 @@ import org.ini4j.Wini;
  */
 public class ConfigReader {
 
-	private static final String CONFIG_FILE = "/Users/semanticvoid/projects/reDygest/grok/conf/grok.ini";
+	private static final String CONFIG_FILE = "/Users/tejaswi/Documents/workspace/reDygest/grok/conf/grok.ini";
 
 	private static final String EXTRACTOR_SECTION = "extractor";
 	private static final String SENNA_PATH_KEY = "sennadir";

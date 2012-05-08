@@ -59,4 +59,9 @@ public class NounSynonymWikipediaRedirects implements ISynonymDb {
 		w = w.toLowerCase().replaceAll(" ", "_");
 		return w;
 	}
+	
+	public static void main(String[] args){
+		NounSynonymWikipediaRedirects n = new NounSynonymWikipediaRedirects();
+		System.out.println(n.getSynonym("clinton"));
+	}
 }

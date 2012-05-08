@@ -10,7 +10,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.redygest.grok.test.FeatureExtractorTestSuite</mainClass>
+							<mainClass>com.redygest.grok.journalist.Journalist001</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
