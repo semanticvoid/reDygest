@@ -6,7 +6,6 @@ package com.redygest.piggybank.twitter;
 import java.io.IOException;
 
 import org.apache.pig.EvalFunc;
-import org.apache.pig.data.DataByteArray;
 import org.apache.pig.data.Tuple;
 import org.apache.pig.data.TupleFactory;
 
@@ -14,7 +13,7 @@ import org.apache.pig.data.TupleFactory;
  * Piggybank Tweet Class
  * 
  */
-public class ExtractTweet extends EvalFunc<Tuple> {
+public class AddCountToTweet extends EvalFunc<Tuple> {
 
 	@Override
 	public Tuple exec(Tuple input) throws IOException {
@@ -22,16 +21,18 @@ public class ExtractTweet extends EvalFunc<Tuple> {
 		Tuple oTuple = tFactory.newTuple();
 
 		try {
-			String jsonStr = ((DataByteArray) input.get(0)).toString();
+			String jsonStr = (String) input.get(0);
+			long count = (Long) input.get(1);
+
 			Tweet t = new Tweet(jsonStr);
-			String id = t.getId();
-			String tweet = jsonStr;
-			if (id != null && tweet != null) {
-				oTuple.append(id);
+			t.setRetweetCount(t.getRetweetCount() + count);
+			String tweet = t.toJSON();
+			if (tweet != null) {
 				oTuple.append(tweet);
 			}
+			// oTuple.append(jsonStr);
 		} catch (Exception e) {
-			// oTuple.append("");
+			e.printStackTrace();
 		}
 
 		return oTuple;

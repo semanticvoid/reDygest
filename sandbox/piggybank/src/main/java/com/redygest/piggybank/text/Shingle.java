@@ -12,6 +12,8 @@ import org.apache.pig.EvalFunc;
 import org.apache.pig.data.Tuple;
 import org.apache.pig.data.TupleFactory;
 
+import com.redygest.piggybank.twitter.Tweet;
+
 /**
  * Piggybank function for Shingling
  * 
@@ -43,8 +45,11 @@ public class Shingle extends EvalFunc<Tuple> {
 		Tuple oTuple = tFactory.newTuple();
 
 		try {
-			String line = (String) input.get(0);
+			String json = (String) input.get(0);
 			int k = (Integer) input.get(1);
+
+			Tweet t = new Tweet(json);
+			String line = t.getText();
 
 			if (line != null) {
 				// lower & tokenize
