@@ -85,12 +85,10 @@ public class Shingle extends EvalFunc<Tuple> {
 					oTuple.append(shingles.get(key));
 				}
 			}
-
-			return oTuple;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		return null;
+		return oTuple;
 	}
 }
