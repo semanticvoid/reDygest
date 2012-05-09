@@ -10,10 +10,10 @@ A = FOREACH X1 GENERATE FLATTEN(com.redygest.piggybank.twitter.ExtractTweet($0))
 
 -- shingle
 C = FOREACH A GENERATE $0 as id, $1 as tweet, com.redygest.piggybank.text.Shingle($1, 2) AS shingles;
-C1 = FILTER C BY id != NULL;
+-- C1 = FILTER C BY id != NULL;
 
 -- cross
-D1 = FOREACH C1 GENERATE id, tweet, com.redygest.piggybank.text.MinHashSketch(shingles, 10) AS sketch;
+D1 = FOREACH C GENERATE id, tweet, com.redygest.piggybank.text.MinHashSketch(shingles, 10) AS sketch;
 D2 = FOREACH D1 GENERATE *;
 E = CROSS D1, D2 PARALLEL 200;
 E1 = FILTER E BY D1::id != D2::id;
