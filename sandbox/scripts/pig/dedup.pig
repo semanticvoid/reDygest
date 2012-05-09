@@ -51,8 +51,15 @@ J1 = FOREACH J GENERATE group, H::tweet1 as tweet, count;
 K = FILTER J1 BY count >= $THRESHOLD;
 
 -- add count
-N = FOREACH K GENERATE FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
+N = FOREACH K GENERATE group as id, FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
+M = DISTINCT N;
 
+-- round 2: regroup
+
+-- regroup
+B2 = GROUP M BY id;
+C2 = FOREACH B2 GENERATE group as id, FLATTEN(com.redygest.piggybank.util.OneFromBag(M));
+D2 = FOREACH C2 GENERATE $2 AS tweet;
 
 -- store
-STORE N INTO '$OUTPUT';
+STORE D2 INTO '$OUTPUT';
