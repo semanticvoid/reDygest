@@ -378,9 +378,9 @@ public class Journalist001 extends BaseJournalist {
 			// add to community data chunks
 			communitySelectedDataChunks.add(data);
 
-			if (clusterNum == 11) {
-				break;
-			}
+			// if (clusterNum == 11) {
+			// break;
+			// }
 		}
 
 		// form story from community data chunks

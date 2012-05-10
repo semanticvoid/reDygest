@@ -87,7 +87,11 @@ public class MysqlStore {
 				}
 			}
 
-			return true;
+			try {
+				return this.stmt.execute();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
 		}
 
 		return false;
