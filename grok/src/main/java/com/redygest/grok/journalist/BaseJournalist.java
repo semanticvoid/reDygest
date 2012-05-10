@@ -14,8 +14,10 @@ import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
 import com.redygest.commons.data.Tweet;
 import com.redygest.commons.preprocessor.twitter.ITweetPreprocessor;
-import com.redygest.commons.store.MysqlStore;
 import com.redygest.grok.prefilter.PrefilterRunner;
+import com.redygest.grok.store.IStore;
+import com.redygest.grok.store.StoreFactory;
+import com.redygest.grok.store.StoreFactory.StoreType;
 
 /**
  * Class representing the base journalist template
@@ -86,24 +88,17 @@ abstract class BaseJournalist {
 	 * @return
 	 */
 	protected boolean write(Story s) {
-		MysqlStore store = null;
+		IStore store = null;
 
 		if (s != null) {
-			try {
-				store = new MysqlStore("localhost", "root", "", "redygest");
-				String storyJSON = s.toJSON();
-				// storyJSON = storyJSON.replaceAll("{cntrl}", "");
-				String query = "INSERT INTO stories (story_json) values ('"
-						+ storyJSON + "')";
-				return store.executeUpdate(query);
-			} catch (Exception e) {
-				// e.printStackTrace();
-			}
+			store = StoreFactory.getInstance().produce(StoreType.MYSQL);
 
 			// write to console if store not valid
 			if (store == null) {
 				System.out.println("---------- Story ----------");
 				System.out.println(s.getBody());
+			} else {
+				return store.write(s.toJSON());
 			}
 		}
 
