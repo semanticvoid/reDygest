@@ -37,6 +37,8 @@ import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.prefilter.PrefilterRunner;
 import com.redygest.grok.prefilter.PrefilterType;
+import com.redygest.grok.ranking.community.EntityPagerankCommunityRanking;
+import com.redygest.grok.ranking.community.ICommunityRanking;
 import com.redygest.grok.ranking.data.IRanking;
 import com.redygest.grok.ranking.data.RetweetCountPagerankSumRanking;
 import com.redygest.grok.selection.ISelector;
@@ -384,6 +386,9 @@ public class Journalist001 extends BaseJournalist {
 		}
 
 		// TODO community ranking here
+		ICommunityRanking commRanking = new EntityPagerankCommunityRanking(
+				pageranks);
+		communities = commRanking.rank(communities, this.tweets);
 
 		// for all communities
 		int clusterNum = 1;
