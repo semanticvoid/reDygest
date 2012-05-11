@@ -19,7 +19,7 @@ import com.redygest.commons.util.Math;
 public class RetweetCountPagerankSumRanking extends BaseRanking {
 
 	// default for now
-	private static final double RTWEIGHT = 0.5;
+	private static final double RTWEIGHT = 0.001;
 
 	protected Map<String, Double> entityPageranks;
 
@@ -55,7 +55,7 @@ public class RetweetCountPagerankSumRanking extends BaseRanking {
 
 			// linear comb
 			// TODO should normalize pg score?
-			score = RTWEIGHT * Math.sigmoid(retweetCount, 0.001, 30)
+			score = RTWEIGHT * Math.sigmoid(retweetCount, 0.05, 100)
 					+ (1 - RTWEIGHT) * score;
 		}
 

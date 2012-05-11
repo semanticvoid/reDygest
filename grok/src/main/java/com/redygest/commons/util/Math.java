@@ -20,4 +20,5 @@ public class Math {
 		return 1 / (1 + java.lang.Math.pow(java.lang.Math.E,
 				(-1 * weight * (x - threshold))));
 	}
+
 }
