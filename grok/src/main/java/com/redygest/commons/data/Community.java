@@ -3,9 +3,10 @@
  */
 package com.redygest.commons.data;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Community Class
@@ -13,7 +14,7 @@ import java.util.Set;
  * @author semanticvoid
  * 
  */
-public class Community {
+public class Community implements Comparable<Community> {
 
 	public static enum CommunityAttribute {
 		PAGERANK;
@@ -23,6 +24,8 @@ public class Community {
 	String id;
 	// members & attributes
 	Map<String, Map<CommunityAttribute, Double>> members;
+	// score
+	double score = 0;
 
 	/**
 	 * Constructor
@@ -62,14 +65,14 @@ public class Community {
 	 * 
 	 * @return
 	 */
-	public Set<String> getMembers() {
-		Set<String> memberSet = null;
+	public List<String> getMembers() {
+		List<String> members = new ArrayList<String>();
 
 		if (this.members != null) {
-			memberSet = this.members.keySet();
+			members = new ArrayList<String>(this.members.keySet());
 		}
 
-		return memberSet;
+		return members;
 	}
 
 	/**
@@ -88,6 +91,35 @@ public class Community {
 		}
 
 		return value;
+	}
+
+	/**
+	 * Getter for score
+	 * 
+	 */
+	public double getScore() {
+		return this.score;
+	}
+
+	/**
+	 * Setter for score
+	 * 
+	 * @param score
+	 */
+	public void setScore(double score) {
+		this.score = score;
+	}
+
+	public int compareTo(Community o) {
+		if (o != null) {
+			if (this.getScore() > o.getScore()) {
+				return 1;
+			} else {
+				return -1;
+			}
+		}
+
+		return 0;
 	}
 
 }

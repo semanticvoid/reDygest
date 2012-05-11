@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -344,7 +345,7 @@ public class Journalist001 extends BaseJournalist {
 		}
 
 		// read community file and form communities
-		Map<String, Community> communityMap = new HashMap<String, Community>();
+		Map<Integer, Community> communityMap = new LinkedHashMap<Integer, Community>();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(
 					"/tmp/community"));
@@ -368,11 +369,11 @@ public class Journalist001 extends BaseJournalist {
 				Map<CommunityAttribute, Double> attrs = new HashMap<Community.CommunityAttribute, Double>();
 				attrs.put(CommunityAttribute.PAGERANK, pg);
 
-				if (!communityMap.containsKey(id)) {
-					communityMap.put(id, new Community(id));
+				if (!communityMap.containsKey(Integer.valueOf(id))) {
+					communityMap.put(Integer.valueOf(id), new Community(id));
 				}
 
-				communityMap.get(id).add(member, attrs);
+				communityMap.get(Integer.valueOf(id)).add(member, attrs);
 			}
 
 			// write back as a list
@@ -390,10 +391,10 @@ public class Journalist001 extends BaseJournalist {
 			System.out.println("processing cluster " + clusterNum++ + " of "
 					+ communities.size());
 
-			Set<String> members = community.getMembers();
+			List<String> members = community.getMembers();
 
 			// form community query
-			Query query = new Query(new ArrayList<String>(members));
+			Query query = new Query(members);
 
 			// rank the data wrt query
 			IRanking ranking = new RetweetCountPagerankSumRanking(this.tweets,
@@ -404,14 +405,14 @@ public class Journalist001 extends BaseJournalist {
 			ISelector selector = new BaselineMMRSelector(rankedData, pageranks);
 
 			// TODO default size 10
-			List<Data> data = selector.select(3);
+			List<Data> data = selector.select(2);
 
 			// add to community data chunks
 			communitySelectedDataChunks.add(data);
 
-			if (clusterNum == 11) {
-				break;
-			}
+			// if (clusterNum == 11) {
+			// break;
+			// }
 		}
 
 		// form story from community data chunks

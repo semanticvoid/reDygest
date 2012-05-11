@@ -1,16 +1,16 @@
 package com.redygest.grok.ranking.community;
 
-import java.util.HashMap;
 import java.util.List;
 
+import com.redygest.commons.data.Community;
 import com.redygest.commons.data.Data;
 
 public interface ICommunityRanking {
 	/**
 	 * 
-	 * @param memberships
-	 * @param data  
+	 * @param communities
+	 * @param data
 	 * @return List of community ids
 	 */
-	List<String> rankCommunities(HashMap<String, List<String>> memberships, List<Data> data);
+	List<Community> rank(List<Community> communities, List<Data> data);
 }
