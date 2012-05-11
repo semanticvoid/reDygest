@@ -14,12 +14,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import com.redygest.commons.config.ConfigReader;
+import com.redygest.commons.data.Community;
+import com.redygest.commons.data.Community.CommunityAttribute;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Query;
@@ -33,8 +36,8 @@ import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.prefilter.PrefilterRunner;
 import com.redygest.grok.prefilter.PrefilterType;
-import com.redygest.grok.ranking.data.ClusterEntityPagerankSumRanking;
 import com.redygest.grok.ranking.data.IRanking;
+import com.redygest.grok.ranking.data.RetweetCountPagerankSumRanking;
 import com.redygest.grok.selection.ISelector;
 import com.redygest.grok.selection.mmr.BaselineMMRSelector;
 
@@ -282,43 +285,25 @@ public class Journalist001 extends BaseJournalist {
 	// }
 
 	protected Story step9() {
-		HashMap<String, List<String>> memberships = new HashMap<String, List<String>>();
+		List<Community> communities = new ArrayList<Community>();
 		HashMap<String, Double> pageranks = new HashMap<String, Double>();
 		List<List<Data>> communitySelectedDataChunks = new ArrayList<List<Data>>();
-
-		// read community file and form membership entity map
-		try {
-			BufferedReader br = new BufferedReader(new FileReader(
-					"/tmp/community"));
-			String line;
-			while ((line = br.readLine()) != null) {
-				String[] split = line.split("#");
-				if (split.length != 2)
-					continue;
-				if (memberships.containsKey(split[0])) {
-					memberships.get(split[0]).add(split[1].trim());
-				} else {
-					List<String> members = new ArrayList<String>();
-					members.add(split[1].trim());
-					memberships.put(split[0], members);
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
 
 		// read eids
 		HashMap<Integer, String> eidMap = new HashMap<Integer, String>();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("/tmp/eids"));
 			String line;
+
 			while ((line = br.readLine()) != null) {
 				String[] split = line.split(" '");
+
 				if (split.length < 2) {
 					continue;
 				}
+
 				String entity = split[1];
+
 				// chomp
 				entity = entity.replaceAll("'$", "");
 				eidMap.put(Integer.valueOf(split[0]), entity);
@@ -344,6 +329,7 @@ public class Journalist001 extends BaseJournalist {
 				if (split.length < 2) {
 					continue;
 				}
+
 				int eid = Integer.valueOf(split[0].replaceAll("\"", ""));
 				double pg = Double.valueOf(split[1]);
 
@@ -357,30 +343,75 @@ public class Journalist001 extends BaseJournalist {
 			return null;
 		}
 
+		// read community file and form communities
+		Map<String, Community> communityMap = new HashMap<String, Community>();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(
+					"/tmp/community"));
+			String line;
+
+			while ((line = br.readLine()) != null) {
+				String[] split = line.split("#");
+
+				if (split.length != 2) {
+					continue;
+				}
+
+				String id = split[0];
+				String member = split[1].trim();
+				double pg = 0;
+
+				if (pageranks.containsKey(member)) {
+					pg = pageranks.get(member);
+				}
+
+				Map<CommunityAttribute, Double> attrs = new HashMap<Community.CommunityAttribute, Double>();
+				attrs.put(CommunityAttribute.PAGERANK, pg);
+
+				if (!communityMap.containsKey(id)) {
+					communityMap.put(id, new Community(id));
+				}
+
+				communityMap.get(id).add(member, attrs);
+			}
+
+			// write back as a list
+			communities = new ArrayList<Community>(communityMap.values());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+
+		// TODO community ranking here
+
 		// for all communities
 		int clusterNum = 1;
-		for (String communityId : memberships.keySet()) {
+		for (Community community : communities) {
 			System.out.println("processing cluster " + clusterNum++ + " of "
-					+ memberships.keySet().size());
-			List<String> members = memberships.get(communityId);
+					+ communities.size());
+
+			Set<String> members = community.getMembers();
+
 			// form community query
-			Query query = new Query(members);
+			Query query = new Query(new ArrayList<String>(members));
+
 			// rank the data wrt query
-			IRanking ranking = new ClusterEntityPagerankSumRanking(this.tweets,
+			IRanking ranking = new RetweetCountPagerankSumRanking(this.tweets,
 					pageranks);
 			List<Data> rankedData = ranking.rank(query);
 
 			// select
 			ISelector selector = new BaselineMMRSelector(rankedData, pageranks);
+
 			// TODO default size 10
 			List<Data> data = selector.select(3);
 
 			// add to community data chunks
 			communitySelectedDataChunks.add(data);
 
-			// if (clusterNum == 11) {
-			// break;
-			// }
+			if (clusterNum == 11) {
+				break;
+			}
 		}
 
 		// form story from community data chunks
