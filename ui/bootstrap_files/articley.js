@@ -37,8 +37,14 @@ var articlely = {
 	
 	// generate line
 	_generateLineBlock : function(line) {
+		var txt = line["text"];
+		var time = line["time"];
+		var lineDate = new Date(time);
+		var currDate = new Date();
+		var timeDiff = currDate - lineDate;
+		timeDiff = Math.floor(timeDiff/(1000*60*60));
 		return "<blockquote class=\"pull-left\">" +
-				"<p>" + line + "</p><small>9 hours ago</small></blockquote>";
+				"<p>" + txt + "</p><small>" + timeDiff + " hours ago</small></blockquote>";
 	},
 	
 	getURLParameter : function(name) {

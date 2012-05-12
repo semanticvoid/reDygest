@@ -19,15 +19,15 @@ import net.sf.json.JSONObject;
 public class Story {
 
 	private final long id;
-	private String title = null;
-	private List<String> body = null;
+	private Data title = null;
+	private List<Data> body = null;
 
 	/**
 	 * Constructor
 	 */
-	public Story(String title) {
+	public Story(Data title) {
 		this.title = title;
-		this.body = new ArrayList<String>();
+		this.body = new ArrayList<Data>();
 		this.id = title.hashCode();
 	}
 
@@ -35,17 +35,17 @@ public class Story {
 	 * Constructor
 	 */
 	public Story() {
-		this.body = new ArrayList<String>();
+		this.body = new ArrayList<Data>();
 		this.id = new Date().getTime();
 	}
 
-	public void addLine(String line) {
+	public void addLine(Data line) {
 		if (line != null) {
 			this.body.add(line);
 		}
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(Data title) {
 		this.title = title;
 	}
 
@@ -53,11 +53,11 @@ public class Story {
 		return id;
 	}
 
-	public String getTitle() {
+	public Data getTitle() {
 		return title;
 	}
 
-	public List<String> getBody() {
+	public List<Data> getBody() {
 		return body;
 	}
 
@@ -65,12 +65,15 @@ public class Story {
 		JSONObject jObj = new JSONObject();
 
 		if (title != null) {
-			jObj.accumulate("title", title);
+			jObj.accumulate("title", title.getValue(DataType.ORIGINAL_TEXT));
 		}
 
 		if (body != null) {
 			JSONArray body = new JSONArray();
-			for (String line : this.body) {
+			for (Data d : this.body) {
+				JSONObject line = new JSONObject();
+				line.accumulate("text", d.getValue(DataType.ORIGINAL_TEXT));
+				line.accumulate("time", d.getValue(DataType.TIME));
 				body.add(line);
 			}
 			jObj.accumulate("body", body);

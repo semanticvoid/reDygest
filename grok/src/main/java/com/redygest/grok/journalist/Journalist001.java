@@ -427,13 +427,12 @@ public class Journalist001 extends BaseJournalist {
 
 			for (List<Data> dataChunk : communitySelectedDataChunks) {
 				for (Data d : dataChunk) {
-					s.addLine(d.getValue(DataType.ORIGINAL_TEXT));
+					s.addLine(d);
 					double score = Double.valueOf(d.getValue(DataType.SCORE));
 
 					if (score > maxScore) {
 						maxScore = score;
-						String title = d.getValue(DataType.ORIGINAL_TEXT);
-						s.setTitle(title);
+						s.setTitle(d);
 					}
 				}
 			}
