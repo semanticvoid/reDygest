@@ -1,7 +1,9 @@
 package com.redygest.grok.selection.mmr;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
@@ -62,7 +64,7 @@ public abstract class AbstractMMRSelector implements ISelector {
 	 * @return
 	 */
 	public List<Data> select(int size) {
-		List<Integer> selectedIndices = new ArrayList<Integer>();
+		Map<String, Integer> selectedIndices = new LinkedHashMap<String, Integer>();
 		List<Data> selectedData = new ArrayList<Data>();
 
 		// extract only n=size number of items
@@ -73,8 +75,10 @@ public abstract class AbstractMMRSelector implements ISelector {
 
 			// iterate through the entire ranked list
 			for (int j = 0; j < rankedData.size(); j++) {
+				Data d = rankedData.get(j);
 				// ignore rankedData if its already been selected
-				if (selectedIndices.contains(j)) {
+				if (selectedIndices.containsKey(d
+						.getValue(DataType.RECORD_IDENTIFIER))) {
 					continue;
 				} else {
 					// TODO increment lambda
@@ -95,13 +99,15 @@ public abstract class AbstractMMRSelector implements ISelector {
 
 			// add max score index as selected
 			if (maxMMRScoreIndex != -1) {
-				selectedIndices.add(maxMMRScoreIndex);
+				Data d = rankedData.get(maxMMRScoreIndex);
+				selectedIndices.put(d.getValue(DataType.RECORD_IDENTIFIER),
+						maxMMRScoreIndex);
 			}
 
 		}
 
 		// form selected data list
-		for (Integer i : selectedIndices) {
+		for (Integer i : selectedIndices.values()) {
 			selectedData.add(rankedData.get(i));
 		}
 
@@ -116,7 +122,7 @@ public abstract class AbstractMMRSelector implements ISelector {
 	 * @param lambda
 	 * @return the mmr score
 	 */
-	protected double computeMMR(Data d, List<Integer> selectedIndices,
+	protected double computeMMR(Data d, Map<String, Integer> selectedIndices,
 			double lambda) {
 		double relevanceScore = 0;
 
@@ -128,7 +134,7 @@ public abstract class AbstractMMRSelector implements ISelector {
 		// get max redundancy score by comparing
 		// against already selected data
 		double maxRedundancyScore = 0;
-		for (Integer i : selectedIndices) {
+		for (Integer i : selectedIndices.values()) {
 			Data selectedData = rankedData.get(i);
 			double score = this.redundancyScore.score(selectedData, d);
 			if (score > maxRedundancyScore) {
