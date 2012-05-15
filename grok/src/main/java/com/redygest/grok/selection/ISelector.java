@@ -18,4 +18,12 @@ public interface ISelector {
 	 */
 	List<Data> select(int size);
 
+	/**
+	 * Select logic
+	 * 
+	 * @param size
+	 * @return
+	 */
+	List<Data> select(List<Data> selectedData, int size);
+
 }

@@ -23,6 +23,8 @@ public abstract class AbstractMMRSelector implements ISelector {
 	protected double maxLambda = 0.4; // default
 
 	// ranked data
+	protected List<Data> initialData;
+	// ranked data
 	protected List<Data> rankedData;
 	// scoring functions
 	protected IScore redundancyScore;
@@ -60,12 +62,28 @@ public abstract class AbstractMMRSelector implements ISelector {
 	/**
 	 * Select logic
 	 * 
+	 * @param initialSelectedData
 	 * @param size
 	 * @return
 	 */
-	public List<Data> select(int size) {
+	public List<Data> select(List<Data> initialSelectedData, int size) {
 		Map<String, Integer> selectedIndices = new LinkedHashMap<String, Integer>();
 		List<Data> selectedData = new ArrayList<Data>();
+
+		// bootstrap selected data
+		// not the best way - TODO improvise later
+		if (initialSelectedData != null) {
+			for (int i = 0; i < rankedData.size(); i++) {
+				Data d1 = rankedData.get(i);
+				for (Data d : initialSelectedData) {
+					if (d1.getValue(DataType.RECORD_IDENTIFIER).equals(
+							d.getValue(DataType.RECORD_IDENTIFIER))) {
+						selectedIndices.put(
+								d.getValue(DataType.RECORD_IDENTIFIER), i);
+					}
+				}
+			}
+		}
 
 		// extract only n=size number of items
 		for (int i = 0; i < size; i++) {
@@ -102,16 +120,22 @@ public abstract class AbstractMMRSelector implements ISelector {
 				Data d = rankedData.get(maxMMRScoreIndex);
 				selectedIndices.put(d.getValue(DataType.RECORD_IDENTIFIER),
 						maxMMRScoreIndex);
+				selectedData.add(rankedData.get(i));
 			}
 
 		}
 
-		// form selected data list
-		for (Integer i : selectedIndices.values()) {
-			selectedData.add(rankedData.get(i));
-		}
-
 		return selectedData;
+	}
+
+	/**
+	 * Select logic
+	 * 
+	 * @param size
+	 * @return
+	 */
+	public List<Data> select(int size) {
+		return select(null, size);
 	}
 
 	/**

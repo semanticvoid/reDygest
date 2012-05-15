@@ -392,6 +392,7 @@ public class Journalist001 extends BaseJournalist {
 
 		// for all communities
 		int clusterNum = 1;
+		List<Data> selectedData = new ArrayList<Data>();
 		for (Community community : communities) {
 			System.out.println("processing cluster " + clusterNum++ + " of "
 					+ communities.size());
@@ -410,10 +411,12 @@ public class Journalist001 extends BaseJournalist {
 			ISelector selector = new BaselineMMRSelector(rankedData, pageranks);
 
 			// TODO default size 10
-			List<Data> data = selector.select(2);
+			List<Data> data = selector.select(selectedData, 2);
 
 			// add to community data chunks
 			communitySelectedDataChunks.add(data);
+			// add to selected data for global MMR
+			selectedData.addAll(data);
 
 			// if (clusterNum == 11) {
 			// break;
