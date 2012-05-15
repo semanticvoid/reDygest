@@ -108,7 +108,7 @@ public class BaselineClusteringJournalist extends BaseJournalist {
 		for (Set<String> c : clKClustering) {
 			// pick one from each cluster
 			for (String s : c) {
-				story.addLine(s);
+				// story.addLine(s);
 				break;
 			}
 		}

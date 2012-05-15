@@ -6,7 +6,6 @@ package com.redygest.grok.journalist;
 import java.util.List;
 
 import com.redygest.commons.data.Data;
-import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
 
 /**
@@ -28,7 +27,7 @@ public class EchoJournalist extends BaseJournalist {
 		Story s = new Story();
 
 		for (Data t : tweets) {
-			s.addLine(t.getValue(DataType.BODY));
+			s.addLine(t);
 		}
 
 		return s;
