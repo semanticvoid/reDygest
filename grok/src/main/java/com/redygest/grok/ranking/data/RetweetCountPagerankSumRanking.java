@@ -47,7 +47,8 @@ public class RetweetCountPagerankSumRanking extends BaseRanking {
 			if (terms != null) {
 				for (String t : terms) {
 					if (this.entityPageranks.containsKey(t)
-							&& d.getValue(DataType.ORIGINAL_TEXT).contains(t)) {
+							&& d.getValue(DataType.ORIGINAL_TEXT).toLowerCase()
+									.contains(t.toLowerCase())) {
 						score += this.entityPageranks.get(t);
 					}
 				}

@@ -164,9 +164,9 @@ public class Journalist001 extends BaseJournalist {
 				List<String> attrNames = attrs
 						.getAttributeNames(AttributeType.SYNONYM);
 				if (attrNames != null && attrNames.size() > 0) {
-					entities.add(attrNames.get(0));
+					entities.add(attrNames.get(0).toLowerCase());
 				} else {
-					entities.add(v.getVariableName());
+					entities.add(v.getVariableName().toLowerCase());
 				}
 			}
 
