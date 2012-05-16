@@ -120,7 +120,7 @@ public abstract class AbstractMMRSelector implements ISelector {
 				Data d = rankedData.get(maxMMRScoreIndex);
 				selectedIndices.put(d.getValue(DataType.RECORD_IDENTIFIER),
 						maxMMRScoreIndex);
-				selectedData.add(rankedData.get(i));
+				selectedData.add(d);
 			}
 
 		}
@@ -164,6 +164,11 @@ public abstract class AbstractMMRSelector implements ISelector {
 			if (score > maxRedundancyScore) {
 				maxRedundancyScore = score;
 			}
+		}
+
+		// if exact dup of previous Data return a very low score
+		if (maxRedundancyScore >= 1) {
+			return Double.MIN_VALUE;
 		}
 
 		// compute mmr score
