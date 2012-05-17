@@ -6,10 +6,19 @@ REGISTER '/Users/semanticvoid/projects/reDygest/sandbox/piggybank/target/piggyba
 X1 = LOAD '$INPUT' AS (tweetjson);
 A = FOREACH X1 GENERATE FLATTEN(com.redygest.piggybank.twitter.ExtractTweet($0));
 
--- round 1: ndd
+-- round 1: exact
+Z1 = FOREACH A GENERATE FLATTEN(com.redygest.piggybank.twitter.GetText($1)) as text, $1 as tweet;
+Z11 = FOREACH Z1 GENERATE FLATTEN(com.redygest.piggybank.text.MD5Hash(text)) as hash, tweet;
+Z2 = GROUP Z11 BY hash;
+Z3 = FOREACH Z2 GENERATE group, COUNT(Z11) as count, FLATTEN(com.redygest.piggybank.util.OneFromBag(Z11));
+Z4 = FOREACH Z3 GENERATE $3 as tweet, $1 as count;
+Z5 = FOREACH Z4 GENERATE FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
+Z6 = FOREACH Z5 GENERATE FLATTEN(com.redygest.piggybank.twitter.ExtractTweet(tweet));
+
+-- round 2: ndd
 
 -- shingle
-C = FOREACH A GENERATE $0 as id, $1 as tweet, com.redygest.piggybank.text.Shingle($1, 2) AS shingles;
+C = FOREACH Z6 GENERATE $0 as id, $1 as tweet, com.redygest.piggybank.text.Shingle($1, 2) AS shingles;
 -- C1 = FILTER C BY id != NULL;
 
 -- cross
@@ -55,7 +64,7 @@ K = FILTER J1 BY count >= $THRESHOLD;
 N = FOREACH K GENERATE group as id, FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
 M = DISTINCT N;
 
--- round 2: regroup
+-- round 3: regroup
 
 -- regroup
 B2 = GROUP M BY id;

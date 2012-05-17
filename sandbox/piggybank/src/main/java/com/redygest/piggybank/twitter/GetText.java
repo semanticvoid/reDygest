@@ -6,7 +6,6 @@ package com.redygest.piggybank.twitter;
 import java.io.IOException;
 
 import org.apache.pig.EvalFunc;
-import org.apache.pig.data.DataByteArray;
 import org.apache.pig.data.Tuple;
 import org.apache.pig.data.TupleFactory;
 
@@ -22,7 +21,7 @@ public class GetText extends EvalFunc<Tuple> {
 		Tuple oTuple = tFactory.newTuple();
 
 		try {
-			String jsonStr = ((DataByteArray) input.get(0)).toString();
+			String jsonStr = (String) input.get(0);
 			Tweet t = new Tweet(jsonStr);
 			String txt = t.getText();
 			if (txt != null) {

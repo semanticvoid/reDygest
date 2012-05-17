@@ -22,7 +22,13 @@ public class ExtractTweet extends EvalFunc<Tuple> {
 		Tuple oTuple = tFactory.newTuple();
 
 		try {
-			String jsonStr = ((DataByteArray) input.get(0)).toString();
+			String jsonStr = null;
+			if (input.get(0) instanceof DataByteArray) {
+				jsonStr = ((DataByteArray) input.get(0)).toString();
+			} else if (input.get(0) instanceof String) {
+				jsonStr = (String) input.get(0);
+			}
+
 			Tweet t = new Tweet(jsonStr);
 			String id = t.getId();
 			String tweet = jsonStr;
@@ -31,7 +37,7 @@ public class ExtractTweet extends EvalFunc<Tuple> {
 				oTuple.append(tweet);
 			}
 		} catch (Exception e) {
-			// oTuple.append("");
+			e.printStackTrace();
 		}
 
 		return oTuple;
