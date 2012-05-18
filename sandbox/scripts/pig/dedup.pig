@@ -6,6 +6,7 @@ REGISTER '/Users/semanticvoid/projects/reDygest/sandbox/piggybank/target/piggyba
 X1 = LOAD '$INPUT' AS (tweetjson);
 A = FOREACH X1 GENERATE FLATTEN(com.redygest.piggybank.twitter.ExtractTweet($0));
 
+
 -- round 1: exact
 Z1 = FOREACH A GENERATE FLATTEN(com.redygest.piggybank.twitter.GetText($1)) as text, $1 as tweet;
 Z11 = FOREACH Z1 GENERATE FLATTEN(com.redygest.piggybank.text.MD5Hash(text)) as hash, tweet;
@@ -15,6 +16,7 @@ Z4 = FOREACH Z3 GENERATE $3 as tweet, $1 as count;
 Z5 = FILTER Z4 BY count >= $THRESHOLD;
 Z6 = FOREACH Z5 GENERATE FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
 Z7 = FOREACH Z6 GENERATE FLATTEN(com.redygest.piggybank.twitter.ExtractTweet(tweet));
+
 
 -- round 2: ndd
 
@@ -52,30 +54,19 @@ F1 = DISTINCT F;
 
 -- similarity
 G = FOREACH F1 GENERATE id1, tweet1, id2, tweet2, flatten(com.redygest.piggybank.similarity.JaccardCoeff(sketch1, sketch2)) AS (sim:double);
-DUMP G;
 
 -- filter by similarity
 H = FILTER G BY (sim >= 0.5);
-DUMP H;
 I = GROUP H BY id1;
-DUMP I;
-J = FOREACH I GENERATE FLATTEN(com.redygest.piggybank.twitter.MergeFromBag(H));
-DUMP J;
--- J1 = FOREACH J GENERATE $0, $3 as tweet, $1 as count;
+J = FOREACH I GENERATE FLATTEN(com.redygest.piggybank.twitter.MergeFromBag(H)) as tweet;
 
--- weed out unpopular tweets
--- K = FILTER J1 BY count >= $THRESHOLD;
 
--- add count
--- N = FOREACH K GENERATE $0 as id, FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
--- M = DISTINCT N;
+-- round 3: exact
 
--- round 3: regroup
-
--- regroup
--- B2 = GROUP M BY id;
--- C2 = FOREACH B2 GENERATE group as id, FLATTEN(com.redygest.piggybank.util.OneFromBag(M));
--- D2 = FOREACH C2 GENERATE $2 AS tweet;
+Z1 = FOREACH J GENERATE FLATTEN(com.redygest.piggybank.twitter.GetText(tweet)) as text, tweet;
+Z11 = FOREACH Z1 GENERATE FLATTEN(com.redygest.piggybank.text.MD5Hash(text)) as hash, tweet;
+Z2 = GROUP Z11 BY hash;
+Z3 = FOREACH Z2 GENERATE FLATTEN(com.redygest.piggybank.twitter.OneFromBagWithMaxCount(Z11));
 
 -- store
--- STORE D2 INTO '$OUTPUT';
+STORE D2 INTO '$OUTPUT';
