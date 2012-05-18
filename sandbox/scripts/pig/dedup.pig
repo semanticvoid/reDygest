@@ -12,23 +12,25 @@ Z11 = FOREACH Z1 GENERATE FLATTEN(com.redygest.piggybank.text.MD5Hash(text)) as 
 Z2 = GROUP Z11 BY hash;
 Z3 = FOREACH Z2 GENERATE group, COUNT(Z11) as count, FLATTEN(com.redygest.piggybank.util.OneFromBag(Z11));
 Z4 = FOREACH Z3 GENERATE $3 as tweet, $1 as count;
-Z5 = FOREACH Z4 GENERATE FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
-Z6 = FOREACH Z5 GENERATE FLATTEN(com.redygest.piggybank.twitter.ExtractTweet(tweet));
+Z5 = FILTER Z4 BY count >= $THRESHOLD;
+Z6 = FOREACH Z5 GENERATE FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
+Z7 = FOREACH Z6 GENERATE FLATTEN(com.redygest.piggybank.twitter.ExtractTweet(tweet));
 
 -- round 2: ndd
 
 -- shingle
-C = FOREACH Z6 GENERATE $0 as id, $1 as tweet, com.redygest.piggybank.text.Shingle($1, 2) AS shingles;
+C = FOREACH Z7 GENERATE $0 as id, $1 as tweet, com.redygest.piggybank.text.Shingle($1, 2) AS shingles;
 -- C1 = FILTER C BY id != NULL;
 
 -- cross
 D1 = FOREACH C GENERATE id, tweet, com.redygest.piggybank.text.MinHashSketch(shingles, 10) AS sketch;
 D2 = FOREACH D1 GENERATE *;
 E = CROSS D1, D2 PARALLEL 200;
-E1 = FILTER E BY D1::id != D2::id;
+-- E1 = FILTER E BY D1::id != D2::id;
+E2 = FILTER E BY D1::id >= D2::id;
 
 -- order ids and distinct
-F = FOREACH E1 {
+F = FOREACH E2 {
         id1 = D1::id;
         id2 = D2::id;
         id3 = D1::id;
@@ -50,26 +52,30 @@ F1 = DISTINCT F;
 
 -- similarity
 G = FOREACH F1 GENERATE id1, tweet1, id2, tweet2, flatten(com.redygest.piggybank.similarity.JaccardCoeff(sketch1, sketch2)) AS (sim:double);
+DUMP G;
 
 -- filter by similarity
-H = FILTER G BY (NOT (id1 == id2)) AND ((sim >= 0.5) AND (sim <= 1));
+H = FILTER G BY (sim >= 0.5);
+DUMP H;
 I = GROUP H BY id1;
-J = FOREACH I GENERATE group, COUNT(H) as count, FLATTEN(H);
-J1 = FOREACH J GENERATE group, H::tweet1 as tweet, count;
+DUMP I;
+J = FOREACH I GENERATE FLATTEN(com.redygest.piggybank.twitter.MergeFromBag(H));
+DUMP J;
+-- J1 = FOREACH J GENERATE $0, $3 as tweet, $1 as count;
 
 -- weed out unpopular tweets
-K = FILTER J1 BY count >= $THRESHOLD;
+-- K = FILTER J1 BY count >= $THRESHOLD;
 
 -- add count
-N = FOREACH K GENERATE group as id, FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
-M = DISTINCT N;
+-- N = FOREACH K GENERATE $0 as id, FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
+-- M = DISTINCT N;
 
 -- round 3: regroup
 
 -- regroup
-B2 = GROUP M BY id;
-C2 = FOREACH B2 GENERATE group as id, FLATTEN(com.redygest.piggybank.util.OneFromBag(M));
-D2 = FOREACH C2 GENERATE $2 AS tweet;
+-- B2 = GROUP M BY id;
+-- C2 = FOREACH B2 GENERATE group as id, FLATTEN(com.redygest.piggybank.util.OneFromBag(M));
+-- D2 = FOREACH C2 GENERATE $2 AS tweet;
 
 -- store
-STORE D2 INTO '$OUTPUT';
+-- STORE D2 INTO '$OUTPUT';
