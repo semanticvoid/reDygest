@@ -13,7 +13,7 @@ Z11 = FOREACH Z1 GENERATE FLATTEN(com.redygest.piggybank.text.MD5Hash(text)) as 
 Z2 = GROUP Z11 BY hash;
 Z3 = FOREACH Z2 GENERATE group, COUNT(Z11) as count, FLATTEN(com.redygest.piggybank.util.OneFromBag(Z11));
 Z4 = FOREACH Z3 GENERATE $3 as tweet, $1 as count;
-Z5 = FILTER Z4 BY count >= $THRESHOLD;
+Z5 = FILTER Z4 BY count >= $T1;
 Z6 = FOREACH Z5 GENERATE FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
 Z7 = FOREACH Z6 GENERATE FLATTEN(com.redygest.piggybank.twitter.ExtractTweet(tweet));
 
@@ -66,7 +66,12 @@ J = FOREACH I GENERATE FLATTEN(com.redygest.piggybank.twitter.MergeFromBag(H)) a
 Z1 = FOREACH J GENERATE FLATTEN(com.redygest.piggybank.twitter.GetText(tweet)) as text, tweet;
 Z11 = FOREACH Z1 GENERATE FLATTEN(com.redygest.piggybank.text.MD5Hash(text)) as hash, tweet;
 Z2 = GROUP Z11 BY hash;
-Z3 = FOREACH Z2 GENERATE FLATTEN(com.redygest.piggybank.twitter.OneFromBagWithMaxCount(Z11));
+Z3 = FOREACH Z2 GENERATE FLATTEN(com.redygest.piggybank.twitter.OneFromBagWithMaxCount(Z11)) as tweet;
+
+-- filter again
+F1 = FOREACH Z3 GENERATE tweet, FLATTEN(com.redygest.piggybank.twitter.GetCount(tweet)) as count;
+F2 = FILTER F1 BY count >= $T2;
+F3 = FOREACH F2 GENERATE tweet;
 
 -- store
-STORE D2 INTO '$OUTPUT';
+STORE F3 INTO '$OUTPUT';
