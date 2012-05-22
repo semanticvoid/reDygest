@@ -49,6 +49,7 @@ public class Evaluate {
 
 		if (generated_records == null) {
 			System.err.println("Check the generated summary");
+			System.exit(0);
 		}
 
 		List<EvalMetrics> ems = new ArrayList<EvalMetrics>();
