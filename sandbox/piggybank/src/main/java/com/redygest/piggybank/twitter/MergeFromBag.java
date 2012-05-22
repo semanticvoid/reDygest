@@ -45,6 +45,11 @@ public class MergeFromBag extends EvalFunc<Tuple> {
 									t.setRetweetCount(t.getRetweetCount()
 											+ t1.getRetweetCount());
 									ids.add(t1.getId());
+									if (t1.getTimeArray() != null) {
+										t.addTimeArr(t1.getTimeArray());
+									} else {
+										t.addTime(t1.getTime());
+									}
 								}
 							}
 						}

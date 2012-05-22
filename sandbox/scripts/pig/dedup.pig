@@ -11,8 +11,8 @@ A = FOREACH X1 GENERATE FLATTEN(com.redygest.piggybank.twitter.ExtractTweet($0))
 Z1 = FOREACH A GENERATE FLATTEN(com.redygest.piggybank.twitter.GetText($1)) as text, $1 as tweet;
 Z11 = FOREACH Z1 GENERATE FLATTEN(com.redygest.piggybank.text.MD5Hash(text)) as hash, tweet;
 Z2 = GROUP Z11 BY hash;
-Z3 = FOREACH Z2 GENERATE group, COUNT(Z11) as count, FLATTEN(com.redygest.piggybank.util.OneFromBag(Z11));
-Z4 = FOREACH Z3 GENERATE $3 as tweet, $1 as count;
+Z3 = FOREACH Z2 GENERATE group, COUNT(Z11) as count, FLATTEN(com.redygest.piggybank.twitter.OneFromBag(Z11));
+Z4 = FOREACH Z3 GENERATE $2 as tweet, $1 as count;
 Z5 = FILTER Z4 BY count >= $T1;
 Z6 = FOREACH Z5 GENERATE FLATTEN(com.redygest.piggybank.twitter.AddCountToTweet(tweet, count)) as tweet;
 Z7 = FOREACH Z6 GENERATE FLATTEN(com.redygest.piggybank.twitter.ExtractTweet(tweet));
