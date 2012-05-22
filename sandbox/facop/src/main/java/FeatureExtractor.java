@@ -7,6 +7,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.redygest.commons.nlp.POSTagger;
+import com.redygest.commons.nlp.SentiWordNet;
 import com.redygest.commons.nlp.TaggedToken;
 
 /**
@@ -16,7 +17,7 @@ import com.redygest.commons.nlp.TaggedToken;
 public class FeatureExtractor {
 
 	private static final double TEST_PERCENT = 0.1;
-	private static final SWN3 sentiWordNet = new SWN3();
+	private static final SentiWordNet sentiWordNet = SentiWordNet.getInstance();
 
 	private static String memoizeText = null;
 	private static List<TaggedToken> memoizeTokens = null;
@@ -159,13 +160,14 @@ public class FeatureExtractor {
 			}
 
 			List<TaggedToken> posTags = getPOSTags(text);
-			List<String> words = getPOSForSentiWordnet(posTags);
+			// List<String> words = getPOSForSentiWordnet(posTags);
 
 			StringBuffer buf = new StringBuffer("|sentifeatures ");
 			HashMap<String, Integer> sentCount = new HashMap<String, Integer>();
-			for (String word : words) {
-				if (sentiWordNet.contains(word)) {
-					String sent = sentiWordNet.extract(word);
+			for (TaggedToken tok : posTags) {
+				if (sentiWordNet.contains(tok.getWord(), tok.getPosTag())) {
+					String sent = sentiWordNet.extract(tok.getWord(),
+							tok.getPosTag());
 					if (!sentCount.containsKey(sent)) {
 						sentCount.put(sent, 1);
 					} else {
@@ -230,21 +232,6 @@ public class FeatureExtractor {
 		}
 
 		return adjs;
-	}
-
-	public List<String> getPOSForSentiWordnet(List<TaggedToken> posTags) {
-		List<String> words = new ArrayList<String>();
-
-		for (TaggedToken t : posTags) {
-			String tag = t.getPosTag();
-			if (tag.startsWith("J")) {
-				words.add(t.getWord().toLowerCase() + "#a");
-			} else {
-				words.add(t.getWord().toLowerCase() + "#" + tag.charAt(0));
-			}
-		}
-
-		return words;
 	}
 
 	public List<TaggedToken> getPOSTags(String text) {
