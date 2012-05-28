@@ -47,7 +47,10 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 					posTag = names.get(0);
 				}
 			}
-
+			if(posTag.startsWith("N") && !posTag.equalsIgnoreCase("NNP")){
+				posTag = "N";
+			}
+			
 			if ((prevPosTag != null && !posTag.equals(prevPosTag))) {
 				if (entity.length() > 0) {
 					Variable eVar = fVector.getVariable(new DataVariable(entity
