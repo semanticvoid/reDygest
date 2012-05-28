@@ -40,15 +40,17 @@ public class FilterEntities {
 			return true;
 		}
 
-		String[] entityTokens = entity.split("\\s+ .");
+		String[] entityTokens = entity.split("\\s+.");
 		for (String token : entityTokens) {
 			if (stopWords.contains(token)) {
+				//System.out.println("Stop: "+entity);
 				return true;
 			}
 		}
 
 		String[] split = entity.split("[^A-Za-z ]");
 		if (split.length > 2) {
+			//System.out.println("Stop: "+entity);
 			return true;
 		}
 		return false;
@@ -75,14 +77,16 @@ public class FilterEntities {
 			Counter<String> entities = em.ner_ner_entityCooccurance
 					.getCounter(entity);
 			if (entities.size() <= 2) {
+				System.out.println("Spam: too less co-occuring entities "+entity + " Cooccuring: "+entities.toString(3));
 				return true;
 			}
 
 			PriorityQueue<String> pq = entities.asPriorityQueue();
 			String key1 = pq.next();
-			if (entities.getCount(key1) == totalCount) {
+			if (entities.getCount(key1) == totalCount) { 
 				String key2 = pq.next();
 				if (entities.getCount(key2) == totalCount) {
+					System.out.println("Spam: total count "+entity);
 					return true;
 				}
 			}
@@ -91,7 +95,8 @@ public class FilterEntities {
 		if (em.np_ner_entityCooccurance.keySet().contains(entity)) {
 			Counter<String> entities = em.np_ner_entityCooccurance
 					.getCounter(entity);
-			if (entities.size() <= 3) {
+			if (entities.size() <= 2) {
+				System.out.println("Spam: too less co-occuring entities "+entity + " Cooccuring: "+entities.toString(3));
 				return true;
 			}
 
@@ -102,6 +107,7 @@ public class FilterEntities {
 			if (entities.getCount(key1) == totalCount) {
 				String key2 = pq.next();
 				if (entities.getCount(key2) == totalCount) {
+					System.out.println("Spam: total count "+entity);
 					return true;
 				}
 			}
@@ -146,14 +152,17 @@ public class FilterEntities {
 	public static void main(String[] args) {
 		try {
 			//output file
-			BufferedWriter bw = new BufferedWriter(new BufferedWriter(new FileWriter("/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_1_2.entities.txt")));
-			FilterEntities fe = new FilterEntities("/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_1_2");
+			BufferedWriter bw = new BufferedWriter(new BufferedWriter(new FileWriter("/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_4.entities.txt")));
+			FilterEntities fe = new FilterEntities("/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_4");
 			fe.filterEntities();
 			StringBuffer consoleMessages = new StringBuffer();
+
 			System.out.println("============filtered entities============");
 			consoleMessages.append("============filtered entities============\n");
 			for (String ent : fe.stopEntities) {
 				System.out.println("Filtered: " + ent);
+				//System.out.println("NE Count: "+fe.em.ner_counts.getCount(ent));
+				//System.out.println("NP Count: "+fe.em.np_counts.getCount(ent));
 				consoleMessages.append("Filtered: " + ent);
 				consoleMessages.append("\n");
 			}

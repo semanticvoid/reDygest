@@ -153,13 +153,30 @@ public class EvaluationMetrics {
 			List<String> np_ents = new ArrayList<String>(np_entities);
 			for (int i = 0; i < np_ents.size(); i++) {
 				for (int j = 0; j < ner_ents.size(); j++) {
+					if(np_ents.get(i).equalsIgnoreCase(ner_ents.get(j)))
+						continue;
 					np_ner_entityCooccurance.incrementCount(np_ents.get(i),
 							ner_ents.get(j), 1.0);
 				}
 			}
 
 		}
+		mergeNEsAndNPs();
 
+	}
+	private void mergeNEsAndNPs(){
+		for(String np : np_counts.keySet()){
+			if(ner_counts.keySet().contains(np)){
+				ner_counts.incrementCount(np, np_counts.getCount(np));
+				//np_counts.setCount(np, 0);
+				Counter<String> np_counter = np_ner_entityCooccurance.getCounter(np);
+				Set<String> keys = np_counter.keySet();
+				for(String ner : keys){
+					ner_ner_entityCooccurance.incrementCount(np, ner, np_counter.getCount(ner));
+					//np_ner_entityCooccurance.setCount(np, ner, 0);
+				}
+			}
+		}
 	}
 
 	private HashMap<String, Double> getTopN(Counter<String> counts, int n) {
