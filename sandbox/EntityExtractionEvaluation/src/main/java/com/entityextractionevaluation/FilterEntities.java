@@ -43,14 +43,14 @@ public class FilterEntities {
 		String[] entityTokens = entity.split("\\s+.");
 		for (String token : entityTokens) {
 			if (stopWords.contains(token)) {
-				//System.out.println("Stop: "+entity);
+				// System.out.println("Stop: "+entity);
 				return true;
 			}
 		}
 
 		String[] split = entity.split("[^A-Za-z ]");
 		if (split.length > 2) {
-			//System.out.println("Stop: "+entity);
+			// System.out.println("Stop: "+entity);
 			return true;
 		}
 		return false;
@@ -65,28 +65,28 @@ public class FilterEntities {
 		}
 		return false;
 	}
-	
 
 	/*
 	 * if entity doesn't co-occur or has same co-occurrence frequents as its
 	 * total count
 	 */
 	public boolean isSpam(String entity) {
-		double totalCount = em.ner_counts.getCount(entity);
+		double totalCount = em.nerCounts.getCount(entity);
 		if (em.ner_ner_entityCooccurance.keySet().contains(entity)) {
 			Counter<String> entities = em.ner_ner_entityCooccurance
 					.getCounter(entity);
 			if (entities.size() <= 2) {
-				System.out.println("Spam: too less co-occuring entities "+entity + " Cooccuring: "+entities.toString(3));
+				System.out.println("Spam: too less co-occuring entities "
+						+ entity + " Cooccuring: " + entities.toString(3));
 				return true;
 			}
 
 			PriorityQueue<String> pq = entities.asPriorityQueue();
 			String key1 = pq.next();
-			if (entities.getCount(key1) == totalCount) { 
+			if (entities.getCount(key1) == totalCount) {
 				String key2 = pq.next();
 				if (entities.getCount(key2) == totalCount) {
-					System.out.println("Spam: total count "+entity);
+					System.out.println("Spam: total count " + entity);
 					return true;
 				}
 			}
@@ -96,7 +96,8 @@ public class FilterEntities {
 			Counter<String> entities = em.np_ner_entityCooccurance
 					.getCounter(entity);
 			if (entities.size() <= 2) {
-				System.out.println("Spam: too less co-occuring entities "+entity + " Cooccuring: "+entities.toString(3));
+				System.out.println("Spam: too less co-occuring entities "
+						+ entity + " Cooccuring: " + entities.toString(3));
 				return true;
 			}
 
@@ -107,7 +108,7 @@ public class FilterEntities {
 			if (entities.getCount(key1) == totalCount) {
 				String key2 = pq.next();
 				if (entities.getCount(key2) == totalCount) {
-					System.out.println("Spam: total count "+entity);
+					System.out.println("Spam: total count " + entity);
 					return true;
 				}
 			}
@@ -118,13 +119,13 @@ public class FilterEntities {
 
 	public List<String> filterEntities() {
 		HashSet<String> filteredWords = new HashSet<String>();
-		for (String ent : em.ner_counts.keySet()) {
+		for (String ent : em.nerCounts.keySet()) {
 			if (isStopEntity(ent) || isSpam(ent)) {
 				stopEntities.add(ent);
 			}
 		}
 
-		for (String ent : em.np_counts.keySet()) {
+		for (String ent : em.npCounts.keySet()) {
 			if (isStopEntity(ent) || isSpam(ent)) {
 				stopEntities.add(ent);
 			}
@@ -135,38 +136,42 @@ public class FilterEntities {
 
 	Counter<String> getValidEntities() {
 		Counter<String> validEntities = new Counter<String>();
-		for (String key : em.ner_counts.keySet()) {
-			if ((!stopEntities.contains(key) && em.ner_counts.getCount(key) >= 10)) {
-				validEntities.setCount(key, em.ner_counts.getCount(key));
+		for (String key : em.nerCounts.keySet()) {
+			if ((!stopEntities.contains(key) && em.nerCounts.getCount(key) >= 10)) {
+				validEntities.setCount(key, em.nerCounts.getCount(key));
 			}
 		}
-		for (String key : em.np_counts.keySet()) {
-			if ((!stopEntities.contains(key) && em.np_counts.getCount(key) >= 10)) {
-				validEntities.setCount(key, em.np_counts.getCount(key));
+		for (String key : em.npCounts.keySet()) {
+			if ((!stopEntities.contains(key) && em.npCounts.getCount(key) >= 10)) {
+				validEntities.setCount(key, em.npCounts.getCount(key));
 			}
 		}
 		return validEntities;
 	}
-	
 
 	public static void main(String[] args) {
 		try {
-			//output file
-			BufferedWriter bw = new BufferedWriter(new BufferedWriter(new FileWriter("/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_4.entities.txt")));
-			FilterEntities fe = new FilterEntities("/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_4");
+			// output file
+			BufferedWriter bw = new BufferedWriter(
+					new BufferedWriter(
+							new FileWriter(
+									"/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_4.entities.txt")));
+			FilterEntities fe = new FilterEntities(
+					"/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_4");
 			fe.filterEntities();
 			StringBuffer consoleMessages = new StringBuffer();
 
 			System.out.println("============filtered entities============");
-			consoleMessages.append("============filtered entities============\n");
+			consoleMessages
+					.append("============filtered entities============\n");
 			for (String ent : fe.stopEntities) {
 				System.out.println("Filtered: " + ent);
-				//System.out.println("NE Count: "+fe.em.ner_counts.getCount(ent));
-				//System.out.println("NP Count: "+fe.em.np_counts.getCount(ent));
+				// System.out.println("NE Count: "+fe.em.ner_counts.getCount(ent));
+				// System.out.println("NP Count: "+fe.em.np_counts.getCount(ent));
 				consoleMessages.append("Filtered: " + ent);
 				consoleMessages.append("\n");
 			}
-			
+
 			System.out.println("============Valid entities============");
 			consoleMessages.append("============Valid entities============\n");
 			Counter<String> validEntityCounter = fe.getValidEntities();
@@ -179,12 +184,12 @@ public class FilterEntities {
 				consoleMessages.append("Valid: " + key + " Count: "
 						+ validEntityCounter.getCount(key));
 				consoleMessages.append("\n");
-				
+
 			}
-			//write to the file
+			// write to the file
 			bw.write(consoleMessages.toString());
 			bw.flush();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

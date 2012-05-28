@@ -35,10 +35,10 @@ public class EvaluationMetrics {
 	protected ITweetPreprocessor preprocessor = null;
 	protected PrefilterRunner prefilterRunner = null;
 
-	public Counter<String> np_counts = new Counter<String>();
-	public Counter<String> ner_counts = new Counter<String>();
+	public Counter<String> npCounts = new Counter<String>();
+	public Counter<String> nerCounts = new Counter<String>();
 
-	public CounterMap<String, String> entity_Cooccurance = new CounterMap<String, String>();
+	public CounterMap<String, String> entityCooccurance = new CounterMap<String, String>();
 	public CounterMap<String, String> ner_ner_entityCooccurance = new CounterMap<String, String>();
 	public CounterMap<String, String> np_ner_entityCooccurance = new CounterMap<String, String>();
 
@@ -116,11 +116,11 @@ public class EvaluationMetrics {
 						.getAttributeNames(AttributeType.SYNONYM);
 				if (attrNames != null && attrNames.size() > 0) {
 					np_entities.add(attrNames.get(0).toLowerCase());
-					np_counts.incrementCount(attrNames.get(0).toLowerCase(),
-							1.0);
+					npCounts
+							.incrementCount(attrNames.get(0).toLowerCase(), 1.0);
 				} else {
 					np_entities.add(v.getVariableName().toLowerCase());
-					np_counts.incrementCount(v.getVariableName().toLowerCase(),
+					npCounts.incrementCount(v.getVariableName().toLowerCase(),
 							1.0);
 				}
 			}
@@ -133,12 +133,12 @@ public class EvaluationMetrics {
 						.getAttributeNames(AttributeType.SYNONYM);
 				if (attrNames != null && attrNames.size() > 0) {
 					ner_entities.add(attrNames.get(0).toLowerCase());
-					ner_counts.incrementCount(attrNames.get(0).toLowerCase(),
+					nerCounts.incrementCount(attrNames.get(0).toLowerCase(),
 							1.0);
 				} else {
 					ner_entities.add(v.getVariableName().toLowerCase());
-					ner_counts.incrementCount(
-							v.getVariableName().toLowerCase(), 1.0);
+					nerCounts.incrementCount(v.getVariableName().toLowerCase(),
+							1.0);
 				}
 			}
 
@@ -153,7 +153,7 @@ public class EvaluationMetrics {
 			List<String> np_ents = new ArrayList<String>(np_entities);
 			for (int i = 0; i < np_ents.size(); i++) {
 				for (int j = 0; j < ner_ents.size(); j++) {
-					if(np_ents.get(i).equalsIgnoreCase(ner_ents.get(j)))
+					if (np_ents.get(i).equalsIgnoreCase(ner_ents.get(j)))
 						continue;
 					np_ner_entityCooccurance.incrementCount(np_ents.get(i),
 							ner_ents.get(j), 1.0);
@@ -164,16 +164,19 @@ public class EvaluationMetrics {
 		mergeNEsAndNPs();
 
 	}
-	private void mergeNEsAndNPs(){
-		for(String np : np_counts.keySet()){
-			if(ner_counts.keySet().contains(np)){
-				ner_counts.incrementCount(np, np_counts.getCount(np));
-				//np_counts.setCount(np, 0);
-				Counter<String> np_counter = np_ner_entityCooccurance.getCounter(np);
+
+	private void mergeNEsAndNPs() {
+		for (String np : npCounts.keySet()) {
+			if (nerCounts.keySet().contains(np)) {
+				nerCounts.incrementCount(np, npCounts.getCount(np));
+				// npCounts.setCount(np, 0);
+				Counter<String> np_counter = np_ner_entityCooccurance
+						.getCounter(np);
 				Set<String> keys = np_counter.keySet();
-				for(String ner : keys){
-					ner_ner_entityCooccurance.incrementCount(np, ner, np_counter.getCount(ner));
-					//np_ner_entityCooccurance.setCount(np, ner, 0);
+				for (String ner : keys) {
+					ner_ner_entityCooccurance.incrementCount(np, ner,
+							np_counter.getCount(ner));
+					// np_ner_entityCooccurance.setCount(np, ner, 0);
 				}
 			}
 		}
