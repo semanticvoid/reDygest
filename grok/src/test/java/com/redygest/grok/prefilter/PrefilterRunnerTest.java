@@ -1,12 +1,15 @@
 package com.redygest.grok.prefilter;
 
+import com.redygest.grok.filtering.preextraction.PreExtractionPrefilterRunner;
+import com.redygest.grok.filtering.preextraction.PreExtractionPrefilterType;
+
 import junit.framework.TestCase;
 
 public class PrefilterRunnerTest extends TestCase {
 
 	public void testRunner() {
-		PrefilterRunner runner = new PrefilterRunner(
-				PrefilterType.NONENLGISH_LANG_FILTER);
+		PreExtractionPrefilterRunner runner = new PreExtractionPrefilterRunner(
+				PreExtractionPrefilterType.NONENLGISH_LANG_FILTER);
 		String text = "Lokpal Bill debate: BJP's ideology is to destroy, says Kapil Sibal";
 		boolean result = runner.runFilters(text);
 		assertTrue(result);

@@ -1,17 +1,17 @@
 /**
  * 
  */
-package com.redygest.grok.prefilter.filter;
+package com.redygest.grok.filtering.preextraction.filter;
 
 import com.cybozu.labs.langdetect.LangDetectException;
 import com.redygest.commons.nlp.LanguageDetector;
-import com.redygest.grok.prefilter.IPrefilter;
+import com.redygest.grok.filtering.preextraction.IPreExtractionPrefilter;
 
 /**
  * Filter to filter out non-english tweets/data
  * 
  */
-public class NonEnglishFilter implements IPrefilter {
+public class NonEnglishFilter implements IPreExtractionPrefilter {
 
 	LanguageDetector ld = null;
 
