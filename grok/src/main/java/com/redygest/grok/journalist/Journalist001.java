@@ -35,8 +35,8 @@ import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
-import com.redygest.grok.prefilter.PrefilterRunner;
-import com.redygest.grok.prefilter.PrefilterType;
+import com.redygest.grok.filtering.preextraction.PreExtractionPrefilterRunner;
+import com.redygest.grok.filtering.preextraction.PreExtractionPrefilterType;
 import com.redygest.grok.ranking.community.EntityPagerankCommunityRanking;
 import com.redygest.grok.ranking.community.ICommunityRanking;
 import com.redygest.grok.ranking.data.IRanking;
@@ -85,9 +85,9 @@ public class Journalist001 extends BaseJournalist {
 		// default twitter preprocessor
 		this.preprocessor = new PreprocessorZ20120215();
 		// prefilter setup
-		this.prefilterRunner = new PrefilterRunner(
-				PrefilterType.NONENLGISH_LANG_FILTER,
-				PrefilterType.REPLY_TWEET_FILTER);
+		this.prefilterRunner = new PreExtractionPrefilterRunner(
+				PreExtractionPrefilterType.NONENLGISH_LANG_FILTER,
+				PreExtractionPrefilterType.REPLY_TWEET_FILTER);
 	}
 
 	/*
@@ -418,9 +418,9 @@ public class Journalist001 extends BaseJournalist {
 			// add to selected data for global MMR
 			selectedData.addAll(data);
 
-			// if (clusterNum == 11) {
-			// break;
-			// }
+			if (clusterNum == 11) {
+				break;
+			}
 		}
 
 		// form story from community data chunks
