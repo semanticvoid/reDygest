@@ -10,7 +10,7 @@ import org.ini4j.Wini;
  */
 public class ConfigReader {
 
-	private static final String CONFIG_FILE = "/Users/tejaswi/Documents/workspace/reDygest/grok/conf/grok.ini";
+	private static final String CONFIG_FILE = "/Users/semanticvoid/projects/reDygest/grok/conf/grok.ini";
 
 	private static final String EXTRACTOR_SECTION = "extractor";
 	private static final String SENNA_PATH_KEY = "sennadir";
@@ -23,9 +23,13 @@ public class ConfigReader {
 	private static final String NER_CLASSIFIER_KEY = "nerclassifier";
 	private static final String LANGDETECT_PROFILES_PATH_KEY = "langdetectprofiles";
 
+	private static final String FACOPFILTER_SECTION = "facopfilter";
+	private static final String FACOP_THRESHOLD_KEY = "threshold";
+	private static final String FACOP_MODEL_KEY = "model";
+
 	private static ConfigReader instance = null;
 
-	private Wini ini;
+	private final Wini ini;
 
 	private ConfigReader() throws Exception {
 		ini = new Wini(new File(CONFIG_FILE));
@@ -46,7 +50,7 @@ public class ConfigReader {
 	public String getSennaPath() {
 		return ini.get(EXTRACTOR_SECTION, SENNA_PATH_KEY);
 	}
-	
+
 	public String getSennaExec() {
 		return ini.get(EXTRACTOR_SECTION, SENNA_EXEC_KEY);
 	}
@@ -62,11 +66,11 @@ public class ConfigReader {
 	public String getWordNetDictPath() {
 		return ini.get(EXTRACTOR_SECTION, WORDNET_DICT_PATH_KEY);
 	}
-	
+
 	public String getNERClassifierPath() {
 		return ini.get(EXTRACTOR_SECTION, NER_CLASSIFIER_KEY);
 	}
-	
+
 	public String getLangProfilesPath() {
 		return ini.get(EXTRACTOR_SECTION, LANGDETECT_PROFILES_PATH_KEY);
 	}
@@ -82,5 +86,20 @@ public class ConfigReader {
 			return list;
 		}
 		throw new RuntimeException("No extractors provided");
+	}
+
+	public String getFacOpModel() {
+		return ini.get(FACOPFILTER_SECTION, FACOP_MODEL_KEY);
+	}
+
+	public double getFacOpThreshold() {
+		try {
+			return Double.valueOf(ini.get(FACOPFILTER_SECTION,
+					FACOP_THRESHOLD_KEY));
+		} catch (NumberFormatException nfe) {
+			nfe.printStackTrace();
+		}
+
+		return 1.0; // default
 	}
 }

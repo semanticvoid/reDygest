@@ -14,7 +14,7 @@ import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
 import com.redygest.commons.data.Tweet;
 import com.redygest.commons.preprocessor.twitter.ITweetPreprocessor;
-import com.redygest.grok.prefilter.PrefilterRunner;
+import com.redygest.grok.filtering.preextraction.PreExtractionPrefilterRunner;
 import com.redygest.grok.store.IStore;
 import com.redygest.grok.store.StoreFactory;
 import com.redygest.grok.store.StoreFactory.StoreType;
@@ -29,7 +29,7 @@ abstract class BaseJournalist {
 
 	protected List<Data> tweets;
 	protected ITweetPreprocessor preprocessor = null;
-	protected PrefilterRunner prefilterRunner = null;
+	protected PreExtractionPrefilterRunner prefilterRunner = null;
 
 	abstract Story process(List<Data> tweets);
 

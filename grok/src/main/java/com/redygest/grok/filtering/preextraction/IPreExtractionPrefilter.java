@@ -1,10 +1,10 @@
-package com.redygest.grok.prefilter;
+package com.redygest.grok.filtering.preextraction;
 
 /**
  * Prefilter Interface
  * 
  */
-public interface IPrefilter {
+public interface IPreExtractionPrefilter {
 
 	/**
 	 * Pass (filter) Function

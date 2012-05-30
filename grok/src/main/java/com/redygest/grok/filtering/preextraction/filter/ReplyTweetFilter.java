@@ -1,15 +1,15 @@
 /**
  * 
  */
-package com.redygest.grok.prefilter.filter;
+package com.redygest.grok.filtering.preextraction.filter;
 
-import com.redygest.grok.prefilter.IPrefilter;
+import com.redygest.grok.filtering.preextraction.IPreExtractionPrefilter;
 
 /**
  * Filter to filter out reply tweets
  * 
  */
-public class ReplyTweetFilter implements IPrefilter {
+public class ReplyTweetFilter implements IPreExtractionPrefilter {
 
 	public ReplyTweetFilter() {
 	}
