@@ -25,6 +25,8 @@ public class FilterEntities {
 	HashSet<String> stopEntities = new HashSet<String>();
 	EvaluationMetrics em = null;
 
+	StringBuffer consoleMessages = new StringBuffer();
+
 	/*
 	 * 
 	 */
@@ -37,12 +39,17 @@ public class FilterEntities {
 	 */
 	public boolean isStopEntity(String entity) {
 		if (entity.length() <= 2) {
+			consoleMessages.append("Stop entity: length<2 :" + entity);
+			consoleMessages.append("\n");
 			return true;
 		}
 
-		String[] entityTokens = entity.split("\\s+.");
+		String[] entityTokens = entity.split("[\\s+.]");
 		for (String token : entityTokens) {
 			if (stopWords.contains(token)) {
+				consoleMessages.append("Stop entity: contains a stop word :"
+						+ entity);
+				consoleMessages.append("\n");
 				// System.out.println("Stop: "+entity);
 				return true;
 			}
@@ -50,6 +57,10 @@ public class FilterEntities {
 
 		String[] split = entity.split("[^A-Za-z ]");
 		if (split.length > 2) {
+			consoleMessages
+					.append("Stop entity: contains too many non-alphanumerics :"
+							+ entity);
+			consoleMessages.append("\n");
 			// System.out.println("Stop: "+entity);
 			return true;
 		}
@@ -72,12 +83,19 @@ public class FilterEntities {
 	 */
 	public boolean isSpam(String entity) {
 		double totalCount = em.nerCounts.getCount(entity);
+		if (em.nerCounts.containsKey(entity)
+				&& em.nerCounts.getCount(entity) >= 30) {
+			return false;
+		}
 		if (em.ner_ner_entityCooccurance.keySet().contains(entity)) {
 			Counter<String> entities = em.ner_ner_entityCooccurance
 					.getCounter(entity);
 			if (entities.size() <= 2) {
-				System.out.println("Spam: too less co-occuring entities "
-						+ entity + " Cooccuring: " + entities.toString(3));
+				consoleMessages.append("Spam: too less co-occuring entities: "
+						+ entity + " totalCount: "
+						+ em.nerCounts.getCount(entity) + " Cooccuring: "
+						+ entities.toString(3));
+				consoleMessages.append("\n");
 				return true;
 			}
 
@@ -86,18 +104,31 @@ public class FilterEntities {
 			if (entities.getCount(key1) == totalCount) {
 				String key2 = pq.next();
 				if (entities.getCount(key2) == totalCount) {
-					System.out.println("Spam: total count " + entity);
+					// System.out.println("Spam: total count: " + entity);
+					consoleMessages.append("Spam: total count: " + entity
+							+ " totalCount: " + em.nerCounts.getCount(entity));
+					consoleMessages.append("\n");
 					return true;
 				}
 			}
+		}
+
+		if (em.npCounts.containsKey(entity)
+				&& em.npCounts.getCount(entity) >= 30) {
+			return false;
 		}
 
 		if (em.np_ner_entityCooccurance.keySet().contains(entity)) {
 			Counter<String> entities = em.np_ner_entityCooccurance
 					.getCounter(entity);
 			if (entities.size() <= 2) {
-				System.out.println("Spam: too less co-occuring entities "
-						+ entity + " Cooccuring: " + entities.toString(3));
+				// System.out.println("Spam: too less co-occuring entities: "
+				// + entity + " Cooccuring: " + entities.toString(3));
+				consoleMessages.append("Spam: too less co-occuring entities: "
+						+ entity + " totalCount: "
+						+ em.npCounts.getCount(entity) + " Cooccuring: "
+						+ entities.toString(3) + " ");
+				consoleMessages.append("\n");
 				return true;
 			}
 
@@ -108,7 +139,14 @@ public class FilterEntities {
 			if (entities.getCount(key1) == totalCount) {
 				String key2 = pq.next();
 				if (entities.getCount(key2) == totalCount) {
-					System.out.println("Spam: total count " + entity);
+					System.out.println("Spam: total count: " + entity
+							+ " totalCount: " + em.npCounts.getCount(entity));
+					consoleMessages
+							.append("Spam: too less co-occuring entities: "
+									+ entity + " totalCount: "
+									+ em.npCounts.getCount(entity)
+									+ " Cooccuring: " + entities.toString(3));
+					consoleMessages.append("\n");
 					return true;
 				}
 			}
@@ -155,25 +193,27 @@ public class FilterEntities {
 			BufferedWriter bw = new BufferedWriter(
 					new BufferedWriter(
 							new FileWriter(
-									"/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_4.entities.txt")));
+									"/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_2.entities.txt")));
 			FilterEntities fe = new FilterEntities(
-					"/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_4");
+					"/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_2");
 			fe.filterEntities();
-			StringBuffer consoleMessages = new StringBuffer();
 
 			System.out.println("============filtered entities============");
-			consoleMessages
+			fe.consoleMessages
 					.append("============filtered entities============\n");
-			for (String ent : fe.stopEntities) {
-				System.out.println("Filtered: " + ent);
-				// System.out.println("NE Count: "+fe.em.ner_counts.getCount(ent));
-				// System.out.println("NP Count: "+fe.em.np_counts.getCount(ent));
-				consoleMessages.append("Filtered: " + ent);
-				consoleMessages.append("\n");
-			}
+			// for (String ent : fe.stopEntities) {
+			// System.out.println("Filtered: " + ent);
+			// //
+			// System.out.println("NE Count: "+fe.em.ner_counts.getCount(ent));
+			// //
+			// System.out.println("NP Count: "+fe.em.np_counts.getCount(ent));
+			// fe.consoleMessages.append("Filtered: " + ent);
+			// fe.consoleMessages.append("\n");
+			// }
 
 			System.out.println("============Valid entities============");
-			consoleMessages.append("============Valid entities============\n");
+			fe.consoleMessages
+					.append("============Valid entities============\n");
 			Counter<String> validEntityCounter = fe.getValidEntities();
 			PriorityQueue<String> validEntities = validEntityCounter
 					.asPriorityQueue();
@@ -181,13 +221,13 @@ public class FilterEntities {
 				String key = validEntities.next();
 				System.out.println("Valid: " + key + " Count: "
 						+ validEntityCounter.getCount(key));
-				consoleMessages.append("Valid: " + key + " Count: "
+				fe.consoleMessages.append("Valid: " + key + " Count: "
 						+ validEntityCounter.getCount(key));
-				consoleMessages.append("\n");
+				fe.consoleMessages.append("\n");
 
 			}
 			// write to the file
-			bw.write(consoleMessages.toString());
+			bw.write(fe.consoleMessages.toString());
 			bw.flush();
 
 		} catch (Exception e) {
