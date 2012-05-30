@@ -27,6 +27,6 @@ public class FactOpinionFilter implements IPostExtractionPrefilter {
 
 	public boolean pass(Data d) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 }

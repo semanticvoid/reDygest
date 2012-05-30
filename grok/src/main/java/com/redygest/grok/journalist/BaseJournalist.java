@@ -9,11 +9,15 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Story;
 import com.redygest.commons.data.Tweet;
 import com.redygest.commons.preprocessor.twitter.ITweetPreprocessor;
+import com.redygest.grok.features.computation.FeaturesComputation;
+import com.redygest.grok.filtering.postextraction.PostExtractionPrefilterRunner;
+import com.redygest.grok.filtering.postextraction.PostExtractionPrefilterType;
 import com.redygest.grok.filtering.preextraction.PreExtractionPrefilterRunner;
 import com.redygest.grok.store.IStore;
 import com.redygest.grok.store.StoreFactory;
@@ -29,7 +33,8 @@ abstract class BaseJournalist {
 
 	protected List<Data> tweets;
 	protected ITweetPreprocessor preprocessor = null;
-	protected PreExtractionPrefilterRunner prefilterRunner = null;
+	protected PreExtractionPrefilterRunner preExtractionFilterRunner = null;
+	protected PostExtractionPrefilterRunner postExtractionfilterRunner = null;
 
 	abstract Story process(List<Data> tweets);
 
@@ -50,8 +55,8 @@ abstract class BaseJournalist {
 					boolean pass = true;
 					Tweet t = new Tweet(line, String.valueOf(i), preprocessor);
 					// prefilter code
-					if (prefilterRunner != null) {
-						pass = prefilterRunner.runFilters(t
+					if (preExtractionFilterRunner != null) {
+						pass = preExtractionFilterRunner.runFilters(t
 								.getValue(DataType.ORIGINAL_TEXT));
 					}
 
@@ -69,6 +74,44 @@ abstract class BaseJournalist {
 		}
 
 		return tweets;
+	}
+
+	/**
+	 * Extract features
+	 */
+	protected final boolean extractFeatures(List<Data> tweets) {
+		ConfigReader config = ConfigReader.getInstance();
+		FeaturesComputation fc = new FeaturesComputation(
+				config.getExtractorsList());
+		try {
+			fc.computeFeatures(tweets);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * Post extraction filter tweets
+	 * 
+	 * @param tweets
+	 * @return
+	 */
+	protected final boolean postFilter(List<Data> tweets) {
+		List<Data> filteredData = new ArrayList<Data>();
+		PostExtractionPrefilterRunner filterRunner = new PostExtractionPrefilterRunner(
+				PostExtractionPrefilterType.FACT_OPINION_FILTER);
+
+		for (Data d : tweets) {
+			if (filterRunner.runFilters(d)) {
+				filteredData.add(d);
+			}
+		}
+
+		this.tweets = filteredData;
+		return true;
 	}
 
 	/**
@@ -113,7 +156,11 @@ abstract class BaseJournalist {
 	public final void run(String file) {
 		tweets = new ArrayList<Data>();
 		tweets = read(file);
-		Story s = process(tweets);
-		write(s);
+		if (tweets != null && extractFeatures(tweets) && postFilter(tweets)) {
+			Story s = process(tweets);
+			if (s != null) {
+				write(s);
+			}
+		}
 	}
 }
