@@ -1,752 +1,98 @@
 Stop entity: length<2 :
-Spam: too less co-occuring entities: emory university Cooccuring: [clinton : 36.0,  : 18.0]
-Spam: total count: teamobama
-Spam: total count: taylor lautner
-Spam: too less co-occuring entities: estados unidos Cooccuring: [clinton : 14.0, rt : 7.0]
-Spam: total count: carel
-Spam: too less co-occuring entities: alexander mcqueen mourned Cooccuring: [bill clinton : 12.0, rt : 6.0]
-Spam: too less co-occuring entities: bill clinton jalani operasi jantung mendadak Cooccuring: [ : 6.0]
-Spam: total count: washington
-Spam: total count: drudge
-Spam: too less co-occuring entities: bill clinton terserang jantung Cooccuring: [ : 8.0]
-Spam: total count: los angeles
+Spam: too less co-occuring entities: emory university totalCount: 18.0 Cooccuring: [ : 18.0, clinton : 18.0]
+Spam: total count: herzen totalCount: 11.0
+Spam: total count: teamobama totalCount: 5.0
+Spam: total count: taylor lautner totalCount: 12.0
+Spam: total count: estados unidos totalCount: 14.0
+Spam: total count: carel totalCount: 4.0
+Spam: total count: alexander mcqueen mourned totalCount: 12.0
+Spam: too less co-occuring entities: bill clinton jalani operasi jantung mendadak totalCount: 6.0 Cooccuring: [ : 6.0]
+Spam: total count: nyc totalCount: 4.0
+Spam: too less co-occuring entities: lord totalCount: 4.0 Cooccuring: [ : 4.0, bill clinton : 4.0]
+Spam: total count: hillary totalCount: 9.0
+Spam: too less co-occuring entities: bill clinton terserang jantung totalCount: 8.0 Cooccuring: [ : 8.0]
+Spam: total count: los angeles totalCount: 4.0
+Spam: total count: bush totalCount: 24.0
 Stop entity: length<2 :bi
+Spam: total count: david patterson totalCount: 10.0
+Spam: total count: pres bill clinton totalCount: 17.0
 Stop entity: length<2 :u.
 Stop entity: length<2 :dc
-Spam: too less co-occuring entities: minneapolis star tribune Cooccuring: [clinton : 8.0,  : 4.0]
+Spam: too less co-occuring entities: minneapolis star tribune totalCount: 4.0 Cooccuring: [ : 4.0, clinton : 4.0]
 Stop entity: length<2 :wh
-Spam: total count: nate guenin
-Spam: too less co-occuring entities: fox news Cooccuring: [rt : 6.0, clinton : 6.0]
-Spam: total count: qatar
-Spam: too less co-occuring entities: u.s. Cooccuring: [ : 7.0, bill clinton : 7.0]
-Spam: too less co-occuring entities: politico Cooccuring: [ : 23.0, clinton : 23.0]
-Spam: total count: arruda
-Spam: total count: anderson cooper
-Spam: too less co-occuring entities: reagan Cooccuring: [bill clinton : 12.0,  : 6.0]
-Spam: too less co-occuring entities: bil Cooccuring: [bill clinton : 8.0,  : 4.0]
+Spam: total count: dr. alan schwartz totalCount: 5.0
+Spam: total count: nate guenin totalCount: 4.0
+Stop entity: contains a stop word :fox news
+Spam: total count: qatar totalCount: 5.0
+Spam: too less co-occuring entities: politico totalCount: 23.0 Cooccuring: [ : 23.0, clinton : 23.0]
+Spam: total count: arruda totalCount: 6.0
+Spam: total count: anderson cooper totalCount: 20.0
+Spam: too less co-occuring entities: reagan totalCount: 6.0 Cooccuring: [ : 6.0, bill clinton : 6.0]
+Spam: too less co-occuring entities: bil totalCount: 4.0 Cooccuring: [ : 4.0, bill clinton : 4.0]
 Stop entity: length<2 :rt
-Spam: total count: mcqueen
-Spam: too less co-occuring entities: alexander mcqueen Cooccuring: [bill clinton : 8.0,  : 4.0]
+Spam: total count: larry king totalCount: 4.0
+Spam: total count: state dept totalCount: 4.0
+Spam: too less co-occuring entities: hospital totalCount: 8.0 Cooccuring: [ : 8.0, bill clinton : 8.0]
+Spam: total count: nueva york donde totalCount: 7.0
+Spam: total count: dr. allan schwartz totalCount: 14.0
+Spam: total count: mcqueen totalCount: 6.0
+Spam: too less co-occuring entities: alexander mcqueen totalCount: 4.0 Cooccuring: [ : 4.0, bill clinton : 4.0]
+Spam: too less co-occuring entities: pres clinton totalCount: 28.0 Cooccuring: [ : 28.0, rt : 21.0]
 Stop entity: length<2 :lm
-Spam: total count: mr. clinton
-Spam: total count: justin fishel
+Spam: total count: bill totalCount: 7.0
+Spam: total count: wjc totalCount: 11.0
+Spam: total count: mr. clinton totalCount: 4.0
+Spam: total count: state totalCount: 4.0
+Spam: total count: justin fishel totalCount: 4.0
 Stop entity: contains too many non-alphanumerics :qatar\/saudi arabia
-Spam: too less co-occuring entities: usa Cooccuring: [ : 4.0, bill clinton : 4.0]
-Spam: too less co-occuring entities: mr bill clinton Cooccuring: [rt : 36.0,  : 24.0]
-Spam: too less co-occuring entities: best Cooccuring: [bill clinton : 8.0, rt : 4.0]
-Spam: total count: foundation
-Spam: total count: pres obama
-Spam: too less co-occuring entities: clinton sparks Cooccuring: [jermaine dupri : 5.0, rt : 5.0]
-Spam: too less co-occuring entities: hahaha rt Cooccuring: [bill clinton : 14.0]
+Spam: total count: sarney totalCount: 6.0
+Spam: total count: g. dubya totalCount: 4.0
+Spam: too less co-occuring entities: usa totalCount: 4.0 Cooccuring: [ : 4.0, bill clinton : 4.0]
+Spam: too less co-occuring entities: mr bill clinton totalCount: 24.0 Cooccuring: [ : 24.0, rt : 18.0]
+Stop entity: contains a stop word :abc news
+Spam: total count: best totalCount: 8.0
+Spam: total count: foundation totalCount: 7.0
+Spam: too less co-occuring entities: nueva york totalCount: 6.0 Cooccuring: [ : 6.0, bill clinton : 6.0]
+Spam: total count: yahoo totalCount: 6.0
+Spam: total count: pres obama totalCount: 4.0
+Spam: total count: clinton sparks totalCount: 5.0
+Spam: total count: jermaine dupri totalCount: 5.0
+Spam: too less co-occuring entities: chest pains totalCount: 4.0 Cooccuring: [ : 4.0, bill clinton : 4.0]
+Stop entity: contains a stop word :hahaha rt
 Stop entity: length<2 :us
-Spam: total count: manhattan
-Spam: too less co-occuring entities: barack obama Cooccuring: [obama : 7.0]
+Spam: total count: manhattan totalCount: 4.0
+Spam: total count: terry mcauliffe totalCount: 4.0
+Spam: total count: barack obama totalCount: 7.0
 Stop entity: contains a stop word :rt rt
-Spam: total count: washington post
-Spam: total count: w. bush
-Spam: total count: cbc
-Stop entity: contains a stop word :monica ya
-Spam: too less co-occuring entities: checks into ny hospital Cooccuring: [bill clinton : 12.0]
-Stop entity: contains a stop word :douglas band
+Spam: total count: washington post totalCount: 4.0
+Spam: total count: w. bush totalCount: 4.0
+Spam: total count: cbc totalCount: 4.0
+Spam: too less co-occuring entities: monica ya totalCount: 7.0 Cooccuring: [ : 7.0, bill clinton : 7.0]
+Stop entity: contains a stop word :checks into ny hospital
+Spam: total count: douglas band totalCount: 4.0
 Stop entity: length<2 :ap
-Spam: total count: sec
-Spam: too less co-occuring entities: washington heights Cooccuring: [bill clinton : 20.0,  : 10.0]
-Spam: too less co-occuring entities: new york presbyterian hospital Cooccuring: [ : 19.0, hillary clinton : 19.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/on.cnn.com\/dxm
-Spam: too less co-occuring entities: emory university Cooccuring: [clinton : 36.0,  : 18.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bijkfp
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/agjacw
-Stop entity: contains too many non-alphanumerics :http:\/\/goo.gl\/fb\/yyhr #people
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9b7bjg
-Stop entity: contains a stop word :rt @johnwoodrtr
-Spam: total count: los angeles
-Stop entity: contains too many non-alphanumerics :http:\/\/is.gd\/8c34q
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/dctab2
-Stop entity: length<2 :%
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9nc3ep
-Stop entity: contains a stop word :rt @katephillips
-Spam: total count: qatar
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ddybwr
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cwiw1j
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/aqwsj3
-Stop entity: contains a stop word :rt @jademorey @connews
-Spam: too less co-occuring entities: bil Cooccuring: [bill clinton : 8.0,  : 4.0]
-Stop entity: contains too many non-alphanumerics :heart http:\/\/bit.ly\/a7soav
-Stop entity: contains a stop word :rt @modernmom
-Stop entity: contains a stop word :rt @tom_colicchio
-Spam: too less co-occuring entities: ver Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains a stop word :rt @resisttyranny
-Stop entity: contains too many non-alphanumerics :http:\/\/tinyurl.com\/ylowb9n
-Stop entity: contains a stop word :rt @sanjayguptacnn
-Stop entity: contains a stop word :rt @blackmediascoop
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/b2imc4 lm
-Stop entity: contains too many non-alphanumerics :http:\/\/su.pr\/5wwrtu
-Stop entity: length<2 :n
-Stop entity: length<2 :o
-Stop entity: length<2 :m
-Stop entity: length<2 :h
-Stop entity: contains a stop word :rt @usatodayhealth
-Stop entity: length<2 :t
-Stop entity: length<2 :s
-Stop entity: contains a stop word :rt @markos
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ck1lig
-Stop entity: length<2 :~
-Stop entity: contains too many non-alphanumerics :http:\/\/tinyurl.com\/y9dpw54
-Stop entity: contains too many non-alphanumerics :http:\/\/digg.com\/d31iclb
-Stop entity: length<2 :y
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/azdqps
-Stop entity: contains a stop word :news conference
-Stop entity: contains a stop word :rt @antaranews
-Spam: too less co-occuring entities: o em Cooccuring: [ : 8.0, bill clinton : 8.0]
-Stop entity: contains a stop word :rt @cbs3
-Stop entity: contains a stop word :rt @ap
-Spam: total count: drudge
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/do2was
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bypihq
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/avg6hm
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9ws4y2
-Stop entity: length<2 :©
-Stop entity: contains a stop word :rt @heykim
-Spam: too less co-occuring entities: watch Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/dcjote
-Stop entity: contains a stop word :rt @mumby
-Stop entity: contains a stop word :rt @nelsonbocaranda
-Stop entity: contains too many non-alphanumerics :http:\/\/ow.ly\/16yorp
-Spam: too less co-occuring entities: hope Cooccuring: [ : 31.0, clinton : 31.0]
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/m.apnews.com\/ap\/db_16026\/contentdetail.htm?contentguid=wytwkdtr
-Spam: too less co-occuring entities: bill clinton heart procedure Cooccuring: [ : 5.0, bill clinton : 5.0]
-Spam: too less co-occuring entities: insider Cooccuring: [ : 30.0, bill clinton : 30.0]
-Stop entity: contains a stop word :rt @mais_noticias
-Spam: too less co-occuring entities: passa bem Cooccuring: [ : 5.0, bill clinton : 5.0]
-Stop entity: contains too many non-alphanumerics :Š“ opererades akut
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/amzoxg
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/defgg8
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/aulpyd
-Stop entity: length<2 :Š
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ccaxra
-Stop entity: length<2 :‰
-Spam: too less co-occuring entities: anyone Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bmwqxu
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9fz8ni
-Stop entity: contains a stop word :rt @majoratwh
-Stop entity: contains a stop word :rt @carelpedre
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9ggtoc
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ctrwkb
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bmkiml
-Stop entity: contains a stop word :rt @jackgraycnn
-Stop entity: contains too many non-alphanumerics :u.s. president
-Stop entity: contains a stop word :rt @ajenglish
-Spam: too less co-occuring entities: health Cooccuring: [ : 19.0, clinton : 19.0]
-Spam: too less co-occuring entities: history month Cooccuring: [ : 24.0, clinton : 24.0]
-Stop entity: contains too many non-alphanumerics :operation http:\/\/bit.ly\/c2zpdu
-Spam: too less co-occuring entities: cnnbrk Cooccuring: [ : 34.0, clinton : 34.0]
-Stop entity: contains a stop word :http
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/csyofw
-Stop entity: contains a stop word :will
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.l
-Stop entity: contains too many non-alphanumerics :aco http:\/\/bit.ly\/cvipny
-Stop entity: contains too many non-alphanumerics :http:\/\/on.cnn.com\/9k3kjy
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9kgxoa
-Stop entity: contains a stop word :rt @nprnews
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bkepub
-Stop entity: contains too many non-alphanumerics :u.s. president bill
-Stop entity: contains too many non-alphanumerics :chest pain http:\/\/bit.ly\/bmttmv #wwo
-Stop entity: contains too many non-alphanumerics :http:\/\/cli.gs\/rb4ss
-Spam: too less co-occuring entities: rico card Cooccuring: [ : 8.0, bill clinton : 8.0]
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/link.reuters.com\/hyw98h
-Stop entity: contains a stop word :Š™ em art
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bjqgnj
-Spam: too less co-occuring entities: ‹ ‰¾ Cooccuring: [ : 11.0, bill clinton : 11.0]
-Stop entity: contains too many non-alphanumerics :Žˆ ‰šŽ‰
-Spam: too less co-occuring entities: new york presbyterian hospital Cooccuring: [ : 19.0, hillary clinton : 19.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cys9gc
-Stop entity: contains too many non-alphanumerics :http:\/\/tinyurl.com\/ygdd8u8
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/dx3bhl
-Stop entity: contains a stop word :rt @nprpolitics
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/be3iob
-Stop entity: contains a stop word :rt @breakingnews
-Spam: too less co-occuring entities: ³ s Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :Šrt @breakingnews
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9nrklz
-Stop entity: contains too many non-alphanumerics :http:\/\/tinyurl.com\/ykmcw4u
-Stop entity: contains a stop word :rt @yvettenbrown
-Spam: too less co-occuring entities: d.c. Cooccuring: [ : 4.0, clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bmqbj5
-Stop entity: contains too many non-alphanumerics :rt:@breakingnews
-Stop entity: contains a stop word :rt @conservativfeed
-Stop entity: contains too many non-alphanumerics :http:\/\/ff.im\/-fnbcd
-Stop entity: contains a stop word :rt @daniellecnn
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/94o31n
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/brycc2 #fb
-Stop entity: contains too many non-alphanumerics :http:\/\/url4.eu\/1nd3g
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ajzfl6
-Stop entity: contains too many non-alphanumerics :mtv.com http:\/\/bit.ly\/cvbwzm
-Stop entity: contains too many non-alphanumerics :u.s. presi
-Stop entity: contains too many non-alphanumerics :http:\/\/is.gd\/8catv
-Stop entity: contains too many non-alphanumerics :http:\/\/nyti.ms\/csuivb
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/8yy9sc
-Spam: too less co-occuring entities: §‡µ Cooccuring: [ : 11.0, bill clinton : 11.0]
-Stop entity: contains a stop word :rt @fortunemagazine
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9ixjn1
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ayyj8s
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/92pwy8
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cvuzd3
-Spam: too less co-occuring entities: rt@joenbc Cooccuring: [ : 31.0, clinton : 31.0]
-Stop entity: contains a stop word :rt @wzzm13
-Spam: too less co-occuring entities: bosses Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cpj5sb
-Stop entity: contains a stop word :rt @anncurry
-Stop entity: contains a stop word :rt @andersoncooper
-Stop entity: contains a stop word :rt @housedemocrats
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/bit.ly\/bcha1f
-Stop entity: contains a stop word :rt @newsweek
-Spam: too less co-occuring entities: @detikcom Cooccuring: [ : 6.0, bill clinton jalani operasi jantung mendadak : 6.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9eb2le
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/d7wfas
-Spam: too less co-occuring entities: alexander mcqueen Cooccuring: [bill clinton : 8.0,  : 4.0]
-Spam: too less co-occuring entities: usa Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :former u.s. president
-Stop entity: contains too many non-alphanumerics :#tcot #p
-Spam: too less co-occuring entities: #haiti relief efforts Cooccuring: [ : 6.0, bill clinton : 6.0]
-Stop entity: contains a stop word :rt @youngdemocrat
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bmfzj5
-Stop entity: contains too many non-alphanumerics :http:\/\/newser.me\/ck5p68
-Stop entity: contains a stop word :chest dis
-Stop entity: contains a stop word :rt @cnnbrk
-Spam: too less co-occuring entities: cbs news Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bpvvk2
-Stop entity: contains a stop word :com
-Stop entity: contains too many non-alphanumerics :http:\/\/nxy.in\/o0q06
-Stop entity: contains too many non-alphanumerics :#news rt @folhadesp
-Spam: too less co-occuring entities: cardiologista Cooccuring: [ : 5.0, bill clinton : 5.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cnfzua
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/b690ze
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9ynhbk
-Stop entity: contains too many non-alphanumerics :http:\/\/digg.com\/d31iwvd?t
-Stop entity: contains too many non-alphanumerics :http:\/\/www.folha.com.br\/mu693047 #folhaonline
-Stop entity: contains too many non-alphanumerics :chest pains http:\/\/ow.ly\/16b0u
-Stop entity: contains a stop word :rt @wsj
-Stop entity: contains a stop word :rt @lrhicks
-Stop entity: contains too many non-alphanumerics :http:\/\/tinyurl.com\/y9c7o7t
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/atther
-Stop entity: contains too many non-alphanumerics :u.s. president bill clinton
-Spam: too less co-occuring entities: whoa Cooccuring: [ : 7.0, bill clinton : 7.0]
-Stop entity: contains a stop word :rt @cindytg
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/b0uh9q
-Spam: too less co-occuring entities: case Cooccuring: [ : 22.0, clinton : 22.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/av46qb
-Stop entity: contains a stop word :rt @kingsthings
-Stop entity: contains a stop word :rt @meathead
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bendph
-Stop entity: contains a stop word :no fue
-Stop entity: contains too many non-alphanumerics :rt@america1first
-Spam: too less co-occuring entities: webcastr Cooccuring: [ : 14.0]
-Spam: too less co-occuring entities: stupidest thing said Cooccuring: [ : 4.0, clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/flne.ws\/23299207
-Stop entity: contains too many non-alphanumerics :¼herer us-pr ¤ sident
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/aawlqx
-Spam: too less co-occuring entities: diz que Cooccuring: [ : 5.0, bill clinton : 5.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/btrx3l
-Spam: too less co-occuring entities: olympic video updates Cooccuring: [ : 14.0]
-Spam: too less co-occuring entities: #tlot Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/bit.ly\/9eia3c
-Stop entity: contains a stop word :rt @pppenaloza
-Stop entity: contains a stop word :rt @mundowashington
-Stop entity: contains a stop word :rt @vipvern
-Stop entity: contains a stop word :rt @rgomezjunco
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/c9nqql
-Stop entity: contains too many non-alphanumerics :operiert worden http:\/\/bit.ly\/9tpy0w
-Stop entity: contains too many non-alphanumerics :heart http:\/\/tinyurl.com\/b22o
-Stop entity: contains too many non-alphanumerics :http:\/\/uol.com\/bsw1
-Stop entity: contains too many non-alphanumerics :chest pains http:\/\/bit.ly\/bzhkvu
-Stop entity: contains too many non-alphanumerics :spirits http:\/\/su.pr\/19iihs
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ce4igw
-Stop entity: length<2 :a.
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/admupv
-Stop entity: contains too many non-alphanumerics :doctor http:\/\/bit.ly\/anr4lw
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bckjks
-Spam: too less co-occuring entities: operado Cooccuring: [ : 5.0, bill clinton : 5.0]
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/thoora.com\/ujqk8h
-Stop entity: contains a stop word :rt @glowmoment
-Spam: too less co-occuring entities: @chuckgrassley Cooccuring: [ : 7.0, pres clinton : 7.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/amjhfv #cnn
-Stop entity: contains a stop word :rt @revrsp
-Spam: too less co-occuring entities: let Cooccuring: [ : 31.0, clinton : 31.0]
-Stop entity: contains too many non-alphanumerics :@drudge_report
-Stop entity: contains a stop word :news http:\/\/ugan.com\/785.htm
-Stop entity: contains too many non-alphanumerics :http:\/\/on.cnn.com\/caxmiy
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cuublc
-Stop entity: contains a stop word :rt @_maxwell_
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cisiwf
-Stop entity: contains a stop word :com o p
-Stop entity: contains a stop word :rt @exposeliberals
-Stop entity: contains too many non-alphanumerics :http:\/\/url4.eu\/1nb0i
-Spam: too less co-occuring entities: discomfort Cooccuring: [ : 62.0, bill clinton : 62.0]
-Spam: too less co-occuring entities: beej Cooccuring: [ : 8.0, bill clinton : 8.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9k1tak
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cjcou0
-Stop entity: contains too many non-alphanumerics :http:\/\/goo.gl\/fb\/wny5
-Spam: too less co-occuring entities: fluent news Cooccuring: [ : 5.0, clinton : 5.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bkkhib
-Spam: too less co-occuring entities: demcare Cooccuring: [ : 18.0, bill clinton : 18.0]
-Stop entity: contains a stop word :rt @justimage
-Stop entity: contains too many non-alphanumerics :chest pains http:\/\/bit.ly\/drze16
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/d5b6rk
-Stop entity: contains too many non-alphanumerics :history http:\/\/bit.ly\/ays8am
-Stop entity: contains too many non-alphanumerics :http:\/\/ow.ly\/16ycer
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ak2jrm
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bi0nmc
-Stop entity: contains too many non-alphanumerics :http:\/\/www.vitabeat.com\/6731\/expresident-clinton-undergoes-heart-procedure
-Stop entity: contains a stop word :rt @gothamchopra
-Spam: too less co-occuring entities: poor Cooccuring: [ : 4.0, clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :news.yahoo.com
-Stop entity: contains a stop word :rt @abc
-Stop entity: contains a stop word :rt @haitifeed
-Stop entity: contains a stop word :rt @jesus_
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/dxhgnu #cnn
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cvsuj7
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/uk.reuters.com\/article\/topnews\/idustre61a5l020100212
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/aaiesk
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/99qrnz
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9498r4
-Spam: too less co-occuring entities: said Cooccuring: [ : 7.0, bill clinton : 7.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/98e2xd
-Stop entity: contains too many non-alphanumerics :¿ Ž
-Stop entity: length<2 :h.
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/avgzf7
-Stop entity: length<2 :fr
-Spam: too less co-occuring entities: former president bill clinton hospitalized Cooccuring: [ : 53.0, bill clinton : 53.0]
-Spam: too less co-occuring entities: cardiologist updates Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains a stop word :rt @mrsboo2u
-Stop entity: contains a stop word :solo pospuso por un d
-Stop entity: contains a stop word :rt @starjonesesq
-Spam: total count: nate guenin
-Spam: too less co-occuring entities: u.s. Cooccuring: [ : 7.0, bill clinton : 7.0]
-Spam: too less co-occuring entities: politico Cooccuring: [ : 23.0, clinton : 23.0]
-Spam: total count: arruda
-Spam: too less co-occuring entities: lol true Cooccuring: [ : 12.0, clinton : 12.0]
-Stop entity: contains a stop word :rt @cnnbrk cardiologist
-Stop entity: contains too many non-alphanumerics :Ÿ’ http:\/\/bit.ly\/afxrdw
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/bit.ly\/9ow7xd
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9bm3wl
-Stop entity: length<2 :dd
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bcnfhv
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/al0yl8
-Stop entity: contains too many non-alphanumerics :Š™m
-Stop entity: contains too many non-alphanumerics :http:\/\/on.wsj.com\/anlpsj
-Stop entity: contains too many non-alphanumerics :Š™s
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/aqsnuo
-Stop entity: contains a stop word :rt @markknoller
-Spam: too less co-occuring entities: web Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ddaxrp
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9s3aug
-Spam: too less co-occuring entities: intern Cooccuring: [ : 17.0, bill clinton : 17.0]
-Stop entity: length<2 :er
-Stop entity: contains a stop word :rt @ktla
-Spam: too less co-occuring entities: cora § Cooccuring: [ : 5.0, bill clinton : 5.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/tinyurl.com\/yfy6bbc
-Stop entity: contains too many non-alphanumerics :hospitalization http:\/\/bit.ly\/aqil8e
-Stop entity: contains too many non-alphanumerics :#fail rt @rolandosalazar
-Stop entity: contains too many non-alphanumerics :   ˜ ŠŒœˆ›œ Œ
-Stop entity: contains a stop word :rt @shannynmoore
-Stop entity: length<2 :bc
-Stop entity: contains too many non-alphanumerics :http:\/\/antaranews.com\/berita\/1265936389
-Stop entity: contains a stop word :rt @watchj
-Stop entity: length<2 :da
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9yxwc4
-Stop entity: contains too many non-alphanumerics :stents http:\/\/ow.ly\/16ybyo
-Spam: too less co-occuring entities: stint Cooccuring: [ : 4.0, clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/ping.fm\/u21jp
-Stop entity: contains too many non-alphanumerics :president condition http:\/\/bit.ly\/dwtpv3
-Spam: too less co-occuring entities: un procedimiento menor para desbloquear arterias Cooccuring: [ : 4.0, rt : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/feeds.reuters.com\/~r\/reuters\/topnews\/~3\/tcl3fdubmzg\/idustre61a5l020100212
-Stop entity: contains a stop word :rt @westwingreport
-Stop entity: contains a stop word :rt @davidschneider
-Stop entity: contains too many non-alphanumerics :http:\/\/tl.gd\/8g13v
-Spam: too less co-occuring entities: emergency heart surgery Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/on.cnn.com\/dxmnlv http:\/\/myloc.me\/3j3uv
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cj80k8
-Stop entity: contains a stop word :rt @danielviotto
-Spam: total count: mcqueen
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/c9sup7 #presidentclinton
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/acnje7
-Stop entity: contains a stop word :rt @newserpolitics
-Stop entity: contains too many non-alphanumerics :scumbag —Žrt @adrienne_bailon
-Stop entity: contains a stop word :rt @joedepto
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bngrgn #singapore
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bz0wml
-Spam: too less co-occuring entities: mr bill clinton Cooccuring: [rt : 36.0,  : 24.0]
-Stop entity: contains a stop word :rt @internethaiti
-Stop entity: contains a stop word :rt @reagangomez
-Stop entity: contains too many non-alphanumerics :http:\/\/fwix.com\/article\/39_d19e4581a9
-Spam: too less co-occuring entities: hahaha lol am Cooccuring: [ : 7.0, pres clinton : 7.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/tinyurl.com\/yhv37hd
-Spam: too less co-occuring entities: yay Cooccuring: [ : 12.0, bill clinton : 12.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/a7wwqj
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/aa9tep
-Stop entity: length<2 :ap
-Spam: too less co-occuring entities: report bill clinton hospitalized Cooccuring: [ : 23.0, bill clinton : 23.0]
-Spam: total count: sec
-Stop entity: length<2 :»•
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/a0krn8
-Spam: too less co-occuring entities: ning Cooccuring: [ : 14.0]
-Stop entity: contains a stop word :news update bill clinton
-Stop entity: length<2 :no
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/91xzbh
-Stop entity: contains a stop word :l #news
-Stop entity: contains a stop word :rt @topmoneybiz
-Stop entity: contains a stop word :http:\/\/bit.ly\/ekg2f #sports #news #olympics #clinton
-Stop entity: length<2 :ny
-Stop entity: contains too many non-alphanumerics :http:\/\/twurl.nl\/1ary8u
-Stop entity: contains too many non-alphanumerics :http:\/\/wsj.com
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9tjqez
-Spam: too less co-occuring entities: womanizer haha rt @tvguide Cooccuring: [ : 12.0, bill clinton : 12.0]
-Stop entity: contains a stop word :rt @cbsnews
-Spam: too less co-occuring entities: experien Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bnxc6m
-Spam: too less co-occuring entities: thoughts Cooccuring: [ : 31.0, clinton : 31.0]
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/bit.ly\/9cp9rf
-Spam: too less co-occuring entities: procedur Cooccuring: [ : 30.0, bill clinton : 30.0]
-Stop entity: contains too many non-alphanumerics :@broadcasttwit @ryanseacrest pres
-Spam: too less co-occuring entities: heart pains Cooccuring: [ : 8.0, bill clinton : 8.0]
-Stop entity: contains a stop word :rt @theycallmebk
-Spam: too less co-occuring entities: fue hospitalizado Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: length<2 :pm
-Stop entity: length<2 :r1
-Stop entity: length<2 :lo
-Stop entity: contains a stop word :rt @donnabrazile
-Stop entity: length<2 :ll
-Spam: too less co-occuring entities: moment Cooccuring: [ : 18.0, bill clinton : 18.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bxo2oy
-Stop entity: contains too many non-alphanumerics :http:\/\/twurl.nl\/boizgu
-Stop entity: contains a stop word :rt @keithblanchard
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/d1xlo1
-Stop entity: contains a stop word :rt @fernandocollor
-Stop entity: length<2 :o.
-Stop entity: contains too many non-alphanumerics :http:\/\/tinyurl.com\/yjnfduk
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/csweeu
-Stop entity: contains a stop word :rt @welshman007
-Stop entity: contains a stop word :rt @tmz_news
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/dawmw8
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/buk0im
-Stop entity: contains too many non-alphanumerics :chest pains http:\/\/nyti.ms\/bgknqe
-Stop entity: contains a stop word :rt @chuckgrassley
-Stop entity: length<2 :ne
-Stop entity: length<2 :Š“
-Stop entity: length<2 :Š”
-Stop entity: contains a stop word :rt @lisaling
-Stop entity: contains a stop word :rt @cbskellywallace
-Spam: total count: teamobama
-Spam: too less co-occuring entities: bill clinton jalani operasi jantung mendadak Cooccuring: [ : 6.0]
-Stop entity: contains a stop word :rt @honolulutimes
-Stop entity: contains too many non-alphanumerics :heart surgery http:\/\/bit.ly\/987qdn
-Stop entity: contains a stop word :rt @argylestyle
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cobvbj
-Spam: too less co-occuring entities: minneapolis star tribune Cooccuring: [clinton : 8.0,  : 4.0]
-Stop entity: contains too many non-alphanumerics :sexta-feira http:\/\/tinyurl.com\/ycrww89
-Stop entity: contains too many non-alphanumerics :washington post http:\/\/bit.ly\/cptfwg
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cazqyn
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ashld4
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/d6mdnl
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bjbiay
-Stop entity: length<2 :la
-Stop entity: contains too many non-alphanumerics :www.jingletree.com
-Stop entity: contains too many non-alphanumerics :artery http:\/\/is.gd\/8cp6a
-Stop entity: contains too many non-alphanumerics :heart operation http:\/\/bit.ly\/djo5vv
-Stop entity: contains a stop word :rt @bbcmundo
-Stop entity: contains a stop word :rt @rolandosalazar
-Stop entity: length<2 :ht
-Stop entity: contains a stop word :rt @su2c
-Spam: total count: justin fishel
-Spam: too less co-occuring entities: spirits. Cooccuring: [ : 4.0, clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/tl.gd\/8g1so
-Stop entity: length<2 :ho
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/link.reuters.com\/gyw98h
-Stop entity: contains a stop word :o por problema card
-Spam: too less co-occuring entities: aco Cooccuring: [ : 8.0, bill clinton : 8.0]
-Stop entity: contains too many non-alphanumerics :prognosis http:\/\/bit.ly\/snuw
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/ckybn7
-Stop entity: contains too many non-alphanumerics :http:\/\/ow.ly\/16yc6a
-Stop entity: contains too many non-alphanumerics :http:\/\/twitthis.com\/zy7pzx
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9dij69
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/clrucw
-Stop entity: contains too many non-alphanumerics :http:\/\/www.bestfreearticle.com\/article.php?id=17
-Stop entity: contains too many non-alphanumerics :#ocra #tcot
-Spam: total count: washington
-Stop entity: contains too many non-alphanumerics :http:\/\/hwv5v.tk
-Spam: too less co-occuring entities: chest pain Cooccuring: [ : 5.0, clinton : 5.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/tinyurl.com\/yf4uf6z
-Stop entity: length<2 :wh
-Stop entity: contains a stop word :health care
-Stop entity: contains too many non-alphanumerics :http:\/\/url4.eu\/1ncvt
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/anuls4
-Stop entity: contains too many non-alphanumerics :heart operation http:\/\/bit.ly\/an6aaw
-Spam: too less co-occuring entities: reagan Cooccuring: [bill clinton : 12.0,  : 6.0]
-Stop entity: contains too many non-alphanumerics :doctor http:\/\/bit.ly\/bqnrlh
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/amzhub bill clinton
-Stop entity: contains a stop word :rt @gossipcop
-Stop entity: contains too many non-alphanumerics :f. http:\/\/bit.ly\/bo3gmq
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/91syie
-Stop entity: contains a stop word :@yotwits #news
-Stop entity: contains a stop word :rt @manuco22
-Stop entity: contains a stop word :news
-Stop entity: contains too many non-alphanumerics :heart operation http:\/\/bit.ly\/dhwxle
-Stop entity: length<2 :us
-Stop entity: length<2 :un
-Stop entity: contains a stop word :rt @tj_hancock
-Stop entity: contains too many non-alphanumerics :#news #politics
-Stop entity: contains a stop word :rt @clintonsparks
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bru4ml #presidentclinton
-Stop entity: contains a stop word :rt @globovision
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/dhk3np
-Stop entity: length<2 :su
-Stop entity: contains a stop word :rt @twitbroadcaster
-Stop entity: length<2 :u.
-Spam: too less co-occuring entities: stent procedure Cooccuring: [ : 14.0, bill clinton : 14.0]
-Spam: too less co-occuring entities: reports Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains a stop word :rt @financialtimes
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cvk8ki
-Stop entity: contains a stop word :rt @bbc24
-Spam: too less co-occuring entities: monica lewisnsky visitar Cooccuring: [ : 6.0, mr bill clinton : 6.0]
-Stop entity: length<2 :rt
-Stop entity: contains too many non-alphanumerics :http:\/\/www.globovision.com\/news.php?nid=140410
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/dcii5m #cnn
-Stop entity: contains too many non-alphanumerics :qatar\/saudi arabia
-Stop entity: length<2 :re
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/b0ryhk
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bg1ml6
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9zya8g
-Stop entity: length<2 :s.
-Spam: total count: manhattan
-Stop entity: contains too many non-alphanumerics :http:\/\/bi
-Spam: too less co-occuring entities: goodness rt @cnnbrk Cooccuring: [ : 75.0, bill clinton : 75.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/dzik7h
-Stop entity: contains too many non-alphanumerics :http:\/\/cot.ag\/9wmvuc
-Stop entity: contains a stop word :douglas band
-Spam: too less co-occuring entities: success Cooccuring: [ : 66.0, bill clinton : 66.0]
-Stop entity: length<2 :pr
-Stop entity: contains too many non-alphanumerics :u.s. barack
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/avkjrl
-Stop entity: contains a stop word :rt @purepolitics
-Stop entity: contains too many non-alphanumerics :.20 clint10
-Stop entity: contains too many non-alphanumerics :urgencia http:\/\/www.canalrcn.com\/noticias\/index.php?op=info&idp=119&ids=744&idc=101285
-Stop entity: contains a stop word :rt @nytimes
-Spam: too less co-occuring entities: bill clinton terserang jantung Cooccuring: [ : 8.0]
-Stop entity: contains a stop word :rt @stevebruskcnn
-Spam: too less co-occuring entities: wxia-tv Cooccuring: [ : 7.0, clinton : 7.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cqal17
-Spam: too less co-occuring entities: plus Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9dfp0i
-Stop entity: contains too many non-alphanumerics :http:\/\/ow.ly\/16yenx
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/bit.ly\/dehq7c
-Stop entity: contains too many non-alphanumerics :http:\/\/url4.eu\/1naxe
-Stop entity: contains a stop word :rt @edave733
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9qx1dv
-Stop entity: contains too many non-alphanumerics :former u.s. president bill
-Stop entity: contains too many non-alphanumerics :http:\/\/viigo.im\/2oww
-Stop entity: contains too many non-alphanumerics :@greytdog cnn\/msnbc
-Stop entity: contains too many non-alphanumerics :http:\/\/ow.ly\/16yi7y
-Stop entity: contains too many non-alphanumerics :http:\/\/ow.ly\/16yi7v
-Stop entity: contains a stop word :rt @proudlib @whisper1111
-Spam: too less co-occuring entities: angina Cooccuring: [ : 8.0, bill clinton : 8.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/bm8utp
-Stop entity: contains too many non-alphanumerics :http:\/\/on.cnn.com\/dxmnlv
-Spam: total count: carel
-Stop entity: contains too many non-alphanumerics :http:\/\/cli.gs\/bwjyh
-Stop entity: contains too many non-alphanumerics :ex-us-praesident clinton
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/9amuyp
-Stop entity: contains too many non-alphanumerics :ex-u.s. president clinton
-Stop entity: contains too many non-alphanumerics :http:\/\/tinyurl.com\/y9zg3uc
-Stop entity: contains too many non-alphanumerics :chest pains http:\/\/bit.ly\/bfktww
-Stop entity: contains a stop word :rt @proudlib
-Stop entity: contains too many non-alphanumerics :http:\/\/ow.ly\/16yi5m
-Spam: too less co-occuring entities: ex-president bill clinton Cooccuring: [ : 24.0, bill clinton : 24.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/a13kze
-Stop entity: contains too many non-alphanumerics :http:\/\/url4.eu\/1nyvf
-Spam: too less co-occuring entities: television network abc Cooccuring: [ : 4.0, bill clinton : 4.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/abdozx
-Stop entity: contains a stop word :rt @politicalticker
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/nxy.in\/1q80x
-Stop entity: contains a stop word :rt @abc breaking
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/8zs5z5
-Spam: too less co-occuring entities: @latimes Cooccuring: [ : 17.0, bill clinton : 17.0]
-Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/cfuw47
-Stop entity: contains too many non-alphanumerics :http:\/\/url4.eu\/1ngrq
-Stop entity: contains too many non-alphanumerics :heart procedure http:\/\/bit.ly\/bnzrpe
-Spam: too less co-occuring entities: #growingoldsucks rt Cooccuring: [ : 4.0, clinton : 4.0]
-Spam: too less co-occuring entities: washington heights Cooccuring: [bill clinton : 20.0,  : 10.0]
+Spam: total count: sec totalCount: 8.0
+Spam: too less co-occuring entities: washington heights totalCount: 10.0 Cooccuring: [ : 10.0, bill clinton : 10.0]
+Spam: total count: herzen operiert worden totalCount: 10.0
+Spam: total count: chelsea clinton totalCount: 4.0
+Spam: total count: navy totalCount: 5.0
+Spam: total count: new york city totalCount: 25.0
+Spam: too less co-occuring entities: new york presbyterian hospital totalCount: 19.0 Cooccuring: [ : 19.0, hillary clinton : 19.0]
+Spam: total count: mr clinton totalCount: 4.0
+Spam: total count: msnbc totalCount: 7.0
 ============filtered entities============
 ============Valid entities============
-Valid: bill clinton Count: 1453.0
-Valid: clinton Count: 757.0
-Valid: hospital Count: 512.0
-Valid: heart procedure Count: 496.0
-Valid: stents Count: 386.0
-Valid: cardiologist Count: 350.0
-Valid: new york Count: 322.0
-Valid: spirits Count: 315.0
-Valid: president Count: 279.0
-Valid: evidence Count: 277.0
-Valid: president clinton Count: 255.0
-Valid: doctor Count: 222.0
-Valid: friday Count: 216.0
+Valid: bill clinton Count: 2095.0
+Valid: clinton Count: 1351.0
+Valid: new york Count: 397.0
 Valid: reuters Count: 208.0
-Valid: former president Count: 207.0
-Valid: heart attack Count: 188.0
-Valid: former president clinton Count: 174.0
-Valid: heart artery Count: 166.0
-Valid: chest pains Count: 132.0
-Valid: return Count: 121.0
-Valid: update bill clinton Count: 115.0
-Valid: heart operation Count: 115.0
-Valid: former president bill clinton Count: 99.0
-Valid: prognosis Count: 97.0
-Valid: hillary clinton Count: 88.0
-Valid: heart damage Count: 85.0
-Valid: artery Count: 84.0
-Valid: recovery Count: 82.0
-Valid: bill clinton hospitalized Count: 80.0
-Valid: bill Count: 68.0
-Valid: chest Count: 66.0
-Valid: work Count: 66.0
-Valid: doctors Count: 65.0
-Valid: nyc Count: 64.0
-Valid: monday Count: 63.0
-Valid: heart surgery Count: 62.0
-Valid: abc news Count: 61.0
-Valid: cont Count: 59.0
-Valid: yahoo Count: 59.0
-Valid: today Count: 57.0
-Valid: procedure Count: 56.0
-Valid: hillary Count: 55.0
-Valid: air Count: 55.0
-Valid: economy report Count: 55.0
-Valid: travel Count: 55.0
-Valid: afp Count: 47.0
-Valid: york Count: 46.0
-Valid: source Count: 46.0
+Valid: hillary clinton Count: 130.0
+Valid: u.s. Count: 98.0
+Valid: washington Count: 84.0
+Valid: obama Count: 54.0
+Valid: haiti Count: 45.0
 Valid: mideast Count: 45.0
-Valid: heart disease Count: 43.0
-Valid: 5amet Count: 42.0
-Valid: aide Count: 42.0
-Valid: report Count: 42.0
-Valid: quadrupl Count: 42.0
-Valid: twitter Count: 42.0
-Valid: president bill clinton Count: 42.0
-Valid: tonight Count: 41.0
 Valid: blair Count: 41.0
-Valid: peace Count: 41.0
-Valid: cure Count: 39.0
-Valid: haiti Count: 38.0
-Valid: office Count: 38.0
-Valid: heart issue Count: 36.0
 Valid: new york hospital Count: 36.0
-Valid: ex-president clinton Count: 36.0
-Valid: prayers Count: 35.0
-Valid: statement Count: 35.0
-Valid: survivor Count: 34.0
-Valid: pres bill clinton Count: 34.0
-Valid: obama Count: 34.0
-Valid: thing Count: 34.0
-Valid: minute Count: 33.0
-Valid: @fbihop Count: 33.0
-Valid: pres clinton Count: 33.0
-Valid: stent Count: 32.0
-Valid: @cbsnews Count: 32.0
-Valid: us president clinton hospitalized Count: 31.0
-Valid: #int Count: 31.0
-Valid: weeks Count: 30.0
-Valid: stent placement Count: 30.0
-Valid: home Count: 27.0
-Valid: pace Count: 27.0
-Valid: love Count: 27.0
-Valid: videos Count: 27.0
-Valid: update Count: 26.0
-Valid: new york city Count: 25.0
-Valid: morning Count: 25.0
-Valid: surgery Count: 25.0
-Valid: pray Count: 25.0
-Valid: que Count: 24.0
-Valid: por Count: 24.0
-Valid: sexofon Count: 24.0
-Valid: @cnnbrk Count: 24.0
-Valid: prohiben Count: 24.0
-Valid: state Count: 23.0
-Valid: video clinton Count: 23.0
-Valid: nurses Count: 22.0
-Valid: breaking bill clinton Count: 21.0
-Valid: panel Count: 20.0
-Valid: god Count: 20.0
-Valid: bush Count: 20.0
-Valid: cnn anderson cooper Count: 20.0
-Valid: sud Count: 20.0
-Valid: newsbuzzer Count: 20.0
-Valid: observation Count: 20.0
-Valid: schedule Count: 20.0
-Valid: presi Count: 19.0
-Valid: condition Count: 19.0
-Valid: hospital arrival Count: 19.0
-Valid: artery stent common Count: 18.0
-Valid: former us Count: 18.0
-Valid: president treatment Count: 18.0
-Valid: recovery fr emergency heart surgery Count: 18.0
-Valid: passa bem ap Count: 18.0
-Valid: nica lewisnsky visitar Count: 18.0
-Valid: s cirurgia Count: 18.0
-Valid: heart troubles Count: 18.0
-Valid: procedure doctors Count: 18.0
-Valid: #haiti Count: 18.0
-Valid: fmr Count: 17.0
-Valid: work k Count: 17.0
-Valid: s case Count: 17.0
-Valid: herzen Count: 16.0
-Valid: cerebro Count: 16.0
-Valid: eso Count: 15.0
-Valid: arabia saudita Count: 15.0
-Valid: president obama Count: 15.0
-Valid: chest discomfort Count: 15.0
-Valid: idea Count: 15.0
-Valid: dr. allan schwartz Count: 14.0
-Valid: msnbc Count: 14.0
-Valid: hearts Count: 14.0
-Valid: @fhdr Count: 14.0
-Valid: ser Count: 14.0
-Valid: arteries today Count: 14.0
-Valid: hahaha Count: 14.0
-Valid: comp Count: 13.0
-Valid: fine Count: 13.0
-Valid: lot Count: 13.0
-Valid: trouble Count: 13.0
-Valid: nueva york Count: 13.0
-Valid: stents heart Count: 13.0
-Valid: tho Count: 13.0
-Valid: day Count: 13.0
-Valid: former us president Count: 13.0
-Valid: p.m. Count: 13.0
-Valid: goo Count: 13.0
-Valid: former president bill clinton checks into ny hospital Count: 12.0
-Valid: spokesman Count: 12.0
-Valid: alexander mcqueen mourned taylor lautner Count: 12.0
-Valid: sarney Count: 12.0
-Valid: afternoon Count: 12.0
-Valid: times Count: 11.0
-Valid: americans Count: 11.0
-Valid: article Count: 11.0
-Valid: guardianbill Count: 11.0
-Valid: wjc Count: 11.0
-Valid: bill clinton hospitalized | Count: 11.0
-Valid: celebrities Count: 11.0
-Valid: ny gov. david patterson Count: 10.0
-Valid: distance Count: 10.0
-Valid: david patterson Count: 10.0
-Valid: cnn Count: 10.0
-Valid: home today Count: 10.0
-Valid: herzen operiert worden Count: 10.0
-Valid: interview Count: 10.0
-Valid: yes Count: 10.0
-Valid: rumors Count: 10.0
-Valid: ex-president Count: 10.0
-Valid: jermaine dupri Count: 10.0
-Valid: president bi Count: 10.0
-Valid: dr. alan schwartz Count: 10.0
-Valid: 2amet Count: 10.0
+Valid: drudge Count: 33.0
+Valid: cnn Count: 30.0
