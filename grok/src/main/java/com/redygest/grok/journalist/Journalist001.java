@@ -21,7 +21,6 @@ import java.util.Set;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Community;
 import com.redygest.commons.data.Community.CommunityAttribute;
 import com.redygest.commons.data.Data;
@@ -29,7 +28,6 @@ import com.redygest.commons.data.DataType;
 import com.redygest.commons.data.Query;
 import com.redygest.commons.data.Story;
 import com.redygest.commons.preprocessor.twitter.PreprocessorZ20120215;
-import com.redygest.grok.features.computation.FeaturesComputation;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.FeatureVector;
@@ -55,7 +53,7 @@ import com.redygest.grok.selection.mmr.BaselineMMRSelector;
  * 
  * Step 2: Preprocess (done in BaseJournalist)
  * 
- * Step 3: Feature Extraction
+ * Step 3: Feature Extraction & post filter
  * 
  * Step 4: Generate graph
  * 
@@ -85,7 +83,7 @@ public class Journalist001 extends BaseJournalist {
 		// default twitter preprocessor
 		this.preprocessor = new PreprocessorZ20120215();
 		// prefilter setup
-		this.prefilterRunner = new PreExtractionPrefilterRunner(
+		this.preExtractionFilterRunner = new PreExtractionPrefilterRunner(
 				PreExtractionPrefilterType.NONENLGISH_LANG_FILTER,
 				PreExtractionPrefilterType.REPLY_TWEET_FILTER);
 	}
@@ -97,27 +95,12 @@ public class Journalist001 extends BaseJournalist {
 	 */
 	@Override
 	protected Story process(List<Data> tweets) {
-		step3();
 		step4();
 		step5();
 		step6();
 		step7();
 		step8();
 		return step9();
-	}
-
-	/**
-	 * Compute Features
-	 */
-	protected void step3() {
-		ConfigReader config = ConfigReader.getInstance();
-		FeaturesComputation fc = new FeaturesComputation(
-				config.getExtractorsList());
-		try {
-			FeaturesRepository repository = fc.computeFeatures(tweets);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	/**
