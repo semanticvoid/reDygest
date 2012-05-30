@@ -1,0 +1,2693 @@
+Stop entity: length<2 :
+Spam: too less co-occuring entities: word rt Cooccuring: [rt : 20.0, india : 20.0]
+Spam: too less co-occuring entities: newshour debate Cooccuring: [rt : 4.0]
+Spam: too less co-occuring entities: mungeri Cooccuring: [rt : 24.0,  : 12.0]
+Spam: too less co-occuring entities: wat jaitley Cooccuring: [rt : 12.0,  : 6.0]
+Spam: total count: cong aur bjp
+Spam: too less co-occuring entities: ias Cooccuring: [rt : 4.0]
+Spam: too less co-occuring entities: sagarika Cooccuring: [ram jethmalani : 7.0, rt : 7.0]
+Stop entity: contains too many non-alphanumerics :l.m. singhvi
+Spam: too less co-occuring entities: nhrc Cooccuring: [ : 5.0, jaitley : 5.0]
+Spam: too less co-occuring entities: union cabinet Cooccuring: [ : 6.0]
+Spam: total count: bill â Š
+Spam: total count: patil
+Spam: total count: lo karlo
+Spam: total count: rajyapal
+Spam: total count: jaye teri meri
+Spam: too less co-occuring entities: draft lokpal bill Cooccuring: [rt : 10.0,  : 5.0]
+Spam: total count: lokpal controversy
+Spam: too less co-occuring entities: rajya sabha chairperson hamid ansari Cooccuring: [rt : 21.0]
+Spam: total count: sardi
+Spam: too less co-occuring entities: ma 'm pl Cooccuring: [rt : 11.0, arunji : 11.0]
+Spam: too less co-occuring entities: lokpal & Cooccuring: [ : 9.0, rt : 9.0]
+Spam: total count: tiruchi siva
+Spam: total count: nitin agrawal
+Stop entity: length<2 :ec
+Spam: too less co-occuring entities: aadha Cooccuring: [rajya sabha : 23.0, rt : 23.0]
+Spam: total count: melbourne
+Spam: total count: india inc
+Stop entity: length<2 :n
+Spam: too less co-occuring entities: poocha kya Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: abhi Cooccuring: [rt : 4.0]
+Spam: too less co-occuring entities: mr. jathmalani Cooccuring: [rt : 8.0,  : 4.0]
+Spam: too less co-occuring entities: scs Cooccuring: [rt : 16.0,  : 8.0]
+Spam: too less co-occuring entities: nehru Cooccuring: [rt : 8.0,  : 4.0]
+Spam: too less co-occuring entities: pakistani Cooccuring: [rajya sabha : 31.0]
+Spam: too less co-occuring entities: teesta river Cooccuring: [rt : 4.0, lokpal bill : 4.0]
+Spam: too less co-occuring entities: lokpal rt Cooccuring: [bjp : 10.0, lokpal bill : 10.0]
+Spam: too less co-occuring entities: lokpal rs Cooccuring: [bjp : 5.0, bsp : 5.0]
+Spam: total count: sparta
+Spam: too less co-occuring entities: umesh yadav Cooccuring: [rt : 10.0]
+Spam: total count: assam
+Spam: too less co-occuring entities: haha rt Cooccuring: [ram vilas paswan : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: point rt Cooccuring: [lokpal : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: narayanaswamy Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: phoenix Cooccuring: [ : 6.0, salman khurshid : 6.0]
+Spam: total count: jmm bribe scam
+Spam: too less co-occuring entities: kartikeya sharma Cooccuring: [rt : 22.0,  : 11.0]
+Stop entity: contains too many non-alphanumerics :sonia\/rahul
+Spam: total count: raj
+Stop entity: length<2 :aj
+Spam: total count: sukhendu sekhar roy
+Spam: total count: lal bahadur shastri
+Spam: total count: tumhara
+Spam: total count: bhupendra chaubey
+Spam: total count: kolaveri di
+Spam: too less co-occuring entities: agar Cooccuring: [rajya sabha : 5.0, rt : 5.0]
+Spam: total count: kya matlab hai lokpal
+Spam: total count: nanga adami
+Spam: total count: lokayuta
+Spam: too less co-occuring entities: kripal yadav Cooccuring: [rjd : 12.0, rt : 12.0]
+Spam: too less co-occuring entities: rajbala & ... Cooccuring: [rt : 4.0]
+Spam: total count: yamraj
+Spam: total count: kannimozhi
+Spam: total count: gangotri
+Stop entity: length<2 :pm
+Stop entity: length<2 :ls
+Spam: total count: naresh agrawal
+Spam: too less co-occuring entities: mahatma Cooccuring: [rt : 8.0,  : 4.0]
+Spam: too less co-occuring entities: flipkart Cooccuring: [ : 19.0, rt : 11.0]
+Spam: total count: bhagwan hai
+Spam: too less co-occuring entities: anna & common Cooccuring: [rajya sabha : 4.0, rt : 4.0]
+Spam: total count: congis rt
+Spam: too less co-occuring entities: indians Cooccuring: [rt : 19.0,  : 6.0]
+Stop entity: contains a stop word :ba sa pa
+Spam: total count: mulayam singh yadav
+Spam: too less co-occuring entities: njoi Cooccuring: [rt : 4.0]
+Stop entity: contains too many non-alphanumerics :#anna & co
+Spam: too less co-occuring entities: upa & congress Cooccuring: [lokpa : 12.0]
+Stop entity: contains too many non-alphanumerics :anna â Š™s
+Spam: too less co-occuring entities: except sonia gandhi & rahul gandhi Cooccuring: [rt : 6.0]
+Spam: too less co-occuring entities: congress core group Cooccuring: [rt : 16.0,  : 8.0]
+Spam: total count: chanakya
+Spam: total count: pinaki mishra
+Spam: too less co-occuring entities: lalu prasad yadav Cooccuring: [bjp : 14.0]
+Spam: total count: ye lokpal
+Spam: too less co-occuring entities: aisa kalyug aayega Cooccuring: [rt : 7.0]
+Spam: too less co-occuring entities: revulsion & regret Cooccuring: [rajya sabha : 6.0, rt : 6.0]
+Spam: total count: shingvi
+Spam: total count: lage raho anna
+Spam: too less co-occuring entities: lokpal hua Cooccuring: [rt : 4.0]
+Spam: total count: sense of nation
+Spam: too less co-occuring entities: academy Cooccuring: [ : 8.0]
+Spam: total count: ramchandra ji keh gaye siya se
+Spam: too less co-occuring entities: rajya sabha angry Cooccuring: [rt : 8.0,  : 4.0]
+Spam: too less co-occuring entities: behen mayawati Cooccuring: [ : 16.0, rt : 16.0]
+Spam: too less co-occuring entities: adm Cooccuring: [rt : 65.0, cbi : 65.0]
+Spam: too less co-occuring entities: alumni group Cooccuring: [rajya sabha : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: d rt Cooccuring: [rt : 4.0, venkaih naidu : 4.0]
+Stop entity: contains too many non-alphanumerics :dr. c. raj kumar
+Spam: too less co-occuring entities: mr. jaitely Cooccuring: [ : 7.0]
+Spam: too less co-occuring entities: lok sabha & rajya sabha Cooccuring: [rt : 6.0]
+Spam: too less co-occuring entities: lokpal lost Cooccuring: [rt : 6.0]
+Spam: too less co-occuring entities: rt@kanchangupta lokpal Cooccuring: [rt : 5.0]
+Spam: total count: cag & cec
+Spam: too less co-occuring entities: yeh kaun Cooccuring: [rt : 8.0, parliament rt : 8.0]
+Spam: too less co-occuring entities: mr minister Cooccuring: [rt : 10.0,  : 5.0]
+Spam: total count: kaun hai yeh
+Spam: total count: kangressi
+Spam: too less co-occuring entities: bhai Cooccuring: [rt : 10.0,  : 5.0]
+Spam: total count: shobha nahi deta
+Spam: total count: aruna roy
+Spam: total count: mr. misra
+Spam: total count: esp
+Spam: too less co-occuring entities: ki subah nahin Cooccuring: [rs : 15.0, rt : 15.0]
+Spam: too less co-occuring entities: shivanand tewari Cooccuring: [rt : 8.0,  : 4.0]
+Spam: too less co-occuring entities: karega lokpal Cooccuring: [rt : 6.0, jo rajya sabha : 6.0]
+Spam: total count: taariq anwar
+Spam: too less co-occuring entities: bill ke ander laya Cooccuring: [rt : 11.0]
+Spam: too less co-occuring entities: outside parliament Cooccuring: [inside parliament : 25.0]
+Spam: too less co-occuring entities: bihar lokayukta act Cooccuring: [ : 5.0, lokpal & lokayukta : 5.0]
+Spam: too less co-occuring entities: diyar arun jaitley Cooccuring: [rt : 12.0,  : 6.0]
+Spam: total count: shri
+Spam: too less co-occuring entities: qpq Cooccuring: [d rt : 11.0]
+Spam: too less co-occuring entities: dr manmohan singh Cooccuring: [lokpal bill : 5.0]
+Spam: too less co-occuring entities: shekhar gupta Cooccuring: [rt : 8.0,  : 4.0]
+Spam: too less co-occuring entities: aaj rajya sabha Cooccuring: [rt : 8.0,  : 4.0]
+Stop entity: contains a stop word :rajya sa
+Stop entity: contains too many non-alphanumerics :ya of #congress & #india
+Spam: too less co-occuring entities: ram jethmalani & Cooccuring: [rajya sabha : 8.0, rt : 8.0]
+Spam: too less co-occuring entities: evn Cooccuring: [ : 7.0, rt : 7.0]
+Spam: too less co-occuring entities: jo bacha Cooccuring: [rt : 6.0]
+Spam: total count: dat parliament
+Spam: total count: up voters
+Spam: too less co-occuring entities: shukla Cooccuring: [rt : 7.0, ya of #congress & #india : 7.0]
+Spam: total count: fdi & lokpal
+Spam: total count: arre
+Spam: too less co-occuring entities: ls & rs Cooccuring: [rt : 5.0, cong : 5.0]
+Stop entity: contains a stop word :ra ja da
+Spam: too less co-occuring entities: mr paswan Cooccuring: [house : 5.0]
+Spam: too less co-occuring entities: haha gud Cooccuring: [ : 4.0, rt : 4.0]
+Spam: total count: sm krishna
+Spam: total count: amul baby
+Spam: total count: mr chairmain
+Spam: total count: anupam kher
+Spam: too less co-occuring entities: mms & hamid ansari Cooccuring: [rajya sabha : 5.0, rt : 5.0]
+Spam: total count: sarkar
+Spam: total count: bcci
+Spam: total count: abhishek shingvi
+Spam: too less co-occuring entities: aj n namo Cooccuring: [rt : 5.0]
+Spam: too less co-occuring entities: queen bee n wanna bee Cooccuring: [wah : 59.0]
+Spam: total count: joint drafting committee
+Stop entity: contains too many non-alphanumerics :lokpal\/lokayuka n whistleblower
+Spam: total count: ravindra jadeja
+Spam: total count: cpm
+Stop entity: length<2 :sp
+Spam: total count: swiss magazine
+Spam: total count: sushma aunty
+Stop entity: length<2 :sc
+Spam: too less co-occuring entities: health regulatory bill Cooccuring: [ : 4.0, rajya sabha : 4.0]
+Spam: too less co-occuring entities: diwanji Cooccuring: [rt : 6.0]
+Stop entity: length<2 :sg
+Spam: total count: abhishek singhvi
+Spam: too less co-occuring entities: cash Cooccuring: [rajya sabha : 7.0, rt : 7.0]
+Stop entity: length<2 :rs
+Stop entity: length<2 :rt
+Spam: total count: janardhan dwivedi
+Spam: total count: cong core
+Spam: total count: congressi
+Stop entity: length<2 :rg
+Spam: too less co-occuring entities: mr ansari Cooccuring: [congress : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: srivatsa krishna Cooccuring: [rt : 4.0, ias : 4.0]
+Spam: too less co-occuring entities: thoma Cooccuring: [rt : 14.0]
+Spam: total count: house & not
+Spam: total count: hindu bhindrenwale
+Spam: too less co-occuring entities: dr. singhvi Cooccuring: [rt : 10.0,  : 5.0]
+Spam: too less co-occuring entities: bigg boss house Cooccuring: [rajya sabha : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: mr chairman Cooccuring: [rt : 14.0,  : 7.0]
+Spam: too less co-occuring entities: abu dhabi malayali sabha Cooccuring: [rajya sabha : 60.0, rt : 60.0]
+Spam: too less co-occuring entities: rahulbaba Cooccuring: [rt : 19.0, lokpal bill : 19.0]
+Spam: too less co-occuring entities: rajeev shukla Cooccuring: [rt : 8.0]
+Spam: total count: venkaiah
+Spam: too less co-occuring entities: varun Cooccuring: [ : 41.0, rt : 41.0]
+Spam: too less co-occuring entities: kya hai Cooccuring: [ : 6.0, rt : 6.0]
+Spam: total count: pavan bansal
+Spam: too less co-occuring entities: ladki Cooccuring: [abhi yeh lokpal bill : 24.0,  : 12.0]
+Spam: total count: guj
+Stop entity: contains a stop word :mr srt
+Spam: total count: shivanand tiwari
+Spam: total count: kal
+Spam: total count: con party
+Spam: total count: babar
+Spam: too less co-occuring entities: ravi shankar prasad Cooccuring: [rajiv shukla : 7.0, rt : 7.0]
+Spam: total count: shivanand tiwary
+Spam: too less co-occuring entities: ekta kapoor Cooccuring: [ : 16.0, rajya sabha : 16.0]
+Spam: too less co-occuring entities: teesta Cooccuring: [rt : 18.0,  : 9.0]
+Spam: total count: times now
+Spam: too less co-occuring entities: karunanidhi Cooccuring: [rt : 8.0,  : 4.0]
+Spam: too less co-occuring entities: google Cooccuring: [rt : 8.0,  : 4.0]
+Spam: total count: lokpal bill &
+Spam: total count: simi
+Spam: too less co-occuring entities: trps of rajya sabha & lok sabha Cooccuring: [rt : 5.0]
+Spam: too less co-occuring entities: dey Cooccuring: [rt : 7.0, kirron kher : 7.0]
+Spam: too less co-occuring entities: lana sarkar Cooccuring: [rt : 4.0, cbi : 4.0]
+Spam: too less co-occuring entities: valley Cooccuring: [barkha : 4.0]
+Spam: total count: subash kashyap
+Spam: total count: rai bareilly
+Spam: total count: maam hamid ansari
+Spam: total count: eden
+Spam: total count: ramlila maidan
+Spam: too less co-occuring entities: runcuk Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: courtesy rajniti prasad Cooccuring: [rt : 5.0, midnight rajya sabha : 5.0]
+Spam: too less co-occuring entities: lokpal & lokayukta Cooccuring: [bihar lokayukta act : 5.0]
+Spam: too less co-occuring entities: gandhian anna hazare Cooccuring: [rt : 5.0, ralegan siddhi : 5.0]
+Spam: too less co-occuring entities: a. raja Cooccuring: [rt : 6.0]
+Spam: too less co-occuring entities: rajya shaba & Cooccuring: [rt : 7.0]
+Spam: total count: sp & bsp
+Stop entity: contains a stop word :the party
+Spam: total count: sataahuva party
+Spam: too less co-occuring entities: gujarat rt Cooccuring: [rt : 4.0]
+Spam: total count: italian
+Spam: total count: delhi university
+Spam: too less co-occuring entities: sue ram jethmalani Cooccuring: [rajya sabha : 5.0, rt : 5.0]
+Spam: total count: rajya sabha anna lo
+Spam: total count: pj thomas
+Spam: total count: kanimolizhi
+Spam: too less co-occuring entities: lokpal lokpal yeh kya lokpal hai Cooccuring: [rt : 5.0]
+Spam: too less co-occuring entities: lokpal bill in rs Cooccuring: [rt : 6.0]
+Stop entity: contains a stop word :sa pa
+Spam: total count: rock star
+Spam: too less co-occuring entities: ram jethmalani rajya sabha speech Cooccuring: [ : 6.0, rt : 6.0]
+Spam: total count: kanimozi
+Spam: too less co-occuring entities: congress party Cooccuring: [rt : 17.0, j nehru : 17.0]
+Spam: too less co-occuring entities: anna ji rehenge bhooke aur kasab biryani khayega Cooccuring: [aisa kalyug aayega : 7.0, rt : 7.0]
+Spam: total count: indira
+Spam: total count: pramod mahajan
+Spam: total count: arun jaitleyji
+Spam: too less co-occuring entities: sonia & rahul Cooccuring: [rt : 4.0]
+Stop entity: contains a stop word :anna na anna
+Spam: too less co-occuring entities: lalbahadurshastri Cooccuring: [india : 20.0,  : 10.0]
+Spam: too less co-occuring entities: mungeri Cooccuring: [rt : 24.0,  : 12.0]
+Spam: total count: cong aur bjp
+Stop entity: contains too many non-alphanumerics :rajya sabha http:\/\/t.co\/yavxmedy
+Stop entity: contains a stop word :rt @timesofindia
+Spam: too less co-occuring entities: government #jethmalanisays Cooccuring: [ : 40.0, rt : 40.0]
+Stop entity: contains a stop word :rt @archie229
+Stop entity: length<2 :%
+Stop entity: contains too many non-alphanumerics :#rajyasabha #parl
+Spam: too less co-occuring entities: do dishes #pendingwork Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @youthbjp
+Stop entity: contains a stop word :rt @dhanyarajendran
+Stop entity: length<2 :g
+Stop entity: length<2 :d
+Stop entity: contains a stop word :not yet
+Stop entity: length<2 :e
+Stop entity: length<2 :b
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/20y5nffi
+Spam: total count: melbourne
+Stop entity: length<2 :c
+Stop entity: contains a stop word :rt @mediacrooks
+Stop entity: length<2 :a
+Stop entity: length<2 :n
+Stop entity: contains a stop word :rt @deepakbardhan1
+Stop entity: length<2 :o
+Stop entity: length<2 :l
+Stop entity: length<2 :m
+Stop entity: length<2 :h
+Stop entity: length<2 :u
+Stop entity: length<2 :t
+Spam: too less co-occuring entities: medi Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: length<2 :s
+Stop entity: length<2 :r
+Stop entity: length<2 :q
+Stop entity: length<2 :p
+Stop entity: contains a stop word :rt @rummyromeo
+Stop entity: length<2 :~
+Stop entity: length<2 :|
+Stop entity: length<2 :y
+Spam: too less co-occuring entities: rep Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @rash_tipsntips
+Stop entity: contains a stop word :rt @andhroindian
+Stop entity: contains a stop word :rt @rohini_kejriwal
+Spam: total count: sparta
+Spam: total count: assam
+Stop entity: contains a stop word :rt @rubalagrawal
+Stop entity: contains a stop word :rt @iacpune
+Stop entity: contains too many non-alphanumerics :statements #yechury #ht #rajyasabha
+Spam: too less co-occuring entities: kartikeya sharma Cooccuring: [rt : 22.0,  : 11.0]
+Stop entity: length<2 :Œ
+Stop entity: length<2 :Š
+Stop entity: length<2 :ˆ
+Stop entity: length<2 :Ÿ
+Spam: too less co-occuring entities: rag Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains too many non-alphanumerics :professor dr. c. raj kumar
+Spam: total count: lal bahadur shastri
+Stop entity: contains a stop word :rt @yuvajagran
+Spam: too less co-occuring entities: jobs Cooccuring: [ : 5.0]
+Spam: total count: kolaveri di
+Stop entity: contains too many non-alphanumerics :fool 130cr ppl
+Spam: too less co-occuring entities: french germans Cooccuring: [ : 25.0]
+Stop entity: contains a stop word :rt @mrvchennai
+Spam: too less co-occuring entities: persnl commtment Cooccuring: [ : 10.0, rt : 10.0]
+Stop entity: contains a stop word :rt @halebidu
+Stop entity: contains a stop word :rt @mbthecool19
+Stop entity: contains a stop word :rt @oye_its_yas
+Stop entity: contains a stop word :rt @india_today
+Spam: too less co-occuring entities: tock Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/rv4jepsa
+Stop entity: contains too many non-alphanumerics :rt@risingindiawins: bjp
+Spam: too less co-occuring entities: mandate Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: noise level Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: issue everyone Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: corruption #jethmalanisays Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @diptosh
+Spam: too less co-occuring entities: workiings Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :cc @netra rt @nixxin
+Stop entity: contains too many non-alphanumerics :committee http:\/\/t.co\/1h8pgb0w
+Spam: too less co-occuring entities: congress core group Cooccuring: [rt : 16.0,  : 8.0]
+Stop entity: contains a stop word :rt @unfairandugly
+Spam: too less co-occuring entities: jalebis Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :#catch #lokpal
+Stop entity: contains a stop word :rt @sandipghose
+Stop entity: contains a stop word :rt @varunkapoor28
+Stop entity: contains too many non-alphanumerics :vote http:\/\/t.co\/mjxfjaw3
+Spam: total count: lage raho anna
+Stop entity: contains too many non-alphanumerics :rahul gandhi http:\/\/t.co\/pxykxqqa
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/tyzg85fu
+Stop entity: contains too many non-alphanumerics :singhvi http:\/\/t.co\/kbkageyn
+Stop entity: contains a stop word :rt @daddy_san
+Stop entity: contains a stop word :rt @laugh_riot
+Spam: too less co-occuring entities: wht abt othr Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @zmilap
+Stop entity: contains a stop word :rt @ramprakash74
+Stop entity: contains a stop word :rt @parivrajakan
+Spam: too less co-occuring entities: bhai Cooccuring: [rt : 10.0,  : 5.0]
+Stop entity: contains too many non-alphanumerics :upper-house @ravishndtv rajya sabha
+Stop entity: contains too many non-alphanumerics :#rajya #sabhha
+Spam: total count: mr. misra
+Spam: too less co-occuring entities: lbw talk Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :#india http:\/\/t.co\/vjqkxzh0
+Stop entity: contains too many non-alphanumerics :cbi cvc #spin #congress
+Spam: too less co-occuring entities: prez Cooccuring: [ : 6.0]
+Spam: too less co-occuring entities: yeh ek kamzor #lokpal tha Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @prasannavishy
+Spam: too less co-occuring entities: whate Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/6w94qanw
+Stop entity: contains too many non-alphanumerics :#lokpal #jokepal
+Spam: too less co-occuring entities: pics Cooccuring: [ : 72.0, rt : 39.0]
+Spam: total count: sm krishna
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/oiy5gveb @egomezislas
+Spam: too less co-occuring entities: pvt sector Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :morning #lokpal #rajyasabha
+Spam: too less co-occuring entities: friends Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @suyash_
+Stop entity: contains a stop word :rt @deadlockland
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/6v4rzsgl
+Stop entity: contains a stop word :rt @bhaskarchat
+Stop entity: contains a stop word :rt @dubash
+Stop entity: contains a stop word :rt @akaash111
+Stop entity: contains a stop word :rt @trendulkar
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/42kwxa8r @egomezislas
+Stop entity: contains a stop word :rt @hardeepynr
+Stop entity: contains a stop word :rt @sushmaswarajbjp
+Stop entity: contains too many non-alphanumerics :farce http:\/\/t.co\/glrfphzu #lokpalbill
+Stop entity: contains a stop word :rt @soulinexile
+Spam: too less co-occuring entities: lokayukta bill Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :@swamy39 salute
+Stop entity: contains a stop word :rt @dillidurast
+Stop entity: contains a stop word :rt @ssachin_d
+Stop entity: contains a stop word :rt @bhavesh_bhati
+Spam: too less co-occuring entities: modus operandi Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @josephineindia
+Stop entity: contains a stop word :rt @namitawaikar
+Stop entity: contains too many non-alphanumerics :#mishrasays #l
+Stop entity: contains too many non-alphanumerics :chairman\/speaker rajya sabha
+Stop entity: contains too many non-alphanumerics :Š™s majboor
+Stop entity: contains too many non-alphanumerics :today http:\/\/t.co\/vo3kwkdk
+Stop entity: contains a stop word :rt @najeebkhan1956
+Spam: too less co-occuring entities: working Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :rt @madhukishwar
+Spam: total count: babar
+Stop entity: contains too many non-alphanumerics :ruckus\/will ad
+Spam: too less co-occuring entities: combination Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :@tempt_ed
+Spam: too less co-occuring entities: ekta kapoor Cooccuring: [ : 16.0, rajya sabha : 16.0]
+Spam: too less co-occuring entities: teesta Cooccuring: [rt : 18.0,  : 9.0]
+Spam: too less co-occuring entities: reminder Cooccuring: [ : 4.0]
+Stop entity: contains too many non-alphanumerics :@just_kunal
+Stop entity: contains too many non-alphanumerics :Šœ @httweets sp
+Stop entity: contains a stop word :rt @rishabhjain1111
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/kfbbulv6
+Stop entity: contains a stop word :rt @doctorstouch
+Stop entity: contains too many non-alphanumerics :#rajyasabha #janl
+Stop entity: contains a stop word :#lokpal bill #news #etnow
+Spam: too less co-occuring entities: evidences Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @etvuplive
+Stop entity: contains a stop word :rt @amishra77
+Spam: too less co-occuring entities: rulerrt @ibnliverealtime Cooccuring: [ : 5.0, arun jaitley : 5.0]
+Spam: too less co-occuring entities: ipsofacto Cooccuring: [ : 7.0, lokpal : 7.0]
+Spam: too less co-occuring entities: bowling Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @ibnlivepolitics
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/zfs6mz23
+Spam: total count: rajya sabha anna lo
+Spam: total count: kanimolizhi
+Stop entity: contains a stop word :rt @saffronizer
+Stop entity: contains a stop word :rt @_ichetan_
+Spam: too less co-occuring entities: ram jethmalani rajya sabha speech Cooccuring: [ : 6.0, rt : 6.0]
+Spam: total count: kanimozi
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/lkdd2bf3
+Spam: too less co-occuring entities: ruling Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: desperation Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: judiciary Cooccuring: [ : 6.0, indian : 6.0]
+Spam: too less co-occuring entities: suffrage Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: singh #justthinking Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains a stop word :rt @equateall
+Spam: too less co-occuring entities: bill par rajneeti karne Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @nehamadan1222
+Spam: too less co-occuring entities: group Cooccuring: [ : 11.0, rt : 11.0]
+Spam: too less co-occuring entities: #cornered Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/t1wrthuz
+Stop entity: contains a stop word :rt @maninderpals
+Spam: too less co-occuring entities: freedom Cooccuring: [ : 23.0, rt : 19.0]
+Stop entity: contains a stop word :rt @realrediffcom
+Stop entity: contains too many non-alphanumerics :l.m. singhvi
+Stop entity: contains a stop word :rt @gauti101
+Spam: total count: lo karlo
+Stop entity: contains too many non-alphanumerics :lokpal\/lokayukta
+Spam: too less co-occuring entities: yeh kya ho raha Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @httweets
+Spam: too less co-occuring entities: #opposition Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @sachin_dinesh
+Stop entity: contains a stop word :rt @pandey_saurabh
+Stop entity: contains too many non-alphanumerics :Š™s
+Spam: too less co-occuring entities: announcement Cooccuring: [ : 10.0, rt : 10.0]
+Spam: too less co-occuring entities: monkeys Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :Š™t
+Stop entity: length<2 :!!
+Stop entity: contains a stop word :rt @ankit_hiring
+Stop entity: contains a stop word :rt @thenewshour
+Stop entity: contains a stop word :rt @ibnliverealtime rjd mp
+Stop entity: contains a stop word :rt @jemin_p
+Stop entity: contains too many non-alphanumerics :speaker\/chairman
+Spam: too less co-occuring entities: scs Cooccuring: [rt : 16.0,  : 8.0]
+Stop entity: contains a stop word :rt @ndtvvideos
+Stop entity: contains too many non-alphanumerics :@india_today jethmalani
+Stop entity: contains a stop word :rt @iamtssudhir
+Stop entity: contains a stop word :rt @emanin
+Spam: too less co-occuring entities: light Cooccuring: [ : 6.0]
+Stop entity: contains a stop word :rt @camanojgupta21
+Stop entity: contains a stop word :rt @nationalizer
+Stop entity: contains too many non-alphanumerics :2011remindedme
+Stop entity: contains a stop word :rt @editorsunil
+Stop entity: contains a stop word :rt @biorahul
+Stop entity: contains a stop word :rt @aristrocratidle
+Spam: too less co-occuring entities: organization Cooccuring: [ : 7.0, cbi : 7.0]
+Stop entity: contains a stop word :% corruption ta
+Stop entity: contains a stop word :rt @dark_humorist
+Spam: too less co-occuring entities: cheating Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains too many non-alphanumerics :fool â Š™s paradise
+Stop entity: contains a stop word :rt @actor_siddharth
+Stop entity: length<2 :#l
+Spam: too less co-occuring entities: deceit Cooccuring: [ : 19.0, rt : 19.0]
+Stop entity: contains too many non-alphanumerics :changes http:\/\/t.co\/dngflqdn
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/f2zeefsx
+Spam: too less co-occuring entities: ambit #jethmalanisays Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :demand isko bana da
+Stop entity: contains too many non-alphanumerics :@sisir_gupta
+Spam: too less co-occuring entities: prosperity #joshisays Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: score Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: thes Cooccuring: [ : 7.0, rt : 7.0]
+Spam: too less co-occuring entities: actor Cooccuring: [ : 8.0, academy : 8.0]
+Spam: too less co-occuring entities: pvt inst Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :rt @enjoydeeply
+Stop entity: contains too many non-alphanumerics :midnight http:\/\/t.co\/ocaclsfr
+Spam: too less co-occuring entities: director #upa Cooccuring: [ : 5.0]
+Spam: too less co-occuring entities: minister throat Cooccuring: [ : 8.0, rjd : 8.0]
+Stop entity: contains a stop word :rt @ani_news
+Stop entity: contains a stop word :rt @iam_bigv
+Stop entity: contains a stop word :rt @aundhe
+Spam: too less co-occuring entities: partiyon ke loge isske peechhey pade hain Cooccuring: [ : 53.0, rt : 53.0]
+Spam: too less co-occuring entities: flipkart Cooccuring: [ : 19.0, rt : 11.0]
+Stop entity: contains a stop word :rt @sushilmodi
+Stop entity: contains a stop word :rt @suar4sure
+Spam: too less co-occuring entities: fools talk Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: #crap Cooccuring: [ : 4.0, india : 4.0]
+Spam: too less co-occuring entities: court order #lokpal Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/14evfju5
+Spam: total count: chanakya
+Stop entity: contains a stop word :rt @suhasinih
+Stop entity: contains a stop word :rt @tarunvijay
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/jadaxmzx
+Spam: too less co-occuring entities: academy Cooccuring: [ : 8.0]
+Spam: too less co-occuring entities: rajya sabha angry Cooccuring: [rt : 8.0,  : 4.0]
+Stop entity: contains a stop word :rt @chamatkaribaba
+Stop entity: contains too many non-alphanumerics :#yechurysays #lokpal
+Spam: too less co-occuring entities: behen mayawati Cooccuring: [ : 16.0, rt : 16.0]
+Spam: too less co-occuring entities: concept Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: party #rajivshuklasays Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: mr. jaitely Cooccuring: [ : 7.0]
+Spam: too less co-occuring entities: tv channels Cooccuring: [ : 29.0, rt : 29.0]
+Spam: too less co-occuring entities: colons semicolo Cooccuring: [ : 7.0, rt : 7.0]
+Spam: too less co-occuring entities: monolith Cooccuring: [ : 12.0, singhvi : 12.0]
+Stop entity: contains a stop word :rt @firstnews_co_in
+Spam: too less co-occuring entities: yechury yeh sarkar ki naitik haar hai Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @jitengajaria
+Spam: too less co-occuring entities: courage #jethmalanisays Cooccuring: [ : 17.0, rt : 17.0]
+Spam: total count: kangressi
+Spam: too less co-occuring entities: money @sardesairajdeep Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains a stop word :rt @sanjukaul
+Spam: too less co-occuring entities: brain Cooccuring: [ : 29.0, india : 29.0]
+Stop entity: length<2 :2g
+Spam: too less co-occuring entities: @milinddeora Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @sagarikaghose
+Stop entity: contains a stop word :rt @india_review
+Spam: too less co-occuring entities: shekhar gupta Cooccuring: [rt : 8.0,  : 4.0]
+Stop entity: length<2 :1k
+Stop entity: contains a stop word :rt @dimpsdawns
+Stop entity: contains a stop word :rt @iacchennai
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/hxoqw1mi
+Stop entity: contains a stop word :rt @skumarpadmanabh
+Spam: total count: anupam kher
+Stop entity: contains a stop word :rt @n2r3ndr2
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/pw8s095u #ht
+Stop entity: contains too many non-alphanumerics :#ramkripalyadav #l
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/cvr7mtse #ht
+Spam: too less co-occuring entities: aftr Cooccuring: [ : 10.0, rt : 10.0]
+Spam: too less co-occuring entities: @firstpostin annahazare Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :Š™s colleagues
+Spam: too less co-occuring entities: bettr enforcemnt Cooccuring: [ : 10.0, rt : 10.0]
+Stop entity: contains a stop word :rt @diggyleaks
+Spam: too less co-occuring entities: gods sake Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: bribe Cooccuring: [ : 51.0, rt : 51.0]
+Spam: too less co-occuring entities: rajinikanth Cooccuring: [ : 6.0]
+Spam: total count: swiss magazine
+Spam: total count: abhishek singhvi
+Stop entity: contains a stop word :rt @shivaroor
+Stop entity: contains a stop word :rt @sidin lok
+Stop entity: contains a stop word :rt @suparn
+Stop entity: contains a stop word :rt @matsharma
+Stop entity: contains a stop word :rt @tanuj_garg
+Stop entity: contains too many non-alphanumerics :?? rt@sardesairajdeep
+Spam: too less co-occuring entities: #kirtiazad Cooccuring: [ : 20.0, rt : 20.0]
+Stop entity: contains a stop word :rt @congresswin
+Spam: too less co-occuring entities: elders Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @theprudent
+Stop entity: contains too many non-alphanumerics :â Šœ @kiranks
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/ukp0nzyq
+Stop entity: contains a stop word :rt @bharatakantam
+Stop entity: contains a stop word :rss hand
+Spam: too less co-occuring entities: ladki Cooccuring: [abhi yeh lokpal bill : 24.0,  : 12.0]
+Stop entity: contains a stop word :rt @pranesh_prakash
+Spam: too less co-occuring entities: bill votin Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: ego s Cooccuring: [ : 4.0, rt : 4.0]
+Spam: total count: kal
+Spam: too less co-occuring entities: news-channel Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: tax Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: tat Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: @joydas Cooccuring: [ : 8.0]
+Spam: too less co-occuring entities: karunanidhi Cooccuring: [rt : 8.0,  : 4.0]
+Spam: too less co-occuring entities: google Cooccuring: [rt : 8.0,  : 4.0]
+Stop entity: contains a stop word :rt @sidin
+Stop entity: contains a stop word :rt @arundhationline
+Spam: too less co-occuring entities: midnight confusion Cooccuring: [ : 10.0]
+Spam: total count: eden
+Spam: too less co-occuring entities: midnight hour #gohome Cooccuring: [ : 10.0, rt : 10.0]
+Stop entity: contains a stop word :rt @raunaq_90
+Spam: too less co-occuring entities: extension o session Cooccuring: [ : 6.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/bit.ly\/vtjrxs
+Stop entity: length<2 :??
+Spam: too less co-occuring entities: oscar nominees Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: stro Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: saanp seedhi Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: @sexybichoo Cooccuring: [ : 8.0, true rt : 8.0]
+Stop entity: contains a stop word :rt @mpnaveenjindal
+Spam: too less co-occuring entities: countdown Cooccuring: [ : 17.0, rt : 17.0]
+Stop entity: contains too many non-alphanumerics :+1 rt@sureshnakhua today
+Stop entity: contains a stop word :rt @rameshwrites
+Stop entity: contains a stop word :rt @starnewslive
+Spam: total count: indira
+Stop entity: contains a stop word :rt @singh_prakash
+Stop entity: contains a stop word :rt @canarytrap
+Spam: too less co-occuring entities: doubts Cooccuring: [ : 10.0, rt : 10.0]
+Spam: too less co-occuring entities: civilsociety Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :rt @ndtv #rajyasabha
+Stop entity: contains too many non-alphanumerics :#anna http:\/\/t.co\/nrkrhhrm
+Spam: too less co-occuring entities: corruption blackmoney Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: pvt sphere #jaitleysays Cooccuring: [ : 8.0, rt : 8.0]
+Spam: too less co-occuring entities: nhrc Cooccuring: [ : 5.0, jaitley : 5.0]
+Spam: too less co-occuring entities: uttis Cooccuring: [ : 15.0, rt : 15.0]
+Stop entity: contains a stop word :rt @smit_meister
+Stop entity: contains too many non-alphanumerics :poll http:\/\/t.co\/zyfk2oxp
+Spam: too less co-occuring entities: crowds Cooccuring: [ : 47.0, rt : 47.0]
+Stop entity: contains a stop word :rt @scorpiusmaximus
+Stop entity: contains a stop word :rt @vadakkus
+Spam: too less co-occuring entities: womens reservation o Cooccuring: [ : 10.0, rt : 10.0]
+Stop entity: contains a stop word :rt @anand_m_gupta
+Stop entity: contains a stop word :rt @anshubabu
+Spam: too less co-occuring entities: adjectives Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: dacoits Cooccuring: [ : 10.0, rt : 10.0]
+Stop entity: contains too many non-alphanumerics :bill tmc #rajyasabha #ht
+Spam: too less co-occuring entities: rajya sabha pr disaster Cooccuring: [ : 12.0, rt : 12.0]
+Spam: too less co-occuring entities: #ssahluwalia Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: tally Cooccuring: [ : 5.0]
+Spam: too less co-occuring entities: behen Cooccuring: [ : 5.0, mayawati : 5.0]
+Stop entity: contains a stop word :rt @ashokepandit
+Stop entity: contains too many non-alphanumerics :bill http:\/\/t.co\/mkiuib5s #lokpal #bjp
+Stop entity: contains too many non-alphanumerics :chaos http:\/\/t.co\/oggv6tlx
+Stop entity: contains a stop word :rt @dhanu_lagna
+Stop entity: contains too many non-alphanumerics :manmohan\/sonia teesta
+Spam: too less co-occuring entities: crude Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @rahulkanwal
+Spam: too less co-occuring entities: hamam Cooccuring: [ : 44.0, rt : 44.0]
+Stop entity: contains a stop word :rt @pawandurani
+Stop entity: contains a stop word :rt @windsor_canada
+Spam: too less co-occuring entities: compalints #bha Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @rahulsundar_007
+Stop entity: contains a stop word :rt @thejaggi
+Stop entity: contains too many non-alphanumerics :#rs #lokpal
+Spam: too less co-occuring entities: traffic cop Cooccuring: [ : 51.0, rt : 51.0]
+Spam: too less co-occuring entities: parliament Š Cooccuring: [ : 8.0, flipkart : 8.0]
+Spam: too less co-occuring entities: speech rt@sardesairajdeep Cooccuring: [ : 4.0]
+Spam: too less co-occuring entities: dictator Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: #tewaris Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @vamadevananda
+Stop entity: contains a stop word :rt @outlookindia
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/tmadxyz4 #srisri
+Stop entity: contains a stop word :rt @pushkaras
+Stop entity: contains a stop word :rt @rj_mehra
+Spam: too less co-occuring entities: pea Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: pm uproar Cooccuring: [ : 74.0, rt : 74.0]
+Stop entity: contains a stop word :rt @arvindpassey
+Spam: too less co-occuring entities: pehle Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: ansari #rajniti Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @nikhilkanekal
+Stop entity: contains too many non-alphanumerics :#rajyasabha #ht
+Spam: total count: shingvi
+Spam: too less co-occuring entities: sovereignty Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: lokpal bill @mpnaveenjindal Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @kavasavada
+Stop entity: contains a stop word :rt @baburao_
+Stop entity: contains a stop word :rt @icansavelife
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/z8tha7l4 #lokpal #rajyasabha
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/z6kxn0hb
+Spam: too less co-occuring entities: jury system Cooccuring: [ : 6.0, indian : 6.0]
+Spam: too less co-occuring entities: mr minister Cooccuring: [rt : 10.0,  : 5.0]
+Spam: too less co-occuring entities: status #jaitleysays Cooccuring: [ : 32.0, rt : 21.0]
+Spam: too less co-occuring entities: election Cooccuring: [ : 22.0, rt : 22.0]
+Spam: too less co-occuring entities: nice Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @beingekthatiger
+Stop entity: contains too many non-alphanumerics :#lokpal #nhrc
+Spam: total count: taariq anwar
+Spam: too less co-occuring entities: nahin Cooccuring: [ : 56.0, rt : 28.0]
+Spam: too less co-occuring entities: bihar lokayukta act Cooccuring: [ : 5.0, lokpal & lokayukta : 5.0]
+Stop entity: contains a stop word :rt @ronakshah
+Stop entity: contains too many non-alphanumerics :rahul gandhi http:\/\/t.co\/yhkcjqgi
+Spam: too less co-occuring entities: aaj rajya sabha Cooccuring: [rt : 8.0,  : 4.0]
+Stop entity: contains a stop word :rt @weedo_vivek
+Spam: too less co-occuring entities: amnesty Cooccuring: [ : 20.0, rt : 20.0]
+Stop entity: contains too many non-alphanumerics :#mmrdc #lokpal
+Spam: too less co-occuring entities: contradictions Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: #indvsau Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/xxlu6n0q
+Spam: too less co-occuring entities: disruption hours Cooccuring: [ : 25.0, rt : 25.0]
+Stop entity: contains a stop word :ra ja da
+Stop entity: contains a stop word :rt @wickkedsoul
+Stop entity: contains too many non-alphanumerics :crowds #jethmalanisays #lokpal
+Spam: too less co-occuring entities: @ashutoshibn7 Cooccuring: [ : 7.0, lokpal bill : 7.0]
+Stop entity: contains a stop word :rt @raamu_kaka
+Spam: too less co-occuring entities: hype Cooccuring: [ : 30.0, rt : 30.0]
+Spam: total count: joint drafting committee
+Stop entity: contains too many non-alphanumerics :@manikalra #rajeevshukla
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/whcmydzu
+Spam: too less co-occuring entities: mainstream Cooccuring: [ : 36.0, rt : 36.0]
+Stop entity: contains a stop word :rt @roy_rajarshic
+Stop entity: contains a stop word :rt @neha707
+Spam: too less co-occuring entities: gov Cooccuring: [ : 6.0]
+Stop entity: contains too many non-alphanumerics :adjournment http:\/\/t.co\/ip0wwkyp
+Stop entity: contains a stop word :rt @visaraj
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/bmmq8bae #janlokpal http:\/\/t.co\/u8jvcnd3
+Stop entity: contains a stop word :rt @prslegislative
+Stop entity: contains a stop word :rt @sushantsinha
+Spam: too less co-occuring entities: anything Cooccuring: [ : 16.0, rt : 16.0]
+Stop entity: contains a stop word :rt @realitycheckind
+Stop entity: contains a stop word :rt @barkhadalal
+Spam: total count: guj
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/zx2zmllm
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/g9p8gnrh
+Spam: too less co-occuring entities: congressmen Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: #narayanaswamysays Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/2kphghyi lawyers
+Stop entity: length<2 :a.
+Spam: total count: simi
+Spam: total count: subash kashyap
+Spam: total count: rai bareilly
+Stop entity: contains too many non-alphanumerics :brother-in-law
+Spam: too less co-occuring entities: reporters Cooccuring: [ : 25.0, rt : 25.0]
+Spam: too less co-occuring entities: jury Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: runcuk Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @the_ezzy
+Stop entity: contains too many non-alphanumerics :Š“ somebody
+Stop entity: contains a stop word :rt @ravishndtv
+Spam: too less co-occuring entities: btw Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @drmanishkumar1
+Stop entity: contains a stop word :rt @jatingandhi
+Spam: too less co-occuring entities: gun Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :news congress
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/jzexu8ju #lokpal #rajyasabha
+Stop entity: contains a stop word :rt @padmajajoshi1
+Spam: too less co-occuring entities: reality show Cooccuring: [ : 25.0, rt : 25.0]
+Stop entity: contains a stop word :calaya ja sakta hai
+Stop entity: contains a stop word :rt @arundhamija
+Stop entity: contains too many non-alphanumerics :#rajyasabha #lokpal @dhanyarajendran
+Stop entity: contains a stop word :rt @shuchitac
+Spam: too less co-occuring entities: credit #yechurysays Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @archanadalmia
+Spam: too less co-occuring entities: stooge government Cooccuring: [ : 36.0, rt : 36.0]
+Stop entity: contains a stop word :rt @drgiteshdev
+Stop entity: contains too many non-alphanumerics :govt http:\/\/t.co\/durj3rwg #rajyasabha
+Stop entity: contains a stop word :rt @aarsee
+Stop entity: contains a stop word :rt @herrbains
+Stop entity: contains a stop word :rt @ndtv sources
+Stop entity: contains a stop word :rt @vinodellamaraju
+Stop entity: contains a stop word :rt @nytindia
+Stop entity: contains a stop word :rt @rajneeshkapoor
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/d5lokgwo #lokpal #india #janlokpal #corruption
+Stop entity: contains a stop word :rt @kamaalrkhan
+Spam: too less co-occuring entities: story Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: interest article #singhvisays Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :indians bat
+Stop entity: length<2 :fo
+Stop entity: contains a stop word :rt @gauravcsawant
+Stop entity: contains too many non-alphanumerics :@vinod_sharma @v
+Stop entity: length<2 :ha
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/ma4bfcdq
+Spam: too less co-occuring entities: draft lokpal bill Cooccuring: [rt : 10.0,  : 5.0]
+Stop entity: contains a stop word :rt @ranvirshorey
+Stop entity: length<2 :dt
+Spam: too less co-occuring entities: idea Cooccuring: [ : 7.0, lokpal : 7.0]
+Stop entity: length<2 :ec
+Spam: too less co-occuring entities: epic speech Cooccuring: [ : 4.0, jethmalani : 4.0]
+Spam: too less co-occuring entities: team #anna members Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: year party Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: aur kya hoga Cooccuring: [ : 6.0]
+Stop entity: length<2 :do
+Stop entity: contains too many non-alphanumerics :Š” ram #jethmalani
+Stop entity: contains too many non-alphanumerics :njoi http:\/\/t.co\/ibvl2lqe
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/8hhonunl
+Spam: too less co-occuring entities: poocha kya Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @geminiseventh
+Stop entity: length<2 :eq
+Stop entity: length<2 :ca
+Stop entity: contains too many non-alphanumerics :govt #singhvisays #l
+Spam: too less co-occuring entities: tragedy Cooccuring: [ : 13.0, rt : 13.0]
+Spam: too less co-occuring entities: #rajyasabha Š Cooccuring: [ : 4.0, tmc : 4.0]
+Stop entity: length<2 :bt
+Spam: too less co-occuring entities: nose teeth Cooccuring: [ : 55.0, rt : 55.0]
+Spam: too less co-occuring entities: rs #lokpal debate Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :rt @shaels
+Stop entity: contains too many non-alphanumerics :Šœ @firstpostin
+Stop entity: length<2 :bl
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/ln3mrzvb
+Stop entity: contains a stop word :rt @ssudhirkumar
+Stop entity: contains too many non-alphanumerics :@shashitharoor #lokpal
+Stop entity: contains a stop word :rt @kunalmajumder
+Stop entity: contains a stop word :rt @ibnebattuta
+Stop entity: contains too many non-alphanumerics :bill #jaitley #ht #rajyasabha #arunjaitley
+Stop entity: length<2 :co
+Stop entity: contains too many non-alphanumerics :#india #rajyasabha
+Stop entity: contains a stop word :rt @kishoreajwani
+Spam: too less co-occuring entities: trash Cooccuring: [ : 30.0, rt : 15.0]
+Stop entity: contains a stop word :rt @corruptionhurts
+Spam: too less co-occuring entities: ams Cooccuring: [ : 6.0, jethmalani : 6.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/rx6vjqw9
+Stop entity: contains a stop word :rt @vnsiva
+Stop entity: contains a stop word :officer workin wit
+Stop entity: contains too many non-alphanumerics :@camanojgupta21 thanks
+Spam: too less co-occuring entities: narayanaswamy Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: lokp Cooccuring: [ : 196.0, rt : 196.0]
+Stop entity: length<2 :ba
+Stop entity: length<2 :ar
+Stop entity: contains a stop word :rt @calamur
+Stop entity: contains a stop word :rt @akleadus
+Stop entity: length<2 :aj
+Spam: too less co-occuring entities: govt control Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: length<2 :nu
+Stop entity: contains a stop word :rt @swaminomics
+Stop entity: length<2 :nt
+Stop entity: length<2 :no
+Stop entity: contains a stop word :rt @akashbanerjee
+Spam: too less co-occuring entities: door Cooccuring: [ : 12.0, rt : 12.0]
+Spam: too less co-occuring entities: country #jaitleysays Cooccuring: [ : 19.0, rt : 19.0]
+Stop entity: contains a stop word :rt @meetujain
+Spam: too less co-occuring entities: democracy #sushmaswaraj loktantra Cooccuring: [ : 20.0, rt : 20.0]
+Spam: too less co-occuring entities: correct Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains too many non-alphanumerics :Šœjalebi Š
+Stop entity: length<2 :on
+Stop entity: length<2 :ok
+Stop entity: length<2 :q.
+Stop entity: contains a stop word :rt @ndtvfeed
+Stop entity: contains too many non-alphanumerics :bill http:\/\/t.co\/ochcw1mt #tmc #rajyasabha #ht
+Stop entity: length<2 :pf
+Spam: total count: yamraj
+Stop entity: length<2 :pa
+Stop entity: length<2 :pl
+Stop entity: length<2 :pm
+Stop entity: length<2 :po
+Stop entity: contains a stop word :rt @sharmabhasker
+Spam: too less co-occuring entities: pvt bodies #lokpal Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: length<2 :lo
+Stop entity: length<2 :ls
+Stop entity: contains a stop word :rt @c_aashish
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/wdvctcfr #rajyasabha
+Stop entity: contains a stop word :news opposition
+Stop entity: length<2 :ma
+Stop entity: contains a stop word :rt @indpolitix
+Stop entity: length<2 :mi
+Stop entity: length<2 :mp
+Stop entity: contains a stop word :rt @sivakumar_king
+Stop entity: contains too many non-alphanumerics :@madhavjgd @ansumali
+Stop entity: length<2 :mt
+Stop entity: contains a stop word :rt @nilimdutta
+Stop entity: contains a stop word :rt @leftcentreright
+Spam: too less co-occuring entities: product Cooccuring: [ : 30.0, rt : 30.0]
+Stop entity: contains a stop word :rt @himadreekaushik
+Stop entity: length<2 :nd
+Spam: too less co-occuring entities: worship #annahazare Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains too many non-alphanumerics :#jaitley #ht #rajyasabha #arunjaitley
+Spam: too less co-occuring entities: imp Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: length<2 :ki
+Stop entity: contains too many non-alphanumerics :rajiv\/indira
+Stop entity: length<2 :kf
+Stop entity: contains a stop word :rt @mehranzaidi
+Stop entity: contains too many non-alphanumerics :temple\/church\/ngo
+Spam: total count: ramchandra ji keh gaye siya se
+Spam: too less co-occuring entities: impediment Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: length<2 :la
+Stop entity: length<2 :hv
+Stop entity: length<2 :ht
+Stop entity: contains a stop word :rt @pbmehta
+Spam: too less co-occuring entities: c&d Cooccuring: [ : 11.0, rt : 11.0]
+Stop entity: length<2 :ho
+Spam: too less co-occuring entities: jan-lok holmes Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @gauravrathi08
+Stop entity: contains a stop word :rt @tiwaryhv
+Stop entity: contains a stop word :rt @mrityunjoykjha
+Stop entity: contains a stop word :rt @ruchicatomar
+Spam: too less co-occuring entities: yaar Cooccuring: [ : 14.0, rajya sabha : 14.0]
+Spam: too less co-occuring entities: agency Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: length<2 :im
+Stop entity: length<2 :ji
+Stop entity: contains a stop word :rt @khamroz
+Spam: too less co-occuring entities: ram jethmalani a Cooccuring: [ : 23.0, rt : 23.0]
+Spam: too less co-occuring entities: supremacy Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/pppkyztx
+Stop entity: contains a stop word :rt @rahul009
+Spam: too less co-occuring entities: shivanand tewari Cooccuring: [rt : 8.0,  : 4.0]
+Spam: too less co-occuring entities: doodle Cooccuring: [ : 24.0, rt : 24.0]
+Stop entity: contains a stop word :rt @babasaheb_org
+Stop entity: contains too many non-alphanumerics :appointment\/removal
+Spam: too less co-occuring entities: diyar arun jaitley Cooccuring: [rt : 12.0,  : 6.0]
+Spam: total count: shri
+Stop entity: length<2 :wl
+Spam: too less co-occuring entities: #jethmalan Cooccuring: [ : 16.0, rt : 16.0]
+Stop entity: contains a stop word :rt @emanin @httweets
+Stop entity: contains a stop word :rajya sa
+Stop entity: contains a stop word :rt @harinanka
+Spam: too less co-occuring entities: @sunpandey Cooccuring: [ : 49.0, lokpal bill : 49.0]
+Stop entity: length<2 :wa
+Stop entity: contains a stop word :rt @srinaga007
+Spam: too less co-occuring entities: media person Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: desk Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: @iamtenalirama reports Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :pride\/ego bill
+Stop entity: contains a stop word :rt @ritasnatter
+Stop entity: contains too many non-alphanumerics :#rajyasabha #sh
+Spam: total count: sarkar
+Stop entity: length<2 :ur
+Stop entity: length<2 :up
+Spam: too less co-occuring entities: field Cooccuring: [ : 14.0, rajya sabha : 14.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/mqcskuis
+Stop entity: length<2 :tv
+Spam: too less co-occuring entities: hmm Cooccuring: [ : 4.0, paris : 4.0]
+Stop entity: contains a stop word :rt @barbarindian
+Stop entity: contains a stop word :rt @kanchangupta
+Spam: total count: ravindra jadeja
+Stop entity: length<2 :u.
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/get4lct4
+Spam: too less co-occuring entities: rs debates Cooccuring: [ : 4.0]
+Stop entity: length<2 :sp
+Stop entity: length<2 :sc
+Stop entity: length<2 :se
+Stop entity: contains too many non-alphanumerics :@pti_news
+Stop entity: contains a stop word :rt @ashwinkk
+Stop entity: length<2 :si
+Stop entity: length<2 :rs
+Stop entity: length<2 :rt
+Spam: too less co-occuring entities: killer Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :rt @bhupendrachaube
+Stop entity: length<2 :t.
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/u0xdo0qw
+Stop entity: length<2 :rj
+Spam: too less co-occuring entities: rokpal Cooccuring: [ : 6.0]
+Stop entity: length<2 :ra
+Spam: total count: hindu bhindrenwale
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/pqkys4ls #bjp #rajyasabha
+Stop entity: contains a stop word :rt @subodh1945
+Spam: too less co-occuring entities: gang members Cooccuring: [ : 20.0, rt : 20.0]
+Stop entity: contains a stop word :rt @fzlsammy
+Stop entity: contains a stop word :rt @shams_z
+Stop entity: contains too many non-alphanumerics :Šœ @sardesairajdeep
+Spam: too less co-occuring entities: debate #jaitleysays Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains a stop word :rt @suhelseth
+Spam: too less co-occuring entities: problems Cooccuring: [ : 23.0, new delhi : 23.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/m4o10nmy
+Spam: too less co-occuring entities: fraud #jethmalan Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :replay dis
+Spam: too less co-occuring entities: hona chahiye Cooccuring: [ : 6.0]
+Spam: too less co-occuring entities: action #jethmalanisays Cooccuring: [ : 25.0]
+Spam: too less co-occuring entities: riddance Cooccuring: [ : 8.0]
+Stop entity: contains too many non-alphanumerics :@wah_janab motu @thevijaymallya
+Spam: too less co-occuring entities: spin Cooccuring: [ : 12.0, rt : 12.0]
+Spam: total count: ramlila maidan
+Stop entity: contains too many non-alphanumerics :Š‹ladki saath
+Stop entity: contains a stop word :rt @buzzindelhi
+Stop entity: contains a stop word :rt @girishrsingh
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/i0qwgb4z
+Spam: total count: pj thomas
+Spam: too less co-occuring entities: ram jethmalani swiss Cooccuring: [ : 74.0, rt : 74.0]
+Stop entity: contains too many non-alphanumerics :bansal #narayanswamy #rajya sabha
+Spam: too less co-occuring entities: #cong Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: technically Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @agw_anmol
+Spam: total count: pramod mahajan
+Stop entity: contains a stop word :rt @theradiojoker
+Stop entity: contains a stop word :rt @tusharg
+Stop entity: contains a stop word :rt @jaideepb
+Stop entity: contains a stop word :rt @amsrjn
+Stop entity: contains a stop word :rt @vande_mataram
+Spam: too less co-occuring entities: shortcomings Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @sjvatsal
+Stop entity: contains too many non-alphanumerics :@vinod_sharma
+Stop entity: contains too many non-alphanumerics :Š˜kick Š™ http:\/\/t.co\/xwucontk
+Spam: too less co-occuring entities: #narayanaswa Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :changes http:\/\/t.co\/cgxkbiis
+Spam: too less co-occuring entities: ki mein Cooccuring: [ : 56.0, rt : 28.0]
+Stop entity: contains too many non-alphanumerics :demise http:\/\/t.co\/073yqlu9
+Stop entity: contains a stop word :rt @_aniket
+Stop entity: contains a stop word :rt @mithelesh
+Spam: too less co-occuring entities: dilution Cooccuring: [ : 60.0, cbi : 60.0]
+Spam: total count: sardi
+Spam: too less co-occuring entities: ministers Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: govt strategy Cooccuring: [ : 59.0, rt : 59.0]
+Stop entity: contains a stop word :rt @abhijitmajumder
+Stop entity: contains a stop word :rt @rajatsharmalive
+Stop entity: contains a stop word :rt @anushreekejriwa
+Spam: too less co-occuring entities: apne gale ki tarah ab aap bhi baith Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: mention Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @ibnliverealtime
+Stop entity: contains too many non-alphanumerics :@india_review
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/ikh3giof
+Spam: too less co-occuring entities: #abhishekmanusinghvi Cooccuring: [ : 16.0, rt : 16.0]
+Spam: too less co-occuring entities: journalists Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: @starnewslive Cooccuring: [ : 4.0, rajya sabha : 4.0]
+Spam: too less co-occuring entities: mr. jathmalani Cooccuring: [rt : 8.0,  : 4.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/d3grcc20
+Spam: too less co-occuring entities: crowds #jethmalanisa Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: nehru Cooccuring: [rt : 8.0,  : 4.0]
+Stop entity: contains a stop word :rt @ashrita_atluri
+Stop entity: contains too many non-alphanumerics :#rajyasabha #congress #bjp
+Stop entity: contains a stop word :rt @toiindianews
+Spam: too less co-occuring entities: @aarsee Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @bilalnazki
+Stop entity: contains a stop word :rt @kadiansandeep
+Spam: too less co-occuring entities: amendments bill Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: rajya sabha channel Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :Šœ @ndtv
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/ve9trmnl
+Stop entity: contains a stop word :rt @skchopra81
+Stop entity: contains a stop word :rt @swamy_army
+Stop entity: contains too many non-alphanumerics :#upa #ibl #lokpal ht
+Spam: too less co-occuring entities: dustbin Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :@bengalnewzindia | new delhi
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/vuzkqeup #rajyasabha
+Stop entity: contains too many non-alphanumerics :raja ?! dear #jaitley
+Stop entity: contains a stop word :rt @rajan_sr17
+Spam: too less co-occuring entities: destiny Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :sonia\/rahul
+Stop entity: contains a stop word :rt @rajneilkamath
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/e7ccnvku #teamfollowback
+Spam: total count: tumhara
+Spam: total count: bhupendra chaubey
+Stop entity: contains too many non-alphanumerics :#rajyasabha @shaziailmi @srbachchan
+Stop entity: contains too many non-alphanumerics :#rajyasabha #lokpal
+Stop entity: contains a stop word :rt @kishanreddybjp
+Stop entity: contains a stop word :rt @sumit_nagpal
+Spam: total count: nanga adami
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/oveez0iz
+Spam: too less co-occuring entities: nations Cooccuring: [ : 10.0, rt : 10.0]
+Stop entity: contains too many non-alphanumerics :@kiranks @sardesairajdeep
+Stop entity: contains a stop word :rt @mukeshaashiq
+Stop entity: contains a stop word :rt @bhavna_kumar
+Stop entity: contains a stop word :rt @mulikinc
+Stop entity: contains a stop word :rt @ash_dubey
+Stop entity: contains too many non-alphanumerics :statement rt @firstpostin #anna
+Stop entity: contains too many non-alphanumerics :pm #jethmalanisays #lokpal
+Spam: too less co-occuring entities: % people Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @anutthara
+Spam: too less co-occuring entities: rape Cooccuring: [ : 20.0, rt : 20.0]
+Spam: total count: mulayam singh yadav
+Stop entity: contains a stop word :rt @ashutoshibn7
+Spam: too less co-occuring entities: movie Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains too many non-alphanumerics :anna http:\/\/t.co\/gwadzktj
+Spam: too less co-occuring entities: nose Cooccuring: [ : 53.0, rt : 53.0]
+Stop entity: contains a stop word :rt @sisir_gupta
+Stop entity: contains a stop word :rt @shivsinghdesh
+Spam: too less co-occuring entities: beast Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @coolfunnytshirt
+Stop entity: contains a stop word :rt @karunajohn
+Stop entity: contains a stop word :rt @dilipthecherian
+Stop entity: contains a stop word :rt @firstpostin #bjp mps
+Stop entity: contains a stop word :rt @theindipatriot
+Spam: too less co-occuring entities: #rajyasabha session Cooccuring: [ : 8.0, rt : 8.0]
+Spam: too less co-occuring entities: laundry list style Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :dna http:\/\/t.co\/l1rmcoxu
+Stop entity: contains too many non-alphanumerics :@janlokpalbill @janl
+Stop entity: contains a stop word :rt @rajeshkalra
+Stop entity: contains a stop word :rt @ebinsam
+Stop entity: contains a stop word :rt @bollywoodgandu
+Stop entity: contains a stop word :vilas pas
+Stop entity: contains a stop word :rt @civilrsociety
+Stop entity: contains a stop word :rt @nkharoo
+Stop entity: contains a stop word :rt @anupampkher
+Stop entity: contains a stop word :rt @indiatvnews
+Stop entity: contains a stop word :rt @drsankalp
+Spam: too less co-occuring entities: balances Cooccuring: [ : 12.0, singhvi : 12.0]
+Stop entity: contains a stop word :rt @thinkerspad
+Stop entity: contains too many non-alphanumerics :@ms_rana
+Spam: too less co-occuring entities: inequality Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @girishnirmala
+Spam: total count: esp
+Stop entity: contains a stop word :rt @ltgen_sampathk
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/51sgcvph
+Spam: too less co-occuring entities: furor Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: #bengal Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: evn Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :rt @sonaliranade
+Spam: too less co-occuring entities: substance Cooccuring: [ : 24.0, rajya sabha : 24.0]
+Stop entity: contains a stop word :rt @masalabai
+Spam: too less co-occuring entities: poll #yech Cooccuring: [ : 8.0, rt : 8.0]
+Spam: total count: mr chairmain
+Spam: total count: amul baby
+Stop entity: contains a stop word :rt @anilkohli54
+Stop entity: contains a stop word :rt @lata_mv
+Spam: too less co-occuring entities: vote Š Cooccuring: [ : 14.0, rajya sabha : 14.0]
+Stop entity: contains a stop word :rt @ndtv
+Stop entity: contains a stop word :rt @venkatananth
+Spam: total count: bcci
+Stop entity: contains too many non-alphanumerics :magazine http:\/\/t.co\/zcpalhw9
+Stop entity: contains too many non-alphanumerics :Š http:\/\/t.co\/w7eycvsz
+Stop entity: contains a stop word :rt @firstpostin #congress
+Spam: too less co-occuring entities: germans Cooccuring: [ : 25.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/ahpjynp7
+Spam: too less co-occuring entities: bill #lokpal Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @abhishekrungta
+Stop entity: contains a stop word :rt @sudhirtailang
+Spam: total count: sushma aunty
+Spam: too less co-occuring entities: arrogance n language Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/bjnurdtz
+Stop entity: contains a stop word :rt @iamtenalirama
+Spam: too less co-occuring entities: phraseology Cooccuring: [ : 7.0]
+Spam: too less co-occuring entities: hum chahte hain ke Cooccuring: [ : 4.0, rt : 4.0]
+Spam: total count: janardhan dwivedi
+Spam: total count: cong core
+Stop entity: contains a stop word :rt @i_madcap
+Spam: too less co-occuring entities: injustice Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/vct1bfm6
+Stop entity: contains a stop word :rt @ash_twtr
+Stop entity: contains a stop word :rt @rajudasonline
+Stop entity: contains a stop word :rt @jagpaws
+Spam: too less co-occuring entities: mr chairman Cooccuring: [rt : 14.0,  : 7.0]
+Spam: too less co-occuring entities: clarity Cooccuring: [ : 7.0, mr. jaitely : 7.0]
+Spam: too less co-occuring entities: info Cooccuring: [ : 8.0, rt : 8.0]
+Stop entity: contains a stop word :rt @ronnaber
+Spam: too less co-occuring entities: stash Cooccuring: [ : 72.0, rt : 39.0]
+Spam: too less co-occuring entities: teeth Cooccuring: [ : 53.0, rt : 53.0]
+Stop entity: contains a stop word :rt @jayantgajria
+Stop entity: contains a stop word :not
+Stop entity: contains too many non-alphanumerics :Šœ @indiatvnews
+Spam: too less co-occuring entities: start Cooccuring: [ : 16.0, rt : 16.0]
+Spam: too less co-occuring entities: year #rajya sabha Cooccuring: [ : 5.0]
+Spam: too less co-occuring entities: resul Cooccuring: [ : 36.0, rt : 36.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/ebn5aotv
+Spam: too less co-occuring entities: @pallavighcnnibn Cooccuring: [ : 5.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/oeo8ukjj
+Stop entity: contains too many non-alphanumerics :today http:\/\/t.co\/r
+Stop entity: contains a stop word :rt @ghazalawahab
+Stop entity: contains a stop word :rt @st_hill
+Stop entity: contains a stop word :rt @bibekdebroy
+Spam: too less co-occuring entities: mind Cooccuring: [ : 40.0, rt : 40.0]
+Spam: too less co-occuring entities: eng Cooccuring: [ : 6.0]
+Stop entity: contains too many non-alphanumerics :amendments http:\/\/t.co\/alns43ab #lokpal #rajyasabha
+Stop entity: contains a stop word :jazz band narayanasamy
+Stop entity: contains a stop word :not government
+Stop entity: contains a stop word :rt @isaakshi
+Stop entity: contains a stop word :rt @ms_rana
+Spam: too less co-occuring entities: chair Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains too many non-alphanumerics :bsp\/sp
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/zdt5hekt
+Spam: too less co-occuring entities: #bjp Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/v9cvsgsg
+Stop entity: contains a stop word :sa pa
+Spam: total count: rock star
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/
+Stop entity: contains a stop word :rt @true_indian47
+Stop entity: contains a stop word :rt @sumit_gulati
+Spam: too less co-occuring entities: lol @asraghunath Cooccuring: [ : 16.0, rt : 16.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/r3ggoant
+Stop entity: contains too many non-alphanumerics :#lokpal #rajya
+Spam: too less co-occuring entities: details Cooccuring: [ : 25.0, rt : 25.0]
+Stop entity: contains a stop word :rt @ddiinnxx
+Spam: too less co-occuring entities: session extension Cooccuring: [ : 6.0]
+Spam: too less co-occuring entities: lalbahadurshastri Cooccuring: [india : 20.0,  : 10.0]
+Stop entity: contains a stop word :rt @arkjaiswal
+Spam: too less co-occuring entities: ab majboor hai Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: government ducks Cooccuring: [ : 7.0, bjp : 7.0]
+Spam: too less co-occuring entities: #shame Cooccuring: [ : 7.0, upa : 7.0]
+Stop entity: contains a stop word :rt @ritesht2
+Stop entity: contains a stop word :rt @ibnlive
+Stop entity: contains a stop word :rt @dibyabttb
+Stop entity: contains too many non-alphanumerics :Šœ @nkumar_ @bhaskarchat
+Spam: too less co-occuring entities: wat jaitley Cooccuring: [rt : 12.0,  : 6.0]
+Stop entity: contains a stop word :rt @vinitadeshmukh
+Stop entity: contains a stop word :rt @harshonline
+Spam: too less co-occuring entities: limbo a. Cooccuring: [ : 9.0, lokpal bill : 9.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/6ooonlum
+Stop entity: contains a stop word :rt @arpanps
+Spam: total count: lokpal controversy
+Spam: total count: tiruchi siva
+Stop entity: contains too many non-alphanumerics :night #rajyasabha #lokpal
+Stop entity: contains a stop word :rt @shilpitewari
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/5kfbaysj
+Stop entity: contains a stop word :rt @vinaykumargupta
+Stop entity: contains a stop word :rt @against_pseudos
+Spam: too less co-occuring entities: voting #lok Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: channel fight Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: banks Cooccuring: [ : 4.0]
+Spam: too less co-occuring entities: bharat ratna Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains too many non-alphanumerics :#blackmoney http:\/\/t.co\/qrlqc4kh
+Stop entity: contains a stop word :rt @jmedon22
+Stop entity: contains a stop word :rt @dimaagkoshot
+Stop entity: contains too many non-alphanumerics :lokpal http:\/\/t.co\/dlxdywxi
+Spam: too less co-occuring entities: #rajyasabha mps Cooccuring: [mamata : 6.0,  : 6.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/a9em7v3k
+Spam: too less co-occuring entities: time bill Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains too many non-alphanumerics :â Šœ @ibnliverealtime
+Stop entity: contains a stop word :rt @spamsterr
+Spam: too less co-occuring entities: @sardard Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @srivatsakrishna
+Stop entity: contains a stop word :rt @mayank_madan007
+Stop entity: contains a stop word :rt @thecomicproject
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/f4ucb78p
+Spam: too less co-occuring entities: sides Cooccuring: [ : 23.0, rt : 23.0]
+Stop entity: contains a stop word :rt @dibang
+Spam: too less co-occuring entities: narayanasamy pm Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/ycyzkpey @iacchennai
+Stop entity: contains a stop word :rt @awakeindian
+Spam: too less co-occuring entities: talk debate Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :| @bengalnewzindia
+Stop entity: contains a stop word :rt @sexybichoo
+Spam: too less co-occuring entities: services Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/vbjom8fn
+Stop entity: contains a stop word :rt @amisri
+Stop entity: contains a stop word :rt @pti_news
+Spam: too less co-occuring entities: novelty Cooccuring: [ : 34.0, rt : 34.0]
+Spam: total count: kannimozhi
+Stop entity: contains too many non-alphanumerics :@ganeshnatarajan #fb
+Spam: total count: gangotri
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/pgerttyy
+Stop entity: contains a stop word :it constitutional status mr arun jaitely
+Spam: too less co-occuring entities: mahatma Cooccuring: [rt : 8.0,  : 4.0]
+Stop entity: contains too many non-alphanumerics :12min
+Stop entity: contains too many non-alphanumerics :Š rajy
+Stop entity: contains a stop word :rt @sambha_bhilane
+Spam: too less co-occuring entities: ab agle saal Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: indians Cooccuring: [rt : 19.0,  : 6.0]
+Stop entity: contains a stop word :rt @vinaytalwar
+Stop entity: contains too many non-alphanumerics :Šœ @maninderpals
+Stop entity: contains too many non-alphanumerics :rs http:\/\/t.co\/vji60ajq
+Stop entity: contains too many non-alphanumerics :jaitley #ht #rajyasabha
+Spam: too less co-occuring entities: clock Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :rt @sum_ih
+Spam: too less co-occuring entities: amendment maanegee matlab Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: congress-waalas Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: corruptions laws lokpal Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @arvindkrsna
+Stop entity: contains a stop word :rt sc
+Stop entity: contains too many non-alphanumerics :@httweets #rajyasabha
+Spam: too less co-occuring entities: cheer haran Cooccuring: [ : 20.0, rt : 20.0]
+Stop entity: contains a stop word :rt @reenasatin
+Stop entity: contains too many non-alphanumerics :#rajyasabha #janlokpal #iacpune
+Stop entity: contains a stop word :rt @alka_d
+Stop entity: contains a stop word :rt @sandeepgandotra
+Stop entity: contains a stop word :rt @chhayank
+Stop entity: contains a stop word :rt @irajdeep
+Spam: too less co-occuring entities: jurisdiction #jaitleysays Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains a stop word :rt @sardesairajdeep
+Spam: too less co-occuring entities: evidence #jethmalanisays Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :democracy #lokpal #rajyasabha
+Stop entity: contains a stop word :rt @anubhabhonsle
+Spam: too less co-occuring entities: k @kanchangupta Cooccuring: [ : 40.0, rt : 40.0]
+Spam: too less co-occuring entities: latenight Cooccuring: [ : 35.0, rt : 26.0]
+Stop entity: contains too many non-alphanumerics :die #rajyasabha #lokpal #overheardinthenewsroom
+Stop entity: contains a stop word :rt @crguna
+Spam: too less co-occuring entities: price Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @panda_jay
+Stop entity: contains a stop word :rt @kpganesh
+Spam: too less co-occuring entities: #ibtl Cooccuring: [ : 9.0, rt : 9.0]
+Spam: total count: arre
+Stop entity: contains a stop word :news
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/lacfxqbb #rajyasabha
+Spam: too less co-occuring entities: anchors Cooccuring: [ : 25.0, rt : 25.0]
+Spam: too less co-occuring entities: r nt Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: frmr pm Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :amendments #jaitleysays #lokpal
+Spam: too less co-occuring entities: yadi hum doobe tum ko saath lekar doobenge Cooccuring: [ : 11.0, rt : 11.0]
+Spam: too less co-occuring entities: discussions yesterday Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @paulwsj bit
+Stop entity: contains too many non-alphanumerics :#tweetlikeravishastri #rajyasabha #lokpal
+Spam: too less co-occuring entities: #upa Cooccuring: [ : 8.0, academy : 8.0]
+Stop entity: contains too many non-alphanumerics :@sandeepgupta81 @crazyabtsrk congress hs
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/h
+Stop entity: contains a stop word :rt @adityarajkaul
+Stop entity: contains a stop word :rt @agenthunt
+Stop entity: contains a stop word :rt @thevoicecommon
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/n
+Spam: too less co-occuring entities: talibani Cooccuring: [ : 20.0, rt : 10.0]
+Stop entity: contains a stop word :needs checks
+Stop entity: contains a stop word :rt @therahulmehra
+Stop entity: contains too many non-alphanumerics :â Šœ @sardesairajdeep
+Stop entity: contains a stop word :rt @parashah91
+Spam: too less co-occuring entities: #parliame Cooccuring: [ : 10.0, rt : 10.0]
+Spam: too less co-occuring entities: session switch ur tv sets Cooccuring: [ : 59.0, rt : 59.0]
+Spam: too less co-occuring entities: americans Cooccuring: [ : 25.0]
+Spam: too less co-occuring entities: varun Cooccuring: [ : 41.0, rt : 41.0]
+Stop entity: contains too many non-alphanumerics :rajya sabha http:\/\/t.co\/lhrgvrba
+Stop entity: contains a stop word :rt @risingindiawins
+Stop entity: contains too many non-alphanumerics :courtesy rajniti prasad http:\/\/t.co\/lykpfqnq
+Spam: too less co-occuring entities: information Cooccuring: [ : 10.0, rt : 10.0]
+Stop entity: contains too many non-alphanumerics :@iaccoimbatore @iac_ah
+Stop entity: contains a stop word :rt @impankajmani
+Spam: too less co-occuring entities: underworld Cooccuring: [ : 20.0, rt : 20.0]
+Stop entity: contains a stop word :rt @i_panchajanya
+Spam: too less co-occuring entities: lease life #lokpal Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @ameytirodkar
+Stop entity: contains too many non-alphanumerics :vote http:\/\/t.co\/xwnoqx8y #lokpal #rajyasabha
+Spam: too less co-occuring entities: character Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: minds Cooccuring: [ : 22.0, rt : 22.0]
+Spam: total count: maam hamid ansari
+Spam: too less co-occuring entities: #congress core group meeting Cooccuring: [ : 8.0, rt : 8.0]
+Spam: too less co-occuring entities: union Cooccuring: [ : 4.0, india : 4.0]
+Stop entity: contains a stop word :rt @kavitavkhanna
+Stop entity: contains too many non-alphanumerics :@firstpostin #cbi
+Stop entity: contains a stop word :rt @gabbbarsingh
+Spam: too less co-occuring entities: entertainment quotient Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: #choreography Cooccuring: [ : 8.0, academy : 8.0]
+Spam: too less co-occuring entities: kisi gaaon Cooccuring: [ : 56.0, rt : 28.0]
+Stop entity: contains a stop word :rt @kiranks
+Spam: too less co-occuring entities: sector Cooccuring: [ : 4.0, rt : 4.0]
+Spam: total count: delhi university
+Stop entity: contains a stop word :rt @academichelp
+Spam: too less co-occuring entities: deliberation Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @cricketainment_
+Spam: too less co-occuring entities: @sachinkalbag Cooccuring: [ : 41.0, rt : 41.0]
+Stop entity: contains too many non-alphanumerics :care @ashrita_atluri
+Stop entity: contains too many non-alphanumerics :#rajyasabha #lokpal Š #jokermms
+Stop entity: contains a stop word :rt @spuriousmallu
+Stop entity: contains a stop word :mr. invisible man
+Spam: too less co-occuring entities: work Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: mines Cooccuring: [ : 14.0, rajya sabha : 14.0]
+Spam: too less co-occuring entities: sarkari Cooccuring: [ : 36.0, rt : 36.0]
+Stop entity: contains a stop word :#lokpal dis
+Stop entity: contains a stop word :rt @kckindia
+Spam: too less co-occuring entities: #singahvi Cooccuring: [ : 7.0, rt : 7.0]
+Spam: total count: arun jaitleyji
+Spam: too less co-occuring entities: @thekiranbedi plz respond Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @pal36
+Stop entity: contains too many non-alphanumerics :tax purposes #jethmalanisays #lokpal
+Spam: too less co-occuring entities: behemoth Cooccuring: [ : 12.0, singhvi : 12.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/eh4w39rf
+Spam: too less co-occuring entities: @ignitedvisions everything tht Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :#ht #rajyasabha #arunjaitley
+Stop entity: contains a stop word :rt @rohitkaran
+Spam: too less co-occuring entities: @firstpostin anna Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: info #jeth Cooccuring: [ : 10.0, rt : 10.0]
+Stop entity: contains too many non-alphanumerics :failure http:\/\/t.co\/6omqo5rh
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/52a1tmty
+Stop entity: contains a stop word :rt @dranandjee
+Stop entity: contains a stop word :rt @pankajpachauri
+Spam: too less co-occuring entities: @thinkerspad pls Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/u0bcvlop
+Stop entity: contains a stop word :rt @sachinkalbag
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/e65m3txpâŠ
+Stop entity: contains a stop word :rt @thekiranbedi
+Stop entity: contains too many non-alphanumerics :amendments #tewarisays #lokpal
+Spam: total count: india inc
+Stop entity: contains too many non-alphanumerics :video http:\/\/t.co\/shysyvrv
+Stop entity: contains too many non-alphanumerics :lokpal\/lokayuka n
+Stop entity: contains a stop word :rt @waglenikhil
+Stop entity: contains a stop word :rt @_mysticrose_
+Spam: too less co-occuring entities: percent reservations Cooccuring: [ : 7.0]
+Stop entity: contains a stop word :rt @nidhik20
+Spam: too less co-occuring entities: rs midnight shutdown Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: kiss Cooccuring: [ : 6.0]
+Stop entity: contains a stop word :rt @fakeergandhi
+Spam: too less co-occuring entities: @yoginisd bangs Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains a stop word :rt @sunandavashisht
+Stop entity: contains a stop word :rt @janlokpal
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/xzmhog6o whi
+Stop entity: contains too many non-alphanumerics :@anupampkher @sardesairajdeep
+Spam: too less co-occuring entities: names Cooccuring: [ : 97.0, rt : 39.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/z44syhr7
+Stop entity: contains a stop word :rt @shaileshkpandey
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/pklixnsr
+Stop entity: contains a stop word :rt @iyer_shreedhar
+Spam: too less co-occuring entities: lad Cooccuring: [ : 40.0, rt : 40.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/blibzhgg
+Stop entity: contains a stop word :rt @ashikonfire
+Stop entity: contains a stop word :rt @kkumarkg
+Spam: too less co-occuring entities: problems #ra Cooccuring: [ : 23.0, rt : 23.0]
+Spam: too less co-occuring entities: great Cooccuring: [ : 13.0, rt : 13.0]
+Spam: too less co-occuring entities: folks Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @dosabandit
+Spam: too less co-occuring entities: â ˜ Cooccuring: [ : 6.0]
+Spam: too less co-occuring entities: gentlemen Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: corruption #yechurysays Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @aurbolo
+Spam: too less co-occuring entities: @sreejiraj Cooccuring: [ : 6.0]
+Stop entity: contains a stop word :rt @pm_kiranbedi
+Spam: too less co-occuring entities: finding #lalu Cooccuring: [ : 39.0, rt : 39.0]
+Stop entity: contains a stop word :http
+Stop entity: contains a stop word :rt @rightwing_rants
+Stop entity: contains a stop word :rt @iacmumbai
+Stop entity: contains a stop word :rt @crazyabtsrk
+Stop entity: contains a stop word :rt @rameshfilms
+Stop entity: contains a stop word :rt @abhipar7
+Spam: too less co-occuring entities: manishankarayer Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: vapaas karo slogans #rajyasabha Cooccuring: [ : 8.0, rjd : 8.0]
+Stop entity: contains a stop word :rt @sonykalloor
+Spam: too less co-occuring entities: #pa Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: capabilities Cooccuring: [ : 6.0]
+Stop entity: contains a stop word :srivatsa krishna ias
+Spam: too less co-occuring entities: yacht Cooccuring: [ : 7.0, lokpal : 7.0]
+Spam: total count: pinaki mishra
+Spam: too less co-occuring entities: provisions Cooccuring: [ : 10.0, rt : 10.0]
+Stop entity: contains a stop word :rt @thehinduphantom
+Stop entity: contains a stop word :rt @vipulskulkarni
+Stop entity: contains a stop word :rt @abhinavbhatt01
+Spam: too less co-occuring entities: revolt Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @am_aadmi
+Stop entity: contains a stop word :rt @riteshanand40
+Stop entity: contains a stop word :rt @rameshsrivats
+Spam: too less co-occuring entities: #vivekanand Cooccuring: [ : 15.0, rt : 15.0]
+Stop entity: contains a stop word :rt @sumat_patel
+Stop entity: contains too many non-alphanumerics :ly\/ud4wen
+Stop entity: contains too many non-alphanumerics :@paulwsj http:\/\/t.co\/b0woexzo
+Spam: too less co-occuring entities: tats Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: xxxxx Cooccuring: [ : 15.0, rt : 15.0]
+Stop entity: contains a stop word :rt @meerasanyal
+Stop entity: contains too many non-alphanumerics :rs session #anothersleeplessnight #lokpal
+Spam: too less co-occuring entities: diffrence Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :god mr srt
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/l60hv5qe
+Spam: too less co-occuring entities: #bansalsays Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: lokballs bill Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :#ht #rajyasabha
+Spam: too less co-occuring entities: haha joke Cooccuring: [ : 5.0, mayawati : 5.0]
+Stop entity: contains too many non-alphanumerics :â Šœrevenge provision
+Stop entity: contains a stop word :rt @dkarthik
+Stop entity: contains too many non-alphanumerics :1970s
+Stop entity: contains a stop word :rt @vasantika
+Spam: total count: abhishek shingvi
+Spam: too less co-occuring entities: #rip Cooccuring: [ : 14.0, rt : 6.0]
+Spam: too less co-occuring entities: @anandmahindra Cooccuring: [ : 30.0, rt : 30.0]
+Stop entity: contains a stop word :rt @bengalnewzindia
+Spam: total count: cpm
+Spam: too less co-occuring entities: condition Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: explanation Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: health regulatory bill Cooccuring: [ : 4.0, rajya sabha : 4.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/ixjftoeu
+Stop entity: contains too many non-alphanumerics :bill http:\/\/t.co\/vw3reimt
+Spam: too less co-occuring entities: bill #jaitleysays Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @saggirex
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/4txborpq
+Stop entity: contains a stop word :rt @vbsingh60
+Stop entity: contains too many non-alphanumerics :Šœ @bhaskarchat
+Stop entity: contains a stop word :rt @mohithbs
+Stop entity: contains a stop word :rt @vaidehisachin
+Spam: too less co-occuring entities: fighting corruption Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/khviklgp
+Spam: too less co-occuring entities: bout paris hilton Cooccuring: [ : 4.0, paris : 4.0]
+Spam: too less co-occuring entities: fireworks Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @jairajp
+Spam: too less co-occuring entities: #gaddar Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: focus Cooccuring: [ : 4.0, rt : 4.0]
+Spam: total count: shivanand tiwari
+Stop entity: contains a stop word :rt @thevijaymallya
+Stop entity: contains too many non-alphanumerics :@bengalnewzindia | opposition
+Spam: total count: shivanand tiwary
+Stop entity: contains a stop word :rt @devinder_sharma
+Spam: too less co-occuring entities: need #realso Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains a stop word :rt @yellareddy
+Spam: too less co-occuring entities: mr samy Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: pm onwards fir Cooccuring: [ : 59.0, rt : 59.0]
+Spam: too less co-occuring entities: millions Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: govt #jaitleysays Cooccuring: [ : 4.0]
+Stop entity: contains a stop word :rt @firstpostin
+Stop entity: contains a stop word :rt @sauravbiswas89
+Stop entity: contains a stop word :rt @joydas
+Stop entity: contains a stop word :rt @rachitseth
+Stop entity: contains too many non-alphanumerics :debate http:\/\/t.co\/bmulm1bt
+Stop entity: contains a stop word :rt @newindianxpress
+Stop entity: contains a stop word :rt @polardive
+Spam: too less co-occuring entities: g family corruption @sardesairajdeep Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: cliffhanger Cooccuring: [ : 7.0, rt : 7.0]
+Spam: too less co-occuring entities: batting order Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :rt @fight4futur1976
+Stop entity: contains too many non-alphanumerics :@true_indian47 @amitjain111 @gsurya today
+Stop entity: contains a stop word :rt @lachin_musings
+Spam: too less co-occuring entities: @dhanyarajendran Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @jhunjhunwala
+Spam: too less co-occuring entities: #hkdua Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains too many non-alphanumerics :â Šœ @dimaagkoshot dont knw abt d ambit
+Stop entity: contains a stop word :rt @gsurya
+Spam: too less co-occuring entities: actor award Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @sshankara
+Spam: too less co-occuring entities: age sharad yadav tears Cooccuring: [ : 10.0, rt : 10.0]
+Stop entity: contains a stop word :rt @beingnomad
+Stop entity: contains a stop word :rt @rahulrdeo
+Stop entity: contains a stop word :rt @jp_loksatta
+Spam: too less co-occuring entities: dealings Cooccuring: [ : 9.0, rt : 9.0]
+Spam: too less co-occuring entities: union cabinet Cooccuring: [ : 6.0]
+Stop entity: contains a stop word :rt @nikunj_vakil
+Stop entity: contains a stop word :rt @murgesh194
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/7jo4sro3
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/p6yfrkuy
+Spam: too less co-occuring entities: committ Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @kvsarmaj
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/mliytqju
+Spam: too less co-occuring entities: award Cooccuring: [ : 8.0, academy : 8.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/y6hzjwaj
+Stop entity: contains a stop word :#lokpal #in
+Stop entity: contains too many non-alphanumerics :lal ke sunehra sapna toota #drmaitreyan #lokpal
+Spam: too less co-occuring entities: politicking Cooccuring: [ : 10.0, rt : 10.0]
+Spam: too less co-occuring entities: flip-flop Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @digvijaya_28
+Stop entity: contains a stop word :rt @bdutt
+Stop entity: contains a stop word :rt @sham_waghmare
+Spam: too less co-occuring entities: phoenix Cooccuring: [ : 6.0, salman khurshid : 6.0]
+Spam: too less co-occuring entities: rip democracy rt @thecomicproject lokpal Cooccuring: [ : 10.0, rip democracy rt : 10.0]
+Spam: too less co-occuring entities: leaderofopposition Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: #rajneeti prasad Cooccuring: [ : 4.0, rt : 4.0]
+Spam: total count: sukhendu sekhar roy
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/yhoydfsj @nishkak
+Stop entity: contains a stop word :rt @fierybull
+Stop entity: contains a stop word :rt @missweera
+Spam: too less co-occuring entities: socialist Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: parlokpal Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains a stop word :rt @policereforms
+Spam: too less co-occuring entities: bro @tusharg Cooccuring: [ : 14.0, rajya sabha : 14.0]
+Spam: too less co-occuring entities: ladies Cooccuring: [ : 9.0, rt : 9.0]
+Spam: total count: lokayuta
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/tlckvyll
+Spam: too less co-occuring entities: lokpal no Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @prashstyle
+Stop entity: contains a stop word :rt @lindsaypereira
+Spam: too less co-occuring entities: dialogues Cooccuring: [ : 8.0, academy : 8.0]
+Stop entity: contains a stop word :rt @anku6
+Stop entity: contains a stop word :rt @manojavanoor
+Stop entity: length<2 :Š
+Stop entity: contains too many non-alphanumerics :consensus #lokpal #loka
+Stop entity: contains a stop word :rt @abhisar_sharma
+Spam: too less co-occuring entities: insert Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains too many non-alphanumerics :today http:\/\/t.c
+Stop entity: contains a stop word :rt @devnakshi
+Spam: too less co-occuring entities: arunj Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains a stop word :rt @paulwsj http:\/\/t.co\/nda0tuqp
+Spam: too less co-occuring entities: live Cooccuring: [ : 8.0, rajya sabha : 8.0]
+Spam: too less co-occuring entities: fag end Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :rt @ikabirbedi
+Spam: too less co-occuring entities: congress hasnt Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: constituency Cooccuring: [ : 4.0, rajya sabha : 4.0]
+Stop entity: contains a stop word :rt @cakiranb
+Stop entity: contains a stop word :rt @asraghunath
+Stop entity: contains too many non-alphanumerics :@waglenikhil @sagarikaghose
+Stop entity: contains too many non-alphanumerics :#jethmalanisays #lokpal
+Spam: too less co-occuring entities: food inspector Cooccuring: [ : 51.0, rt : 51.0]
+Stop entity: contains a stop word :rt @swamibramhachit
+Stop entity: contains a stop word :rt @kr_ravi
+Stop entity: contains a stop word :rt @rk_misra
+Spam: too less co-occuring entities: charade Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @navrang
+Stop entity: contains a stop word :rt @subtletea
+Stop entity: contains a stop word :rt @swanandsjoshi
+Spam: total count: aruna roy
+Stop entity: contains too many non-alphanumerics :hypocrisy\/populist
+Stop entity: contains a stop word :rt @indiantweeter
+Spam: too less co-occuring entities: don Cooccuring: [ : 53.0, rt : 53.0]
+Stop entity: contains a stop word :rt @vidyut
+Spam: too less co-occuring entities: god rajniti prasad Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: bribes Cooccuring: [ : 5.0, rt : 5.0]
+Stop entity: contains a stop word :rt @avinashbhat01
+Stop entity: contains a stop word :rt @sumoncnnibn
+Stop entity: contains a stop word :rt @kumarneeraj
+Stop entity: contains a stop word :rt @bjpfor2014
+Spam: too less co-occuring entities: @thecomicproject Cooccuring: [ : 15.0, rajya sabha : 15.0]
+Spam: too less co-occuring entities: humor Cooccuring: [ : 39.0, rt : 39.0]
+Stop entity: contains too many non-alphanumerics :@rajatsharmalive #arunjaitley speaking
+Stop entity: contains a stop word :rt @khupseprateek
+Stop entity: contains a stop word :rt @drrisingsun
+Stop entity: contains too many non-alphanumerics :@psychograph2k8
+Stop entity: contains a stop word :rt @dhume01
+Spam: too less co-occuring entities: simple Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :@drgiteshdev @sardesairajdeep @tiwaryhv dna
+Spam: too less co-occuring entities: haha gud Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: #jaitleysays pass Cooccuring: [ : 4.0, rt : 4.0]
+Spam: too less co-occuring entities: heart matter Cooccuring: [ : 5.0, rt : 5.0]
+Spam: too less co-occuring entities: selection Cooccuring: [ : 9.0, rt : 9.0]
+Stop entity: contains too many non-alphanumerics :#rajyasabha #lokpal @kiranks
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/bcsrexoc
+Spam: too less co-occuring entities: thing #bjp Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @seemagoswami
+Spam: total count: congressi
+Spam: too less co-occuring entities: lang Cooccuring: [ : 6.0]
+Stop entity: contains a stop word :rt @gmdnizam
+Stop entity: contains a stop word :rt @ashutoshnsingh
+Spam: too less co-occuring entities: too Cooccuring: [ : 6.0, rt : 6.0]
+Spam: too less co-occuring entities: dr. singhvi Cooccuring: [rt : 10.0,  : 5.0]
+Stop entity: contains a stop word :rt @geny_indian lol
+Spam: too less co-occuring entities: gathan ho Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains a stop word :rt @indiabtl
+Spam: total count: venkaiah
+Stop entity: contains too many non-alphanumerics :paradise #ramgopalyadav #lokpal
+Stop entity: contains a stop word :rt @sarcasan
+Stop entity: contains a stop word :rt @dpsatishcnnibn
+Stop entity: contains a stop word :rt @firstpostin cases
+Spam: total count: pavan bansal
+Stop entity: contains a stop word :rt @news_houndz
+Spam: too less co-occuring entities: tht Cooccuring: [ : 35.0, rajya sabha : 24.0]
+Stop entity: contains a stop word :rt @madversity
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/erk00u46
+Stop entity: contains a stop word :rt @rose_sachin
+Stop entity: contains too many non-alphanumerics :#waitingforpm #lokpal
+Spam: too less co-occuring entities: record Cooccuring: [ : 7.0, rt : 7.0]
+Spam: too less co-occuring entities: shalt Cooccuring: [ : 6.0]
+Stop entity: contains a stop word :rt @delhidreams
+Stop entity: contains a stop word :rt @meedana
+Spam: too less co-occuring entities: positn Cooccuring: [ : 10.0, rt : 10.0]
+Spam: too less co-occuring entities: govt majority selecti Cooccuring: [ : 6.0, rt : 6.0]
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/voyiqagg #ram
+Spam: too less co-occuring entities: orators kind #jethmalanisays Cooccuring: [ : 13.0, rt : 13.0]
+Stop entity: contains a stop word :rt @aj14us
+Spam: total count: sataahuva party
+Spam: too less co-occuring entities: #jaitle Cooccuring: [ : 11.0, rt : 11.0]
+Spam: too less co-occuring entities: ha sp Cooccuring: [ : 7.0, rt : 7.0]
+Stop entity: contains a stop word :rt @jindalgls
+Stop entity: contains a stop word :rt @neemak
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/1fdesnn7
+Stop entity: contains a stop word :rt @wikileaks
+Spam: too less co-occuring entities: direction Cooccuring: [ : 18.0, cbi : 18.0]
+Stop entity: contains too many non-alphanumerics :crimes #jaitleysays #lokpal
+Stop entity: contains a stop word :rt @lathu
+Stop entity: contains a stop word :rt @anandan_pk
+Stop entity: contains too many non-alphanumerics :http:\/\/t.co\/mwz4mqoo
+Spam: too less co-occuring entities: ko pass karvana mushkil hee naheen namumkin hai Cooccuring: [ : 53.0, rt : 53.0]
+Stop entity: contains a stop word :rt @alfred_prufrock
+Stop entity: contains a stop word :the
+Spam: too less co-occuring entities: women Cooccuring: [ : 4.0, rt : 4.0]
+Stop entity: contains too many non-alphanumerics :Šœlokpal bill
+Spam: too less co-occuring entities: context Cooccuring: [ : 15.0, rt : 15.0]
+Stop entity: contains too many non-alphanumerics :#shame #fb
+============filtered entities============
+============Valid entities============
+Valid: rajya sabha Count: 3941.0
+Valid: lokpal Count: 2733.0
+Valid: bill Count: 1808.0
+Valid: govt Count: 1371.0
+Valid: arun jaitley Count: 1308.0
+Valid: ram jethmalani Count: 1259.0
+Valid: lokpal bill Count: 1087.0
+Valid: bjp Count: 959.0
+Valid: debate Count: 863.0
+Valid: #lokpal Count: 783.0
+Valid: parliament Count: 742.0
+Valid: anna Count: 724.0
+Valid: congress Count: 694.0
+Valid: #rajyasabha Count: 669.0
+Valid: india Count: 659.0
+Valid: cbi Count: 646.0
+Valid: lok sabha Count: 584.0
+Valid: power Count: 568.0
+Valid: house Count: 539.0
+Valid: money Count: 532.0
+Valid: government Count: 530.0
+Valid: speech Count: 511.0
+Valid: people Count: 442.0
+Valid: corruption Count: 435.0
+Valid: someone Count: 421.0
+Valid: jethmalani Count: 413.0
+Valid: democracy Count: 363.0
+Valid: #lokpal bill Count: 354.0
+Valid: prospect Count: 351.0
+Valid: today Count: 349.0
+Valid: midnight Count: 332.0
+Valid: upa Count: 330.0
+Valid: amendments Count: 306.0
+Valid: politicians Count: 295.0
+Valid: @sardesairajdeep Count: 290.0
+Valid: cong Count: 285.0
+Valid: shame Count: 282.0
+Valid: day Count: 279.0
+Valid: chaos Count: 278.0
+Valid: time Count: 277.0
+Valid: law Count: 274.0
+Valid: years Count: 266.0
+Valid: prime minister Count: 252.0
+Valid: amendment Count: 246.0
+Valid: jaitley Count: 241.0
+Valid: vote Count: 235.0
+Valid: mps Count: 233.0
+Valid: nation Count: 233.0
+Valid: shri pranab mukherjee Count: 227.0
+Valid: today democracy Count: 227.0
+Valid: media Count: 226.0
+Valid: sitaram yechury Count: 222.0
+Valid: party Count: 221.0
+Valid: kanimozhi Count: 218.0
+Valid: team anna Count: 202.0
+Valid: bsp Count: 199.0
+Valid: session Count: 197.0
+Valid: agenda Count: 194.0
+Valid: abhishek manu singhvi Count: 193.0
+Valid: ngos Count: 183.0
+Valid: country Count: 179.0
+Valid: rajiv shukla Count: 173.0
+Valid: opposition Count: 170.0
+Valid: rajya Count: 169.0
+Valid: control Count: 169.0
+Valid: song Count: 166.0
+Valid: @firstpostin Count: 164.0
+Valid: days Count: 161.0
+Valid: @bdutt Count: 160.0
+Valid: national Count: 159.0
+Valid: war Count: 158.0
+Valid: speaker Count: 157.0
+Valid: sense Count: 157.0
+Valid: everyone Count: 157.0
+Valid: rjd Count: 155.0
+Valid: eyes Count: 155.0
+Valid: magazine Count: 154.0
+Valid: singhvi Count: 152.0
+Valid: name Count: 152.0
+Valid: @thekiranbedi Count: 151.0
+Valid: arnab goswami Count: 149.0
+Valid: wah Count: 144.0
+Valid: rahul gandhi Count: 142.0
+Valid: interest Count: 142.0
+Valid: conspiracy Count: 142.0
+Valid: yechury Count: 141.0
+Valid: #jaitleysays Count: 140.0
+Valid: lot Count: 139.0
+Valid: faith Count: 138.0
+Valid: states Count: 136.0
+Valid: sonia Count: 136.0
+Valid: supreme Count: 135.0
+Valid: leader Count: 134.0
+Valid: night Count: 133.0
+Valid: wud Count: 132.0
+Valid: ayes Count: 132.0
+Valid: nos Count: 132.0
+Valid: thanks Count: 130.0
+Valid: #paidmedia Count: 130.0
+Valid: reservation Count: 129.0
+Valid: attempt Count: 128.0
+Valid: campaign Count: 128.0
+Valid: hope Count: 127.0
+Valid: ruckus Count: 126.0
+Valid: loser Count: 126.0
+Valid: tmc Count: 126.0
+Valid: voting Count: 125.0
+Valid: yechury jaitley Count: 125.0
+Valid: bat Count: 121.0
+Valid: right Count: 120.0
+Valid: @seemagoswami Count: 119.0
+Valid: anna hazare Count: 119.0
+Valid: majority Count: 118.0
+Valid: person Count: 118.0
+Valid: govt claim Count: 117.0
+Valid: politics Count: 116.0
+Valid: parties Count: 115.0
+Valid: murder Count: 115.0
+Valid: video Count: 115.0
+Valid: months Count: 113.0
+Valid: december Count: 112.0
+Valid: d intellectuals n politicians Count: 112.0
+Valid: tihar Count: 111.0
+Valid: fraud Count: 111.0
+Valid: rajiv gandhi Count: 108.0
+Valid: history Count: 107.0
+Valid: job Count: 106.0
+Valid: hearing arun jaitley Count: 104.0
+Valid: internet Count: 103.0
+Valid: sachin tendulkar Count: 103.0
+Valid: manmohan singh Count: 102.0
+Valid: mumbai Count: 100.0
+Valid: hamid ansari Count: 98.0
+Valid: abuse Count: 95.0
+Valid: guess w Count: 95.0
+Valid: dec Count: 94.0
+Valid: nothing Count: 92.0
+Valid: delhi Count: 92.0
+Valid: representation Count: 91.0
+Valid: cover Count: 91.0
+Valid: demand Count: 90.0
+Valid: leaders Count: 90.0
+Valid: independen Count: 87.0
+Valid: rajniti prasad Count: 87.0
+Valid: kapil sibal Count: 86.0
+Valid: status Count: 85.0
+Valid: court Count: 85.0
+Valid: raja Count: 85.0
+Valid: society groups Count: 84.0
+Valid: @digvijaya_28 Count: 83.0
+Valid: divisive politics Count: 83.0
+Valid: dirty Count: 83.0
+Valid: defeat Count: 82.0
+Valid: times Count: 82.0
+Valid: man Count: 82.0
+Valid: bec Count: 82.0
+Valid: chairman Count: 81.0
+Valid: approval Count: 81.0
+Valid: end Count: 81.0
+Valid: sushma swaraj Count: 81.0
+Valid: mcg Count: 80.0
+Valid: reality Count: 80.0
+Valid: vindication Count: 80.0
+Valid: allegations #annahazare Count: 80.0
+Valid: accounts Count: 78.0
+Valid: passing Count: 77.0
+Valid: die Count: 77.0
+Valid: post midnight Count: 77.0
+Valid: new delhi Count: 76.0
+Valid: sabha Count: 76.0
+Valid: ours Count: 76.0
+Valid: ram vilas paswan Count: 76.0
+Valid: #jethmalanisays Count: 76.0
+Valid: singhvi lokpal Count: 76.0
+Valid: speakers Count: 76.0
+Valid: dude Count: 75.0
+Valid: action Count: 75.0
+Valid: clause Count: 74.0
+Valid: #dhokha india Count: 73.0
+Valid: gnight Count: 73.0
+Valid: text Count: 73.0
+Valid: probity Count: 72.0
+Valid: manu sharma Count: 72.0
+Valid: slap Count: 72.0
+Valid: ram Count: 71.0
+Valid: sir Count: 71.0
+Valid: game-changer Count: 71.0
+Valid: dmk Count: 71.0
+Valid: irony Count: 71.0
+Valid: #lokp Count: 69.0
+Valid: #annahazare Count: 69.0
+Valid: smokescreen Count: 69.0
+Valid: twitter Count: 69.0
+Valid: authority Count: 68.0
+Valid: discussion Count: 68.0
+Valid: mockery Count: 68.0
+Valid: member Count: 67.0
+Valid: anyone Count: 67.0
+Valid: lok Count: 67.0
+Valid: d nation Count: 67.0
+Valid: representatives Count: 67.0
+Valid: battle Count: 67.0
+Valid: neg Count: 67.0
+Valid: sena Count: 66.0
+Valid: #anna Count: 66.0
+Valid: ndtv cnn ibn headlines toda Count: 66.0
+Valid: time govt Count: 66.0
+Valid: game Count: 66.0
+Valid: sc mishra Count: 66.0
+Valid: consciousness Count: 66.0
+Valid: #rajya sabha Count: 66.0
+Valid: key adm Count: 65.0
+Valid: skeletons Count: 65.0
+Valid: cupboards Count: 65.0
+Valid: suspects Count: 65.0
+Valid: lokayukta Count: 65.0
+Valid: crowd Count: 64.0
+Valid: @ndtv Count: 64.0
+Valid: uproar Count: 64.0
+Valid: remarks Count: 63.0
+Valid: @ibnliverealtime Count: 63.0
+Valid: flutter Count: 63.0
+Valid: annahazare Count: 62.0
+Valid: lok sabha rajya Count: 62.0
+Valid: pranabda Count: 62.0
+Valid: questions Count: 61.0
+Valid: purview Count: 61.0
+Valid: bills Count: 61.0
+Valid: trp Count: 61.0
+Valid: dog Count: 61.0
+Valid: bri Count: 61.0
+Valid: words Count: 61.0
+Valid: shiv Count: 61.0
+Valid: leaders d Count: 61.0
+Valid: year Count: 60.0
+Valid: members Count: 60.0
+Valid: #janlokpal Count: 60.0
+Valid: hungry Count: 60.0
+Valid: toy Count: 60.0
+Valid: rajya abu dhabi malayali Count: 60.0
+Valid: queen bee Count: 59.0
+Valid: dis tamasha Count: 59.0
+Valid: future Count: 59.0
+Valid: wanna Count: 59.0
+Valid: jus Count: 59.0
+Valid: cnn-ibn Count: 58.0
+Valid: mechanism Count: 58.0
+Valid: sonia gandhi Count: 57.0
+Valid: hahaha Count: 57.0
+Valid: act Count: 57.0
+Valid: arun jaitley congress Count: 57.0
+Valid: fuck Count: 56.0
+Valid: rahul Count: 56.0
+Valid: lesson Count: 56.0
+Valid: speach Count: 56.0
+Valid: institution Count: 56.0
+Valid: minute Count: 55.0
+Valid: constitution Count: 55.0
+Valid: @bhupendrachaube Count: 55.0
+Valid: whistleblower Count: 55.0
+Valid: ram gopal yadav Count: 54.0
+Valid: #fb Count: 54.0
+Valid: bodies Count: 54.0
+Valid: face Count: 54.0
+Valid: front Count: 54.0
+Valid: tomorrow Count: 54.0
+Valid: #teamanna Count: 53.0
+Valid: trinamool Count: 53.0
+Valid: son Count: 53.0
+Valid: constitutional Count: 53.0
+Valid: versions Count: 52.0
+Valid: nobody Count: 52.0
+Valid: patches Count: 52.0
+Valid: software Count: 52.0
+Valid: summary Count: 52.0
+Valid: #paswansays Count: 51.0
+Valid: statism Count: 51.0
+Valid: jaaoe Count: 50.0
+Valid: things Count: 50.0
+Valid: adjournment Count: 50.0
+Valid: nahhi toe jaayoe Count: 50.0
+Valid: eden gardens Count: 50.0
+Valid: narayanasamy Count: 50.0
+Valid: rajy Count: 50.0
+Valid: class Count: 49.0
+Valid: intention Count: 49.0
+Valid: tweeple Count: 49.0
+Valid: dharna Count: 49.0
+Valid: constituents Count: 48.0
+Valid: jokepal Count: 48.0
+Valid: protest strategy Count: 48.0
+Valid: thokpal Count: 48.0
+Valid: hour befor Count: 48.0
+Valid: office Count: 47.0
+Valid: ones Count: 47.0
+Valid: draft Count: 47.0
+Valid: part Count: 47.0
+Valid: guard Count: 46.0
+Valid: party ticket Count: 46.0
+Valid: mms Count: 46.0
+Valid: reason Count: 46.0
+Valid: parties-same leaders Count: 46.0
+Valid: d lok Count: 46.0
+Valid: drama Count: 46.0
+Valid: roses Count: 45.0
+Valid: dogs Count: 45.0
+Valid: shiv sena Count: 45.0
+Valid: investigation Count: 45.0
+Valid: womb Count: 45.0
+Valid: sources Count: 44.0
+Valid: dream Count: 44.0
+Valid: madness Count: 44.0
+Valid: ghost Count: 44.0
+Valid: rajbala Count: 44.0
+Valid: houses Count: 44.0
+Valid: rjd mp Count: 44.0
+Valid: method Count: 44.0
+Valid: rajya rajiv Count: 44.0
+Valid: sale Count: 43.0
+Valid: case Count: 43.0
+Valid: cag Count: 43.0
+Valid: note Count: 43.0
+Valid: conflict Count: 43.0
+Valid: absence Count: 43.0
+Valid: federalism Count: 42.0
+Valid: tonight Count: 42.0
+Valid: morning sun Count: 42.0
+Valid: body Count: 42.0
+Valid: @ibnlivepolitics Count: 42.0
+Valid: ploy Count: 42.0
+Valid: hit Count: 42.0
+Valid: fog Count: 41.0
+Valid: pilibhit Count: 41.0
+Valid: ramvilas paswan Count: 41.0
+Valid: meaning Count: 41.0
+Valid: shock party candidate Count: 41.0
+Valid: political war Count: 41.0
+Valid: #congress ticket Count: 41.0
+Valid: #ht Count: 41.0
+Valid: #rahul Count: 41.0
+Valid: place Count: 41.0
+Valid: appointment Count: 41.0
+Valid: aye Count: 41.0
+Valid: half Count: 41.0
+Valid: minority Count: 41.0
+Valid: time extension Count: 41.0
+Valid: arun jaitely Count: 40.0
+Valid: mamata Count: 40.0
+Valid: past Count: 40.0
+Valid: fate Count: 40.0
+Valid: powers Count: 40.0
+Valid: matters Count: 40.0
+Valid: quota Count: 39.0
+Valid: lol Count: 39.0
+Valid: touch Count: 39.0
+Valid: issues Count: 39.0
+Valid: voters Count: 39.0
+Valid: hours Count: 39.0
+Valid: attack Count: 38.0
+Valid: armpit Count: 38.0
+Valid: force bjp Count: 38.0
+Valid: strategy Count: 38.0
+Valid: jaitley cbi Count: 38.0
+Valid: residence Count: 38.0
+Valid: question Count: 38.0
+Valid: advaniji Count: 38.0
+Valid: lokpal bill rajya Count: 38.0
+Valid: numbers Count: 38.0
+Valid: fact Count: 38.0
+Valid: @sushmaswarajbjp Count: 38.0
+Valid: loksabha Count: 38.0
+Valid: Š cents Count: 38.0
+Valid: consistency Count: 37.0
+Valid: balbir punj Count: 37.0
+Valid: @bdutt jaitley Count: 37.0
+Valid: word Count: 37.0
+Valid: vilas paswan Count: 37.0
+Valid: trickery Count: 37.0
+Valid: @aag arun jaitley Count: 37.0
+Valid: #yechurysays Count: 37.0
+Valid: admin control lokpal Count: 37.0
+Valid: legislation #l Count: 37.0
+Valid: exposure Count: 36.0
+Valid: blast Count: 36.0
+Valid: money ll Count: 36.0
+Valid: script Count: 36.0
+Valid: investigations Count: 36.0
+Valid: public Count: 36.0
+Valid: ramj Count: 36.0
+Valid: bedi | times Count: 36.0
+Valid: independence Count: 36.0
+Valid: lokpal congress Count: 36.0
+Valid: dad Count: 36.0
+Valid: bedi | times of india Count: 36.0
+Valid: nda Count: 36.0
+Valid: rajya sabha swiss magazine Count: 36.0
+Valid: constitutional amendment Count: 35.0
+Valid: upa raj Count: 35.0
+Valid: guess Count: 35.0
+Valid: @mediacrooks Count: 35.0
+Valid: samajwadi party Count: 35.0
+Valid: lokpal @bdutt singhvi lokpal Count: 35.0
+Valid: #govt Count: 35.0
+Valid: round Count: 35.0
+Valid: prerogative Count: 35.0
+Valid: voice Count: 34.0
+Valid: rajneeti prasad Count: 34.0
+Valid: judiciary recipe Count: 34.0
+Valid: film Count: 34.0
+Valid: strong lokpal Count: 34.0
+Valid: derek o'brien Count: 34.0
+Valid: fdi Count: 33.0
+Valid: fool Count: 33.0
+Valid: first Count: 33.0
+Valid: laws Count: 33.0
+Valid: allies Count: 33.0
+Valid: â Š Count: 33.0
+Valid: sake Count: 33.0
+Valid: intentions Count: 33.0
+Valid: extension Count: 33.0
+Valid: lokayuktas bill Count: 33.0
+Valid: issue corruption Count: 32.0
+Valid: murder democracy Count: 32.0
+Valid: #mishrasays Count: 32.0
+Valid: ndtv Count: 32.0
+Valid: cocktail Count: 32.0
+Valid: vande mataram Count: 32.0
+Valid: nuts p Count: 32.0
+Valid: team Count: 32.0
+Valid: version Count: 32.0
+Valid: lok pal Count: 31.0
+Valid: cricketers Count: 31.0
+Valid: minutes Count: 31.0
+Valid: century Count: 31.0
+Valid: autonomy Count: 31.0
+Valid: sort Count: 31.0
+Valid: debaters Count: 31.0
+Valid: jnu Count: 31.0
+Valid: expert Count: 31.0
+Valid: @pankajpachauri arun jaitely Count: 31.0
+Valid: spot Count: 31.0
+Valid: bjd Count: 31.0
+Valid: chandan mitra Count: 31.0
+Valid: pawan bansal Count: 31.0
+Valid: president Count: 31.0
+Valid: paper Count: 31.0
+Valid: one Count: 30.0
+Valid: regime change Count: 30.0
+Valid: issue Count: 30.0
+Valid: object Count: 30.0
+Valid: papers Count: 30.0
+Valid: long Count: 30.0
+Valid: everybody Count: 30.0
+Valid: debates Count: 30.0
+Valid: bill n Count: 30.0
+Valid: 2moro Count: 30.0
+Valid: cnn ibn Count: 30.0
+Valid: graft Count: 30.0
+Valid: rajya sabha verbal masturbation Count: 30.0
+Valid: post Count: 30.0
+Valid: need Count: 29.0
+Valid: #rjd Count: 29.0
+Valid: #lokpa Count: 29.0
+Valid: rs debate Count: 29.0
+Valid: swiss Count: 29.0
+Valid: points Count: 29.0
+Valid: scam Count: 29.0
+Valid: sarkari lokpal bill Count: 29.0
+Valid: opp Count: 29.0
+Valid: proceedings Count: 29.0
+Valid: point Count: 28.0
+Valid: team #anna Count: 28.0
+Valid: inch Count: 28.0
+Valid: something Count: 28.0
+Valid: discovery Count: 28.0
+Valid: spite Count: 28.0
+Valid: bsp congress Count: 28.0
+Valid: home Count: 28.0
+Valid: army Count: 28.0
+Valid: protests Count: 28.0
+Valid: everything Count: 28.0
+Valid: tears papers Count: 28.0
+Valid: turban Count: 28.0
+Valid: #mitrasays Count: 28.0
+Valid: lef Count: 28.0
+Valid: mere lokpal Count: 27.0
+Valid: evidence Count: 27.0
+Valid: commotion Count: 27.0
+Valid: lokpa Count: 27.0
+Valid: party sources Count: 27.0
+Valid: netas Count: 27.0
+Valid: hour Count: 27.0
+Valid: ek aadhi padhi Count: 27.0
+Valid: copy Count: 27.0
+Valid: arnab Count: 27.0
+Valid: society Count: 27.0
+Valid: puppet Count: 27.0
+Valid: echoes Count: 27.0
+Valid: #rerun Count: 27.0
+Valid: loss Count: 27.0
+Valid: way bjp leaders Count: 27.0
+Valid: treasury benches Count: 27.0
+Valid: hand Count: 27.0
+Valid: #congress Count: 27.0
+Valid: arun jaitley government Count: 26.0
+Valid: stroke Count: 26.0
+Valid: thing Count: 26.0
+Valid: god Count: 26.0
+Valid: support Count: 26.0
+Valid: kiran bedi Count: 26.0
+Valid: corruption act Count: 26.0
+Valid: accountability Count: 26.0
+Valid: punj Count: 26.0
+Valid: sine Count: 26.0
+Valid: rt@ndtv arun jaitley Count: 26.0
+Valid: part call Count: 26.0
+Valid: prevention Count: 26.0
+Valid: courage Count: 25.0
+Valid: acting Count: 25.0
+Valid: sheets Count: 25.0
+Valid: viewers Count: 25.0
+Valid: frm d Count: 25.0
+Valid: page Count: 25.0
+Valid: pranab Count: 25.0
+Valid: thru Count: 25.0
+Valid: thursday Count: 25.0
+Valid: cec Count: 25.0
+Valid: accountability #india Count: 25.0
+Valid: big Count: 25.0
+Valid: inside parliament Count: 25.0
+Valid: watch Count: 25.0
+Valid: corporates Count: 25.0
+Valid: @pbmehta Count: 25.0
+Valid: breakfast Count: 25.0
+Valid: applause Count: 25.0
+Valid: man today Count: 24.0
+Valid: nose teeth etc. Count: 24.0
+Valid: destruction Count: 24.0
+Valid: area Count: 24.0
+Valid: somebody Count: 24.0
+Valid: excuses Count: 24.0
+Valid: fear Count: 24.0
+Valid: movement Count: 24.0
+Valid: level Count: 24.0
+Valid: architect Count: 24.0
+Valid: link Count: 24.0
+Valid: standing ovation Count: 23.0
+Valid: aadha hai chandrama raat aadhi Count: 23.0
+Valid: tears Count: 23.0
+Valid: ko ahankaar Count: 23.0
+Valid: om puri Count: 23.0
+Valid: varna Count: 23.0
+Valid: arun jaitl Count: 23.0
+Valid: ppl Count: 23.0
+Valid: favor Count: 23.0
+Valid: reh Count: 23.0
+Valid: stand Count: 23.0
+Valid: koi Count: 23.0
+Valid: aise andhero Count: 23.0
+Valid: machines Count: 23.0
+Valid: shobha nahi Count: 23.0
+Valid: permission Count: 23.0
+Valid: pawar Count: 23.0
+Valid: journo Count: 23.0
+Valid: jaye teri meri baat Count: 23.0
+Valid: pappu Count: 23.0
+Valid: slap condemnation Count: 23.0
+Valid: notice Count: 23.0
+Valid: fault Count: 23.0
+Valid: deta Count: 23.0
+Valid: loktantra Count: 23.0
+Valid: match Count: 22.0
+Valid: provision Count: 22.0
+Valid: slogans Count: 22.0
+Valid: rajya sabha power Count: 22.0
+Valid: minorities Count: 22.0
+Valid: citizens fools Count: 22.0
+Valid: bjp tmc Count: 22.0
+Valid: charter Count: 22.0
+Valid: report Count: 22.0
+Valid: citizen Count: 22.0
+Valid: cost Count: 22.0
+Valid: kudos Count: 22.0
+Valid: winner Count: 22.0
+Valid: demand #janlokpal Count: 22.0
+Valid: @kiranks Count: 22.0
+Valid: mars Count: 21.0
+Valid: nonsense Count: 21.0
+Valid: pass Count: 21.0
+Valid: legislation Count: 21.0
+Valid: june Count: 21.0
+Valid: ram jethamalani Count: 21.0
+Valid: non-passage Count: 21.0
+Valid: ~ rajya sabha chairperson hamid ansari Count: 21.0
+Valid: inclusion Count: 21.0
+Valid: sci Count: 21.0
+Valid: hypocrisy opposition Count: 21.0
+Valid: @sagarikaghose Count: 21.0
+Valid: shades Count: 21.0
+Valid: structure Count: 21.0
+Valid: committee Count: 21.0
+Valid: moment Count: 21.0
+Valid: removal Count: 21.0
+Valid: rajya sabha lokpal Count: 21.0
+Valid: scathing Count: 21.0
+Valid: kolaveri Count: 21.0
+Valid: superintendence Count: 21.0
+Valid: boss Count: 21.0
+Valid: alien Count: 21.0
+Valid: midnight #murderofdemocracy Count: 21.0
+Valid: form Count: 21.0
+Valid: script-writing Count: 21.0
+Valid: cre Count: 20.0
+Valid: disqualification Count: 20.0
+Valid: lalu ram vilas Count: 20.0
+Valid: filibuster Count: 20.0
+Valid: bill draft Count: 20.0
+Valid: word @seemagoswami Count: 20.0
+Valid: life Count: 20.0
+Valid: sel Count: 20.0
+Valid: #rajya Count: 20.0
+Valid: @chinmayi Count: 20.0
+Valid: precedent Count: 20.0
+Valid: b'cuz Count: 20.0
+Valid: citizens Count: 20.0
+Valid: babus Count: 20.0
+Valid: way Count: 20.0
+Valid: quest Count: 20.0
+Valid: child Count: 20.0
+Valid: neighbor #arunjaitley Count: 20.0
+Valid: vot Count: 20.0
+Valid: leader b raut Count: 20.0
+Valid: bharatiya janata party Count: 20.0
+Valid: lalu & ram vilas Count: 20.0
+Valid: guts Count: 20.0
+Valid: epic pwnage Count: 20.0
+Valid: blackmoney Count: 19.0
+Valid: credit w Count: 19.0
+Valid: share Count: 19.0
+Valid: #jaitley Count: 19.0
+Valid: knowledge Count: 19.0
+Valid: wish Count: 19.0
+Valid: dont knw abt d ambit Count: 19.0
+Valid: agai Count: 19.0
+Valid: dear sonia Count: 19.0
+Valid: rahulbaba becom Count: 19.0
+Valid: @coolfunnytsh Count: 19.0
+Valid: elephant Count: 19.0
+Valid: west bengal Count: 19.0
+Valid: @dimaagkoshot dont knw abt d ambit Count: 19.0
+Valid: @smritiirani Count: 19.0
+Valid: hain Count: 19.0
+Valid: well Count: 19.0
+Valid: anil kapoor Count: 19.0
+Valid: anil k Count: 19.0
+Valid: power abso Count: 19.0
+Valid: mishra Count: 18.0
+Valid: dreams Count: 18.0
+Valid: mean Count: 18.0
+Valid: jala Count: 18.0
+Valid: corp. Count: 18.0
+Valid: nomination Count: 18.0
+Valid: bil Count: 18.0
+Valid: satish chandra mishra Count: 18.0
+Valid: atal bihari vajpayee Count: 18.0
+Valid: narayanswamy Count: 18.0
+Valid: jaitely Count: 18.0
+Valid: amul Count: 18.0
+Valid: mayawati Count: 18.0
+Valid: mistakes Count: 18.0
+Valid: rjd rajiniti prasad Count: 18.0
+Valid: matter Count: 18.0
+Valid: reforms Count: 18.0
+Valid: importance Count: 18.0
+Valid: jantarmantar Count: 18.0
+Valid: #rajy Count: 18.0
+Valid: singh Count: 18.0
+Valid: #lokpal rajya sabha Count: 17.0
+Valid: clauses Count: 17.0
+Valid: #rajyasabha power Count: 17.0
+Valid: j nehru Count: 17.0
+Valid: fall Count: 17.0
+Valid: trinamool congress Count: 17.0
+Valid: govt domination Count: 17.0
+Valid: rajya sabha chairman Count: 17.0
+Valid: kejariwal Count: 17.0
+Valid: ralegan siddhi Count: 17.0
+Valid: @toiindianews Count: 17.0
+Valid: appointment clause Count: 17.0
+Valid: midnight s Count: 17.0
+Valid: youtube Count: 17.0
+Valid: kahin pe nigahein nishana Count: 17.0
+Valid: rashid alvi Count: 17.0
+Valid: reservations Count: 17.0
+Valid: kejriwal Count: 17.0
+Valid: tryst Count: 17.0
+Valid: decades Count: 17.0
+Valid: budg Count: 17.0
+Valid: squib Count: 17.0
+Valid: piece Count: 17.0
+Valid: sonia stooge hamid ansari Count: 17.0
+Valid: rajnikanth Count: 17.0
+Valid: shreds Count: 17.0
+Valid: egg Count: 16.0
+Valid: revenge Count: 16.0
+Valid: comment Count: 16.0
+Valid: politician Count: 16.0
+Valid: law minister Count: 16.0
+Valid: tht midnight oil Count: 16.0
+Valid: lokpal samajwadi party Count: 16.0
+Valid: clause55 Count: 16.0
+Valid: assistance Count: 16.0
+Valid: hightime Count: 16.0
+Valid: pants Count: 16.0
+Valid: pmo Count: 16.0
+Valid: cong lokpal Count: 16.0
+Valid: lok sabha tuesday Count: 16.0
+Valid: itz Count: 16.0
+Valid: crocodile tears Count: 16.0
+Valid: #kol Count: 16.0
+Valid: air Count: 16.0
+Valid: newspaper owner Count: 16.0
+Valid: omelette Count: 16.0
+Valid: bjp leader arun jaitley Count: 16.0
+Valid: digvijay singh Count: 16.0
+Valid: choreography Count: 16.0
+Valid: former Count: 16.0
+Valid: cont Count: 16.0
+Valid: yeh kaun hai annahazare Count: 16.0
+Valid: folks thx Count: 16.0
+Valid: arguments Count: 16.0
+Valid: portugal Count: 16.0
+Valid: shobna bhartia Count: 16.0
+Valid: lawyer Count: 16.0
+Valid: terrorists Count: 16.0
+Valid: rjd mp rajniti prasad Count: 16.0
+Valid: judgement Count: 16.0
+Valid: bjp sab Count: 16.0
+Valid: shri hamid ansari Count: 16.0
+Valid: bhagwan Count: 16.0
+Valid: joke Count: 16.0
+Valid: lokpal bill video | Count: 16.0
+Valid: salman khurshid Count: 16.0
+Valid: india against corruption Count: 16.0
+Valid: yesterday Count: 16.0
+Valid: o bhui abhishek jaitley Count: 16.0
+Valid: abhishek jaitley Count: 16.0
+Valid: con Count: 16.0
+Valid: mr jaitley Count: 16.0
+Valid: lokpal itz Count: 16.0
+Valid: procedure #lokpal Count: 15.0
+Valid: performances Count: 15.0
+Valid: kya Count: 15.0
+Valid: straight Count: 15.0
+Valid: bcoz Count: 15.0
+Valid: funding Count: 15.0
+Valid: ram jethmalani corruption Count: 15.0
+Valid: iss raat Count: 15.0
+Valid: possi Count: 15.0
+Valid: narad Count: 15.0
+Valid: subah nahin Count: 15.0
+Valid: stage protest Count: 15.0
+Valid: bank account Count: 15.0
+Valid: way indira murdered Count: 15.0
+Valid: lokayukta provisions Count: 15.0
+Valid: besharam s Count: 15.0
+Valid: % growth rate Count: 15.0
+Valid: rule nda Count: 15.0
+Valid: govt majority Count: 15.0
+Valid: murderers Count: 15.0
+Valid: complex Count: 15.0
+Valid: concerns Count: 15.0
+Valid: spirit Count: 15.0
+Valid: ht government Count: 15.0
+Valid: indian parliament Count: 15.0
+Valid: prosection Count: 15.0
+Valid: economy Count: 15.0
+Valid: failure Count: 15.0
+Valid: pti Count: 15.0
+Valid: cvc cbi lokpal Count: 15.0
+Valid: ambit Count: 15.0
+Valid: jaat dal Count: 15.0
+Valid: legalese Count: 15.0
+Valid: intent Count: 15.0
+Valid: bsp nda Count: 15.0
+Valid: sanction Count: 15.0
+Valid: haha Count: 15.0
+Valid: #rajyasabha process Count: 15.0
+Valid: rajivshukla Count: 15.0
+Valid: television Count: 15.0
+Valid: talks Count: 15.0
+Valid: birth Count: 15.0
+Valid: ramdev Count: 15.0
+Valid: htt Count: 15.0
+Valid: supporters Count: 15.0
+Valid: cnn-ibn Š Count: 15.0
+Valid: ball Count: 15.0
+Valid: democracy much Count: 15.0
+Valid: lokayuktas Count: 15.0
+Valid: inst Count: 14.0
+Valid: democracy #lokpa Count: 14.0
+Valid: embarrassment Count: 14.0
+Valid: remai Count: 14.0
+Valid: lalu prasad yadav bjp Count: 14.0
+Valid: kitne Count: 14.0
+Valid: rajya sabha sitaram yechury Count: 14.0
+Valid: prasoon joshi Count: 14.0
+Valid: supreme court Count: 14.0
+Valid: behavior Count: 14.0
+Valid: raul Count: 14.0
+Valid: #arunjaitley Count: 14.0
+Valid: today speech Count: 14.0
+Valid: pat Count: 14.0
+Valid: passage Count: 14.0
+Valid: @kvsarmaj Count: 14.0
+Valid: noise Count: 14.0
+Valid: mazboot Count: 14.0
+Valid: kirti azad Count: 14.0
+Valid: call Count: 14.0
+Valid: understatement Count: 14.0
+Valid: @shilpitewari Count: 14.0
+Valid: hurdle Count: 14.0
+Valid: cnn Count: 14.0
+Valid: rjd member tears copy Count: 14.0
+Valid: cong mps Count: 14.0
+Valid: midnight hour Count: 14.0
+Valid: decisions Count: 14.0
+Valid: mobocracy Count: 14.0
+Valid: rules Count: 14.0
+Valid: gaaya lokpal bill Count: 14.0
+Valid: @thinkerspad Count: 14.0
+Valid: situation Count: 14.0
+Valid: manmohan Count: 14.0
+Valid: complex mine field Count: 14.0
+Valid: roasts Count: 14.0
+Valid: kirron kher Count: 14.0
+Valid: jurisdiction Count: 14.0
+Valid: kirti azad bjp Count: 14.0
+Valid: congi Count: 14.0
+Valid: hurry Count: 14.0
+Valid: rajyasabha Count: 14.0
+Valid: gandhi Count: 14.0
+Valid: consensus Count: 14.0
+Valid: games Count: 14.0
+Valid: goal Count: 14.0
+Valid: hotel Count: 14.0
+Valid: doubt fate Count: 14.0
+Valid: agencies Count: 14.0
+Valid: #tewarisays Count: 14.0
+Valid: cvc pj thoma Count: 14.0
+Valid: arun jaitley rajya sabha Count: 14.0
+Valid: diyar congress Count: 14.0
+Valid: month Count: 14.0
+Valid: institutions Count: 14.0
+Valid: aiadmk Count: 14.0
+Valid: salman khurshid west bengal Count: 14.0
+Valid: star Count: 14.0
+Valid: bravo Count: 13.0
+Valid: sri arun jaitley Count: 13.0
+Valid: resolution Count: 13.0
+Valid: drums Count: 13.0
+Valid: point abt Count: 13.0
+Valid: thugs Count: 13.0
+Valid: rofl Count: 13.0
+Valid: indian Count: 13.0
+Valid: ram vilas Count: 13.0
+Valid: revenge provision Count: 13.0
+Valid: wine Count: 13.0
+Valid: hearing tr Count: 13.0
+Valid: failures Count: 13.0
+Valid: alvi Count: 13.0
+Valid: lalu Count: 13.0
+Valid: blasts sarkari cleverness Count: 13.0
+Valid: @ibnliverealtime rajya sabha Count: 13.0
+Valid: holes Count: 13.0
+Valid: warehouse Count: 13.0
+Valid: terms #paswansays Count: 13.0
+Valid: lokpal govt Count: 13.0
+Valid: wea Count: 13.0
+Valid: yeh Count: 13.0
+Valid: faces Count: 13.0
+Valid: lead vocals Count: 13.0
+Valid: bashers Count: 13.0
+Valid: theatrical Count: 13.0
+Valid: dna Count: 13.0
+Valid: fight Count: 13.0
+Valid: operation Count: 13.0
+Valid: midnight today Count: 13.0
+Valid: #bb Count: 13.0
+Valid: rajya sabha lokpal bill Count: 13.0
+Valid: doubt Count: 13.0
+Valid: mirror raj Count: 13.0
+Valid: selection com Count: 13.0
+Valid: narayansami Count: 13.0
+Valid: paswan Count: 13.0
+Valid: gaddaronki niyyat Count: 13.0
+Valid: rashid Count: 13.0
+Valid: bro Count: 13.0
+Valid: theek nahe Count: 13.0
+Valid: govt nominees Count: 13.0
+Valid: new delhi rajya sabha lokpal bill Count: 13.0
+Valid: week Count: 13.0
+Valid: spit Count: 13.0
+Valid: aur abhi Count: 12.0
+Valid: abhi yeh lokpal bill Count: 12.0
+Valid: speeches truth hurt Count: 12.0
+Valid: cvc Count: 12.0
+Valid: shopping bill Count: 12.0
+Valid: digvijaya singh Count: 12.0
+Valid: dur ho Count: 12.0
+Valid: bill watch Count: 12.0
+Valid: trusts Count: 12.0
+Valid: kha gaya ye pooraa saal Count: 12.0
+Valid: responsibility Count: 12.0
+Valid: baap Count: 12.0
+Valid: rajya sabha part Count: 12.0
+Valid: lokpal bill lok sabha Count: 12.0
+Valid: civ Count: 12.0
+Valid: bill operation Count: 12.0
+Valid: gues Count: 12.0
+Valid: house tomorrow Count: 12.0
+Valid: kiron kher Count: 12.0
+Valid: arun jaitley tmc Count: 12.0
+Valid: speeches Count: 12.0
+Valid: opportunity Count: 12.0
+Valid: excitement Count: 12.0
+Valid: sherlock holm Count: 12.0
+Valid: kind Count: 12.0
+Valid: judge #raosays Count: 12.0
+Valid: ram kripal yadav Count: 12.0
+Valid: ambika soni Count: 12.0
+Valid: farce Count: 12.0
+Valid: loo Count: 12.0
+Valid: ruling coalition Count: 12.0
+Valid: #ijustwannasay Count: 12.0
+Valid: i.b minister Count: 12.0
+Valid: truth Count: 12.0
+Valid: https Count: 12.0
+Valid: @timesnowlive Count: 12.0
+Valid: conference tomorrow Count: 12.0
+Valid: ally tmc Count: 12.0
+Valid: rajiv Count: 12.0
+Valid: sentiments Count: 12.0
+Valid: balls Count: 12.0
+Valid: congresswallahs Count: 12.0
+Valid: rt@ushymohandas Count: 12.0
+Valid: article Count: 12.0
+Valid: prashant bhushan Count: 12.0
+Valid: parliame Count: 12.0
+Valid: charges Count: 12.0
+Valid: chase Count: 12.0
+Valid: dream clause Count: 12.0
+Valid: positions Count: 12.0
+Valid: kiran Count: 12.0
+Valid: bigg boss Count: 12.0
+Valid: reports Count: 12.0
+Valid: gujarat Count: 12.0
+Valid: sophistry Count: 12.0
+Valid: @indiantweeter Count: 12.0
+Valid: joint Count: 12.0
+Valid: credibili Count: 12.0
+Valid: mile Count: 12.0
+Valid: spouses Count: 12.0
+Valid: oppn Count: 12.0
+Valid: sycophant mps Count: 12.0
+Valid: council Count: 12.0
+Valid: bas Count: 12.0
+Valid: cases Count: 12.0
+Valid: expectations Count: 12.0
+Valid: jan Count: 12.0
+Valid: semi colon Count: 11.0
+Valid: mins Count: 11.0
+Valid: lp bill Count: 11.0
+Valid: bill ke ander laya jaye Count: 11.0
+Valid: change Count: 11.0
+Valid: occasions Count: 11.0
+Valid: display Count: 11.0
+Valid: dis-service Count: 11.0
+Valid: abhishek manu singhvi lokpal Count: 11.0
+Valid: investig Count: 11.0
+Valid: dear mps Count: 11.0
+Valid: india tv Count: 11.0
+Valid: debate btw Count: 11.0
+Valid: vijay darda Count: 11.0
+Valid: woh Count: 11.0
+Valid: bet Count: 11.0
+Valid: test Count: 11.0
+Valid: becau Count: 11.0
+Valid: abhishek manu singhviji Count: 11.0
+Valid: jaitley ji Count: 11.0
+Valid: workers Count: 11.0
+Valid: govt. Count: 11.0
+Valid: speech video Count: 11.0
+Valid: ngo Count: 11.0
+Valid: cash4lokpal Count: 11.0
+Valid: p kanna & vijay darda Count: 11.0
+Valid: #headlinestoday Count: 11.0
+Valid: kanna Count: 11.0
+Valid: process Count: 11.0
+Valid: traction Count: 11.0
+Valid: qpq perspective Count: 11.0
+Valid: stage Count: 11.0
+Valid: d rt @bdutt Count: 11.0
+Valid: sounds Count: 11.0
+Valid: dis Count: 11.0
+Valid: nahi Count: 11.0
+Valid: emergency Count: 11.0
+Valid: diversity Count: 11.0
+Valid: #paswansay Count: 11.0
+Valid: anti corruption Count: 11.0
+Valid: #shuklasays Count: 11.0
+Valid: respect Count: 11.0
+Valid: phir zaroorat hogi Count: 11.0
+Valid: health #u Count: 11.0
+Valid: norm Count: 11.0
+Valid: deletion Count: 11.0
+Valid: treaty Count: 11.0
+Valid: service Count: 11.0
+Valid: solidarity Count: 11.0
+Valid: guy Count: 11.0
+Valid: !!! Count: 11.0
+Valid: d scene Count: 11.0
+Valid: kani Count: 11.0
+Valid: move Count: 11.0
+Valid: votes Count: 11.0
+Valid: #singhvisays Count: 11.0
+Valid: bollywood awards Count: 11.0
+Valid: decoits Count: 11.0
+Valid: role Count: 11.0
+Valid: happnig Count: 11.0
+Valid: arunji Count: 11.0
+Valid: mumbaikars Count: 11.0
+Valid: arun jaitley gujarat governor Count: 11.0
+Valid: deal Count: 11.0
+Valid: soniagandhi Count: 11.0
+Valid: rights Count: 11.0
+Valid: ram #jethmalani Count: 11.0
+Valid: sachin tendul Count: 10.0
+Valid: media debate Count: 10.0
+Valid: chargesheet Count: 10.0
+Valid: baba Count: 10.0
+Valid: hindi Count: 10.0
+Valid: nuts Count: 10.0
+Valid: national conference Count: 10.0
+Valid: bucks Count: 10.0
+Valid: rajdeep Count: 10.0
+Valid: arvind kerjriwal Count: 10.0
+Valid: mayawati cbi Count: 10.0
+Valid: law minister salman khurshid Count: 10.0
+Valid: officer Count: 10.0
+Valid: amethi Count: 10.0
+Valid: team sonia Count: 10.0
+Valid: prime minister dr manmohan singh Count: 10.0
+Valid: chance Count: 10.0
+Valid: abt Count: 10.0
+Valid: !!!! Count: 10.0
+Valid: plot Count: 10.0
+Valid: maharashtra Count: 10.0
+Valid: pm india Count: 10.0
+Valid: point agenda Count: 10.0
+Valid: mla Count: 10.0
+Valid: nara Count: 10.0
+Valid: job t Count: 10.0
+Valid: @iacchennai Count: 10.0
+Valid: yeh anna hazare bhagwan hai Count: 10.0
+Valid: yadav Count: 10.0
+Valid: rip democracy rt Count: 10.0
+Valid: world Count: 10.0
+Valid: files Count: 10.0
+Valid: @quizderek Count: 10.0
+Valid: strength Count: 10.0
+Valid: power #lokpal Count: 10.0
+Valid: lokayukts Count: 10.0
+Valid: identity Count: 10.0
+Valid: bihar vidhan sabha Count: 10.0
+Valid: lokpal issue Count: 10.0
+Valid: hari kumar Count: 10.0
+Valid: state dont Count: 10.0
+Valid: deputy chairman Count: 10.0
+Valid: investment Count: 10.0
+Valid: bill cbi Count: 10.0
+Valid: speaker rajya sabha Count: 10.0
+Valid: @adityarajkaul Count: 10.0
+Valid: dua Count: 10.0
+Valid: rajya sabhato Count: 10.0
+Valid: circles Count: 10.0
+Valid: rae bareily Count: 10.0
+Valid: employer Count: 10.0
+Valid: corruption laws Count: 10.0
+Valid: aid Count: 10.0
+Valid: #jaitley ji Count: 10.0
+Valid: dr mum singh Count: 10.0
+Valid: bill amendments Count: 10.0
+Valid: kaun yeh Count: 10.0
+Valid: sri ram jethmalani Count: 10.0
+Valid: dear ram jethmalani Count: 10.0
+Valid: @shivaroor Count: 10.0
+Valid: @bhupendrachaube congratulations sir Count: 10.0
+Valid: spine passe Count: 10.0
+Valid: anna hazare bhagwan hai kya Count: 10.0
+Valid: left Count: 10.0
+Valid: effort Count: 10.0
+Valid: batting Count: 10.0
+Valid: orders Count: 10.0
+Valid: @sardesairajdeep cngrts Count: 10.0
+Valid: loss #singhvispeaks Count: 10.0
+Valid: right cheek Count: 10.0
+Valid: simpl Count: 10.0
+Valid: midnight rajya sabha Count: 10.0
+Valid: sukhendu shekhar roy Count: 10.0
+Valid: @gsurya Count: 10.0
+Valid: lawyers Count: 10.0
