@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -55,7 +54,7 @@ import com.redygest.grok.selection.mmr.BaselineMMRSelector;
  * 
  * Step 2: Preprocess (done in BaseJournalist)
  * 
- * Step 3: Feature Extraction & post filter
+ * Step 3: Feature Extraction & post filter (done in BaseJournalist)
  * 
  * Step 4: Generate graph
  * 
@@ -437,22 +436,11 @@ public class Journalist001 extends BaseJournalist {
 	protected void exec(String cmd) {
 		try {
 			Process p = Runtime.getRuntime().exec(cmd);
-
-			BufferedReader stdInput = new BufferedReader(new InputStreamReader(
-					p.getInputStream()));
-
-			BufferedReader stdError = new BufferedReader(new InputStreamReader(
-					p.getErrorStream()));
-
-			String s;
-			while ((s = stdInput.readLine()) != null) {
-				System.out.println(s);
-			}
-
-			while ((s = stdError.readLine()) != null) {
-				System.out.println(s);
-			}
+			p.waitFor();
 		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(-1);
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 			System.exit(-1);
 		}
