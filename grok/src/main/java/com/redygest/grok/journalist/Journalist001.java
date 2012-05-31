@@ -33,6 +33,8 @@ import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
+import com.redygest.grok.filtering.postextraction.PostExtractionPrefilterRunner;
+import com.redygest.grok.filtering.postextraction.PostExtractionPrefilterType;
 import com.redygest.grok.filtering.preextraction.PreExtractionPrefilterRunner;
 import com.redygest.grok.filtering.preextraction.PreExtractionPrefilterType;
 import com.redygest.grok.ranking.community.EntityPagerankCommunityRanking;
@@ -82,10 +84,13 @@ public class Journalist001 extends BaseJournalist {
 		this.scriptsDir = scriptsDir;
 		// default twitter preprocessor
 		this.preprocessor = new PreprocessorZ20120215();
-		// prefilter setup
+		// pre-extraction filter setup
 		this.preExtractionFilterRunner = new PreExtractionPrefilterRunner(
 				PreExtractionPrefilterType.NONENLGISH_LANG_FILTER,
 				PreExtractionPrefilterType.REPLY_TWEET_FILTER);
+		// post-extraction filter setup
+		this.postExtractionfilterRunner = new PostExtractionPrefilterRunner(
+				PostExtractionPrefilterType.FACT_OPINION_FILTER);
 	}
 
 	/*

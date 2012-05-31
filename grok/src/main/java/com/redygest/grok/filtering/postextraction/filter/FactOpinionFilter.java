@@ -3,6 +3,9 @@
  */
 package com.redygest.grok.filtering.postextraction.filter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Data;
 import com.redygest.grok.classifier.FacOpClassifier;
@@ -25,8 +28,21 @@ public class FactOpinionFilter implements IPostExtractionPrefilter {
 				config.getFacOpThreshold());
 	}
 
+	/**
+	 * Check if Data passes through filter
+	 */
 	public boolean pass(Data d) {
-		// TODO Auto-generated method stub
+		List<Data> dataList = new ArrayList<Data>();
+
+		if (d != null) {
+			dataList.add(d);
+			List<String> classificationResults = classifier.classify(dataList);
+			if (classificationResults != null
+					&& classificationResults.get(0).equals("1")) {
+				return false;
+			}
+		}
+
 		return true;
 	}
 }

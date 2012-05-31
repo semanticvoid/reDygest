@@ -23,6 +23,7 @@ public class FacOpClassifier extends VWClassifier {
 		super(model, threshold);
 	}
 
+	@Override
 	protected String getFeatures(Data d) {
 		StringBuffer features = new StringBuffer();
 		IFeaturesRepository repository = FeaturesRepository.getInstance();
@@ -37,7 +38,8 @@ public class FacOpClassifier extends VWClassifier {
 			Attributes attrs = var.getVariableAttributes();
 			for (String count : attrs
 					.getAttributeNames(AttributeType.POSBIGRAMCOUNT)) {
-				features.append(var.getVariableName() + ":" + count + " ");
+				features.append(var.getVariableName().replaceAll(" ", "_")
+						+ ":" + count + " ");
 			}
 		}
 
@@ -63,23 +65,21 @@ public class FacOpClassifier extends VWClassifier {
 				features.append(var.getVariableName() + ":" + count + " ");
 			}
 		}
-		
+
 		// adjectives
 		features.append("|adjfeatures ");
 		int adjCount = 0;
-		variables = fVector
-				.getVariablesWithAttributeType(AttributeType.POS);
+		variables = fVector.getVariablesWithAttributeType(AttributeType.POS);
 		for (Variable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
-			for (String tag : attrs
-					.getAttributeNames(AttributeType.POS)) {
-				if(tag.startsWith("JJ")) {
+			for (String tag : attrs.getAttributeNames(AttributeType.POS)) {
+				if (tag.startsWith("JJ")) {
 					adjCount += 1;
 				}
 			}
 		}
 		features.append("adjs:" + adjCount + " ");
-		
+
 		// pronouns
 		features.append("|ppfeatures ");
 		variables = fVector
@@ -91,7 +91,7 @@ public class FacOpClassifier extends VWClassifier {
 				features.append(var.getVariableName() + ":" + count + " ");
 			}
 		}
-		
+
 		// punctuations
 		features.append("|punctfeatures ");
 		variables = fVector
