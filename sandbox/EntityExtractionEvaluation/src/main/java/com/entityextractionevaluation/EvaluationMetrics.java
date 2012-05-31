@@ -27,7 +27,8 @@ import com.redygest.grok.prefilter.PrefilterRunner;
 
 /**
  * 
- * @author tejaswi contains all counts that the Filtering algo can use
+ * @author tejaswi 
+ * contains all counts that the Filtering algo can use
  */
 public class EvaluationMetrics {
 
@@ -102,6 +103,7 @@ public class EvaluationMetrics {
 
 	private void runMetrics() {
 		for (Data t : tweets) {
+			int retweetCount = ((Tweet) t).getRetweetCount();
 			Set<String> np_entities = new HashSet<String>();
 			Set<String> ner_entities = new HashSet<String>();
 
@@ -116,12 +118,12 @@ public class EvaluationMetrics {
 						.getAttributeNames(AttributeType.SYNONYM);
 				if (attrNames != null && attrNames.size() > 0) {
 					np_entities.add(attrNames.get(0).toLowerCase());
-					npCounts
-							.incrementCount(attrNames.get(0).toLowerCase(), 1.0);
+					npCounts.incrementCount(attrNames.get(0).toLowerCase(),
+							retweetCount);
 				} else {
 					np_entities.add(v.getVariableName().toLowerCase());
 					npCounts.incrementCount(v.getVariableName().toLowerCase(),
-							1.0);
+							retweetCount);
 				}
 			}
 
@@ -134,11 +136,11 @@ public class EvaluationMetrics {
 				if (attrNames != null && attrNames.size() > 0) {
 					ner_entities.add(attrNames.get(0).toLowerCase());
 					nerCounts.incrementCount(attrNames.get(0).toLowerCase(),
-							1.0);
+							retweetCount);
 				} else {
 					ner_entities.add(v.getVariableName().toLowerCase());
 					nerCounts.incrementCount(v.getVariableName().toLowerCase(),
-							1.0);
+							retweetCount);
 				}
 			}
 
@@ -146,7 +148,9 @@ public class EvaluationMetrics {
 			for (int i = 0; i < ner_ents.size(); i++) {
 				for (int j = i + 1; j < ner_ents.size(); j++) {
 					ner_ner_entityCooccurance.incrementCount(ner_ents.get(i),
-							ner_ents.get(j), 1.0);
+							ner_ents.get(j), retweetCount);
+					ner_ner_entityCooccurance.incrementCount(ner_ents.get(j),
+							ner_ents.get(i), retweetCount);
 				}
 			}
 
@@ -156,7 +160,7 @@ public class EvaluationMetrics {
 					if (np_ents.get(i).equalsIgnoreCase(ner_ents.get(j)))
 						continue;
 					np_ner_entityCooccurance.incrementCount(np_ents.get(i),
-							ner_ents.get(j), 1.0);
+							ner_ents.get(j), retweetCount);
 				}
 			}
 
