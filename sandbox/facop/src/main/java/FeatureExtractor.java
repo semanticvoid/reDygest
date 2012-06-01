@@ -16,7 +16,7 @@ import com.redygest.commons.nlp.TaggedToken;
  */
 public class FeatureExtractor {
 
-	private static final double TEST_PERCENT = 0.1;
+	private double testPercent = 0;
 	private static final SentiWordNet sentiWordNet = SentiWordNet.getInstance();
 
 	private static String memoizeText = null;
@@ -25,9 +25,10 @@ public class FeatureExtractor {
 	public Corpus training;
 	public Corpus test;
 
-	public FeatureExtractor() {
+	public FeatureExtractor(double testPercent) {
 		training = new Corpus();
 		test = new Corpus();
+		this.testPercent = testPercent;
 	}
 
 	public void readInstances(String corpusPath) {
@@ -40,7 +41,7 @@ public class FeatureExtractor {
 			while ((line = rdr.readLine()) != null) {
 				String[] tokens = line.split("\t");
 
-				if (Math.random() > TEST_PERCENT) {
+				if (Math.random() > testPercent) {
 					training.addInstance(new Instance(trainId++, tokens[0],
 							tokens[1]));
 				} else {
@@ -263,8 +264,8 @@ public class FeatureExtractor {
 	}
 
 	public static void main(String[] args) {
-		FeatureExtractor fe = new FeatureExtractor();
-		fe.readInstances(args[0]);
+		FeatureExtractor fe = new FeatureExtractor(Double.valueOf(args[0]));
+		fe.readInstances(args[1]);
 
 		// extract personal pronoun features
 		fe.extractFeaturesI(fe.training.getInstances());
