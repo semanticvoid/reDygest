@@ -9,6 +9,7 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.datatype.AttributeType;
+import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
@@ -49,6 +50,25 @@ public class EntityExtractorTest extends TestCase {
 		for (Variable var : variables) {
 			if (var.getVariableName().equals("Lokpal Bill")) {
 				assertTrue(true);
+				return;
+			}
+		}
+
+		fail();
+	}
+
+	public void testEntityFrequency() {
+		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(
+				String.valueOf(FeatureVectorCollection.GLOBAL_IDENTIFIER));
+		List<Variable> variables = fv
+				.getVariablesWithAttributeType(AttributeType.ENTITY);
+		for (Variable var : variables) {
+			Attributes attrs = var.getVariableAttributes();
+			if (attrs != null
+					&& attrs.containsAttributeType(AttributeType.FREQUENCY)) {
+				int freq = Integer.valueOf(attrs.getAttributeNames(
+						AttributeType.FREQUENCY).get(0));
+				assertEquals(1, freq);
 				return;
 			}
 		}
