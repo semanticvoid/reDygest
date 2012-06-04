@@ -24,9 +24,13 @@ import com.redygest.commons.data.Community;
 import com.redygest.commons.data.Community.CommunityAttribute;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
+import com.redygest.commons.data.Entity;
+import com.redygest.commons.data.Entity.EntityType;
+import com.redygest.commons.data.EntitySet;
 import com.redygest.commons.data.Query;
 import com.redygest.commons.data.Story;
 import com.redygest.commons.preprocessor.twitter.PreprocessorZ20120215;
+import com.redygest.grok.features.computation.FeatureVectorCollection;
 import com.redygest.grok.features.datatype.AttributeType;
 import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.FeatureVector;
@@ -124,6 +128,44 @@ public class Journalist001 extends BaseJournalist {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+
+		// ----------------- Entity Collection and filtering -----------------
+		// ----------------- experimental code for now -----------------------
+		// --------------------- STARTS -----------------------
+
+		// entity set
+		EntitySet entitySet = new EntitySet();
+		// get global feature vectors
+		FeatureVector globalFeatureVector = repository.getFeatureVector(String
+				.valueOf(FeatureVectorCollection.GLOBAL_IDENTIFIER));
+		// get ENTITY variables
+		List<Variable> variables = globalFeatureVector
+				.getVariablesWithAttributeType(AttributeType.ENTITY);
+		for (Variable var : variables) {
+			String entityName = var.getVariableName();
+			Attributes attrs = var.getVariableAttributes();
+			long frequency = 1;
+			EntityType type = null;
+
+			if (attrs != null
+					&& attrs.containsAttributeType(AttributeType.NPENTITY)) {
+				type = EntityType.NP;
+			} else {
+				type = EntityType.NE;
+			}
+
+			if (attrs != null
+					&& attrs.containsAttributeType(AttributeType.FREQUENCY)
+					&& attrs.getAttributeNames(AttributeType.FREQUENCY) != null
+					&& attrs.getAttributeNames(AttributeType.FREQUENCY).size() > 0) {
+				frequency = Long.valueOf(attrs.getAttributeNames(
+						AttributeType.FREQUENCY).get(0));
+			}
+
+			entitySet.add(new Entity(type, entityName, frequency));
+		}
+
+		// --------------------- ENDS -----------------------
 
 		for (Data t : tweets) {
 			Set<String> entities = new HashSet<String>();
