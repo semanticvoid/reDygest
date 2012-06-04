@@ -1,9 +1,9 @@
 /**
  * 
  */
-package com.redygest.grok.filtering.postextraction;
+package com.redygest.grok.filtering.data.postextraction;
 
-import com.redygest.grok.filtering.postextraction.filter.FactOpinionFilter;
+import com.redygest.grok.filtering.data.postextraction.filter.FactOpinionFilter;
 
 /**
  * Post Feature Extraction Filter Factory Class

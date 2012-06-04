@@ -1,4 +1,4 @@
-package com.redygest.grok.filtering.preextraction;
+package com.redygest.grok.filtering.data.preextraction;
 
 /**
  * Prefilter Interface

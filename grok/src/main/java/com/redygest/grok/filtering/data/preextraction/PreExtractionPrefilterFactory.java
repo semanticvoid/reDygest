@@ -1,10 +1,10 @@
 /**
  * 
  */
-package com.redygest.grok.filtering.preextraction;
+package com.redygest.grok.filtering.data.preextraction;
 
-import com.redygest.grok.filtering.preextraction.filter.NonEnglishFilter;
-import com.redygest.grok.filtering.preextraction.filter.ReplyTweetFilter;
+import com.redygest.grok.filtering.data.preextraction.filter.NonEnglishFilter;
+import com.redygest.grok.filtering.data.preextraction.filter.ReplyTweetFilter;
 
 /**
  * Prefilter Factory Class

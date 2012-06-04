@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.redygest.grok.filtering.postextraction.filter;
+package com.redygest.grok.filtering.data.postextraction.filter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.List;
 import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Data;
 import com.redygest.grok.classifier.FacOpClassifier;
-import com.redygest.grok.filtering.postextraction.IPostExtractionPrefilter;
+import com.redygest.grok.filtering.data.postextraction.IPostExtractionPrefilter;
 
 /**
  * Filter to filter opinions

@@ -1,7 +1,7 @@
 package com.redygest.grok.prefilter;
 
-import com.redygest.grok.filtering.preextraction.PreExtractionPrefilterRunner;
-import com.redygest.grok.filtering.preextraction.PreExtractionPrefilterType;
+import com.redygest.grok.filtering.data.preextraction.PreExtractionPrefilterRunner;
+import com.redygest.grok.filtering.data.preextraction.PreExtractionPrefilterType;
 
 import junit.framework.TestCase;
 

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.redygest.grok.filtering.preextraction;
+package com.redygest.grok.filtering.data.preextraction;
 
 import java.util.ArrayList;
 import java.util.List;
