@@ -190,26 +190,25 @@ public class FilterEntities {
 	public static void main(String[] args) {
 		try {
 			// output file
-			BufferedWriter bw = new BufferedWriter(
-					new BufferedWriter(
-							new FileWriter(
-									"/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_2.entities.txt")));
+			BufferedWriter bw = new BufferedWriter(new BufferedWriter(
+					new FileWriter("/tmp/entities.txt")));
 			FilterEntities fe = new FilterEntities(
-					"/Users/tejaswi/Documents/workspace/reDygest/datasets/dedup/lokpal_0_2");
+					"/Users/semanticvoid/projects/reDygest/datasets/dedup/lokpal_0_5");
 			fe.filterEntities();
 
 			System.out.println("============filtered entities============");
 			fe.consoleMessages
 					.append("============filtered entities============\n");
-			// for (String ent : fe.stopEntities) {
-			// System.out.println("Filtered: " + ent);
-			// //
-			// System.out.println("NE Count: "+fe.em.ner_counts.getCount(ent));
-			// //
-			// System.out.println("NP Count: "+fe.em.np_counts.getCount(ent));
-			// fe.consoleMessages.append("Filtered: " + ent);
-			// fe.consoleMessages.append("\n");
-			// }
+			for (String ent : fe.stopEntities) {
+				System.out.println("Filtered: " + ent);
+				//
+				System.out
+						.println("NE Count: " + fe.em.nerCounts.getCount(ent));
+				//
+				System.out.println("NP Count: " + fe.em.npCounts.getCount(ent));
+				fe.consoleMessages.append("Filtered: " + ent);
+				fe.consoleMessages.append("\n");
+			}
 
 			System.out.println("============Valid entities============");
 			fe.consoleMessages

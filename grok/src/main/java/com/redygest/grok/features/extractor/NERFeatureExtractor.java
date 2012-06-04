@@ -77,6 +77,7 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 				var = new DataVariable(entity.toString().trim(), id);
 			}
 			var.addAttribute(prevNerClass, AttributeType.NER_CLASS);
+			var.addAttribute("true", AttributeType.NERENTITY);
 			fVector.addVariable(var);
 		}
 

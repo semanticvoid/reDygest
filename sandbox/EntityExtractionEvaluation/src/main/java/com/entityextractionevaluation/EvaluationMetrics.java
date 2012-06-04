@@ -23,18 +23,17 @@ import com.redygest.grok.features.datatype.Attributes;
 import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
-import com.redygest.grok.prefilter.PrefilterRunner;
+import com.redygest.grok.filtering.data.preextraction.PreExtractionPrefilterRunner;
 
 /**
  * 
- * @author tejaswi 
- * contains all counts that the Filtering algo can use
+ * @author tejaswi contains all counts that the Filtering algo can use
  */
 public class EvaluationMetrics {
 
 	protected List<Data> tweets;
 	protected ITweetPreprocessor preprocessor = null;
-	protected PrefilterRunner prefilterRunner = null;
+	protected PreExtractionPrefilterRunner prefilterRunner = null;
 
 	public Counter<String> npCounts = new Counter<String>();
 	public Counter<String> nerCounts = new Counter<String>();
@@ -90,8 +89,8 @@ public class EvaluationMetrics {
 	private EvaluationMetrics(String file) {
 		read(file);
 		ConfigReader conf = ConfigReader.getInstance();
-		FeaturesComputation fc = new FeaturesComputation(conf
-				.getExtractorsList());
+		FeaturesComputation fc = new FeaturesComputation(
+				conf.getExtractorsList());
 		try {
 			this.repository = fc.computeFeatures(tweets);
 		} catch (Exception e) {

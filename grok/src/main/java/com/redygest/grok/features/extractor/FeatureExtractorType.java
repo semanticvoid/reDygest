@@ -10,7 +10,8 @@ public enum FeatureExtractorType {
 	PPRONOUNCOUNTFEATURE,
 	SRL,
 	NER,
-	SYNONYM;
+	SYNONYM,
+	ENTITY;
 	
 	/**
 	 * Get {@link FeatureExtractorType} from string

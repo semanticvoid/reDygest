@@ -37,6 +37,8 @@ public class FeatureExtractorFactory {
 			return new NERFeatureExtractor();
 		case SYNONYM:
 			return new SynonymFeatureExtractor();
+		case ENTITY:
+			return new EntityFeatureExtractor();
 		}
 
 		return null;
