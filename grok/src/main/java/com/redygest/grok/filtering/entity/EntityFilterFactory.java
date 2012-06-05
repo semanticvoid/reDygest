@@ -38,7 +38,8 @@ public class EntityFilterFactory {
 	 */
 	public IEntityFilter produce(EntityFilterType type) {
 		switch (type) {
-		// TODO
+		case MINLENGTH_FILTER:
+			return new MinLengthEntityFilter();
 
 		default:
 			break;

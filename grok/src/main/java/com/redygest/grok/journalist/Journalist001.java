@@ -40,6 +40,8 @@ import com.redygest.grok.filtering.data.postextraction.PostExtractionPrefilterRu
 import com.redygest.grok.filtering.data.postextraction.PostExtractionPrefilterType;
 import com.redygest.grok.filtering.data.preextraction.PreExtractionPrefilterRunner;
 import com.redygest.grok.filtering.data.preextraction.PreExtractionPrefilterType;
+import com.redygest.grok.filtering.entity.EntityFilterRunner;
+import com.redygest.grok.filtering.entity.EntityFilterType;
 import com.redygest.grok.ranking.community.EntityPagerankCommunityRanking;
 import com.redygest.grok.ranking.community.ICommunityRanking;
 import com.redygest.grok.ranking.data.IRanking;
@@ -60,7 +62,9 @@ import com.redygest.grok.selection.mmr.BaselineMMRSelector;
  * 
  * Step 3: Feature Extraction & post filter (done in BaseJournalist)
  * 
- * Step 4: Generate graph
+ * Step 4a: Entity Collection & Filtering
+ * 
+ * Step 4b: Generate graph
  * 
  * Step 5: Compute PageRanks
  * 
@@ -103,6 +107,7 @@ public class Journalist001 extends BaseJournalist {
 	 */
 	@Override
 	protected Story process(List<Data> tweets) {
+		// step4a();
 		step4();
 		step5();
 		step6();
@@ -111,30 +116,14 @@ public class Journalist001 extends BaseJournalist {
 		return step9();
 	}
 
-	/**
-	 * Write Tweets and generate graph
-	 */
-	protected void step4() {
+	protected void step4a() {
 		FeaturesRepository repository = FeaturesRepository.getInstance();
-		File tweetFile = null;
-		BufferedWriter writer = null;
-
-		try {
-			tweetFile = File
-					.createTempFile("j001", "tweets", new File("/tmp/"));
-			System.out.println("Graph file: " + tweetFile.getAbsolutePath());
-			writer = new BufferedWriter(new FileWriter(tweetFile));
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
-		// ----------------- Entity Collection and filtering -----------------
-		// ----------------- experimental code for now -----------------------
-		// --------------------- STARTS -----------------------
 
 		// entity set
 		EntitySet entitySet = new EntitySet();
+
+		// Entity Collection
+
 		// get global feature vectors
 		FeatureVector globalFeatureVector = repository.getFeatureVector(String
 				.valueOf(FeatureVectorCollection.GLOBAL_IDENTIFIER));
@@ -165,7 +154,30 @@ public class Journalist001 extends BaseJournalist {
 			entitySet.add(new Entity(type, entityName, frequency));
 		}
 
-		// --------------------- ENDS -----------------------
+		// Entity Filtering
+		EntityFilterRunner filterRunner = new EntityFilterRunner(
+				EntityFilterType.MINLENGTH_FILTER);
+		entitySet = (EntitySet) filterRunner.runFilters(entitySet);
+		System.out.println();
+	}
+
+	/**
+	 * Write Tweets and generate graph
+	 */
+	protected void step4() {
+		FeaturesRepository repository = FeaturesRepository.getInstance();
+		File tweetFile = null;
+		BufferedWriter writer = null;
+
+		try {
+			tweetFile = File
+					.createTempFile("j001", "tweets", new File("/tmp/"));
+			System.out.println("Graph file: " + tweetFile.getAbsolutePath());
+			writer = new BufferedWriter(new FileWriter(tweetFile));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		for (Data t : tweets) {
 			Set<String> entities = new HashSet<String>();

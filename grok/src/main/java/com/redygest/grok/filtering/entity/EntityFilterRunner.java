@@ -5,8 +5,10 @@ package com.redygest.grok.filtering.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import com.redygest.commons.data.Entity;
+import com.redygest.commons.data.EntitySet;
 
 /**
  * Entity Filter Runner Class
@@ -34,10 +36,10 @@ public class EntityFilterRunner {
 	 * Run filters
 	 * 
 	 * @param d
-	 * @return true if passes all filters, false otherwise
+	 * @return
 	 */
-	public boolean runFilters(List<Entity> entities) {
-		List<Entity> filteredEntites = new ArrayList<Entity>();
+	public Set<Entity> runFilters(Set<Entity> entities) {
+		Set<Entity> passedEntites = new EntitySet();
 
 		for (Entity entity : entities) {
 			boolean passed = true;
@@ -50,11 +52,11 @@ public class EntityFilterRunner {
 			}
 
 			if (passed) {
-				filteredEntites.add(entity);
+				passedEntites.add(entity);
 			}
 		}
 
-		return true;
+		return passedEntites;
 	}
 
 }

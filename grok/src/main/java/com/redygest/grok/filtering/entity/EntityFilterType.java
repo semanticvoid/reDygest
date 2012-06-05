@@ -6,6 +6,6 @@ package com.redygest.grok.filtering.entity;
  */
 public enum EntityFilterType {
 
-	;
+	MINLENGTH_FILTER;
 
 }
