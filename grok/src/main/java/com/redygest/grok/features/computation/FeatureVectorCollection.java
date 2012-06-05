@@ -13,12 +13,12 @@ import com.redygest.grok.features.datatype.Variable;
 public class FeatureVectorCollection {
 
 	public static final long GLOBAL_IDENTIFIER = -1;
-	private Map<Long, FeatureVector> featureVectors = new HashMap<Long, FeatureVector>();
+	private final Map<Long, FeatureVector> featureVectors = new HashMap<Long, FeatureVector>();
 
 	public Map<Long, FeatureVector> getFeatures() {
 		return featureVectors;
 	}
-	
+
 	public FeatureVector getFeatureVector(long recordIdentifier) {
 		return featureVectors.get(recordIdentifier);
 	}
@@ -46,42 +46,56 @@ public class FeatureVectorCollection {
 						&& featureVector.getVariable(variable) != null) {
 					featureVector.addVariable(variable);
 				} else {
-					Variable existingVariable = featureVector.getVariable(variable);
-					featureVector.addVariable(merge(variable, existingVariable));
+					Variable existingVariable = featureVector
+							.getVariable(variable);
+					if (existingVariable != null) {
+						featureVector.addVariable(merge(variable,
+								existingVariable));
+					} else {
+						featureVector.addVariable(variable);
+					}
 				}
 			}
 		} else {
 			this.featureVectors.put(GLOBAL_IDENTIFIER, fv);
 		}
 	}
-	
+
 	private Variable merge(Variable newVariable, Variable existingVariable) {
 		Attributes newAttrs = newVariable.getVariableAttributes();
 		Attributes existingAttrs = existingVariable.getVariableAttributes();
 		Attributes rAttrs = new Attributes();
 		rAttrs.putAll(existingAttrs);
-		for(AttributeType type : newAttrs.getAttributesMap().keySet()) {
-				List<String> newAttributeNames = newAttrs.getAttributeNames(type);
-				if(newAttributeNames != null && newAttributeNames.size() > 1) {
-					throw new RuntimeException("cannot update a multi valued attribute type in newAttributeNames");
+		for (AttributeType type : newAttrs.getAttributesMap().keySet()) {
+			List<String> newAttributeNames = newAttrs.getAttributeNames(type);
+			if (newAttributeNames != null && newAttributeNames.size() > 1) {
+				throw new RuntimeException(
+						"cannot update a multi valued attribute type in newAttributeNames");
+			}
+			List<String> existingAttributeNames = existingAttrs
+					.getAttributeNames(type);
+			if (existingAttributeNames != null
+					&& existingAttributeNames.size() > 1) {
+				throw new RuntimeException(
+						"cannot update a multi valued attribute type in existingAttributeNames");
+			}
+
+			if (newAttributeNames != null) {
+				String newAttributeName = newAttributeNames.get(0);
+				if (existingAttributeNames != null) {
+					String existingAttributeName = existingAttributeNames
+							.get(0);
+					Double rAttributeName = Double.valueOf(newAttributeName)
+							+ Double.valueOf(existingAttributeName);
+					rAttrs.put(type, Double.toString(rAttributeName));
+				} else {
+					rAttrs.put(type, newAttributeName);
 				}
-				List<String> existingAttributeNames = existingAttrs.getAttributeNames(type);
-				if(existingAttributeNames != null && existingAttributeNames.size() > 1) {
-					throw new RuntimeException("cannot update a multi valued attribute type in existingAttributeNames");
-				}
-				
-				if(newAttributeNames != null) {
-					String newAttributeName = newAttributeNames.get(0);
-					if(existingAttributeNames != null) {
-						String existingAttributeName = existingAttributeNames.get(0);
-						Double rAttributeName = Double.valueOf(newAttributeName) + Double.valueOf(existingAttributeName);
-						rAttrs.put(type, Double.toString(rAttributeName));
-					} else {
-						rAttrs.put(type, newAttributeName);
-					}
-				}				
+			}
 		}
-		DataVariable rVariable = new DataVariable(existingVariable.getVariableName(), existingVariable.getRecordIdentifier());
+		DataVariable rVariable = new DataVariable(
+				existingVariable.getVariableName(),
+				existingVariable.getRecordIdentifier());
 		rVariable.addAttributes(rAttrs);
 		return rVariable;
 	}
