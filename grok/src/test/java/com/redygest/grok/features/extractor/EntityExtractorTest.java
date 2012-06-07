@@ -9,7 +9,7 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
@@ -45,9 +45,9 @@ public class EntityExtractorTest extends TestCase {
 	public void testEntity() {
 		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(
 				String.valueOf(FeatureVectorCollection.GLOBAL_IDENTIFIER));
-		List<Variable> variables = fv
+		List<IVariable> variables = fv
 				.getVariablesWithAttributeType(AttributeId.ENTITY);
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			if (var.getVariableName().equals("Lokpal Bill")) {
 				assertTrue(true);
 				return;
@@ -60,9 +60,9 @@ public class EntityExtractorTest extends TestCase {
 	public void testEntityFrequency() {
 		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(
 				String.valueOf(FeatureVectorCollection.GLOBAL_IDENTIFIER));
-		List<Variable> variables = fv
+		List<IVariable> variables = fv
 				.getVariablesWithAttributeType(AttributeId.ENTITY);
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
 			if (attrs != null
 					&& attrs.containsAttributeType(AttributeId.FREQUENCY)) {

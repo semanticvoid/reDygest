@@ -9,7 +9,7 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.features.repository.IFeaturesRepository;
@@ -32,9 +32,9 @@ public class FacOpClassifier extends VWClassifier {
 
 		// pos bigrams
 		features.append("|tagfeatures ");
-		List<Variable> variables = fVector
+		List<IVariable> variables = fVector
 				.getVariablesWithAttributeType(AttributeId.POSBIGRAMCOUNT);
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
 			for (String count : attrs
 					.getAttributeNames(AttributeId.POSBIGRAMCOUNT)) {
@@ -46,7 +46,7 @@ public class FacOpClassifier extends VWClassifier {
 		// pos unigrams
 		variables = fVector
 				.getVariablesWithAttributeType(AttributeId.POSUNIGRAMCOUNT);
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
 			for (String count : attrs
 					.getAttributeNames(AttributeId.POSUNIGRAMCOUNT)) {
@@ -58,7 +58,7 @@ public class FacOpClassifier extends VWClassifier {
 		features.append("|sentifeatures ");
 		variables = fVector
 				.getVariablesWithAttributeType(AttributeId.SENTIMENTCOUNT);
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
 			for (String count : attrs
 					.getAttributeNames(AttributeId.SENTIMENTCOUNT)) {
@@ -70,7 +70,7 @@ public class FacOpClassifier extends VWClassifier {
 		features.append("|adjfeatures ");
 		int adjCount = 0;
 		variables = fVector.getVariablesWithAttributeType(AttributeId.POS);
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
 			for (String tag : attrs.getAttributeNames(AttributeId.POS)) {
 				if (tag.startsWith("JJ")) {
@@ -84,7 +84,7 @@ public class FacOpClassifier extends VWClassifier {
 		features.append("|ppfeatures ");
 		variables = fVector
 				.getVariablesWithAttributeType(AttributeId.PPRONOUNCOUNT);
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
 			for (String count : attrs
 					.getAttributeNames(AttributeId.PPRONOUNCOUNT)) {
@@ -96,7 +96,7 @@ public class FacOpClassifier extends VWClassifier {
 		features.append("|punctfeatures ");
 		variables = fVector
 				.getVariablesWithAttributeType(AttributeId.PUNCTCOUNT);
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
 			for (String count : attrs
 					.getAttributeNames(AttributeId.PUNCTCOUNT)) {

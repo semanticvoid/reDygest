@@ -7,7 +7,7 @@ import java.util.Map;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 
 
 public class FeatureVectorCollection {
@@ -28,7 +28,7 @@ public class FeatureVectorCollection {
 			if (this.featureVectors.containsKey(entry.getKey())) {
 				FeatureVector featureVector = this.featureVectors.get(entry
 						.getKey());
-				for (Variable variable : entry.getValue().getVariables()) {
+				for (IVariable variable : entry.getValue().getVariables()) {
 					featureVector.addVariable(variable);
 				}
 			} else {
@@ -41,12 +41,12 @@ public class FeatureVectorCollection {
 		if (this.featureVectors.containsKey(GLOBAL_IDENTIFIER)) {
 			FeatureVector featureVector = this.featureVectors
 					.get(GLOBAL_IDENTIFIER);
-			for (Variable variable : fv.getVariables()) {
+			for (IVariable variable : fv.getVariables()) {
 				if (overwrite == true
 						&& featureVector.getVariable(variable) != null) {
 					featureVector.addVariable(variable);
 				} else {
-					Variable existingVariable = featureVector
+					IVariable existingVariable = featureVector
 							.getVariable(variable);
 					if (existingVariable != null) {
 						featureVector.addVariable(merge(variable,
@@ -61,7 +61,7 @@ public class FeatureVectorCollection {
 		}
 	}
 
-	private Variable merge(Variable newVariable, Variable existingVariable) {
+	private IVariable merge(IVariable newVariable, IVariable existingVariable) {
 		Attributes newAttrs = newVariable.getVariableAttributes();
 		Attributes existingAttrs = existingVariable.getVariableAttributes();
 		Attributes rAttrs = new Attributes();

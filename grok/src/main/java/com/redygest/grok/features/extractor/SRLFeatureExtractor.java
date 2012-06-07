@@ -11,7 +11,7 @@ import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 import com.redygest.grok.srl.Senna;
@@ -65,7 +65,7 @@ public class SRLFeatureExtractor extends AbstractFeatureExtractor {
 		// add semantic role labels as DataVariables for Sentence
 		for (Verb v : verbs) {
 			String srlId = "SRL_" + v.getIndex();
-			Variable var = fVector.getVariable(new DataVariable(srlId, Long
+			IVariable var = fVector.getVariable(new DataVariable(srlId, Long
 					.valueOf(id)));
 			if (var == null) {
 				var = new DataVariable(srlId, Long.valueOf(id));

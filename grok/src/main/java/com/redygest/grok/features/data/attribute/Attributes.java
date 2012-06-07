@@ -1,94 +1,85 @@
 package com.redygest.grok.features.data.attribute;
 
-import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
+/**
+ * Attribute Collection
+ * 
+ */
 public class Attributes {
 
-	private static final long serialVersionUID = 4841911489389335545L;
-	private Map<AttributeId, Set<String>> attributeTypeMap = null;
+	// attribute map
+	private Map<AttributeId, IAttribute> attributeMap = null;
 
+	/**
+	 * Constructor
+	 */
 	public Attributes() {
 		super();
-		attributeTypeMap = new HashMap<AttributeId, Set<String>>();
+		attributeMap = new HashMap<AttributeId, IAttribute>();
 	}
 
-	public String put(AttributeId key, String value) {
-		if (attributeTypeMap.containsKey(key)) {
-			attributeTypeMap.get(key).add(value);
-		} else {
-			Set<String> values = new HashSet<String>();
-			values.add(value);
-			attributeTypeMap.put(key, values);
-		}
-		return value;
-	}
-
-	public AttributeId remove(AttributeId key) {
-		// AttributeType value = super.remove(key);
-		if (attributeTypeMap.containsKey(key)) {
-			attributeTypeMap.remove(key);
-		}
-		return key;
-	}
-
-	/*
-	 * public void putAll(Map<AttributeType, String> m) {
-	 * for(Map.Entry<AttributeType, String> entry : m.entrySet()) {
-	 * put(entry.getKey(), entry.getValue()); } }
+	/**
+	 * Add attribute
+	 * 
+	 * @param attr
 	 */
-
-	public void putAll(Map<AttributeId, Set<String>> m) {
-		for (Map.Entry<AttributeId, Set<String>> entry : m.entrySet()) {
-			for (String value : entry.getValue()) {
-				put(entry.getKey(), value);
-			}
-		}
+	public void add(IAttribute attr) {
+		AttributeId id = attr.getId();
+		attributeMap.put(id, attr);
 	}
 
-	public void putAll(Attributes attributes) {
-		putAll(attributes.getAttributesMap());
-	}
-
-	public Map<AttributeId, Set<String>> getAttributesMap() {
-		return attributeTypeMap;
-	}
-
-	public List<String> getAttributeNames(AttributeId type) {
-		List<String> names = new ArrayList<String>();
-
-		Set<String> nameSet = attributeTypeMap.get(type);
-		if (nameSet != null) {
-			names.addAll(nameSet);
-		}
-
-		return names;
-	}
-
-	public boolean containsAttributeType(AttributeId type) {
-		return attributeTypeMap.containsKey(type);
-	}
-
-	/*
-	 * public AttributeType getAttributeType(String name) { return
-	 * super.get(name); }
+	/**
+	 * Remove attribute
+	 * 
+	 * @param id
+	 * @return
 	 */
-
-	// TODO : implement serialization to db.
-	public void serialize() {
-
+	public void remove(AttributeId id) {
+		if (attributeMap.containsKey(id)) {
+			attributeMap.remove(id);
+		}
 	}
 
+	/**
+	 * Get attribute for Id
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public IAttribute getAttributes(AttributeId id) {
+		return attributeMap.get(id);
+	}
+
+	/**
+	 * Get all attributes
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public Collection<IAttribute> getAttributes() {
+		return attributeMap.values();
+	}
+
+	/**
+	 * Check if attribute of id is present
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public boolean containsAttributeType(AttributeId id) {
+		return attributeMap.containsKey(id);
+	}
+
+	/**
+	 * Check if empty
+	 * 
+	 * @return
+	 */
 	public boolean isEmpty() {
-		return attributeTypeMap.isEmpty();
+		return attributeMap.isEmpty();
 	}
 
-	// TODO : implement deserialization from db.
-	public static Attributes deserialize(String serializedObject) {
-		return null;
-	}
 }

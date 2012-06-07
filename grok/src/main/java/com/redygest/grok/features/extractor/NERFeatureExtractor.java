@@ -8,7 +8,7 @@ import com.redygest.commons.nlp.NERTagger;
 import com.redygest.commons.nlp.TaggedToken;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
@@ -45,7 +45,7 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 			String word = token.getWord();
 
 			if (prevNerClass != null && !prevNerClass.equals(nerClass)) {
-				Variable var = fVector.getVariable(new DataVariable(entity
+				IVariable var = fVector.getVariable(new DataVariable(entity
 						.toString().trim(), id));
 
 				if (var == null) {
@@ -71,7 +71,7 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 		if (prevNerClass.equalsIgnoreCase("PERSON")
 				|| prevNerClass.equalsIgnoreCase("ORGANIZATION")
 				|| prevNerClass.equalsIgnoreCase("LOCATION")) {
-			Variable var = fVector.getVariable(new DataVariable(entity
+			IVariable var = fVector.getVariable(new DataVariable(entity
 					.toString().trim(), id));
 			if (var == null) {
 				var = new DataVariable(entity.toString().trim(), id);

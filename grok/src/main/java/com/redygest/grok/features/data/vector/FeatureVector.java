@@ -9,31 +9,55 @@ import java.util.Map;
 
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 
+/**
+ * Feature Vector Class
+ * 
+ * @author semanticvoid
+ * 
+ */
 public class FeatureVector implements Serializable {
 
-	private static final long serialVersionUID = -8660535858575993066L;
-	Map<Variable, Variable> variables = new LinkedHashMap<Variable, Variable>();
+	// variable map
+	Map<IVariable, IVariable> variables = new LinkedHashMap<IVariable, IVariable>();
 
-	public void addVariable(Variable variable) {
+	/**
+	 * Add variable to feature vector
+	 * 
+	 * @param variable
+	 */
+	public void addVariable(IVariable variable) {
 		if (variables.containsKey(variable)) {
-			Variable thisVariable = variables.get(variable);
+			IVariable thisVariable = variables.get(variable);
 			thisVariable.addAttributes(variable.getVariableAttributes());
 		} else {
 			variables.put(variable, variable);
 		}
 	}
 
-	public Variable getVariable(Variable queryVariable) {
+	/**
+	 * Get variable
+	 * 
+	 * @param queryVariable
+	 * @return
+	 */
+	public IVariable getVariable(IVariable queryVariable) {
 		return variables.get(queryVariable);
 	}
 
-	public List<Variable> getVariablesWithAttributeType(AttributeId type) {
-		List<Variable> variables = new ArrayList<Variable>();
-		for (Variable var : this.variables.keySet()) {
+	/**
+	 * Get variables with attribute id
+	 * 
+	 * @param type
+	 * @return
+	 */
+	public List<IVariable> getVariablesWithAttributeType(AttributeId id) {
+		List<IVariable> variables = new ArrayList<IVariable>();
+
+		for (IVariable var : this.variables.keySet()) {
 			Attributes attrs = var.getVariableAttributes();
-			if (attrs.containsAttributeType(type)) {
+			if (attrs.containsAttributeType(id)) {
 				variables.add(var);
 			}
 		}
@@ -41,7 +65,12 @@ public class FeatureVector implements Serializable {
 		return variables;
 	}
 
-	public Collection<Variable> getVariables() {
+	/**
+	 * Get all variables
+	 * 
+	 * @return
+	 */
+	public Collection<IVariable> getVariables() {
 		return variables.values();
 	}
 }

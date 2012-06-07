@@ -8,7 +8,7 @@ import com.redygest.commons.nlp.SentiWordNet;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
@@ -25,7 +25,7 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 			FeatureVector recordFVector = repository.getFeatureVector(id);
 			List<String> tokens = t.getValues(DataType.BODY_TOKENIZED);
 			for (String token : tokens) {
-				Variable var = recordFVector.getVariable(new DataVariable(
+				IVariable var = recordFVector.getVariable(new DataVariable(
 						token, Long.valueOf(id)));
 				Attributes attrs = var.getVariableAttributes();
 				if (attrs.containsAttributeType(AttributeId.POS)) {

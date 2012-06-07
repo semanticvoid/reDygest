@@ -9,7 +9,7 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
@@ -36,10 +36,10 @@ public class SRLFeatureExtractorTest extends TestCase {
 
 	public void testLabels() {
 		FeatureVector fv = f.getFeatureVector(1L);
-		List<Variable> variables = fv
+		List<IVariable> variables = fv
 				.getVariablesWithAttributeType(AttributeId.SRL_A0);
 		if (variables != null) {
-			for (Variable v : variables) {
+			for (IVariable v : variables) {
 				Attributes attrs = v.getVariableAttributes();
 				List<String> tags = attrs
 						.getAttributeNames(AttributeId.SRL_A0);

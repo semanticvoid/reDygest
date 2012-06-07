@@ -1,69 +1,96 @@
 package com.redygest.grok.features.data.variable;
 
-import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.IAttribute;
 
+/**
+ * Data Variable Class
+ */
+public class DataVariable implements IVariable {
 
-public class DataVariable implements Variable {
-
-	//private static final long serialVersionUID = -8258439966182439178L;
-	private String name = "";
-	private Attributes attributes = new Attributes();
+	// variable name
+	private final String name;
+	// variable attributes
+	private final Attributes attributes;
+	// record identifier
 	private Long recordIdentifier = null;
-	
+
+	/**
+	 * Constructor
+	 * 
+	 * @param name
+	 * @param recordIdentifier
+	 */
 	public DataVariable(String name, Long recordIdentifier) {
 		this.name = name;
 		this.recordIdentifier = recordIdentifier;
+		this.attributes = new Attributes();
 	}
 
+	/**
+	 * Get Attributes associated with the Variable
+	 */
 	public Attributes getVariableAttributes() {
-		return attributes;
+		return this.attributes;
 	}
 
+	/**
+	 * Get Variable name
+	 */
 	public String getVariableName() {
-		return name;
-	}
-	
-	public void addAttribute(String attributeName, AttributeId attributeType) {
-		attributes.put(attributeType, attributeName);
-	}
-	
-	public void setAttributes(Attributes attributes) {
-		if(attributes != null && !attributes.isEmpty()) {
-			this.attributes = attributes;
-		}
-	}
-	
-	public void addAttributes(Attributes attributes) {
-		this.attributes.putAll(attributes);
-	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if(obj instanceof Variable) {
-			Variable variable = (Variable)obj;
-			return this.name.equals(variable.getVariableName()) && this.recordIdentifier.equals(variable.getRecordIdentifier());
-		}
-		return false;
+		return this.name;
 	}
 
+	/**
+	 * Add attribute
+	 * 
+	 * @param attr
+	 */
+	public void addAttribute(IAttribute attr) {
+		this.attributes.add(attr);
+	}
+
+	/**
+	 * Add attributes
+	 */
+	public void addAttributes(Attributes attrs) {
+		if (attrs != null) {
+			for (IAttribute attr : attrs.getAttributes()) {
+				addAttribute(attr);
+			}
+		}
+	}
+
+	/**
+	 * Get record identifier
+	 */
 	public Long getRecordIdentifier() {
 		return recordIdentifier;
 	}
 
-	public int compareTo(Variable arg0) {
-		if(equals(arg0)) {
+	public int compareTo(IVariable arg0) {
+		if (equals(arg0)) {
 			return 0;
 		}
 		return 1;
 	}
-	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof IVariable) {
+			IVariable variable = (IVariable) obj;
+			return this.name.equals(variable.getVariableName())
+					&& this.recordIdentifier.equals(variable
+							.getRecordIdentifier());
+		}
+		return false;
+	}
+
 	@Override
 	public int hashCode() {
-	       final int PRIME = 31;
-	       int result = 1;
-	       result = PRIME * result + name.hashCode() + recordIdentifier.hashCode();	
-	       return result;
+		final int PRIME = 31;
+		int result = 1;
+		result = PRIME * result + name.hashCode() + recordIdentifier.hashCode();
+		return result;
 	}
-	
 }

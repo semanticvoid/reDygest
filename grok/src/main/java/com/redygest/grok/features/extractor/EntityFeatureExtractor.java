@@ -8,7 +8,7 @@ import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
@@ -38,13 +38,13 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 			return fVector;
 		}
 
-		List<Variable> variables = new ArrayList<Variable>();
+		List<IVariable> variables = new ArrayList<IVariable>();
 		variables.addAll(fVectorOld
 				.getVariablesWithAttributeType(AttributeId.NERENTITY));
 		variables.addAll(fVectorOld
 				.getVariablesWithAttributeType(AttributeId.NPENTITY));
 
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			String entityName = null;
 			AttributeId entityType = null;
 			Attributes attrs = var.getVariableAttributes();
@@ -67,7 +67,7 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 			}
 
 			int frequency = 1;
-			Variable gVar = fVector.getVariable(new DataVariable(entityName,
+			IVariable gVar = fVector.getVariable(new DataVariable(entityName,
 					FeatureVectorCollection.GLOBAL_IDENTIFIER));
 			if (gVar == null) {
 				gVar = new DataVariable(entityName,

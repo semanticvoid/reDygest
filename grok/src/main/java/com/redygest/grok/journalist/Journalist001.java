@@ -32,7 +32,7 @@ import com.redygest.commons.data.Story;
 import com.redygest.commons.preprocessor.twitter.PreprocessorZ20120215;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
@@ -128,9 +128,9 @@ public class Journalist001 extends BaseJournalist {
 		FeatureVector globalFeatureVector = repository.getFeatureVector(String
 				.valueOf(FeatureVectorCollection.GLOBAL_IDENTIFIER));
 		// get ENTITY variables
-		List<Variable> variables = globalFeatureVector
+		List<IVariable> variables = globalFeatureVector
 				.getVariablesWithAttributeType(AttributeId.ENTITY);
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			String entityName = var.getVariableName();
 			Attributes attrs = var.getVariableAttributes();
 			long frequency = 1;
@@ -186,7 +186,7 @@ public class Journalist001 extends BaseJournalist {
 			FeatureVector fv = repository.getFeatureVector(id);
 
 			// collect NP entities
-			for (Variable v : fv
+			for (IVariable v : fv
 					.getVariablesWithAttributeType(AttributeId.NPENTITY)) {
 				Attributes attrs = v.getVariableAttributes();
 				List<String> attrNames = attrs
@@ -199,7 +199,7 @@ public class Journalist001 extends BaseJournalist {
 			}
 
 			// collect NERs
-			for (Variable v : fv
+			for (IVariable v : fv
 					.getVariablesWithAttributeType(AttributeId.NER_CLASS)) {
 				Attributes attrs = v.getVariableAttributes();
 				List<String> attrNames = attrs

@@ -10,7 +10,7 @@ import com.redygest.commons.util.CounterMap;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
@@ -109,7 +109,7 @@ public class NGramSynonymExtractor extends AbstractFeatureExtractor {
 		for (String label : clusters.keySet()) {
 			List<String> synonyms = clusters.get(label);
 			for (int i = 0; i < synonyms.size(); i++) {
-				Variable var = fVector.getVariable(new DataVariable(synonyms
+				IVariable var = fVector.getVariable(new DataVariable(synonyms
 						.get(i),
 						(long) FeatureVectorCollection.GLOBAL_IDENTIFIER));
 				for (int j = 0; j < synonyms.size(); j++) {

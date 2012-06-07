@@ -9,7 +9,7 @@ import com.redygest.commons.nlp.synonym.ISynonymDb;
 import com.redygest.commons.nlp.synonym.SynonymDbFactory;
 import com.redygest.commons.nlp.synonym.SynonymDbType;
 import com.redygest.grok.features.data.attribute.AttributeId;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
@@ -32,13 +32,13 @@ public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
 			return fVector;
 		}
 
-		List<Variable> variables = new ArrayList<Variable>();
+		List<IVariable> variables = new ArrayList<IVariable>();
 		variables.addAll(fVector_old
 				.getVariablesWithAttributeType(AttributeId.NER_CLASS));
 		variables.addAll(fVector_old
 				.getVariablesWithAttributeType(AttributeId.NPENTITY));
 
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			String named_entity = var.getVariableName();
 			String root = db.getSynonym(named_entity);
 			if (root != null) {

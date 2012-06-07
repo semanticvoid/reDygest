@@ -10,7 +10,7 @@ import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
@@ -37,7 +37,7 @@ public class NPCooccurenceFeatureExtractorTest extends TestCase {
 
 	public void testCooccurenceCount() {
 		FeatureVector fv = f.getFeatureVector(FeatureVectorCollection.GLOBAL_IDENTIFIER);
-		Variable var = fv.getVariable(new DataVariable("john", FeatureVectorCollection.GLOBAL_IDENTIFIER));
+		IVariable var = fv.getVariable(new DataVariable("john", FeatureVectorCollection.GLOBAL_IDENTIFIER));
 		if(var != null) {
 			Attributes attrs = var.getVariableAttributes();
 			List<String> tags = attrs.getAttributeNames(AttributeId.NPCOOCCURENCE);

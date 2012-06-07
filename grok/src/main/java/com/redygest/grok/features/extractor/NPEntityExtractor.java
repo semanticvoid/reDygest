@@ -7,7 +7,7 @@ import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
@@ -30,13 +30,13 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 			return fVector;
 		}
 
-		List<Variable> variables = fVector_old
+		List<IVariable> variables = fVector_old
 				.getVariablesWithAttributeType(AttributeId.POS);
 
 		StringBuffer entity = new StringBuffer();
 		String prevPosTag = null;
 
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			String word = var.getVariableName();
 			String posTag = null;
 
@@ -53,7 +53,7 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 			
 			if ((prevPosTag != null && !posTag.equals(prevPosTag))) {
 				if (entity.length() > 0) {
-					Variable eVar = fVector.getVariable(new DataVariable(entity
+					IVariable eVar = fVector.getVariable(new DataVariable(entity
 							.toString().trim(), Long.valueOf(id)));
 
 					if (eVar == null) {
@@ -76,7 +76,7 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 		}
 
 		if (entity.length() > 0) {
-			Variable eVar = fVector.getVariable(new DataVariable(entity
+			IVariable eVar = fVector.getVariable(new DataVariable(entity
 					.toString().trim(), Long.valueOf(id)));
 
 			if (eVar == null) {

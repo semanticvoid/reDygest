@@ -10,7 +10,7 @@ import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
@@ -39,7 +39,7 @@ public class POSFeatureExtractorTest extends TestCase {
 
 	public void testPOS() {
 		FeatureVector fv = f.getFeatureVector(1);
-		Variable var = fv.getVariable(new DataVariable("This", 1L));
+		IVariable var = fv.getVariable(new DataVariable("This", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
 			List<String> tags = attrs.getAttributeNames(AttributeId.POS);
@@ -54,7 +54,7 @@ public class POSFeatureExtractorTest extends TestCase {
 
 	public void testPOSUnigramCount() {
 		FeatureVector fv = f.getFeatureVector(1);
-		Variable var = fv.getVariable(new DataVariable("DT", 1L));
+		IVariable var = fv.getVariable(new DataVariable("DT", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
 			List<String> tags = attrs
@@ -70,7 +70,7 @@ public class POSFeatureExtractorTest extends TestCase {
 
 	public void testPOSBigramCount() {
 		FeatureVector fv = f.getFeatureVector(2);
-		Variable var = fv.getVariable(new DataVariable("DT VBZ", 2L));
+		IVariable var = fv.getVariable(new DataVariable("DT VBZ", 2L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
 			List<String> tags = attrs

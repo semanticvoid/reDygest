@@ -5,7 +5,7 @@ import java.util.Set;
 
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 import com.redygest.grok.knowledge.graph.IRepresentation;
@@ -55,13 +55,13 @@ public class Curator {
 				for(Long id : identifiers) {
 					FeatureVector fVector = repository.getFeatureVector(String.valueOf(id));
 					if(fVector != null) {
-						List<Variable> variables = fVector.getVariablesWithAttributeType(AttributeId.HAS_SRL);
+						List<IVariable> variables = fVector.getVariablesWithAttributeType(AttributeId.HAS_SRL);
 						if(variables != null) {
 							// create Sentence
 							Node sentence = new Node(NodeType.SENTENCE);
 							kmodel.addNode(sentence);
 							
-							for(Variable var : variables) {
+							for(IVariable var : variables) {
 								Attributes attrs = var.getVariableAttributes();
 								if(attrs != null) {
 									// create Event

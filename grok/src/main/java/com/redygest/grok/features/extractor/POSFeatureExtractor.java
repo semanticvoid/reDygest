@@ -11,7 +11,7 @@ import com.redygest.commons.nlp.TaggedToken;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
@@ -49,7 +49,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			// bigram
 			if (prevTag != null) {
 				String bigram = prevTag + " " + tag;
-				Variable var = fVector
+				IVariable var = fVector
 						.getVariable(new DataVariable(bigram, id));
 				if (var == null) {
 					var = new DataVariable(bigram, id);
@@ -70,7 +70,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			}
 
 			// unigram
-			Variable var = fVector.getVariable(new DataVariable(tag, id));
+			IVariable var = fVector.getVariable(new DataVariable(tag, id));
 			if (var == null) {
 				var = new DataVariable(tag, id);
 				Attributes attrs = var.getVariableAttributes();
@@ -92,7 +92,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			fVector.addVariable(var);
 
 			// pos
-			Variable queryVar = new DataVariable(word, id);
+			IVariable queryVar = new DataVariable(word, id);
 			var = fVector.getVariable(queryVar);
 			if (var == null) {
 				var = queryVar;

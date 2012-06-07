@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
@@ -39,9 +39,9 @@ public class NPEntityExtractorTest extends TestCase {
 
 	public void testNPEntity() {
 		FeatureVector fv = f.getFeatureVector(1);
-		List<Variable> variables = fv
+		List<IVariable> variables = fv
 				.getVariablesWithAttributeType(AttributeId.NPENTITY);
-		for (Variable var : variables) {
+		for (IVariable var : variables) {
 			if (var.getVariableName().equals("Lokpal Bill")) {
 				assertTrue(true);
 				return;

@@ -11,7 +11,7 @@ import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.variable.DataVariable;
-import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
@@ -83,7 +83,7 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 				// TODO keep counts as well (not supported by the
 				// framework
 				// at the moment
-				Variable var = fVector.getVariable(new DataVariable(headargNP,
+				IVariable var = fVector.getVariable(new DataVariable(headargNP,
 						(long) FeatureVectorCollection.GLOBAL_IDENTIFIER));
 
 				for (String arg : args) {
