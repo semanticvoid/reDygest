@@ -111,13 +111,13 @@ public class NGramSynonymExtractor extends AbstractFeatureExtractor {
 			for (int i = 0; i < synonyms.size(); i++) {
 				IVariable var = fVector.getVariable(new DataVariable(synonyms
 						.get(i),
-						(long) FeatureVectorCollection.GLOBAL_IDENTIFIER));
+						(long) FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
 				for (int j = 0; j < synonyms.size(); j++) {
 					if (i != j) {
 						if (var == null) {
 							var = new DataVariable(
 									synonyms.get(i),
-									(long) FeatureVectorCollection.GLOBAL_IDENTIFIER);
+									(long) FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
 						}
 
 						Attributes attrs = var.getVariableAttributes();

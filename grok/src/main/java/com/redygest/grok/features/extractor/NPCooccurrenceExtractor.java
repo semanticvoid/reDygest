@@ -84,7 +84,7 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 				// framework
 				// at the moment
 				IVariable var = fVector.getVariable(new DataVariable(headargNP,
-						(long) FeatureVectorCollection.GLOBAL_IDENTIFIER));
+						(long) FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
 
 				for (String arg : args) {
 					for (String np : verb.getArgumentToNPs().get(arg)) {
@@ -94,7 +94,7 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 							if (var == null) {
 								var = new DataVariable(
 										headargNP,
-										(long) FeatureVectorCollection.GLOBAL_IDENTIFIER);
+										(long) FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
 							}
 
 							Attributes attrs = var.getVariableAttributes();

@@ -126,7 +126,7 @@ public class Journalist001 extends BaseJournalist {
 
 		// get global feature vectors
 		FeatureVector globalFeatureVector = repository.getFeatureVector(String
-				.valueOf(FeatureVectorCollection.GLOBAL_IDENTIFIER));
+				.valueOf(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
 		// get ENTITY variables
 		List<IVariable> variables = globalFeatureVector
 				.getVariablesWithAttributeType(AttributeId.ENTITY);

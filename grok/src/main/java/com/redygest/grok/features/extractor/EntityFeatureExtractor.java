@@ -68,10 +68,10 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 
 			int frequency = 1;
 			IVariable gVar = fVector.getVariable(new DataVariable(entityName,
-					FeatureVectorCollection.GLOBAL_IDENTIFIER));
+					FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
 			if (gVar == null) {
 				gVar = new DataVariable(entityName,
-						FeatureVectorCollection.GLOBAL_IDENTIFIER);
+						FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
 			}
 			Attributes gVarAttrs = gVar.getVariableAttributes();
 			gVarAttrs.put(AttributeId.ENTITY, "true");
