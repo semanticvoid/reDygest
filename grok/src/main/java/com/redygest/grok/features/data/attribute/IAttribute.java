@@ -14,6 +14,55 @@ import java.util.List;
 public interface IAttribute {
 
 	/**
+	 * Check if Boolean attribute
+	 * 
+	 * @return
+	 */
+	public boolean isBoolean();
+
+	/**
+	 * Check if String attribute
+	 * 
+	 * @return
+	 */
+	public boolean isString();
+
+	/**
+	 * Check if Integer attribute
+	 * 
+	 * @return
+	 */
+	public boolean isInteger();
+
+	/**
+	 * Check if Long attribute
+	 * 
+	 * @return
+	 */
+	public boolean isLong();
+
+	/**
+	 * Check if Double attribute
+	 * 
+	 * @return
+	 */
+	public boolean isDouble();
+
+	/**
+	 * Check if Float attribute
+	 * 
+	 * @return
+	 */
+	public boolean isFloat();
+
+	/**
+	 * Check if List attribute
+	 * 
+	 * @return
+	 */
+	public boolean isList();
+
+	/**
 	 * Get boolean value
 	 * 
 	 * @return Boolean

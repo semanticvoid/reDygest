@@ -89,4 +89,60 @@ public abstract class AbstractAttribute implements IAttribute {
 	protected AttributeType getType() {
 		return this.type;
 	}
+
+	public boolean isBoolean() {
+		if (getType() != null) {
+			return getType() == AttributeType.BOOLEAN;
+		}
+
+		return false;
+	}
+
+	public boolean isString() {
+		if (getType() != null) {
+			return getType() == AttributeType.STRING;
+		}
+
+		return false;
+	}
+
+	public boolean isInteger() {
+		if (getType() != null) {
+			return getType() == AttributeType.INTEGER;
+		}
+
+		return false;
+	}
+
+	public boolean isLong() {
+		if (getType() != null) {
+			return getType() == AttributeType.LONG;
+		}
+
+		return false;
+	}
+
+	public boolean isDouble() {
+		if (getType() != null) {
+			return getType() == AttributeType.DOUBLE;
+		}
+
+		return false;
+	}
+
+	public boolean isFloat() {
+		if (getType() != null) {
+			return getType() == AttributeType.FLOAT;
+		}
+
+		return false;
+	}
+
+	public boolean isList() {
+		if (getType() != null) {
+			return getType() == AttributeType.LIST;
+		}
+
+		return false;
+	}
 }
