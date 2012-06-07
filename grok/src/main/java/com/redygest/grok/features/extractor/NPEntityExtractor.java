@@ -6,6 +6,8 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.BooleanAttribute;
+import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
@@ -23,7 +25,7 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 	@Override
 	protected FeatureVector extract(Data t, IFeaturesRepository repository) {
 		FeatureVector fVector = new FeatureVector();
-		String id = t.getValue(DataType.RECORD_IDENTIFIER);
+		long id = Long.valueOf(t.getValue(DataType.RECORD_IDENTIFIER));
 
 		FeatureVector fVector_old = repository.getFeatureVector(id);
 		if (fVector_old == null) {
@@ -42,26 +44,26 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 
 			Attributes attrs = var.getVariableAttributes();
 			if (attrs != null) {
-				List<String> names = attrs.getAttributeNames(AttributeId.POS);
-				if (names != null) {
-					posTag = names.get(0);
+				IAttribute posAttr = attrs.getAttributes(AttributeId.POS);
+				if (posAttr != null) {
+					posTag = posAttr.getString();
 				}
 			}
-			if(posTag.startsWith("N") && !posTag.equalsIgnoreCase("NNP")){
+			if (posTag.startsWith("N") && !posTag.equalsIgnoreCase("NNP")) {
 				posTag = "N";
 			}
-			
+
 			if ((prevPosTag != null && !posTag.equals(prevPosTag))) {
 				if (entity.length() > 0) {
-					IVariable eVar = fVector.getVariable(new DataVariable(entity
-							.toString().trim(), Long.valueOf(id)));
+					IVariable eVar = fVector.getVariable(new DataVariable(
+							entity.toString().trim(), id));
 
 					if (eVar == null) {
-						eVar = new DataVariable(entity.toString().trim(),
-								Long.valueOf(id));
+						eVar = new DataVariable(entity.toString().trim(), id);
 					}
 
-					eVar.addAttribute(prevPosTag, AttributeId.NPENTITY);
+					eVar.addAttribute(new BooleanAttribute(
+							AttributeId.NPENTITY, true));
 					fVector.addVariable(eVar);
 
 					entity = new StringBuffer();
@@ -84,7 +86,7 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 						Long.valueOf(id));
 			}
 
-			eVar.addAttribute(prevPosTag, AttributeId.NPENTITY);
+			eVar.addAttribute(new BooleanAttribute(AttributeId.NPENTITY, true));
 			fVector.addVariable(eVar);
 		}
 
