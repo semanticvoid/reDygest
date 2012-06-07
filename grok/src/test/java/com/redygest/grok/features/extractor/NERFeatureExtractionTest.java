@@ -9,6 +9,7 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
@@ -38,10 +39,10 @@ public class NERFeatureExtractionTest extends TestCase {
 		IVariable var = fv.getVariable(new DataVariable("Bill Clinton", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
-			List<String> ner_class = attrs
-					.getAttributeNames(AttributeId.NER_CLASS);
-			if (ner_class != null && ner_class.size() > 0) {
-				assertEquals("PERSON", ner_class.get(0));
+			IAttribute nerClassFeatureAttr = attrs
+					.getAttributes(AttributeId.NER_CLASS);
+			if (nerClassFeatureAttr != null) {
+				assertEquals("PERSON", nerClassFeatureAttr.getString());
 				return;
 			}
 		}
