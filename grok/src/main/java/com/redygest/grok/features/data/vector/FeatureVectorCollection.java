@@ -1,14 +1,14 @@
-package com.redygest.grok.features.computation;
+package com.redygest.grok.features.data.vector;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.DataVariable;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.DataVariable;
+import com.redygest.grok.features.data.variable.Variable;
+
 
 public class FeatureVectorCollection {
 
@@ -66,7 +66,7 @@ public class FeatureVectorCollection {
 		Attributes existingAttrs = existingVariable.getVariableAttributes();
 		Attributes rAttrs = new Attributes();
 		rAttrs.putAll(existingAttrs);
-		for (AttributeType type : newAttrs.getAttributesMap().keySet()) {
+		for (AttributeId type : newAttrs.getAttributesMap().keySet()) {
 			List<String> newAttributeNames = newAttrs.getAttributeNames(type);
 			if (newAttributeNames != null && newAttributeNames.size() > 1) {
 				throw new RuntimeException(

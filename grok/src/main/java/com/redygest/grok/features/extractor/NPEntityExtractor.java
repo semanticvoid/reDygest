@@ -4,11 +4,11 @@ import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.DataVariable;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.DataVariable;
+import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 /**
@@ -31,7 +31,7 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 		}
 
 		List<Variable> variables = fVector_old
-				.getVariablesWithAttributeType(AttributeType.POS);
+				.getVariablesWithAttributeType(AttributeId.POS);
 
 		StringBuffer entity = new StringBuffer();
 		String prevPosTag = null;
@@ -42,7 +42,7 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 
 			Attributes attrs = var.getVariableAttributes();
 			if (attrs != null) {
-				List<String> names = attrs.getAttributeNames(AttributeType.POS);
+				List<String> names = attrs.getAttributeNames(AttributeId.POS);
 				if (names != null) {
 					posTag = names.get(0);
 				}
@@ -61,7 +61,7 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 								Long.valueOf(id));
 					}
 
-					eVar.addAttribute(prevPosTag, AttributeType.NPENTITY);
+					eVar.addAttribute(prevPosTag, AttributeId.NPENTITY);
 					fVector.addVariable(eVar);
 
 					entity = new StringBuffer();
@@ -84,7 +84,7 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 						Long.valueOf(id));
 			}
 
-			eVar.addAttribute(prevPosTag, AttributeType.NPENTITY);
+			eVar.addAttribute(prevPosTag, AttributeId.NPENTITY);
 			fVector.addVariable(eVar);
 		}
 

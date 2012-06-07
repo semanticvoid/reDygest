@@ -7,11 +7,11 @@ import junit.framework.TestCase;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
-import com.redygest.grok.features.computation.FeatureVectorCollection;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class EntityExtractorTest extends TestCase {
@@ -46,7 +46,7 @@ public class EntityExtractorTest extends TestCase {
 		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(
 				String.valueOf(FeatureVectorCollection.GLOBAL_IDENTIFIER));
 		List<Variable> variables = fv
-				.getVariablesWithAttributeType(AttributeType.ENTITY);
+				.getVariablesWithAttributeType(AttributeId.ENTITY);
 		for (Variable var : variables) {
 			if (var.getVariableName().equals("Lokpal Bill")) {
 				assertTrue(true);
@@ -61,13 +61,13 @@ public class EntityExtractorTest extends TestCase {
 		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(
 				String.valueOf(FeatureVectorCollection.GLOBAL_IDENTIFIER));
 		List<Variable> variables = fv
-				.getVariablesWithAttributeType(AttributeType.ENTITY);
+				.getVariablesWithAttributeType(AttributeId.ENTITY);
 		for (Variable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
 			if (attrs != null
-					&& attrs.containsAttributeType(AttributeType.FREQUENCY)) {
+					&& attrs.containsAttributeType(AttributeId.FREQUENCY)) {
 				int freq = Integer.valueOf(attrs.getAttributeNames(
-						AttributeType.FREQUENCY).get(0));
+						AttributeId.FREQUENCY).get(0));
 				assertEquals(1, freq);
 				return;
 			}

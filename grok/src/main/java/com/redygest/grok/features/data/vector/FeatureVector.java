@@ -1,4 +1,4 @@
-package com.redygest.grok.features.datatype;
+package com.redygest.grok.features.data.vector;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,6 +6,10 @@ import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.Variable;
 
 public class FeatureVector implements Serializable {
 
@@ -25,7 +29,7 @@ public class FeatureVector implements Serializable {
 		return variables.get(queryVariable);
 	}
 
-	public List<Variable> getVariablesWithAttributeType(AttributeType type) {
+	public List<Variable> getVariablesWithAttributeType(AttributeId type) {
 		List<Variable> variables = new ArrayList<Variable>();
 		for (Variable var : this.variables.keySet()) {
 			Attributes attrs = var.getVariableAttributes();

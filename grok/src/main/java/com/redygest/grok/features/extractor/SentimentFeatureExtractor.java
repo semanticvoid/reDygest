@@ -5,11 +5,11 @@ import java.util.List;
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.nlp.SentiWordNet;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.DataVariable;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.DataVariable;
+import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
@@ -28,11 +28,11 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 				Variable var = recordFVector.getVariable(new DataVariable(
 						token, Long.valueOf(id)));
 				Attributes attrs = var.getVariableAttributes();
-				if (attrs.containsAttributeType(AttributeType.POS)) {
+				if (attrs.containsAttributeType(AttributeId.POS)) {
 					// TODO why would a given data var have multiple attributes
 					// of same type?
 					List<String> posTags = attrs
-							.getAttributeNames(AttributeType.POS);
+							.getAttributeNames(AttributeId.POS);
 					if (posTags.size() > 0) {
 						String posTag = posTags.get(0);
 						String sentiment = swn.extract(token, posTag);
@@ -42,7 +42,7 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 									Long.valueOf(id));
 							Attributes attributes = dataVar
 									.getVariableAttributes();
-							attributes.put(AttributeType.SENTIMENT, sentiment);
+							attributes.put(AttributeId.SENTIMENT, sentiment);
 							fVector.addVariable(dataVar);
 
 							// sentiment count
@@ -52,16 +52,16 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 								var = new DataVariable(sentiment,
 										Long.valueOf(id));
 								attrs = var.getVariableAttributes();
-								attrs.put(AttributeType.SENTIMENTCOUNT, "1");
+								attrs.put(AttributeId.SENTIMENTCOUNT, "1");
 							} else {
 								attrs = var.getVariableAttributes();
 								int count = Integer.valueOf(attrs
 										.getAttributeNames(
-												AttributeType.SENTIMENTCOUNT)
+												AttributeId.SENTIMENTCOUNT)
 										.get(0));
 								count += 1;
-								attrs.remove(AttributeType.SENTIMENTCOUNT);
-								attrs.put(AttributeType.SENTIMENTCOUNT,
+								attrs.remove(AttributeId.SENTIMENTCOUNT);
+								attrs.put(AttributeId.SENTIMENTCOUNT,
 										String.valueOf(count));
 							}
 

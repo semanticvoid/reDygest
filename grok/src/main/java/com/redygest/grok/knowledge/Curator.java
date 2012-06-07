@@ -3,10 +3,10 @@ package com.redygest.grok.knowledge;
 import java.util.List;
 import java.util.Set;
 
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 import com.redygest.grok.knowledge.graph.IRepresentation;
 import com.redygest.grok.knowledge.graph.Node;
@@ -55,7 +55,7 @@ public class Curator {
 				for(Long id : identifiers) {
 					FeatureVector fVector = repository.getFeatureVector(String.valueOf(id));
 					if(fVector != null) {
-						List<Variable> variables = fVector.getVariablesWithAttributeType(AttributeType.HAS_SRL);
+						List<Variable> variables = fVector.getVariablesWithAttributeType(AttributeId.HAS_SRL);
 						if(variables != null) {
 							// create Sentence
 							Node sentence = new Node(NodeType.SENTENCE);
@@ -69,7 +69,7 @@ public class Curator {
 									kmodel.addNode(event);
 									
 									// create Relation: Sentence -> Event
-									for(AttributeType type : attrs.getAttributesMap().keySet()) {
+									for(AttributeId type : attrs.getAttributesMap().keySet()) {
 										//AttributeType type = attrs.get(attr);
 										for(String attrValue : attrs.getAttributeNames(type)) {
 											Relationship rType = attributeToRelationship(type);
@@ -121,7 +121,7 @@ public class Curator {
 	 * @param type
 	 * @return
 	 */
-	private Relationship attributeToRelationship(AttributeType type) {
+	private Relationship attributeToRelationship(AttributeId type) {
 		switch (type) {
 			case SRL_A0:
 				return Relationship.A0;

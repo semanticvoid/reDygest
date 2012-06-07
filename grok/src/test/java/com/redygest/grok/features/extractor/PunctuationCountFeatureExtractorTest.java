@@ -7,12 +7,12 @@ import junit.framework.TestCase;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
-import com.redygest.grok.features.computation.FeatureVectorCollection;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.DataVariable;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.DataVariable;
+import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class PunctuationCountFeatureExtractorTest extends TestCase {
@@ -41,7 +41,7 @@ public class PunctuationCountFeatureExtractorTest extends TestCase {
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
 			List<String> tags = attrs
-					.getAttributeNames(AttributeType.PUNCTCOUNT);
+					.getAttributeNames(AttributeId.PUNCTCOUNT);
 			if (tags != null && tags.size() > 0) {
 				assertEquals("3", tags.get(0));
 				return;

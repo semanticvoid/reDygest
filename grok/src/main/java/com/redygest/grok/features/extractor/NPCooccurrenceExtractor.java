@@ -8,12 +8,12 @@ import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.grok.features.computation.FeatureVectorCollection;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.DataVariable;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.DataVariable;
+import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 import com.redygest.grok.srl.Senna;
 import com.redygest.grok.srl.Verb;
@@ -99,7 +99,7 @@ public class NPCooccurrenceExtractor extends AbstractFeatureExtractor {
 
 							Attributes attrs = var.getVariableAttributes();
 							// if (!attrs.containsKey(np)) {
-							attrs.put(AttributeType.NPCOOCCURENCE, np);
+							attrs.put(AttributeId.NPCOOCCURENCE, np);
 							// }
 						}
 					}

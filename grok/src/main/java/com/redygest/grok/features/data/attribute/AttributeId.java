@@ -1,7 +1,7 @@
-package com.redygest.grok.features.datatype;
+package com.redygest.grok.features.data.attribute;
 
 
-public enum AttributeType {
+public enum AttributeId {
 	POS,
 	POSUNIGRAMCOUNT,
 	POSBIGRAMCOUNT,

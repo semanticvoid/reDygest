@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.redygest.commons.data.Data;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.extractor.FeatureExtractorFactory;
 import com.redygest.grok.features.extractor.FeatureExtractorType;
 import com.redygest.grok.features.extractor.IFeatureExtractor;

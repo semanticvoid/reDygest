@@ -8,12 +8,12 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.nlp.POSTagger;
 import com.redygest.commons.nlp.TaggedToken;
-import com.redygest.grok.features.computation.FeatureVectorCollection;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.DataVariable;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.DataVariable;
+import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class POSFeatureExtractor extends AbstractFeatureExtractor {
@@ -54,15 +54,15 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				if (var == null) {
 					var = new DataVariable(bigram, id);
 					Attributes attrs = var.getVariableAttributes();
-					attrs.put(AttributeType.POSBIGRAMCOUNT, "1");
+					attrs.put(AttributeId.POSBIGRAMCOUNT, "1");
 				} else {
 					Attributes attrs = var.getVariableAttributes();
 					int count = Integer.valueOf(attrs.getAttributeNames(
-							AttributeType.POSBIGRAMCOUNT).get(0));
+							AttributeId.POSBIGRAMCOUNT).get(0));
 					count += 1;
 					// attrs.remove(String.valueOf(count-1));
-					attrs.remove(AttributeType.POSBIGRAMCOUNT);
-					attrs.put(AttributeType.POSBIGRAMCOUNT,
+					attrs.remove(AttributeId.POSBIGRAMCOUNT);
+					attrs.put(AttributeId.POSBIGRAMCOUNT,
 							String.valueOf(count));
 				}
 
@@ -74,20 +74,20 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			if (var == null) {
 				var = new DataVariable(tag, id);
 				Attributes attrs = var.getVariableAttributes();
-				attrs.put(AttributeType.POSUNIGRAMCOUNT, "1");
+				attrs.put(AttributeId.POSUNIGRAMCOUNT, "1");
 			} else {
 				Attributes attrs = var.getVariableAttributes();
 				if(attrs.getAttributeNames(
-						AttributeType.POSUNIGRAMCOUNT)==null || attrs.getAttributeNames(
-								AttributeType.POSUNIGRAMCOUNT).size()==0){
-					attrs.put(AttributeType.POSUNIGRAMCOUNT, "1");	
+						AttributeId.POSUNIGRAMCOUNT)==null || attrs.getAttributeNames(
+								AttributeId.POSUNIGRAMCOUNT).size()==0){
+					attrs.put(AttributeId.POSUNIGRAMCOUNT, "1");	
 				}
 				int count = Integer.valueOf(attrs.getAttributeNames(
-						AttributeType.POSUNIGRAMCOUNT).get(0));
+						AttributeId.POSUNIGRAMCOUNT).get(0));
 				count += 1;
 				// attrs.remove(String.valueOf(count-1));
-				attrs.remove(AttributeType.POSUNIGRAMCOUNT);
-				attrs.put(AttributeType.POSUNIGRAMCOUNT, String.valueOf(count));
+				attrs.remove(AttributeId.POSUNIGRAMCOUNT);
+				attrs.put(AttributeId.POSUNIGRAMCOUNT, String.valueOf(count));
 			}
 			fVector.addVariable(var);
 
@@ -98,7 +98,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				var = queryVar;
 			}
 			Attributes attrs = var.getVariableAttributes();
-			attrs.put(AttributeType.POS, tag);
+			attrs.put(AttributeId.POS, tag);
 			fVector.addVariable(var);
 
 			prevTag = tag;

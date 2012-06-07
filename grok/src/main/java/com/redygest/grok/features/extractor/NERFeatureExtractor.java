@@ -6,10 +6,10 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.commons.nlp.NERTagger;
 import com.redygest.commons.nlp.TaggedToken;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.DataVariable;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.variable.DataVariable;
+import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class NERFeatureExtractor extends AbstractFeatureExtractor {
@@ -52,7 +52,7 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 					var = new DataVariable(entity.toString().trim(), id);
 				}
 
-				var.addAttribute(prevNerClass, AttributeType.NER_CLASS);
+				var.addAttribute(prevNerClass, AttributeId.NER_CLASS);
 				fVector.addVariable(var);
 
 				entity = new StringBuffer();
@@ -76,8 +76,8 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 			if (var == null) {
 				var = new DataVariable(entity.toString().trim(), id);
 			}
-			var.addAttribute(prevNerClass, AttributeType.NER_CLASS);
-			var.addAttribute("true", AttributeType.NERENTITY);
+			var.addAttribute(prevNerClass, AttributeId.NER_CLASS);
+			var.addAttribute("true", AttributeId.NERENTITY);
 			fVector.addVariable(var);
 		}
 

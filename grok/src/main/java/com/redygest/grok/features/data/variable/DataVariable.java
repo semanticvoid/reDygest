@@ -1,4 +1,7 @@
-package com.redygest.grok.features.datatype;
+package com.redygest.grok.features.data.variable;
+
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
 
 
 public class DataVariable implements Variable {
@@ -21,7 +24,7 @@ public class DataVariable implements Variable {
 		return name;
 	}
 	
-	public void addAttribute(String attributeName, AttributeType attributeType) {
+	public void addAttribute(String attributeName, AttributeId attributeType) {
 		attributes.put(attributeType, attributeName);
 	}
 	

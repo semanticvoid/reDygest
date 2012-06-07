@@ -8,9 +8,9 @@ import com.redygest.commons.data.DataType;
 import com.redygest.commons.nlp.synonym.ISynonymDb;
 import com.redygest.commons.nlp.synonym.SynonymDbFactory;
 import com.redygest.commons.nlp.synonym.SynonymDbType;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
@@ -34,15 +34,15 @@ public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
 
 		List<Variable> variables = new ArrayList<Variable>();
 		variables.addAll(fVector_old
-				.getVariablesWithAttributeType(AttributeType.NER_CLASS));
+				.getVariablesWithAttributeType(AttributeId.NER_CLASS));
 		variables.addAll(fVector_old
-				.getVariablesWithAttributeType(AttributeType.NPENTITY));
+				.getVariablesWithAttributeType(AttributeId.NPENTITY));
 
 		for (Variable var : variables) {
 			String named_entity = var.getVariableName();
 			String root = db.getSynonym(named_entity);
 			if (root != null) {
-				var.addAttribute(root, AttributeType.SYNONYM);
+				var.addAttribute(root, AttributeId.SYNONYM);
 			}
 			fVector.addVariable(var);
 		}

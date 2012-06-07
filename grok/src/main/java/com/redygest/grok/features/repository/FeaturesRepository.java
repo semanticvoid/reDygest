@@ -3,8 +3,8 @@ package com.redygest.grok.features.repository;
 import java.util.Map;
 import java.util.Set;
 
-import com.redygest.grok.features.computation.FeatureVectorCollection;
-import com.redygest.grok.features.datatype.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 
 public class FeaturesRepository implements IFeaturesRepository {
 	

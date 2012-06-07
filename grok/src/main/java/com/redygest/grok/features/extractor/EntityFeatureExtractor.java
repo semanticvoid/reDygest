@@ -5,12 +5,12 @@ import java.util.List;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.grok.features.computation.FeatureVectorCollection;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.DataVariable;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.DataVariable;
+import com.redygest.grok.features.data.variable.Variable;
+import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class EntityFeatureExtractor extends AbstractFeatureExtractor {
@@ -40,19 +40,19 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 
 		List<Variable> variables = new ArrayList<Variable>();
 		variables.addAll(fVectorOld
-				.getVariablesWithAttributeType(AttributeType.NERENTITY));
+				.getVariablesWithAttributeType(AttributeId.NERENTITY));
 		variables.addAll(fVectorOld
-				.getVariablesWithAttributeType(AttributeType.NPENTITY));
+				.getVariablesWithAttributeType(AttributeId.NPENTITY));
 
 		for (Variable var : variables) {
 			String entityName = null;
-			AttributeType entityType = null;
+			AttributeId entityType = null;
 			Attributes attrs = var.getVariableAttributes();
 
 			if (attrs != null
-					&& attrs.containsAttributeType(AttributeType.SYNONYM)) {
+					&& attrs.containsAttributeType(AttributeId.SYNONYM)) {
 				List<String> attrNames = attrs
-						.getAttributeNames(AttributeType.SYNONYM);
+						.getAttributeNames(AttributeId.SYNONYM);
 				if (attrNames != null) {
 					entityName = attrNames.get(0);
 				}
@@ -60,10 +60,10 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 				entityName = var.getVariableName();
 			}
 
-			if (attrs.containsAttributeType(AttributeType.NERENTITY)) {
-				entityType = AttributeType.NERENTITY;
-			} else if (attrs.containsAttributeType(AttributeType.NPENTITY)) {
-				entityType = AttributeType.NPENTITY;
+			if (attrs.containsAttributeType(AttributeId.NERENTITY)) {
+				entityType = AttributeId.NERENTITY;
+			} else if (attrs.containsAttributeType(AttributeId.NPENTITY)) {
+				entityType = AttributeId.NPENTITY;
 			}
 
 			int frequency = 1;
@@ -74,18 +74,18 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 						FeatureVectorCollection.GLOBAL_IDENTIFIER);
 			}
 			Attributes gVarAttrs = gVar.getVariableAttributes();
-			gVarAttrs.put(AttributeType.ENTITY, "true");
+			gVarAttrs.put(AttributeId.ENTITY, "true");
 			gVarAttrs.put(entityType, "true");
 
-			if (gVarAttrs.containsAttributeType(AttributeType.FREQUENCY)) {
+			if (gVarAttrs.containsAttributeType(AttributeId.FREQUENCY)) {
 				List<String> values = gVarAttrs
-						.getAttributeNames(AttributeType.FREQUENCY);
+						.getAttributeNames(AttributeId.FREQUENCY);
 				if (values != null) {
 					frequency += Integer.valueOf(values.get(0));
 				}
 			}
 
-			gVarAttrs.put(AttributeType.FREQUENCY, String.valueOf(frequency));
+			gVarAttrs.put(AttributeId.FREQUENCY, String.valueOf(frequency));
 
 			gVar.addAttributes(gVarAttrs);
 			fVector.addVariable(gVar);

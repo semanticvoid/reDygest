@@ -4,10 +4,10 @@ import java.util.HashMap;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.DataVariable;
-import com.redygest.grok.features.datatype.FeatureVector;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.DataVariable;
+import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class PunctuationCountFeatureExtractor extends AbstractFeatureExtractor {
@@ -39,7 +39,7 @@ public class PunctuationCountFeatureExtractor extends AbstractFeatureExtractor {
 			DataVariable var = new DataVariable(c.toString(), Long.valueOf(t
 					.getValue(DataType.RECORD_IDENTIFIER)));
 			Attributes attrs = var.getVariableAttributes();
-			attrs.put(AttributeType.PUNCTCOUNT, String.valueOf(count));
+			attrs.put(AttributeId.PUNCTCOUNT, String.valueOf(count));
 			fVector.addVariable(var);
 		}
 
