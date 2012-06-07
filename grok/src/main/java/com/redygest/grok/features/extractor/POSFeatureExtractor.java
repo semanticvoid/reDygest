@@ -1,8 +1,6 @@
 package com.redygest.grok.features.extractor;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
@@ -10,6 +8,8 @@ import com.redygest.commons.nlp.POSTagger;
 import com.redygest.commons.nlp.TaggedToken;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.LongAttribute;
+import com.redygest.grok.features.data.attribute.StringAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
@@ -27,9 +27,9 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));
 			FeatureVector fVector = extract(d, repository);
 
-			Map<Long, FeatureVector> map = new HashMap<Long, FeatureVector>();
-			map.put(id, fVector);
-			features.addFeatures(map);
+			FeatureVectorCollection fVectCollection = new FeatureVectorCollection();
+			fVectCollection.put(id, fVector);
+			features.addFeatures(fVectCollection);
 		}
 
 		return features;
@@ -42,6 +42,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 		POSTagger tagger = POSTagger.getInstance();
 		List<TaggedToken> tags = tagger.tag(d.getValue(DataType.BODY));
 		String prevTag = null;
+
 		for (TaggedToken token : tags) {
 			String word = token.getWord();
 			String tag = token.getPosTag();
@@ -51,19 +52,20 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				String bigram = prevTag + " " + tag;
 				IVariable var = fVector
 						.getVariable(new DataVariable(bigram, id));
+
 				if (var == null) {
 					var = new DataVariable(bigram, id);
 					Attributes attrs = var.getVariableAttributes();
-					attrs.put(AttributeId.POSBIGRAMCOUNT, "1");
+					attrs.add(new LongAttribute(AttributeId.POSBIGRAMCOUNT, 1L));
 				} else {
 					Attributes attrs = var.getVariableAttributes();
-					int count = Integer.valueOf(attrs.getAttributeNames(
-							AttributeId.POSBIGRAMCOUNT).get(0));
+					long count = attrs
+							.getAttributes(AttributeId.POSBIGRAMCOUNT)
+							.getLong();
 					count += 1;
-					// attrs.remove(String.valueOf(count-1));
 					attrs.remove(AttributeId.POSBIGRAMCOUNT);
-					attrs.put(AttributeId.POSBIGRAMCOUNT,
-							String.valueOf(count));
+					attrs.add(new LongAttribute(AttributeId.POSBIGRAMCOUNT,
+							count));
 				}
 
 				fVector.addVariable(var);
@@ -74,20 +76,14 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			if (var == null) {
 				var = new DataVariable(tag, id);
 				Attributes attrs = var.getVariableAttributes();
-				attrs.put(AttributeId.POSUNIGRAMCOUNT, "1");
+				attrs.add(new LongAttribute(AttributeId.POSUNIGRAMCOUNT, 1L));
 			} else {
 				Attributes attrs = var.getVariableAttributes();
-				if(attrs.getAttributeNames(
-						AttributeId.POSUNIGRAMCOUNT)==null || attrs.getAttributeNames(
-								AttributeId.POSUNIGRAMCOUNT).size()==0){
-					attrs.put(AttributeId.POSUNIGRAMCOUNT, "1");	
-				}
-				int count = Integer.valueOf(attrs.getAttributeNames(
-						AttributeId.POSUNIGRAMCOUNT).get(0));
+				long count = attrs.getAttributes(AttributeId.POSUNIGRAMCOUNT)
+						.getLong();
 				count += 1;
-				// attrs.remove(String.valueOf(count-1));
 				attrs.remove(AttributeId.POSUNIGRAMCOUNT);
-				attrs.put(AttributeId.POSUNIGRAMCOUNT, String.valueOf(count));
+				attrs.add(new LongAttribute(AttributeId.POSUNIGRAMCOUNT, count));
 			}
 			fVector.addVariable(var);
 
@@ -98,7 +94,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				var = queryVar;
 			}
 			Attributes attrs = var.getVariableAttributes();
-			attrs.put(AttributeId.POS, tag);
+			attrs.add(new StringAttribute(AttributeId.POS, tag));
 			fVector.addVariable(var);
 
 			prevTag = tag;
@@ -106,5 +102,4 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 
 		return fVector;
 	}
-
 }

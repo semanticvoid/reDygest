@@ -18,13 +18,13 @@ public class StringAttribute extends AbstractAttribute {
 	 * @param id
 	 * @param value
 	 */
-	public StringAttribute(AttributeId id, Boolean value) {
+	public StringAttribute(AttributeId id, String value) {
 		super(AttributeType.STRING, id, value);
 	}
 
 	@Override
 	public String getString() {
-		if (getValue() != null && getValue() instanceof Boolean) {
+		if (getValue() != null && getValue() instanceof String) {
 			return (String) getValue();
 		}
 
