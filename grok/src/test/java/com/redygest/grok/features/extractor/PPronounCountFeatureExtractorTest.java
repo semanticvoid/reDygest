@@ -9,6 +9,7 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
@@ -17,11 +18,13 @@ import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class PPronounCountFeatureExtractorTest extends TestCase {
 
-	private IFeatureExtractor extractor = FeatureExtractorFactory.getInstance()
-			.getFeatureExtractor(FeatureExtractorType.PPRONOUNCOUNTFEATURE);
+	private final IFeatureExtractor extractor = FeatureExtractorFactory
+			.getInstance().getFeatureExtractor(
+					FeatureExtractorType.PPRONOUNCOUNTFEATURE);
 
 	private FeatureVectorCollection f = null;
 
+	@Override
 	protected void setUp() {
 		if (f == null) {
 			Data d1 = new Tweet("{\"text\":\"I am what i am.\"}", "1");
@@ -31,6 +34,7 @@ public class PPronounCountFeatureExtractorTest extends TestCase {
 		}
 	}
 
+	@Override
 	protected void tearDown() {
 		// do nothing
 	}
@@ -40,10 +44,10 @@ public class PPronounCountFeatureExtractorTest extends TestCase {
 		IVariable var = fv.getVariable(new DataVariable("i", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
-			List<String> tags = attrs
-					.getAttributeNames(AttributeId.PPRONOUNCOUNT);
-			if (tags != null && tags.size() > 0) {
-				assertEquals("2", tags.get(0));
+			IAttribute pronounCountAttr = attrs
+					.getAttributes(AttributeId.PPRONOUNCOUNT);
+			if (pronounCountAttr != null) {
+				assertEquals(2, (long) pronounCountAttr.getLong());
 				return;
 			}
 		}

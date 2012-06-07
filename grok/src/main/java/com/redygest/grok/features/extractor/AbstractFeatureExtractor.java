@@ -1,9 +1,7 @@
 package com.redygest.grok.features.extractor;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Data;
@@ -24,14 +22,13 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor {
 	public FeatureVectorCollection extract(List<Data> dataList,
 			IFeaturesRepository repository) {
 		FeatureVectorCollection features = new FeatureVectorCollection();
-		Map<Long, FeatureVector> featuresMap = new HashMap<Long, FeatureVector>();
+
 		for (int i = 0; i < dataList.size(); ++i) {
 			Data d = dataList.get(i);
-			featuresMap.put(
-					Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER)),
+			features.put(Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER)),
 					extract(d, repository));
 		}
-		features.addFeatures(featuresMap);
+
 		return features;
 	}
 
