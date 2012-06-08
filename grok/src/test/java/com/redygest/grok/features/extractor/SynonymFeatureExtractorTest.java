@@ -9,6 +9,7 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
@@ -17,13 +18,14 @@ import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class SynonymFeatureExtractorTest extends TestCase {
 
-	private IFeatureExtractor ner_extractor = FeatureExtractorFactory
+	private final IFeatureExtractor ner_extractor = FeatureExtractorFactory
 			.getInstance().getFeatureExtractor(FeatureExtractorType.NER);
-	private IFeatureExtractor syn_extractor = FeatureExtractorFactory
+	private final IFeatureExtractor syn_extractor = FeatureExtractorFactory
 			.getInstance().getFeatureExtractor(FeatureExtractorType.SYNONYM);
 
 	private FeatureVectorCollection f = null;
 
+	@Override
 	protected void setUp() {
 		FeaturesRepository repository = FeaturesRepository.getInstance();
 		if (f == null) {
@@ -42,10 +44,9 @@ public class SynonymFeatureExtractorTest extends TestCase {
 		IVariable var = fv.getVariable(new DataVariable("Obama", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
-			List<String> synonym = attrs
-					.getAttributeNames(AttributeId.SYNONYM);
-			if (synonym != null && synonym.size() > 0) {
-				assertEquals("Barack_Obama", synonym.get(0));
+			IAttribute synonymAttr = attrs.getAttributes(AttributeId.SYNONYM);
+			if (synonymAttr != null) {
+				assertEquals("Barack_Obama", synonymAttr.getString());
 				return;
 			}
 		}
