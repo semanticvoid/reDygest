@@ -27,8 +27,6 @@ public class FeatureExtractorFactory {
 			return new PunctuationCountFeatureExtractor();
 		case PPRONOUNCOUNTFEATURE:
 			return new PPronounCountFeatureExtractor();
-		case SRL:
-			return new SRLFeatureExtractor();
 		case NER:
 			return new NERFeatureExtractor();
 		case SYNONYM:

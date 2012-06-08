@@ -7,6 +7,9 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.BooleanAttribute;
+import com.redygest.grok.features.data.attribute.IAttribute;
+import com.redygest.grok.features.data.attribute.LongAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
@@ -23,7 +26,8 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 			IFeaturesRepository repository) {
 		FeatureVectorCollection features = new FeatureVectorCollection();
 		for (Data t : dataList) {
-			features.addGlobalFeatures(extract(t, repository), true);
+			features.put(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER,
+					extract(t, repository));
 		}
 		return features;
 	}
@@ -32,7 +36,7 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 	protected FeatureVector extract(Data t, IFeaturesRepository repository) {
 		FeatureVector fVector = new FeatureVector();
 
-		String id = t.getValue(DataType.RECORD_IDENTIFIER);
+		long id = Long.valueOf(t.getValue(DataType.RECORD_IDENTIFIER));
 		FeatureVector fVectorOld = repository.getFeatureVector(id);
 		if (fVectorOld == null) {
 			return fVector;
@@ -51,10 +55,10 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 
 			if (attrs != null
 					&& attrs.containsAttributeType(AttributeId.SYNONYM)) {
-				List<String> attrNames = attrs
-						.getAttributeNames(AttributeId.SYNONYM);
-				if (attrNames != null) {
-					entityName = attrNames.get(0);
+				IAttribute synonymAttr = attrs
+						.getAttributes(AttributeId.SYNONYM);
+				if (synonymAttr != null) {
+					entityName = synonymAttr.getString();
 				}
 			} else {
 				entityName = var.getVariableName();
@@ -66,7 +70,7 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 				entityType = AttributeId.NPENTITY;
 			}
 
-			int frequency = 1;
+			long frequency = 1;
 			IVariable gVar = fVector.getVariable(new DataVariable(entityName,
 					FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
 			if (gVar == null) {
@@ -74,18 +78,18 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 						FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
 			}
 			Attributes gVarAttrs = gVar.getVariableAttributes();
-			gVarAttrs.put(AttributeId.ENTITY, "true");
-			gVarAttrs.put(entityType, "true");
+			gVarAttrs.add(new BooleanAttribute(AttributeId.ENTITY, true));
+			gVarAttrs.add(new BooleanAttribute(entityType, true));
 
 			if (gVarAttrs.containsAttributeType(AttributeId.FREQUENCY)) {
-				List<String> values = gVarAttrs
-						.getAttributeNames(AttributeId.FREQUENCY);
-				if (values != null) {
-					frequency += Integer.valueOf(values.get(0));
+				IAttribute freqAttr = gVarAttrs
+						.getAttributes(AttributeId.FREQUENCY);
+				if (freqAttr != null) {
+					frequency += freqAttr.getLong();
 				}
 			}
 
-			gVarAttrs.put(AttributeId.FREQUENCY, String.valueOf(frequency));
+			gVarAttrs.add(new LongAttribute(AttributeId.FREQUENCY, frequency));
 
 			gVar.addAttributes(gVarAttrs);
 			fVector.addVariable(gVar);
