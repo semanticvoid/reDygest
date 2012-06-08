@@ -32,6 +32,7 @@ import com.redygest.commons.data.Story;
 import com.redygest.commons.preprocessor.twitter.PreprocessorZ20120215;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
@@ -125,8 +126,8 @@ public class Journalist001 extends BaseJournalist {
 		// Entity Collection
 
 		// get global feature vectors
-		FeatureVector globalFeatureVector = repository.getFeatureVector(String
-				.valueOf(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
+		FeatureVector globalFeatureVector = repository
+				.getFeatureVector(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
 		// get ENTITY variables
 		List<IVariable> variables = globalFeatureVector
 				.getVariablesWithAttributeType(AttributeId.ENTITY);
@@ -145,10 +146,9 @@ public class Journalist001 extends BaseJournalist {
 
 			if (attrs != null
 					&& attrs.containsAttributeType(AttributeId.FREQUENCY)
-					&& attrs.getAttributeNames(AttributeId.FREQUENCY) != null
-					&& attrs.getAttributeNames(AttributeId.FREQUENCY).size() > 0) {
-				frequency = Long.valueOf(attrs.getAttributeNames(
-						AttributeId.FREQUENCY).get(0));
+					&& attrs.getAttributes(AttributeId.FREQUENCY) != null) {
+				frequency = attrs.getAttributes(AttributeId.FREQUENCY)
+						.getLong();
 			}
 
 			entitySet.add(new Entity(type, entityName, frequency));
@@ -182,19 +182,19 @@ public class Journalist001 extends BaseJournalist {
 		for (Data t : tweets) {
 			Set<String> entities = new HashSet<String>();
 
-			String id = t.getValue(DataType.RECORD_IDENTIFIER);
+			long id = Long.valueOf(t.getValue(DataType.RECORD_IDENTIFIER));
 			FeatureVector fv = repository.getFeatureVector(id);
 
 			// collect NP entities
 			for (IVariable v : fv
 					.getVariablesWithAttributeType(AttributeId.NPENTITY)) {
 				Attributes attrs = v.getVariableAttributes();
-				List<String> attrNames = attrs
-						.getAttributeNames(AttributeId.SYNONYM);
-				if (attrNames != null && attrNames.size() > 0) {
-					entities.add(attrNames.get(0));
+				IAttribute synonymAttr = attrs
+						.getAttributes(AttributeId.SYNONYM);
+				if (synonymAttr != null) {
+					entities.add(synonymAttr.getString().toLowerCase());
 				} else {
-					entities.add(v.getVariableName());
+					entities.add(v.getVariableName().toLowerCase());
 				}
 			}
 
@@ -202,10 +202,10 @@ public class Journalist001 extends BaseJournalist {
 			for (IVariable v : fv
 					.getVariablesWithAttributeType(AttributeId.NER_CLASS)) {
 				Attributes attrs = v.getVariableAttributes();
-				List<String> attrNames = attrs
-						.getAttributeNames(AttributeId.SYNONYM);
-				if (attrNames != null && attrNames.size() > 0) {
-					entities.add(attrNames.get(0).toLowerCase());
+				IAttribute synonymAttr = attrs
+						.getAttributes(AttributeId.SYNONYM);
+				if (synonymAttr != null) {
+					entities.add(synonymAttr.getString().toLowerCase());
 				} else {
 					entities.add(v.getVariableName().toLowerCase());
 				}
