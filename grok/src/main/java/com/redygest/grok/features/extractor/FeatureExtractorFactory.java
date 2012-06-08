@@ -17,10 +17,6 @@ public class FeatureExtractorFactory {
 
 	public IFeatureExtractor getFeatureExtractor(FeatureExtractorType type) {
 		switch (type) {
-		case NGRAMSYNONYM:
-			return new NGramSynonymExtractor();
-		case NPCOOCCURRENCE:
-			return new NPCooccurrenceExtractor();
 		case NPENTITY:
 			return new NPEntityExtractor();
 		case POSFEATURE:
