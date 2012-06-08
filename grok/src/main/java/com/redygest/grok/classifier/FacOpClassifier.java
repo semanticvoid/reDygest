@@ -9,6 +9,7 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.FeaturesRepository;
@@ -27,8 +28,8 @@ public class FacOpClassifier extends VWClassifier {
 	protected String getFeatures(Data d) {
 		StringBuffer features = new StringBuffer();
 		IFeaturesRepository repository = FeaturesRepository.getInstance();
-		FeatureVector fVector = repository.getFeatureVector(d
-				.getValue(DataType.RECORD_IDENTIFIER));
+		FeatureVector fVector = repository.getFeatureVector(Long.valueOf(d
+				.getValue(DataType.RECORD_IDENTIFIER)));
 
 		// pos bigrams
 		features.append("|tagfeatures ");
@@ -36,11 +37,9 @@ public class FacOpClassifier extends VWClassifier {
 				.getVariablesWithAttributeType(AttributeId.POSBIGRAMCOUNT);
 		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
-			for (String count : attrs
-					.getAttributeNames(AttributeId.POSBIGRAMCOUNT)) {
-				features.append(var.getVariableName().replaceAll(" ", "_")
-						+ ":" + count + " ");
-			}
+			IAttribute attr = attrs.getAttributes(AttributeId.POSBIGRAMCOUNT);
+			features.append(var.getVariableName().replaceAll(" ", "_") + ":"
+					+ attr.getLong() + " ");
 		}
 
 		// pos unigrams
@@ -48,10 +47,8 @@ public class FacOpClassifier extends VWClassifier {
 				.getVariablesWithAttributeType(AttributeId.POSUNIGRAMCOUNT);
 		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
-			for (String count : attrs
-					.getAttributeNames(AttributeId.POSUNIGRAMCOUNT)) {
-				features.append(var.getVariableName() + ":" + count + " ");
-			}
+			IAttribute attr = attrs.getAttributes(AttributeId.POSUNIGRAMCOUNT);
+			features.append(var.getVariableName() + ":" + attr.getLong() + " ");
 		}
 
 		// sentiment
@@ -60,10 +57,8 @@ public class FacOpClassifier extends VWClassifier {
 				.getVariablesWithAttributeType(AttributeId.SENTIMENTCOUNT);
 		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
-			for (String count : attrs
-					.getAttributeNames(AttributeId.SENTIMENTCOUNT)) {
-				features.append(var.getVariableName() + ":" + count + " ");
-			}
+			IAttribute attr = attrs.getAttributes(AttributeId.SENTIMENTCOUNT);
+			features.append(var.getVariableName() + ":" + attr.getLong() + " ");
 		}
 
 		// adjectives
@@ -72,10 +67,9 @@ public class FacOpClassifier extends VWClassifier {
 		variables = fVector.getVariablesWithAttributeType(AttributeId.POS);
 		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
-			for (String tag : attrs.getAttributeNames(AttributeId.POS)) {
-				if (tag.startsWith("JJ")) {
-					adjCount += 1;
-				}
+			IAttribute attr = attrs.getAttributes(AttributeId.POS);
+			if (attr.getString().startsWith("JJ")) {
+				adjCount += 1;
 			}
 		}
 		features.append("adjs:" + adjCount + " ");
@@ -86,10 +80,8 @@ public class FacOpClassifier extends VWClassifier {
 				.getVariablesWithAttributeType(AttributeId.PPRONOUNCOUNT);
 		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
-			for (String count : attrs
-					.getAttributeNames(AttributeId.PPRONOUNCOUNT)) {
-				features.append(var.getVariableName() + ":" + count + " ");
-			}
+			IAttribute attr = attrs.getAttributes(AttributeId.PPRONOUNCOUNT);
+			features.append(var.getVariableName() + ":" + attr.getLong() + " ");
 		}
 
 		// punctuations
@@ -98,13 +90,10 @@ public class FacOpClassifier extends VWClassifier {
 				.getVariablesWithAttributeType(AttributeId.PUNCTCOUNT);
 		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
-			for (String count : attrs
-					.getAttributeNames(AttributeId.PUNCTCOUNT)) {
-				features.append(var.getVariableName() + ":" + count + " ");
-			}
+			IAttribute attr = attrs.getAttributes(AttributeId.PUNCTCOUNT);
+			features.append(var.getVariableName() + ":" + attr.getLong() + " ");
 		}
 
 		return features.toString();
 	}
-
 }
