@@ -1,147 +1,148 @@
 package com.redygest.grok.knowledge;
 
-import java.util.List;
-import java.util.Set;
-
 import com.redygest.grok.features.data.attribute.AttributeId;
-import com.redygest.grok.features.data.attribute.Attributes;
-import com.redygest.grok.features.data.variable.IVariable;
-import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 import com.redygest.grok.knowledge.graph.IRepresentation;
-import com.redygest.grok.knowledge.graph.Node;
-import com.redygest.grok.knowledge.graph.Node.NodeType;
-import com.redygest.grok.knowledge.graph.Relation;
 import com.redygest.grok.knowledge.graph.Relation.Relationship;
 import com.redygest.grok.knowledge.graph.RepresentationFactory;
 import com.redygest.grok.knowledge.graph.RepresentationFactory.RepresentationType;
 
 /**
  * Class which organizes knowledge events/facts
- *
+ * 
  */
 public class Curator {
 
 	// the internal representation
 	IRepresentation kmodel;
 	String name;
-		
+
 	/**
 	 * Constructor
-	 * @param name	the uniq curation name
+	 * 
+	 * @param name
+	 *            the uniq curation name
 	 */
 	public Curator(String name) {
-		kmodel = RepresentationFactory.getInstance().produceRepresentation(name, RepresentationType.NEO4J);
+		kmodel = RepresentationFactory.getInstance().produceRepresentation(
+				name, RepresentationType.NEO4J);
 		this.name = name;
 	}
-	
+
 	/**
 	 * Constructor (auto generate name)
 	 */
 	public Curator() {
 		name = String.valueOf(new Double(Math.random()).hashCode());
-		kmodel = RepresentationFactory.getInstance().produceRepresentation(name, RepresentationType.NEO4J);
+		kmodel = RepresentationFactory.getInstance().produceRepresentation(
+				name, RepresentationType.NEO4J);
 	}
-	
+
 	/**
 	 * Add all events in a Repository
+	 * 
 	 * @param repository
 	 * @return true on sucess false otherwise
 	 */
 	public boolean addRepository(IFeaturesRepository repository) {
-		if(repository != null && repository.size() > 0) {
-			Set<Long> identifiers = repository.getIdentifiers();
-			if(identifiers != null) {
-				for(Long id : identifiers) {
-					FeatureVector fVector = repository.getFeatureVector(String.valueOf(id));
-					if(fVector != null) {
-						List<IVariable> variables = fVector.getVariablesWithAttributeType(AttributeId.HAS_SRL);
-						if(variables != null) {
-							// create Sentence
-							Node sentence = new Node(NodeType.SENTENCE);
-							kmodel.addNode(sentence);
-							
-							for(IVariable var : variables) {
-								Attributes attrs = var.getVariableAttributes();
-								if(attrs != null) {
-									// create Event
-									Node event = new Node(NodeType.EVENT);
-									kmodel.addNode(event);
-									
-									// create Relation: Sentence -> Event
-									for(AttributeId type : attrs.getAttributesMap().keySet()) {
-										//AttributeType type = attrs.get(attr);
-										for(String attrValue : attrs.getAttributeNames(type)) {
-											Relationship rType = attributeToRelationship(type);
-											if(rType != null) {
-												// create/fetch Entity
-												Node entity = kmodel.getNodeWithName(attrValue);
-												if(entity == null) {
-													entity = new Node(NodeType.ENTITY, attrValue);
-													System.out.println(attrValue);
-													kmodel.addNode(entity);
-												}
-												// create Relation: Event -> Entity
-												Relation rel = new Relation(rType, event, entity);
-												kmodel.addRelation(rel);
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-			
-			return true;
-		}
-		
+		// if(repository != null && repository.size() > 0) {
+		// Set<Long> identifiers = repository.getIdentifiers();
+		// if(identifiers != null) {
+		// for(Long id : identifiers) {
+		// FeatureVector fVector =
+		// repository.getFeatureVector(String.valueOf(id));
+		// if(fVector != null) {
+		// List<IVariable> variables =
+		// fVector.getVariablesWithAttributeType(AttributeId.HAS_SRL);
+		// if(variables != null) {
+		// // create Sentence
+		// Node sentence = new Node(NodeType.SENTENCE);
+		// kmodel.addNode(sentence);
+		//
+		// for(IVariable var : variables) {
+		// Attributes attrs = var.getVariableAttributes();
+		// if(attrs != null) {
+		// // create Event
+		// Node event = new Node(NodeType.EVENT);
+		// kmodel.addNode(event);
+		//
+		// // create Relation: Sentence -> Event
+		// for(AttributeId type : attrs.getAttributesMap().keySet()) {
+		// //AttributeType type = attrs.get(attr);
+		// for(String attrValue : attrs.getAttributeNames(type)) {
+		// Relationship rType = attributeToRelationship(type);
+		// if(rType != null) {
+		// // create/fetch Entity
+		// Node entity = kmodel.getNodeWithName(attrValue);
+		// if(entity == null) {
+		// entity = new Node(NodeType.ENTITY, attrValue);
+		// System.out.println(attrValue);
+		// kmodel.addNode(entity);
+		// }
+		// // create Relation: Event -> Entity
+		// Relation rel = new Relation(rType, event, entity);
+		// kmodel.addRelation(rel);
+		// }
+		// }
+		// }
+		// }
+		// }
+		// }
+		// }
+		// }
+		// }
+		//
+		// return true;
+		// }
+		//
 		return false;
 	}
-	
+
 	/**
 	 * Get the knowledge model
+	 * 
 	 * @return the IRepresentation
 	 */
 	public IRepresentation getModel() {
 		return this.kmodel;
 	}
-	
+
 	/**
 	 * Get the knowledge model name
+	 * 
 	 * @return
 	 */
 	public String getName() {
 		return this.name;
 	}
-	
+
 	/**
 	 * Map SRL Attributes to Relationships
+	 * 
 	 * @param type
 	 * @return
 	 */
 	private Relationship attributeToRelationship(AttributeId type) {
 		switch (type) {
-			case SRL_A0:
-				return Relationship.A0;
-			case SRL_A1:
-				return Relationship.A1;
-			case SRL_A2:
-				return Relationship.A2;
-			case SRL_ACTION:
-				return Relationship.ACTION;
-			case SRL_LOC:
-				return Relationship.LOC;
-			case SRL_MNR:
-				return Relationship.MNR;
-			case SRL_PNC:
-				return Relationship.PNC;
-			case SRL_TMP:
-				return Relationship.TMP;
-			default:
-				return null;
+		case SRL_A0:
+			return Relationship.A0;
+		case SRL_A1:
+			return Relationship.A1;
+		case SRL_A2:
+			return Relationship.A2;
+		case SRL_ACTION:
+			return Relationship.ACTION;
+		case SRL_LOC:
+			return Relationship.LOC;
+		case SRL_MNR:
+			return Relationship.MNR;
+		case SRL_PNC:
+			return Relationship.PNC;
+		case SRL_TMP:
+			return Relationship.TMP;
+		default:
+			return null;
 		}
 	}
-	
+
 }

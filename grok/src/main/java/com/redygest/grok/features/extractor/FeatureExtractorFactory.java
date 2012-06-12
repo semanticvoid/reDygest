@@ -17,10 +17,6 @@ public class FeatureExtractorFactory {
 
 	public IFeatureExtractor getFeatureExtractor(FeatureExtractorType type) {
 		switch (type) {
-		case NGRAMSYNONYM:
-			return new NGramSynonymExtractor();
-		case NPCOOCCURRENCE:
-			return new NPCooccurrenceExtractor();
 		case NPENTITY:
 			return new NPEntityExtractor();
 		case POSFEATURE:
@@ -31,8 +27,6 @@ public class FeatureExtractorFactory {
 			return new PunctuationCountFeatureExtractor();
 		case PPRONOUNCOUNTFEATURE:
 			return new PPronounCountFeatureExtractor();
-		case SRL:
-			return new SRLFeatureExtractor();
 		case NER:
 			return new NERFeatureExtractor();
 		case SYNONYM:

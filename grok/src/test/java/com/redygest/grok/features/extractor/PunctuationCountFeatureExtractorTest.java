@@ -9,6 +9,7 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
@@ -17,11 +18,13 @@ import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class PunctuationCountFeatureExtractorTest extends TestCase {
 
-	private IFeatureExtractor extractor = FeatureExtractorFactory.getInstance()
-			.getFeatureExtractor(FeatureExtractorType.PUNCTUATIONCOUNTFEATURE);
+	private final IFeatureExtractor extractor = FeatureExtractorFactory
+			.getInstance().getFeatureExtractor(
+					FeatureExtractorType.PUNCTUATIONCOUNTFEATURE);
 
 	private FeatureVectorCollection f = null;
 
+	@Override
 	protected void setUp() {
 		if (f == null) {
 			Data d1 = new Tweet("{\"text\":\"Oh! yay! Yahoo!\"}", "1");
@@ -31,6 +34,7 @@ public class PunctuationCountFeatureExtractorTest extends TestCase {
 		}
 	}
 
+	@Override
 	protected void tearDown() {
 		// do nothing
 	}
@@ -40,10 +44,10 @@ public class PunctuationCountFeatureExtractorTest extends TestCase {
 		IVariable var = fv.getVariable(new DataVariable("!", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
-			List<String> tags = attrs
-					.getAttributeNames(AttributeId.PUNCTCOUNT);
-			if (tags != null && tags.size() > 0) {
-				assertEquals("3", tags.get(0));
+			IAttribute punctCountFeatureAttr = attrs
+					.getAttributes(AttributeId.PUNCTCOUNT);
+			if (punctCountFeatureAttr != null) {
+				assertEquals(3, (long) punctCountFeatureAttr.getLong());
 				return;
 			}
 		}

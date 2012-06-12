@@ -44,7 +44,7 @@ public class EntityExtractorTest extends TestCase {
 
 	public void testEntity() {
 		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(
-				String.valueOf(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
+				FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
 		List<IVariable> variables = fv
 				.getVariablesWithAttributeType(AttributeId.ENTITY);
 		for (IVariable var : variables) {
@@ -59,15 +59,15 @@ public class EntityExtractorTest extends TestCase {
 
 	public void testEntityFrequency() {
 		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(
-				String.valueOf(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
+				FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
 		List<IVariable> variables = fv
 				.getVariablesWithAttributeType(AttributeId.ENTITY);
 		for (IVariable var : variables) {
 			Attributes attrs = var.getVariableAttributes();
 			if (attrs != null
 					&& attrs.containsAttributeType(AttributeId.FREQUENCY)) {
-				int freq = Integer.valueOf(attrs.getAttributeNames(
-						AttributeId.FREQUENCY).get(0));
+				long freq = attrs.getAttributes(AttributeId.FREQUENCY)
+						.getLong();
 				assertEquals(1, freq);
 				return;
 			}

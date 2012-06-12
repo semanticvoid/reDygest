@@ -9,6 +9,7 @@ import com.redygest.commons.nlp.synonym.ISynonymDb;
 import com.redygest.commons.nlp.synonym.SynonymDbFactory;
 import com.redygest.commons.nlp.synonym.SynonymDbType;
 import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.StringAttribute;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.IFeaturesRepository;
@@ -26,7 +27,7 @@ public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
 	protected FeatureVector extract(Data t, IFeaturesRepository repository) {
 		FeatureVector fVector = new FeatureVector();
 
-		String id = t.getValue(DataType.RECORD_IDENTIFIER);
+		long id = Long.valueOf(t.getValue(DataType.RECORD_IDENTIFIER));
 		FeatureVector fVector_old = repository.getFeatureVector(id);
 		if (fVector_old == null) {
 			return fVector;
@@ -42,11 +43,10 @@ public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
 			String named_entity = var.getVariableName();
 			String root = db.getSynonym(named_entity);
 			if (root != null) {
-				var.addAttribute(root, AttributeId.SYNONYM);
+				var.addAttribute(new StringAttribute(AttributeId.SYNONYM, root));
 			}
 			fVector.addVariable(var);
 		}
 		return fVector;
 	}
-
 }

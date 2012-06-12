@@ -2,7 +2,6 @@ package com.redygest.grok.features.data.vector;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Map;
 
 import com.redygest.grok.features.data.variable.IVariable;
 
@@ -10,19 +9,15 @@ import com.redygest.grok.features.data.variable.IVariable;
  * Feature Vector Collection Class
  * 
  */
-public class FeatureVectorCollection {
+public class FeatureVectorCollection extends HashMap<Long, FeatureVector> {
 
 	// global record identifier
 	public static final long GLOBAL_RECORD_IDENTIFIER = -1;
-
-	// record id feature vector map
-	private final Map<Long, FeatureVector> featureVectorMap;
 
 	/**
 	 * Constructor
 	 */
 	public FeatureVectorCollection() {
-		featureVectorMap = new HashMap<Long, FeatureVector>();
 	}
 
 	/**
@@ -31,7 +26,7 @@ public class FeatureVectorCollection {
 	 * @return
 	 */
 	public Collection<FeatureVector> getFeatureVectors() {
-		return featureVectorMap.values();
+		return this.values();
 	}
 
 	/**
@@ -40,7 +35,7 @@ public class FeatureVectorCollection {
 	 * @return
 	 */
 	public Collection<Long> getRecordIdentifiers() {
-		return featureVectorMap.keySet();
+		return this.keySet();
 	}
 
 	/**
@@ -50,7 +45,7 @@ public class FeatureVectorCollection {
 	 * @return
 	 */
 	public FeatureVector getFeatureVector(long recordIdentifier) {
-		return featureVectorMap.get(recordIdentifier);
+		return this.get(recordIdentifier);
 	}
 
 	/**
@@ -61,16 +56,14 @@ public class FeatureVectorCollection {
 	public void addFeatures(FeatureVectorCollection featureCollection) {
 		if (featureCollection != null) {
 			for (long rId : featureCollection.getRecordIdentifiers()) {
-				if (this.featureVectorMap.containsKey(rId)) {
-					FeatureVector featureVector = this.featureVectorMap
-							.get(rId);
+				if (this.containsKey(rId)) {
+					FeatureVector featureVector = this.get(rId);
 					for (IVariable variable : featureCollection
 							.getFeatureVector(rId).getVariables()) {
 						featureVector.addVariable(variable);
 					}
 				} else {
-					this.featureVectorMap.put(rId,
-							featureCollection.getFeatureVector(rId));
+					this.put(rId, featureCollection.getFeatureVector(rId));
 				}
 			}
 		}
