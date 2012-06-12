@@ -24,6 +24,7 @@ import com.redygest.grok.features.datatype.FeatureVector;
 import com.redygest.grok.features.datatype.Variable;
 import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.filtering.data.preextraction.PreExtractionPrefilterRunner;
+import com.redygest.grok.filtering.data.preextraction.PreExtractionPrefilterType;
 
 /**
  * 
@@ -57,6 +58,7 @@ public class EvaluationMetrics {
 
 	protected final void read(String file) {
 		this.tweets = new ArrayList<Data>();
+		prefilterRunner = new PreExtractionPrefilterRunner(PreExtractionPrefilterType.REPLY_TWEET_FILTER,PreExtractionPrefilterType.NONENLGISH_LANG_FILTER );		
 		try {
 			BufferedReader rdr = new BufferedReader(new FileReader(new File(
 					file)));
@@ -66,6 +68,7 @@ public class EvaluationMetrics {
 				try {
 					boolean pass = true;
 					Tweet t = new Tweet(line, String.valueOf(i), preprocessor);
+					
 					// prefilter code
 					if (prefilterRunner != null) {
 						pass = prefilterRunner.runFilters(t
@@ -89,8 +92,8 @@ public class EvaluationMetrics {
 	private EvaluationMetrics(String file) {
 		read(file);
 		ConfigReader conf = ConfigReader.getInstance();
-		FeaturesComputation fc = new FeaturesComputation(
-				conf.getExtractorsList());
+		FeaturesComputation fc = new FeaturesComputation(conf
+				.getExtractorsList());
 		try {
 			this.repository = fc.computeFeatures(tweets);
 		} catch (Exception e) {
