@@ -18,10 +18,10 @@ import com.redygest.commons.util.Counter;
 import com.redygest.commons.util.CounterMap;
 import com.redygest.commons.util.PriorityQueue;
 import com.redygest.grok.features.computation.FeaturesComputation;
-import com.redygest.grok.features.datatype.AttributeType;
-import com.redygest.grok.features.datatype.Attributes;
-import com.redygest.grok.features.datatype.FeatureVector;
-import com.redygest.grok.features.datatype.Variable;
+import com.redygest.grok.features.data.attribute.AttributeId;
+import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.variable.IVariable;
+import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.filtering.data.preextraction.PreExtractionPrefilterRunner;
 
@@ -110,11 +110,11 @@ public class EvaluationMetrics {
 			FeatureVector fv = this.repository.getFeatureVector(id);
 
 			// collect NP entities
-			for (Variable v : fv
-					.getVariablesWithAttributeType(AttributeType.NPENTITY)) {
+			for (IVariable v : fv
+					.getVariablesWithAttributeType(AttributeId.NPENTITY)) {
 				Attributes attrs = v.getVariableAttributes();
 				List<String> attrNames = attrs
-						.getAttributeNames(AttributeType.SYNONYM);
+						.getAttributeNames(AttributeId.SYNONYM);
 				if (attrNames != null && attrNames.size() > 0) {
 					np_entities.add(attrNames.get(0).toLowerCase());
 					npCounts.incrementCount(attrNames.get(0).toLowerCase(),
@@ -127,11 +127,11 @@ public class EvaluationMetrics {
 			}
 
 			// collect NERs
-			for (Variable v : fv
-					.getVariablesWithAttributeType(AttributeType.NER_CLASS)) {
+			for (IVariable v : fv
+					.getVariablesWithAttributeType(AttributeId.NER_CLASS)) {
 				Attributes attrs = v.getVariableAttributes();
 				List<String> attrNames = attrs
-						.getAttributeNames(AttributeType.SYNONYM);
+						.getAttributeNames(AttributeId.SYNONYM);
 				if (attrNames != null && attrNames.size() > 0) {
 					ner_entities.add(attrNames.get(0).toLowerCase());
 					nerCounts.incrementCount(attrNames.get(0).toLowerCase(),
