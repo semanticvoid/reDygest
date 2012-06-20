@@ -13,7 +13,6 @@ import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
-import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class SentimentFeatureExtractorTest extends TestCase {
@@ -24,11 +23,9 @@ public class SentimentFeatureExtractorTest extends TestCase {
 			.getInstance().getFeatureExtractor(
 					FeatureExtractorType.SENTIMENTFEATURE);
 
-	private FeatureVectorCollection f = null;
-
 	@Override
 	protected void setUp() {
-		if (f == null) {
+		if (FeaturesRepository.getInstance().getFeatureVector(1) == null) {
 			Data d1 = new Tweet(
 					"{\"text\":\"an abundant supply of water in these lush gardens\"}",
 					"1");
@@ -36,7 +33,7 @@ public class SentimentFeatureExtractorTest extends TestCase {
 			dataList.add(d1);
 			FeaturesRepository repository = FeaturesRepository.getInstance();
 			repository.addFeatures(posExtractor.extract(dataList, repository));
-			f = extractor.extract(dataList, repository);
+			extractor.extract(dataList, repository);
 		}
 	}
 
@@ -46,7 +43,7 @@ public class SentimentFeatureExtractorTest extends TestCase {
 	}
 
 	public void testSentiment() {
-		FeatureVector fv = f.getFeatureVector(1);
+		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(1);
 		IVariable var = fv.getVariable(new DataVariable("abundant", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
@@ -62,7 +59,7 @@ public class SentimentFeatureExtractorTest extends TestCase {
 	}
 
 	public void testSentimentCount() {
-		FeatureVector fv = f.getFeatureVector(1);
+		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(1);
 		IVariable var = fv.getVariable(new DataVariable("weak_negative", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();

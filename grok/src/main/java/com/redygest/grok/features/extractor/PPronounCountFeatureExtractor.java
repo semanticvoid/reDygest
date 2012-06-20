@@ -10,6 +10,7 @@ import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.attribute.LongAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class PPronounCountFeatureExtractor extends AbstractFeatureExtractor {
@@ -19,9 +20,12 @@ public class PPronounCountFeatureExtractor extends AbstractFeatureExtractor {
 			"us", "them", "mine", "your", "yourself", "our", "ours", "yours" };
 
 	@Override
-	public FeatureVector extract(Data t, IFeaturesRepository repository) {
+	public FeatureVectorCollection extract(Data t,
+			IFeaturesRepository repository) {
 		HashMap<String, Integer> ppCounts = new HashMap<String, Integer>();
-		FeatureVector fVector = new FeatureVector();
+		FeatureVectorCollection fCollection = new FeatureVectorCollection();
+		FeatureVector fLocal = new FeatureVector();
+		long id = Long.valueOf(t.getValue(DataType.RECORD_IDENTIFIER));
 
 		List<String> tokens = t.getValues(DataType.BODY_TOKENIZED);
 
@@ -39,14 +43,16 @@ public class PPronounCountFeatureExtractor extends AbstractFeatureExtractor {
 
 		for (String pp : ppCounts.keySet()) {
 			int count = ppCounts.get(pp);
-			DataVariable var = new DataVariable(pp, Long.valueOf(t
-					.getValue(DataType.RECORD_IDENTIFIER)));
+			DataVariable var = new DataVariable(pp, id);
 			Attributes attrs = var.getVariableAttributes();
 			attrs.add(new LongAttribute(AttributeId.PPRONOUNCOUNT, (long) count));
-			fVector.addVariable(var);
+			fLocal.addVariable(var);
 		}
 
-		return fVector;
+		// add feature vector to collection to be returned
+		fCollection.put(id, fLocal);
+
+		return fCollection;
 	}
 
 }

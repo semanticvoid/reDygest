@@ -45,7 +45,7 @@ public class FeaturesComputation {
 		for (IFeatureExtractor extractor : extractors) {
 			FeatureVectorCollection fVectors = extractor.extract(data,
 					repository);
-			repository.addFeatures(fVectors);
+			// repository.addFeatures(fVectors);
 		}
 
 		return repository;

@@ -19,26 +19,11 @@ import com.redygest.grok.features.repository.IFeaturesRepository;
 public class POSFeatureExtractor extends AbstractFeatureExtractor {
 
 	@Override
-	public FeatureVectorCollection extract(List<Data> dataList,
+	public FeatureVectorCollection extract(Data d,
 			IFeaturesRepository repository) {
-		FeatureVectorCollection features = new FeatureVectorCollection();
-
-		for (Data d : dataList) {
-			long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));
-			FeatureVector fVector = extract(d, repository);
-
-			FeatureVectorCollection fVectCollection = new FeatureVectorCollection();
-			fVectCollection.put(id, fVector);
-			features.addFeatures(fVectCollection);
-		}
-
-		return features;
-	}
-
-	@Override
-	public FeatureVector extract(Data d, IFeaturesRepository repository) {
 		long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));
-		FeatureVector fVector = new FeatureVector();
+		FeatureVectorCollection fCollection = new FeatureVectorCollection();
+		FeatureVector fLocal = new FeatureVector();
 		POSTagger tagger = POSTagger.getInstance();
 		List<TaggedToken> tags = tagger.tag(d.getValue(DataType.BODY));
 		String prevTag = null;
@@ -50,7 +35,7 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 			// bigram
 			if (prevTag != null) {
 				String bigram = prevTag + " " + tag;
-				IVariable var = fVector
+				IVariable var = fLocal
 						.getVariable(new DataVariable(bigram, id));
 
 				if (var == null) {
@@ -68,11 +53,11 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 							count));
 				}
 
-				fVector.addVariable(var);
+				fLocal.addVariable(var);
 			}
 
 			// unigram
-			IVariable var = fVector.getVariable(new DataVariable(tag, id));
+			IVariable var = fLocal.getVariable(new DataVariable(tag, id));
 			if (var == null) {
 				var = new DataVariable(tag, id);
 				Attributes attrs = var.getVariableAttributes();
@@ -85,21 +70,24 @@ public class POSFeatureExtractor extends AbstractFeatureExtractor {
 				attrs.remove(AttributeId.POSUNIGRAMCOUNT);
 				attrs.add(new LongAttribute(AttributeId.POSUNIGRAMCOUNT, count));
 			}
-			fVector.addVariable(var);
+			fLocal.addVariable(var);
 
 			// pos
 			IVariable queryVar = new DataVariable(word, id);
-			var = fVector.getVariable(queryVar);
+			var = fLocal.getVariable(queryVar);
 			if (var == null) {
 				var = queryVar;
 			}
 			Attributes attrs = var.getVariableAttributes();
 			attrs.add(new StringAttribute(AttributeId.POS, tag));
-			fVector.addVariable(var);
+			fLocal.addVariable(var);
 
 			prevTag = tag;
 		}
 
-		return fVector;
+		// add feature vector to collection to be returned
+		fCollection.put(id, fLocal);
+
+		return fCollection;
 	}
 }

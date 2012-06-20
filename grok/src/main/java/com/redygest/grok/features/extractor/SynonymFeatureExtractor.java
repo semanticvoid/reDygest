@@ -12,6 +12,7 @@ import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.StringAttribute;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
@@ -24,19 +25,21 @@ public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
 	}
 
 	@Override
-	protected FeatureVector extract(Data t, IFeaturesRepository repository) {
-		FeatureVector fVector = new FeatureVector();
+	protected FeatureVectorCollection extract(Data t,
+			IFeaturesRepository repository) {
+		FeatureVectorCollection fCollection = new FeatureVectorCollection();
+		FeatureVector fLocal = new FeatureVector();
 
 		long id = Long.valueOf(t.getValue(DataType.RECORD_IDENTIFIER));
-		FeatureVector fVector_old = repository.getFeatureVector(id);
-		if (fVector_old == null) {
-			return fVector;
+		FeatureVector fVectorOld = repository.getFeatureVector(id);
+		if (fVectorOld == null) {
+			return null;
 		}
 
 		List<IVariable> variables = new ArrayList<IVariable>();
-		variables.addAll(fVector_old
+		variables.addAll(fVectorOld
 				.getVariablesWithAttributeType(AttributeId.NER_CLASS));
-		variables.addAll(fVector_old
+		variables.addAll(fVectorOld
 				.getVariablesWithAttributeType(AttributeId.NPENTITY));
 
 		for (IVariable var : variables) {
@@ -45,8 +48,12 @@ public class SynonymFeatureExtractor extends AbstractFeatureExtractor {
 			if (root != null) {
 				var.addAttribute(new StringAttribute(AttributeId.SYNONYM, root));
 			}
-			fVector.addVariable(var);
+			fLocal.addVariable(var);
 		}
-		return fVector;
+
+		// add feature vector to collection to be returned
+		fCollection.put(id, fLocal);
+
+		return fCollection;
 	}
 }

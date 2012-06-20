@@ -13,13 +13,16 @@ import com.redygest.grok.features.data.attribute.StringAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 
 	@Override
-	public FeatureVector extract(Data t, IFeaturesRepository repository) {
-		FeatureVector fVector = new FeatureVector();
+	public FeatureVectorCollection extract(Data t,
+			IFeaturesRepository repository) {
+		FeatureVectorCollection fCollection = new FeatureVectorCollection();
+		FeatureVector fLocal = new FeatureVector();
 		SentiWordNet swn = SentiWordNet.getInstance();
 
 		long id = Long.valueOf(t.getValue(DataType.RECORD_IDENTIFIER));
@@ -47,10 +50,10 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 									.getVariableAttributes();
 							attributes.add(new StringAttribute(
 									AttributeId.SENTIMENT, sentiment));
-							fVector.addVariable(dataVar);
+							fLocal.addVariable(dataVar);
 
 							// sentiment count
-							var = fVector.getVariable(new DataVariable(
+							var = fLocal.getVariable(new DataVariable(
 									sentiment, Long.valueOf(id)));
 							if (var == null) {
 								var = new DataVariable(sentiment, id);
@@ -67,13 +70,16 @@ public class SentimentFeatureExtractor extends AbstractFeatureExtractor {
 										AttributeId.SENTIMENTCOUNT, count));
 							}
 
-							fVector.addVariable(var);
+							fLocal.addVariable(var);
 						}
 					}
 				}
 			}
 		}
 
-		return fVector;
+		// add feature vector to collection to be returned
+		fCollection.put(id, fLocal);
+
+		return fCollection;
 	}
 }

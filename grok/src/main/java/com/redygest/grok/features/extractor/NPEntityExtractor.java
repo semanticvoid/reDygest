@@ -11,6 +11,7 @@ import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 /**
@@ -23,16 +24,18 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 	}
 
 	@Override
-	protected FeatureVector extract(Data t, IFeaturesRepository repository) {
-		FeatureVector fVector = new FeatureVector();
+	protected FeatureVectorCollection extract(Data t,
+			IFeaturesRepository repository) {
+		FeatureVectorCollection fCollection = new FeatureVectorCollection();
+		FeatureVector fLocal = new FeatureVector();
 		long id = Long.valueOf(t.getValue(DataType.RECORD_IDENTIFIER));
 
-		FeatureVector fVector_old = repository.getFeatureVector(id);
-		if (fVector_old == null) {
-			return fVector;
+		FeatureVector fVectorOld = repository.getFeatureVector(id);
+		if (fVectorOld == null) {
+			return null;
 		}
 
-		List<IVariable> variables = fVector_old
+		List<IVariable> variables = fVectorOld
 				.getVariablesWithAttributeType(AttributeId.POS);
 
 		StringBuffer entity = new StringBuffer();
@@ -55,8 +58,8 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 
 			if ((prevPosTag != null && !posTag.equals(prevPosTag))) {
 				if (entity.length() > 0) {
-					IVariable eVar = fVector.getVariable(new DataVariable(
-							entity.toString().trim(), id));
+					IVariable eVar = fLocal.getVariable(new DataVariable(entity
+							.toString().trim(), id));
 
 					if (eVar == null) {
 						eVar = new DataVariable(entity.toString().trim(), id);
@@ -64,7 +67,7 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 
 					eVar.addAttribute(new BooleanAttribute(
 							AttributeId.NPENTITY, true));
-					fVector.addVariable(eVar);
+					fLocal.addVariable(eVar);
 
 					entity = new StringBuffer();
 				}
@@ -78,7 +81,7 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 		}
 
 		if (entity.length() > 0) {
-			IVariable eVar = fVector.getVariable(new DataVariable(entity
+			IVariable eVar = fLocal.getVariable(new DataVariable(entity
 					.toString().trim(), Long.valueOf(id)));
 
 			if (eVar == null) {
@@ -87,9 +90,12 @@ public class NPEntityExtractor extends AbstractFeatureExtractor {
 			}
 
 			eVar.addAttribute(new BooleanAttribute(AttributeId.NPENTITY, true));
-			fVector.addVariable(eVar);
+			fLocal.addVariable(eVar);
 		}
 
-		return fVector;
+		// add feature vector to collection to be returned
+		fCollection.put(id, fLocal);
+
+		return fCollection;
 	}
 }

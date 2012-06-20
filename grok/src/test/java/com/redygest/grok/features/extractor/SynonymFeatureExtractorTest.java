@@ -13,7 +13,6 @@ import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
-import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class SynonymFeatureExtractorTest extends TestCase {
@@ -23,24 +22,20 @@ public class SynonymFeatureExtractorTest extends TestCase {
 	private final IFeatureExtractor syn_extractor = FeatureExtractorFactory
 			.getInstance().getFeatureExtractor(FeatureExtractorType.SYNONYM);
 
-	private FeatureVectorCollection f = null;
-
 	@Override
 	protected void setUp() {
 		FeaturesRepository repository = FeaturesRepository.getInstance();
-		if (f == null) {
+		if (FeaturesRepository.getInstance().getFeatureVector(1) == null) {
 			Data d1 = new Tweet("{\"text\":\"Obama went to Washington.\"}", "1");
 			List<Data> dataList = new ArrayList<Data>();
 			dataList.add(d1);
-			f = ner_extractor.extract(dataList, repository);
-			repository.addFeatures(f);
-			f = syn_extractor.extract(dataList, repository);
-			repository.addFeatures(f);
+			ner_extractor.extract(dataList, repository);
+			syn_extractor.extract(dataList, repository);
 		}
 	}
 
 	public void testSynonym() {
-		FeatureVector fv = f.getFeatureVector(1);
+		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(1);
 		IVariable var = fv.getVariable(new DataVariable("Obama", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();

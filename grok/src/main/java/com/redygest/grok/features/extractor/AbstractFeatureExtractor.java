@@ -5,8 +5,6 @@ import java.util.List;
 
 import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Data;
-import com.redygest.commons.data.DataType;
-import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
 import com.redygest.grok.features.repository.IFeaturesRepository;
@@ -25,8 +23,12 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor {
 
 		for (int i = 0; i < dataList.size(); ++i) {
 			Data d = dataList.get(i);
-			features.put(Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER)),
-					extract(d, repository));
+			// features.put(Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER)),
+			// extract(d, repository));
+			FeatureVectorCollection intermediateCollection = extract(d,
+					repository);
+			// commit to repository
+			repository.addFeatures(intermediateCollection);
 		}
 
 		return features;
@@ -49,8 +51,8 @@ public abstract class AbstractFeatureExtractor implements IFeatureExtractor {
 	 * 
 	 * @param t
 	 *            - tweet
-	 * @return feature vector
+	 * @return feature vector collection
 	 */
-	protected abstract FeatureVector extract(Data t,
+	protected abstract FeatureVectorCollection extract(Data t,
 			IFeaturesRepository repository);
 }

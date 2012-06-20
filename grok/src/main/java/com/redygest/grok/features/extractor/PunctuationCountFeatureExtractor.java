@@ -9,6 +9,7 @@ import com.redygest.grok.features.data.attribute.Attributes;
 import com.redygest.grok.features.data.attribute.LongAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class PunctuationCountFeatureExtractor extends AbstractFeatureExtractor {
@@ -16,9 +17,12 @@ public class PunctuationCountFeatureExtractor extends AbstractFeatureExtractor {
 	char[] puncts = { '.', '!', '?', '@', '#', ',' };
 
 	@Override
-	public FeatureVector extract(Data t, IFeaturesRepository repository) {
+	public FeatureVectorCollection extract(Data t,
+			IFeaturesRepository repository) {
 		HashMap<Character, Integer> pCounts = new HashMap<Character, Integer>();
-		FeatureVector fVector = new FeatureVector();
+		FeatureVectorCollection fCollection = new FeatureVectorCollection();
+		FeatureVector fLocal = new FeatureVector();
+		long id = Long.valueOf(t.getValue(DataType.RECORD_IDENTIFIER));
 
 		String text = t.getValue(DataType.BODY);
 		char[] characters = text.toCharArray();
@@ -37,13 +41,15 @@ public class PunctuationCountFeatureExtractor extends AbstractFeatureExtractor {
 
 		for (Character c : pCounts.keySet()) {
 			long count = pCounts.get(c);
-			DataVariable var = new DataVariable(c.toString(), Long.valueOf(t
-					.getValue(DataType.RECORD_IDENTIFIER)));
+			DataVariable var = new DataVariable(c.toString(), id);
 			Attributes attrs = var.getVariableAttributes();
 			attrs.add(new LongAttribute(AttributeId.PUNCTCOUNT, count));
-			fVector.addVariable(var);
+			fLocal.addVariable(var);
 		}
 
-		return fVector;
+		// add feature vector to collection to be returned
+		fCollection.put(id, fLocal);
+
+		return fCollection;
 	}
 }

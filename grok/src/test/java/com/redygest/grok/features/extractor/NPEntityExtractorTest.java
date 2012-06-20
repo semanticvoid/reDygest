@@ -10,7 +10,6 @@ import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
-import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class NPEntityExtractorTest extends TestCase {
@@ -20,25 +19,21 @@ public class NPEntityExtractorTest extends TestCase {
 	private final IFeatureExtractor npentity_extractor = FeatureExtractorFactory
 			.getInstance().getFeatureExtractor(FeatureExtractorType.NPENTITY);
 
-	private FeatureVectorCollection f = null;
-
 	@Override
 	protected void setUp() {
 		FeaturesRepository repository = FeaturesRepository.getInstance();
-		if (f == null) {
+		if (FeaturesRepository.getInstance().getFeatureVector(1) == null) {
 			Data d1 = new Tweet(
 					"{\"text\":\"Lokpal Bill went to Washington DC.\"}", "1");
 			List<Data> dataList = new ArrayList<Data>();
 			dataList.add(d1);
-			f = pos_extractor.extract(dataList, repository);
-			repository.addFeatures(f);
-			f = npentity_extractor.extract(dataList, repository);
-			repository.addFeatures(f);
+			pos_extractor.extract(dataList, repository);
+			npentity_extractor.extract(dataList, repository);
 		}
 	}
 
 	public void testNPEntity() {
-		FeatureVector fv = f.getFeatureVector(1);
+		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(1);
 		List<IVariable> variables = fv
 				.getVariablesWithAttributeType(AttributeId.NPENTITY);
 		for (IVariable var : variables) {

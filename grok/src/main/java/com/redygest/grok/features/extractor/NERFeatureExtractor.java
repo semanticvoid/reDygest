@@ -12,30 +12,17 @@ import com.redygest.grok.features.data.attribute.StringAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
+import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
 public class NERFeatureExtractor extends AbstractFeatureExtractor {
 
-	// public NamedEntity correctBadEntries(String text) {
-	// List<String> labels = new ArrayList<String>();
-	// labels.add("PERSON");
-	// labels.add("LOCATION");
-	// labels.add("ORGANIZATION");
-	// NamedEntity ne = null;
-	//
-	// for (String label : labels) {
-	// if (text.contains(label)) {
-	// String[] split = text.split("/" + label);
-	// ne = new NamedEntity(split[0], label);
-	// }
-	// }
-	// return ne;
-	// }
-
 	@Override
-	protected FeatureVector extract(Data d, IFeaturesRepository repository) {
+	protected FeatureVectorCollection extract(Data d,
+			IFeaturesRepository repository) {
 		long id = Long.valueOf(d.getValue(DataType.RECORD_IDENTIFIER));
-		FeatureVector fVector = new FeatureVector();
+		FeatureVectorCollection fCollection = new FeatureVectorCollection();
+		FeatureVector fLocal = new FeatureVector();
 		NERTagger tagger = NERTagger.getInstance();
 		List<TaggedToken> tokens = tagger.tag(d.getValue(DataType.BODY));
 
@@ -47,7 +34,7 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 			String word = token.getWord();
 
 			if (prevNerClass != null && !prevNerClass.equals(nerClass)) {
-				IVariable var = fVector.getVariable(new DataVariable(entity
+				IVariable var = fLocal.getVariable(new DataVariable(entity
 						.toString().trim(), id));
 
 				if (var == null) {
@@ -59,7 +46,7 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 				var.addAttribute(new BooleanAttribute(AttributeId.NERENTITY,
 						true));
 
-				fVector.addVariable(var);
+				fLocal.addVariable(var);
 
 				entity = new StringBuffer();
 			}
@@ -77,7 +64,7 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 		if (prevNerClass.equalsIgnoreCase("PERSON")
 				|| prevNerClass.equalsIgnoreCase("ORGANIZATION")
 				|| prevNerClass.equalsIgnoreCase("LOCATION")) {
-			IVariable var = fVector.getVariable(new DataVariable(entity
+			IVariable var = fLocal.getVariable(new DataVariable(entity
 					.toString().trim(), id));
 
 			if (var == null) {
@@ -88,9 +75,12 @@ public class NERFeatureExtractor extends AbstractFeatureExtractor {
 					prevNerClass));
 			var.addAttribute(new BooleanAttribute(AttributeId.NERENTITY, true));
 
-			fVector.addVariable(var);
+			fLocal.addVariable(var);
 		}
 
-		return fVector;
+		// add feature vector to collection to be returned
+		fCollection.put(id, fLocal);
+
+		return fCollection;
 	}
 }

@@ -13,29 +13,27 @@ import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.variable.DataVariable;
 import com.redygest.grok.features.data.variable.IVariable;
 import com.redygest.grok.features.data.vector.FeatureVector;
-import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
 
 public class NERFeatureExtractionTest extends TestCase {
 
 	private final IFeatureExtractor extractor = FeatureExtractorFactory
 			.getInstance().getFeatureExtractor(FeatureExtractorType.NER);
-	private FeatureVectorCollection f = null;
 
 	@Override
 	protected void setUp() {
 		FeaturesRepository repository = FeaturesRepository.getInstance();
-		if (f == null) {
+		if (FeaturesRepository.getInstance().getFeatureVector(1) == null) {
 			Data d1 = new Tweet(
 					"{\"text\":\"Bill Clinton went to Washington.\"}", "1");
 			List<Data> dataList = new ArrayList<Data>();
 			dataList.add(d1);
-			f = extractor.extract(dataList, repository);
+			extractor.extract(dataList, repository);
 		}
 	}
 
 	public void testNER() {
-		FeatureVector fv = f.getFeatureVector(1);
+		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(1);
 		IVariable var = fv.getVariable(new DataVariable("Bill Clinton", 1L));
 		if (var != null) {
 			Attributes attrs = var.getVariableAttributes();
