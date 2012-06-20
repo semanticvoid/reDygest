@@ -22,24 +22,16 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 	}
 
 	@Override
-	public FeatureVectorCollection extract(List<Data> dataList,
+	protected FeatureVectorCollection extract(Data t,
 			IFeaturesRepository repository) {
-		FeatureVectorCollection features = new FeatureVectorCollection();
-		for (Data t : dataList) {
-			features.put(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER,
-					extract(t, repository));
-		}
-		return features;
-	}
-
-	@Override
-	protected FeatureVector extract(Data t, IFeaturesRepository repository) {
-		FeatureVector fVector = new FeatureVector();
+		FeatureVectorCollection fCollection = new FeatureVectorCollection();
+		FeatureVector fLocal = new FeatureVector();
+		FeatureVector fGlobal = new FeatureVector();
 
 		long id = Long.valueOf(t.getValue(DataType.RECORD_IDENTIFIER));
 		FeatureVector fVectorOld = repository.getFeatureVector(id);
 		if (fVectorOld == null) {
-			return fVector;
+			return null;
 		}
 
 		List<IVariable> variables = new ArrayList<IVariable>();
@@ -71,8 +63,30 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 			}
 
 			long frequency = 1;
-			IVariable gVar = fVector.getVariable(new DataVariable(entityName,
-					FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
+			IVariable gVar = null;
+
+			if (fGlobal.getVariable(new DataVariable(entityName,
+					FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)) != null) {
+				gVar = fGlobal.getVariable(new DataVariable(entityName,
+						FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
+			} else if (repository
+					.getFeatureVector(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER) != null
+					&& repository
+							.getFeatureVector(
+									FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)
+							.getVariable(
+									new DataVariable(
+											entityName,
+											FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)) != null) {
+				gVar = repository
+						.getFeatureVector(
+								FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)
+						.getVariable(
+								new DataVariable(
+										entityName,
+										FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
+			}
+
 			if (gVar == null) {
 				gVar = new DataVariable(entityName,
 						FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
@@ -92,9 +106,13 @@ public class EntityFeatureExtractor extends AbstractFeatureExtractor {
 			gVarAttrs.add(new LongAttribute(AttributeId.FREQUENCY, frequency));
 
 			gVar.addAttributes(gVarAttrs);
-			fVector.addVariable(gVar);
+			fGlobal.addVariable(gVar);
 		}
 
-		return fVector;
+		// add feature vector to collection to be returned
+		fCollection.put(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER,
+				fGlobal);
+
+		return fCollection;
 	}
 }

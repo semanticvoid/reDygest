@@ -23,22 +23,20 @@ public class EntityExtractorTest extends TestCase {
 	private final IFeatureExtractor entityExtractor = FeatureExtractorFactory
 			.getInstance().getFeatureExtractor(FeatureExtractorType.ENTITY);
 
-	private FeatureVectorCollection f = null;
-
 	@Override
 	protected void setUp() {
 		FeaturesRepository repository = FeaturesRepository.getInstance();
-		if (f == null) {
+		if (FeaturesRepository.getInstance().getFeatureVector(1) == null) {
 			Data d1 = new Tweet(
 					"{\"text\":\"Lokpal Bill went to Washington DC.\"}", "1");
+			Data d2 = new Tweet(
+					"{\"text\":\"Lokpal Bill went to Washington DC.\"}", "2");
 			List<Data> dataList = new ArrayList<Data>();
 			dataList.add(d1);
-			f = posExtractor.extract(dataList, repository);
-			repository.addFeatures(f);
-			f = npentityExtractor.extract(dataList, repository);
-			repository.addFeatures(f);
-			f = entityExtractor.extract(dataList, repository);
-			repository.addFeatures(f);
+			dataList.add(d2);
+			posExtractor.extract(dataList, repository);
+			npentityExtractor.extract(dataList, repository);
+			entityExtractor.extract(dataList, repository);
 		}
 	}
 
@@ -68,7 +66,7 @@ public class EntityExtractorTest extends TestCase {
 					&& attrs.containsAttributeType(AttributeId.FREQUENCY)) {
 				long freq = attrs.getAttributes(AttributeId.FREQUENCY)
 						.getLong();
-				assertEquals(1, freq);
+				assertEquals(2, freq);
 				return;
 			}
 		}
