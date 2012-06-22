@@ -35,18 +35,16 @@ public class CoOccuranceExtractorTest extends TestCase {
 					"{\"text\":\"Lokpal Bill went to Washington DC.\"}", "1");
 			Data d2 = new Tweet("{\"text\":\"Lokpal Bill went to London.\"}",
 					"2");
-			Data d3 = new Tweet(
-					"{\"text\":\"The money went to Clinton.\"}",
+			Data d3 = new Tweet("{\"text\":\"The money went to Clinton.\"}",
 					"3");
 			Data d4 = new Tweet(
-					"{\"text\":\"The money went to Clinton and London.\"}",
-					"4");
+					"{\"text\":\"The money went to Clinton and London.\"}", "4");
 			Data d5 = new Tweet(
 					"{\"text\":\"The America went to Clinton and London.\"}",
 					"5");
 			List<Data> dataList = new ArrayList<Data>();
-			//dataList.add(d1);
-			//dataList.add(d2);
+			// dataList.add(d1);
+			// dataList.add(d2);
 			dataList.add(d3);
 			dataList.add(d4);
 			dataList.add(d5);
@@ -70,18 +68,21 @@ public class CoOccuranceExtractorTest extends TestCase {
 			if (var.getVariableName().equalsIgnoreCase("money")) {
 				Attributes attrs = var.getVariableAttributes();
 				if (attrs != null
-						&& attrs
-								.containsAttributeType(AttributeId.COOCCURENCE)) {
-					List<IVariable> coOccurs = attrs.getAttributes(AttributeId.COOCCURENCE).getList();
+						&& attrs.containsAttributeType(AttributeId.COOCCURENCE)) {
+					List<IVariable> coOccurs = attrs.getAttributes(
+							AttributeId.COOCCURENCE).getList();
 					for (IVariable coOccur : coOccurs) {
-						if(coOccur.getVariableName().equalsIgnoreCase("London")){
-							Long freq =  coOccur.getVariableAttributes().getAttributes(AttributeId.FREQUENCY).getLong();
+						if (coOccur.getVariableName()
+								.equalsIgnoreCase("London")) {
+							Long freq = coOccur.getVariableAttributes()
+									.getAttributes(AttributeId.FREQUENCY)
+									.getLong();
 							assertEquals(1, freq.longValue());
 							return;
 						}
 					}
 				}
-			}			
+			}
 		}
 
 		fail();
