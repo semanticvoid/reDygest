@@ -3,6 +3,7 @@ package com.redygest.grok.features.extractor;
 public enum FeatureExtractorType {
 	NGRAMSYNONYM,
 	NPCOOCCURRENCE,
+	ENTITYCOOCCURRENCE,
 	NPENTITY,
 	POSFEATURE,
 	SENTIMENTFEATURE,

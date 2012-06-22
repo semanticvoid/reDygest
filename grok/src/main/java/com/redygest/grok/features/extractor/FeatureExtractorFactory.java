@@ -33,6 +33,8 @@ public class FeatureExtractorFactory {
 			return new SynonymFeatureExtractor();
 		case ENTITY:
 			return new EntityFeatureExtractor();
+		case ENTITYCOOCCURRENCE:
+			return new CoOccuranceFeatureExtractor();
 		}
 
 		return null;
