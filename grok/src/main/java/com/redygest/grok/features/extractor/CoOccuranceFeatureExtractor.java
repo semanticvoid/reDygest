@@ -47,12 +47,15 @@ public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
 			String nerText = nerVar.getVariableName();
 			ners.add(nerText.toLowerCase());
 		}
+
+		// merge ner and np variables. i.e remove duplicates
 		for (IVariable npVar : npVariables) {
 			if (!ners.contains(npVar.getVariableName().toLowerCase())) {
 				nerVariables.add(npVar);
 			}
 		}
 
+		// iterate over the variables
 		for (int i = 0; i < nerVariables.size(); i++) {
 			IVariable ivar = nerVariables.get(i);
 			String ientityName = null;
@@ -87,8 +90,8 @@ public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
 				coOccurances.add(jentityName);
 			}
 
+			// fetch global variable for i
 			IVariable giVar = null;
-
 			if (fGlobal.getVariable(new DataVariable(ientityName,
 					FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)) != null) {
 				giVar = fGlobal.getVariable(new DataVariable(ientityName,
@@ -124,8 +127,10 @@ public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
 			IAttribute inpCoOccurAttr = giVarAttrs
 					.getAttributes(AttributeId.COOCCURENCE);
 			inpCoOccurances = inpCoOccurAttr.getList();
-			for (String jentityName : coOccurances) {
 
+			// iterate over the co-occurances
+			for (String jentityName : coOccurances) {
+				// fetch global variable for j
 				IVariable gjVar = null;
 				if (fGlobal.getVariable(new DataVariable(jentityName,
 						FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)) != null) {
@@ -164,6 +169,7 @@ public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
 						.getAttributes(AttributeId.COOCCURENCE);
 				jnpCoOccurances = jnpCoOccurAttr.getList();
 
+				// update global cooccurance counts of i
 				long frequency = 1;
 				boolean found = false;
 				for (IVariable var : inpCoOccurances) {
@@ -186,6 +192,7 @@ public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
 					inpCoOccurances.add(var);
 				}
 
+				// update global cooccurance counts of j
 				found = false;
 				frequency = 1;
 				for (IVariable var : jnpCoOccurances) {
