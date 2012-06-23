@@ -8,7 +8,6 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
-import com.redygest.grok.features.data.attribute.BooleanAttribute;
 import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.attribute.ListAttribute;
 import com.redygest.grok.features.data.attribute.LongAttribute;
@@ -18,10 +17,11 @@ import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.IFeaturesRepository;
 
-public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
-	public CoOccuranceFeatureExtractor() {
-
-	}
+/**
+ * Entity Cooccurrence Feature Extractor
+ * 
+ */
+public class EntityCoccurrenceFeatureExtractor extends AbstractFeatureExtractor {
 
 	@Override
 	protected FeatureVectorCollection extract(Data t,
@@ -57,26 +57,28 @@ public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
 
 		// iterate over the variables
 		for (int i = 0; i < nerVariables.size(); i++) {
-			IVariable ivar = nerVariables.get(i);
-			String ientityName = null;
-			Attributes iattrs = ivar.getVariableAttributes();
-			if (iattrs != null
-					&& iattrs.containsAttributeType(AttributeId.SYNONYM)) {
-				IAttribute synonymAttr = iattrs
+			IVariable iVar = nerVariables.get(i);
+			String iEntityName = null;
+			Attributes iAttrs = iVar.getVariableAttributes();
+
+			if (iAttrs != null
+					&& iAttrs.containsAttributeType(AttributeId.SYNONYM)) {
+				IAttribute synonymAttr = iAttrs
 						.getAttributes(AttributeId.SYNONYM);
 				if (synonymAttr != null) {
-					ientityName = synonymAttr.getString();
+					iEntityName = synonymAttr.getString();
 				}
 			} else {
-				ientityName = ivar.getVariableName();
+				iEntityName = iVar.getVariableName();
 			}
 
-			// calculate co-occurances in this current tweet first
-			List<String> coOccurances = new ArrayList<String>();
+			// calculate co-occurrences in this current tweet first
+			List<String> coOccurrences = new ArrayList<String>();
 			for (int j = i + 1; j < nerVariables.size(); j++) {
 				IVariable jvar = nerVariables.get(j);
 				String jentityName = null;
 				Attributes jattrs = jvar.getVariableAttributes();
+
 				if (jattrs != null
 						&& jattrs.containsAttributeType(AttributeId.SYNONYM)) {
 					IAttribute synonymAttr = jattrs
@@ -87,14 +89,15 @@ public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
 				} else {
 					jentityName = jvar.getVariableName();
 				}
-				coOccurances.add(jentityName);
+
+				coOccurrences.add(jentityName);
 			}
 
 			// fetch global variable for i
-			IVariable giVar = null;
-			if (fGlobal.getVariable(new DataVariable(ientityName,
+			IVariable iGlobalVar = null;
+			if (fGlobal.getVariable(new DataVariable(iEntityName,
 					FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)) != null) {
-				giVar = fGlobal.getVariable(new DataVariable(ientityName,
+				iGlobalVar = fGlobal.getVariable(new DataVariable(iEntityName,
 						FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
 			} else if (repository
 					.getFeatureVector(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER) != null
@@ -103,38 +106,43 @@ public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
 									FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)
 							.getVariable(
 									new DataVariable(
-											ientityName,
+											iEntityName,
 											FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)) != null) {
-				giVar = repository
+				iGlobalVar = repository
 						.getFeatureVector(
 								FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)
 						.getVariable(
 								new DataVariable(
-										ientityName,
+										iEntityName,
 										FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
 			}
 
-			if (giVar == null) {
-				giVar = new DataVariable(ientityName,
+			if (iGlobalVar == null) {
+				iGlobalVar = new DataVariable(iEntityName,
 						FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
 			}
-			Attributes giVarAttrs = giVar.getVariableAttributes();
+
+			Attributes iGlobalVarAttrs = iGlobalVar.getVariableAttributes();
 			List<IVariable> inpCoOccurances = null;
-			if (!giVarAttrs.containsAttributeType(AttributeId.COOCCURENCE)) {
-				giVarAttrs.add(new ListAttribute(AttributeId.COOCCURENCE,
+			if (!iGlobalVarAttrs
+					.containsAttributeType(AttributeId.ENTITYCOOCCURENCE)) {
+				iGlobalVarAttrs.add(new ListAttribute(
+						AttributeId.ENTITYCOOCCURENCE,
 						new ArrayList<IVariable>()));
 			}
-			IAttribute inpCoOccurAttr = giVarAttrs
-					.getAttributes(AttributeId.COOCCURENCE);
+
+			IAttribute inpCoOccurAttr = iGlobalVarAttrs
+					.getAttributes(AttributeId.ENTITYCOOCCURENCE);
 			inpCoOccurances = inpCoOccurAttr.getList();
 
-			// iterate over the co-occurances
-			for (String jentityName : coOccurances) {
+			// iterate over the co-occurrences
+			for (String jEntityName : coOccurrences) {
 				// fetch global variable for j
-				IVariable gjVar = null;
-				if (fGlobal.getVariable(new DataVariable(jentityName,
+				IVariable jGlobalVar = null;
+				if (fGlobal.getVariable(new DataVariable(jEntityName,
 						FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)) != null) {
-					gjVar = fGlobal.getVariable(new DataVariable(jentityName,
+					jGlobalVar = fGlobal.getVariable(new DataVariable(
+							jEntityName,
 							FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
 				} else if (repository
 						.getFeatureVector(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER) != null
@@ -143,50 +151,58 @@ public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
 										FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)
 								.getVariable(
 										new DataVariable(
-												jentityName,
+												jEntityName,
 												FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)) != null) {
-					gjVar = repository
+					jGlobalVar = repository
 							.getFeatureVector(
 									FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER)
 							.getVariable(
 									new DataVariable(
-											jentityName,
+											jEntityName,
 											FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER));
 				}
 
-				if (gjVar == null) {
-					gjVar = new DataVariable(jentityName,
+				if (jGlobalVar == null) {
+					jGlobalVar = new DataVariable(jEntityName,
 							FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
 				}
 
-				Attributes gjVarAttrs = gjVar.getVariableAttributes();
+				Attributes jGlobalVarAttrs = jGlobalVar.getVariableAttributes();
 				List<IVariable> jnpCoOccurances = null;
-				if (!gjVarAttrs.containsAttributeType(AttributeId.COOCCURENCE)) {
-					gjVarAttrs.add(new ListAttribute(AttributeId.COOCCURENCE,
+
+				if (!jGlobalVarAttrs
+						.containsAttributeType(AttributeId.ENTITYCOOCCURENCE)) {
+					jGlobalVarAttrs.add(new ListAttribute(
+							AttributeId.ENTITYCOOCCURENCE,
 							new ArrayList<IVariable>()));
 				}
-				IAttribute jnpCoOccurAttr = gjVarAttrs
-						.getAttributes(AttributeId.COOCCURENCE);
+
+				IAttribute jnpCoOccurAttr = jGlobalVarAttrs
+						.getAttributes(AttributeId.ENTITYCOOCCURENCE);
 				jnpCoOccurances = jnpCoOccurAttr.getList();
 
-				// update global cooccurance counts of i
+				// update global cooccurrence counts of i
 				long frequency = 1;
 				boolean found = false;
 				for (IVariable var : inpCoOccurances) {
 					String varName = var.getVariableName();
-					if (varName.equalsIgnoreCase(jentityName)) {
+
+					if (varName.equalsIgnoreCase(jEntityName)) {
 						found = true;
 						IAttribute coFrequency = var.getVariableAttributes()
 								.getAttributes(AttributeId.FREQUENCY);
+
 						if (coFrequency != null) {
 							frequency += coFrequency.getLong();
 						}
+
 						var.addAttribute(new LongAttribute(
 								AttributeId.FREQUENCY, frequency));
 					}
 				}
+
 				if (!found) {
-					IVariable var = new DataVariable(jentityName, -2L);
+					IVariable var = new DataVariable(jEntityName, -2L);
 					var.addAttribute(new LongAttribute(AttributeId.FREQUENCY,
 							frequency));
 					inpCoOccurances.add(var);
@@ -197,26 +213,32 @@ public class CoOccuranceFeatureExtractor extends AbstractFeatureExtractor {
 				frequency = 1;
 				for (IVariable var : jnpCoOccurances) {
 					String varName = var.getVariableName();
-					if (varName.equalsIgnoreCase(ientityName)) {
+
+					if (varName.equalsIgnoreCase(iEntityName)) {
 						found = true;
 						IAttribute coFrequency = var.getVariableAttributes()
 								.getAttributes(AttributeId.FREQUENCY);
+
 						if (coFrequency != null) {
 							frequency += coFrequency.getLong();
 						}
+
 						var.addAttribute(new LongAttribute(
 								AttributeId.FREQUENCY, frequency));
 					}
 				}
+
 				if (!found) {
-					IVariable var = new DataVariable(ientityName, -2L);
+					IVariable var = new DataVariable(iEntityName, -2L);
 					var.addAttribute(new LongAttribute(AttributeId.FREQUENCY,
 							frequency));
 					jnpCoOccurances.add(var);
 				}
-				fGlobal.addVariable(gjVar);
+
+				fGlobal.addVariable(jGlobalVar);
 			}
-			fGlobal.addVariable(giVar);
+
+			fGlobal.addVariable(iGlobalVar);
 		}
 
 		fCollection.put(FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER,

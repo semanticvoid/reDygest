@@ -3,6 +3,8 @@ package com.redygest.grok.features.extractor;
 import java.util.ArrayList;
 import java.util.List;
 
+import junit.framework.TestCase;
+
 import com.redygest.commons.data.Data;
 import com.redygest.commons.data.Tweet;
 import com.redygest.grok.features.data.attribute.AttributeId;
@@ -12,9 +14,7 @@ import com.redygest.grok.features.data.vector.FeatureVector;
 import com.redygest.grok.features.data.vector.FeatureVectorCollection;
 import com.redygest.grok.features.repository.FeaturesRepository;
 
-import junit.framework.TestCase;
-
-public class CoOccuranceExtractorTest extends TestCase {
+public class EntityCooccurrenceExtractorTest extends TestCase {
 	private final IFeatureExtractor posExtractor = FeatureExtractorFactory
 			.getInstance().getFeatureExtractor(FeatureExtractorType.POSFEATURE);
 	private final IFeatureExtractor npentityExtractor = FeatureExtractorFactory
@@ -23,7 +23,7 @@ public class CoOccuranceExtractorTest extends TestCase {
 			.getInstance().getFeatureExtractor(FeatureExtractorType.NER);
 	private final IFeatureExtractor entityCoOccuranceExtractor = FeatureExtractorFactory
 			.getInstance().getFeatureExtractor(
-					FeatureExtractorType.ENTITYCOOCCURANCE);
+					FeatureExtractorType.ENTITYCOOCCURRENCE);
 
 	private FeatureVectorCollection f = null;
 
@@ -63,21 +63,21 @@ public class CoOccuranceExtractorTest extends TestCase {
 		FeatureVector fv = FeaturesRepository.getInstance().getFeatureVector(
 				FeatureVectorCollection.GLOBAL_RECORD_IDENTIFIER);
 		List<IVariable> variables = fv
-				.getVariablesWithAttributeType(AttributeId.COOCCURENCE);
+				.getVariablesWithAttributeType(AttributeId.ENTITYCOOCCURENCE);
 		for (IVariable var : variables) {
 			if (var.getVariableName().equalsIgnoreCase("money")) {
 				Attributes attrs = var.getVariableAttributes();
 				if (attrs != null
-						&& attrs.containsAttributeType(AttributeId.COOCCURENCE)) {
+						&& attrs.containsAttributeType(AttributeId.ENTITYCOOCCURENCE)) {
 					List<IVariable> coOccurs = attrs.getAttributes(
-							AttributeId.COOCCURENCE).getList();
+							AttributeId.ENTITYCOOCCURENCE).getList();
 					for (IVariable coOccur : coOccurs) {
-						if (coOccur.getVariableName()
-								.equalsIgnoreCase("London")) {
+						if (coOccur.getVariableName().equalsIgnoreCase(
+								"Clinton")) {
 							Long freq = coOccur.getVariableAttributes()
 									.getAttributes(AttributeId.FREQUENCY)
 									.getLong();
-							assertEquals(1, freq.longValue());
+							assertEquals(2, freq.longValue());
 							return;
 						}
 					}
@@ -87,5 +87,4 @@ public class CoOccuranceExtractorTest extends TestCase {
 
 		fail();
 	}
-
 }

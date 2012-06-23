@@ -34,7 +34,7 @@ public class FeatureExtractorFactory {
 		case ENTITY:
 			return new EntityFeatureExtractor();
 		case ENTITYCOOCCURRENCE:
-			return new CoOccuranceFeatureExtractor();
+			return new EntityCoccurrenceFeatureExtractor();
 		}
 
 		return null;
