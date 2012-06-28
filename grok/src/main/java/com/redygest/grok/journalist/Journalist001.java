@@ -135,6 +135,7 @@ public class Journalist001 extends BaseJournalist {
 			String entityName = var.getVariableName();
 			Attributes attrs = var.getVariableAttributes();
 			long frequency = 1;
+			List<IVariable> coOccurrences = null;
 			EntityType type = null;
 
 			if (attrs != null
@@ -149,9 +150,47 @@ public class Journalist001 extends BaseJournalist {
 					&& attrs.getAttributes(AttributeId.FREQUENCY) != null) {
 				frequency = attrs.getAttributes(AttributeId.FREQUENCY)
 						.getLong();
-			}
 
-			entitySet.add(new Entity(type, entityName, frequency));
+			}
+			if (attrs != null
+					&& attrs
+							.containsAttributeType(AttributeId.ENTITYCOOCCURENCE)
+					&& attrs.getAttributes(AttributeId.ENTITYCOOCCURENCE) != null) {
+				coOccurrences = attrs.getAttributes(
+						AttributeId.ENTITYCOOCCURENCE).getList();
+			}
+			List<Entity> coOccurringEntities = null;
+			if (coOccurrences != null) {
+				coOccurringEntities = new ArrayList<Entity>();
+				for (IVariable coOccurrenceVar : coOccurrences) {
+					Attributes coOccurrenceVarAttrs = coOccurrenceVar
+							.getVariableAttributes();
+					EntityType coOccurringVarType = null;
+					if (coOccurrenceVarAttrs != null
+							&& coOccurrenceVarAttrs
+									.containsAttributeType(AttributeId.NPENTITY)) {
+						coOccurringVarType = EntityType.NP;
+					} else {
+						coOccurringVarType = EntityType.NE;
+					}
+					if (coOccurrenceVarAttrs != null
+							&& coOccurrenceVarAttrs
+									.containsAttributeType(AttributeId.FREQUENCY)
+							&& coOccurrenceVarAttrs
+									.getAttributes(AttributeId.FREQUENCY) != null) {
+						Entity e = new Entity(coOccurringVarType,
+								coOccurrenceVar.getVariableName(),
+								coOccurrenceVarAttrs.getAttributes(
+										AttributeId.FREQUENCY).getLong());
+						coOccurringEntities.add(e);
+					}
+				}
+			}
+			Entity e = new Entity(type, entityName, frequency);
+			if (coOccurringEntities != null && coOccurringEntities.size() > 0) {
+				e.setCoOccurrences(coOccurringEntities);
+			}
+			entitySet.add(e);
 		}
 
 		// Entity Filtering
