@@ -3,6 +3,8 @@
  */
 package com.redygest.commons.data;
 
+import java.util.List;
+
 /**
  * Class representing an Entity
  * 
@@ -22,6 +24,8 @@ public class Entity {
 	private String value;
 	private EntityType type;
 	private long frequency;
+	private List<Entity> coOccurrences; 
+	
 
 	/**
 	 * Constructor
@@ -47,7 +51,22 @@ public class Entity {
 		setValue(value);
 		setFrequency(frequency);
 	}
-
+	
+	/**
+	 * Constructor
+	 * 
+	 * @param type
+	 * @param value
+	 * @param frequncy
+	 */
+	public Entity(EntityType type, String value, long frequency, List<Entity> coOccurrences) {
+		setType(type);
+		setValue(value);
+		setFrequency(frequency);
+		setCoOccurrences(coOccurrences);
+	}
+	
+	
 	/**
 	 * @return the value
 	 */
@@ -92,6 +111,15 @@ public class Entity {
 	public void setFrequency(long frequency) {
 		this.frequency = frequency;
 	}
+	
+	/**
+	 * @param coccurances
+	 *			list of co-occurrences 		
+	 **/
+	public void setCoOccurrences(List<Entity> coOccurrences){
+		this.coOccurrences = coOccurrences;
+	}
+	
 
 	/**
 	 * Equals
