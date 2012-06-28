@@ -8,6 +8,7 @@ import com.redygest.commons.data.Data;
 import com.redygest.commons.data.DataType;
 import com.redygest.grok.features.data.attribute.AttributeId;
 import com.redygest.grok.features.data.attribute.Attributes;
+import com.redygest.grok.features.data.attribute.BooleanAttribute;
 import com.redygest.grok.features.data.attribute.IAttribute;
 import com.redygest.grok.features.data.attribute.ListAttribute;
 import com.redygest.grok.features.data.attribute.LongAttribute;
@@ -52,6 +53,13 @@ public class EntityCoccurrenceFeatureExtractor extends AbstractFeatureExtractor 
 		for (IVariable npVar : npVariables) {
 			if (!ners.contains(npVar.getVariableName().toLowerCase())) {
 				nerVariables.add(npVar);
+			}
+		}
+
+		List<IVariable> remainingNpVariables = new ArrayList<IVariable>();
+		for (IVariable npVar : npVariables) {
+			if (!ners.contains(npVar.getVariableName().toLowerCase())) {
+				remainingNpVariables.add(npVar);
 			}
 		}
 
@@ -205,6 +213,17 @@ public class EntityCoccurrenceFeatureExtractor extends AbstractFeatureExtractor 
 					IVariable var = new DataVariable(jEntityName, -2L);
 					var.addAttribute(new LongAttribute(AttributeId.FREQUENCY,
 							frequency));
+					AttributeId entityType = null;
+					if (jGlobalVarAttrs != null
+							&& jGlobalVarAttrs
+									.containsAttributeType(AttributeId.NPENTITY)) {
+						entityType = AttributeId.NPENTITY;
+					} else {
+						entityType = AttributeId.NERENTITY;
+					}
+					var.addAttribute(new BooleanAttribute(AttributeId.ENTITY,
+							true));
+					var.addAttribute(new BooleanAttribute(entityType, true));
 					inpCoOccurances.add(var);
 				}
 
@@ -232,6 +251,18 @@ public class EntityCoccurrenceFeatureExtractor extends AbstractFeatureExtractor 
 					IVariable var = new DataVariable(iEntityName, -2L);
 					var.addAttribute(new LongAttribute(AttributeId.FREQUENCY,
 							frequency));
+					AttributeId entityType = null;
+					if (iGlobalVarAttrs != null
+							&& iGlobalVarAttrs
+									.containsAttributeType(AttributeId.NPENTITY)) {
+						entityType = AttributeId.NPENTITY;
+					} else {
+						entityType = AttributeId.NERENTITY;
+					}
+					var.addAttribute(new BooleanAttribute(AttributeId.ENTITY,
+							true));
+					var.addAttribute(new BooleanAttribute(entityType, true));
+
 					jnpCoOccurances.add(var);
 				}
 

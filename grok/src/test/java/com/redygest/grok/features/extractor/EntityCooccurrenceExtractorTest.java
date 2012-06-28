@@ -21,6 +21,8 @@ public class EntityCooccurrenceExtractorTest extends TestCase {
 			.getInstance().getFeatureExtractor(FeatureExtractorType.NPENTITY);
 	private final IFeatureExtractor nerentityExtractor = FeatureExtractorFactory
 			.getInstance().getFeatureExtractor(FeatureExtractorType.NER);
+	private final IFeatureExtractor entityExtractor = FeatureExtractorFactory
+			.getInstance().getFeatureExtractor(FeatureExtractorType.ENTITY);
 	private final IFeatureExtractor entityCoOccuranceExtractor = FeatureExtractorFactory
 			.getInstance().getFeatureExtractor(
 					FeatureExtractorType.ENTITYCOOCCURRENCE);
@@ -38,21 +40,32 @@ public class EntityCooccurrenceExtractorTest extends TestCase {
 			Data d3 = new Tweet("{\"text\":\"The money went to Clinton.\"}",
 					"3");
 			Data d4 = new Tweet(
-					"{\"text\":\"The money went to Clinton and London.\"}", "4");
+					"{\"text\":\"The cat went to Clinton and London.\"}", "4");
 			Data d5 = new Tweet(
 					"{\"text\":\"The America went to Clinton and London.\"}",
 					"5");
+			Data d6 = new Tweet(
+					"{\"text\":\"The cat went to Clinton and London and money.\"}",
+					"6");
+			Data d7 = new Tweet(
+					"{\"text\":\"The London went to Clinton and London and cat.\"}",
+					"7");
 			List<Data> dataList = new ArrayList<Data>();
 			// dataList.add(d1);
 			// dataList.add(d2);
 			dataList.add(d3);
 			dataList.add(d4);
 			dataList.add(d5);
+			dataList.add(d6);
+			dataList.add(d7);
+
 			f = posExtractor.extract(dataList, repository);
 			repository.addFeatures(f);
 			f = npentityExtractor.extract(dataList, repository);
 			repository.addFeatures(f);
 			f = nerentityExtractor.extract(dataList, repository);
+			repository.addFeatures(f);
+			f = entityExtractor.extract(dataList, repository);
 			repository.addFeatures(f);
 			f = entityCoOccuranceExtractor.extract(dataList, repository);
 			repository.addFeatures(f);
@@ -65,19 +78,29 @@ public class EntityCooccurrenceExtractorTest extends TestCase {
 		List<IVariable> variables = fv
 				.getVariablesWithAttributeType(AttributeId.ENTITYCOOCCURENCE);
 		for (IVariable var : variables) {
-			if (var.getVariableName().equalsIgnoreCase("money")) {
+			if (var.getVariableName().equalsIgnoreCase("cat")) {
 				Attributes attrs = var.getVariableAttributes();
 				if (attrs != null
-						&& attrs.containsAttributeType(AttributeId.ENTITYCOOCCURENCE)) {
+						&& attrs
+								.containsAttributeType(AttributeId.ENTITYCOOCCURENCE)) {
 					List<IVariable> coOccurs = attrs.getAttributes(
 							AttributeId.ENTITYCOOCCURENCE).getList();
 					for (IVariable coOccur : coOccurs) {
-						if (coOccur.getVariableName().equalsIgnoreCase(
-								"Clinton")) {
+						if (coOccur.getVariableName().equalsIgnoreCase("money")) {
 							Long freq = coOccur.getVariableAttributes()
 									.getAttributes(AttributeId.FREQUENCY)
 									.getLong();
-							assertEquals(2, freq.longValue());
+							AttributeId entityType = null;
+							if (coOccur
+									.getVariableAttributes()
+									.containsAttributeType(AttributeId.NPENTITY)) {
+								entityType = AttributeId.NPENTITY;
+							} else {
+								entityType = AttributeId.NERENTITY;
+							}
+							assertEquals(entityType.toString(), "NPENTITY");
+							assertEquals(1, freq.longValue());
+
 							return;
 						}
 					}
