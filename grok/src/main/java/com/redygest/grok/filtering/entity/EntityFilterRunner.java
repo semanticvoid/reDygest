@@ -39,6 +39,9 @@ public class EntityFilterRunner {
 	 * @return
 	 */
 	public Set<Entity> runFilters(Set<Entity> entities) {
+		CoOccurrenceStatistics
+				.computeStatistics(new ArrayList<Entity>(entities));
+
 		Set<Entity> passedEntites = new EntitySet();
 
 		for (Entity entity : entities) {

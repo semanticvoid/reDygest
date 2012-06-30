@@ -39,8 +39,17 @@ public class EntityFilterFactory {
 	public IEntityFilter produce(EntityFilterType type) {
 		switch (type) {
 		case MINLENGTH_FILTER:
-			return new MinLengthEntityFilter();
-
+			return new LengthOfEntityFilter();
+		case FREQUENCY_FILTER:
+			return new FrequencyEntityFilter();
+		case ALPHANUMERIC_FILTER:
+			return new AlphaNumericEntityFilter();
+		case EQUALCOOCCURRENCE_FILTER:
+			return new EqualCoOccurrenceEntityFilter();
+		case LENGTH_FILTER:
+			return new LengthOfEntityFilter();
+		case STOPWORDS_FILTER:
+			return new StopwordsEntityFilter();
 		default:
 			break;
 		}
