@@ -24,8 +24,8 @@ public class FactOpinionFilter implements IPostExtractionPrefilter {
 	 */
 	public FactOpinionFilter() {
 		ConfigReader config = ConfigReader.getInstance();
-		classifier = new FacOpClassifier(config.getFacOpModel(),
-				config.getFacOpThreshold());
+		classifier = new FacOpClassifier(config.getFacOpModel(), config
+				.getFacOpThreshold());
 	}
 
 	/**
@@ -38,6 +38,7 @@ public class FactOpinionFilter implements IPostExtractionPrefilter {
 			dataList.add(d);
 			List<String> classificationResults = classifier.classify(dataList);
 			if (classificationResults != null
+					&& classificationResults.size() > 0
 					&& classificationResults.get(0).equals("1")) {
 				return false;
 			}
