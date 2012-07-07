@@ -195,9 +195,19 @@ public class Journalist001 extends BaseJournalist {
 
 		// Entity Filtering
 		EntityFilterRunner filterRunner = new EntityFilterRunner(
-				EntityFilterType.MINLENGTH_FILTER);
+				EntityFilterType.MINLENGTH_FILTER,
+				EntityFilterType.ALPHANUMERIC_FILTER,
+				EntityFilterType.FREQUENCY_FILTER,
+				EntityFilterType.LENGTH_FILTER,
+				EntityFilterType.STOPWORDS_FILTER,
+				EntityFilterType.EQUALCOOCCURRENCE_FILTER);
+
 		entitySet = (EntitySet) filterRunner.runFilters(entitySet);
-		System.out.println();
+		/**
+		 * @TODO clean up coOccurances : for each entity remove co-occurring
+		 *       entities that did not pass the filter
+		 */
+
 	}
 
 	/**
