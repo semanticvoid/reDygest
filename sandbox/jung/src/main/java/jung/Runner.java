@@ -30,6 +30,14 @@ public class Runner {
 		return sb.toString();
 	}
 
+	/**
+	 * 
+	 * @param args
+	 *            arg1 : graph file containing co-occurrances. the file is a
+	 *            csv, the first column in each line is the entity followed by
+	 *            its co-occurring entities arg2: delimiter used in the graph
+	 *            file
+	 */
 	public void readCoOccurances(String coOccurranceFile, String delimiter) {
 		HashSet<String> vertices = new HashSet<String>();
 		String[] lines = readFile(coOccurranceFile).split("\n");
