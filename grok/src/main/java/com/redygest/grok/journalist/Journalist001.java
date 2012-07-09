@@ -20,6 +20,7 @@ import java.util.Set;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Community;
 import com.redygest.commons.data.Community.CommunityAttribute;
 import com.redygest.commons.data.Data;
@@ -193,15 +194,10 @@ public class Journalist001 extends BaseJournalist {
 			entitySet.add(e);
 		}
 
+		
+		ConfigReader cr = ConfigReader.getInstance();
 		// Entity Filtering
-		EntityFilterRunner filterRunner = new EntityFilterRunner(
-				EntityFilterType.MINLENGTH_FILTER,
-				EntityFilterType.ALPHANUMERIC_FILTER,
-				EntityFilterType.FREQUENCY_FILTER,
-				EntityFilterType.LENGTH_FILTER,
-				EntityFilterType.STOPWORDS_FILTER,
-				EntityFilterType.EQUALCOOCCURRENCE_FILTER);
-
+		EntityFilterRunner filterRunner = new EntityFilterRunner(cr.getEntityFilters());
 		entitySet = (EntitySet) filterRunner.runFilters(entitySet);
 		/**
 		 * @TODO clean up coOccurances : for each entity remove co-occurring

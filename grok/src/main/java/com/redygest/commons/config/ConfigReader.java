@@ -10,7 +10,7 @@ import org.ini4j.Wini;
  */
 public class ConfigReader {
 
-	private static final String CONFIG_FILE = "/Users/semanticvoid/projects/reDygest/grok/conf/grok.ini";
+	private static final String CONFIG_FILE = "/Users/tejaswi/Documents/workspace/reDygest/grok/conf/grok.ini";
 
 	private static final String EXTRACTOR_SECTION = "extractor";
 	private static final String SENNA_PATH_KEY = "sennadir";
@@ -26,6 +26,12 @@ public class ConfigReader {
 	private static final String FACOPFILTER_SECTION = "facopfilter";
 	private static final String FACOP_THRESHOLD_KEY = "threshold";
 	private static final String FACOP_MODEL_KEY = "model";
+
+	private static final String ENTITYFILTER_SECTION = "entityfilter";
+	private static final String FILTER_LIST_KEY = "filters";
+	private static final String MIN_LENGTH_KEY = "minlength";
+	private static final String MAX_LENGTH_KEY = "maxlength";
+	private static final String PERCENTILE_KEY = "percentile";
 
 	private static ConfigReader instance = null;
 
@@ -101,5 +107,44 @@ public class ConfigReader {
 		}
 
 		return 1.0; // default
+	}
+
+	public String[] getEntityFilters(){
+		String str = ini.get(ENTITYFILTER_SECTION, FILTER_LIST_KEY);
+		if(str!=null){
+			String[] list = str.split(",");
+			return list;
+		}
+		throw new RuntimeException("No filters provided");
+	}
+	
+	public int getEntityMinimumLength() {
+		try {
+			return Integer.valueOf(ini
+					.get(ENTITYFILTER_SECTION, MIN_LENGTH_KEY));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		return 2;
+	}
+
+	public int getEntityMaximumLength() {
+		try {
+			return Integer.valueOf(ini
+					.get(ENTITYFILTER_SECTION, MAX_LENGTH_KEY));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		return 4;
+	}
+
+	public double getPercentileThreshold() {
+		try {
+			return Double
+					.valueOf(ini.get(ENTITYFILTER_SECTION, PERCENTILE_KEY));
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		}
+		return 30.0;
 	}
 }

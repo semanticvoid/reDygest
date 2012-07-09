@@ -38,8 +38,6 @@ public class EntityFilterFactory {
 	 */
 	public IEntityFilter produce(EntityFilterType type) {
 		switch (type) {
-		case MINLENGTH_FILTER:
-			return new LengthOfEntityFilter();
 		case FREQUENCY_FILTER:
 			return new FrequencyEntityFilter();
 		case ALPHANUMERIC_FILTER:
@@ -54,6 +52,27 @@ public class EntityFilterFactory {
 			break;
 		}
 
+		return null;
+	}
+
+	/**
+	 * Produce filter function
+	 * 
+	 * @param type
+	 * @return {@link IEntityFilter}
+	 */
+	public IEntityFilter produce(String type) {
+		if (type.equalsIgnoreCase("FREQUENCY_FILTER")) {
+			return new FrequencyEntityFilter();
+		} else if (type.equalsIgnoreCase("ALPHANUMERIC_FILTER")) {
+			return new AlphaNumericEntityFilter();
+		} else if (type.equalsIgnoreCase("EQUALCOOCCURRENCE_FILTER")) {
+			return new EqualCoOccurrenceEntityFilter();
+		} else if (type.equalsIgnoreCase("LENGTH_FILTER")) {
+			return new LengthOfEntityFilter();
+		} else if (type.equalsIgnoreCase("STOPWORDS_FILTER")) {
+			return new StopwordsEntityFilter();
+		}
 		return null;
 	}
 }

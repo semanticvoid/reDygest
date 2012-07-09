@@ -3,6 +3,7 @@
  */
 package com.redygest.grok.filtering.entity;
 
+import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Entity;
 
 /**
@@ -20,6 +21,9 @@ public class LengthOfEntityFilter implements IEntityFilter {
 	 * Constructor
 	 */
 	public LengthOfEntityFilter() {
+		ConfigReader cr = ConfigReader.getInstance();
+		this.minLength = cr.getEntityMinimumLength();
+		this.maxLength = cr.getEntityMaximumLength();
 	}
 
 	/**

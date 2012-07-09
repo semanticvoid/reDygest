@@ -31,6 +31,20 @@ public class EntityFilterRunner {
 			}
 		}
 	}
+	
+	/**
+	 * Constructor
+	 */
+	public EntityFilterRunner(String... filterTypes) {
+		filters = new ArrayList<IEntityFilter>();
+		EntityFilterFactory factory = EntityFilterFactory.getInstance();
+		for (String fType : filterTypes) {
+			IEntityFilter filter = factory.produce(fType);
+			if (filter != null) {
+				filters.add(filter);
+			}
+		}
+	}
 
 	/**
 	 * Run filters

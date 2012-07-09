@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import com.redygest.commons.config.ConfigReader;
 import com.redygest.commons.data.Entity;
 
 public class CoOccurrenceStatistics {
@@ -11,9 +12,12 @@ public class CoOccurrenceStatistics {
 	private List<Long> sortedFrequencies = null;
 	private static CoOccurrenceStatistics instance = null;
 	public static long frequencyThreshold = -1;
+	public static double percentile = 30.0;
 
 	private CoOccurrenceStatistics(List<Entity> entities) {
 		this.entities = entities;
+		ConfigReader cr = ConfigReader.getInstance();
+		this.percentile = cr.getPercentileThreshold();
 		run();
 	}
 
@@ -44,7 +48,7 @@ public class CoOccurrenceStatistics {
 		if (frequencyThreshold >= 0) {
 			return frequencyThreshold;
 		}
-		double percentile = 30.0;
+		double percentile = this.percentile;
 		List<Long> sortedFreqs = getSortedFrequencies();
 		int ordinal_rank = (int) Math.round((percentile / 100.0)
 				* (double) sortedFreqs.size());
