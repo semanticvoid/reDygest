@@ -45,12 +45,12 @@ public class Runner {
 		for (String line : lines) {
 			String[] split = line.split(delimiter);
 			if (!vertices.contains(split[0].trim())) {
-				graph.addVertex(split[0].trim());
-				vertices.add(split[0].trim());
+				graph.addVertex(split[0].trim().toLowerCase());
+				vertices.add(split[0].trim().toLowerCase());
 			}
 			for (int i = 1; i < split.length; i++) {
 				edgeCount++;
-				graph.addEdge(edgeCount, split[0].trim(), split[i].trim());
+				graph.addEdge(edgeCount, split[0].trim().toLowerCase(), split[i].trim().toLowerCase());
 			}
 		}
 	}
@@ -63,8 +63,8 @@ public class Runner {
 						",");
 		System.out.println("The graph :  " + r.graph.toString());
 
-		CommunityDetection cd = new CommunityDetection();
-		Set<Set<String>> transformed = cd.run(r.graph, 10);
+		EBCommunityDetection cd = new EBCommunityDetection();
+		Set<Set<String>> transformed = cd.run(r.graph, 150);
 		System.out.println("Communities:");
 		for (Set<String> community : transformed) {
 			System.out.println(community);
