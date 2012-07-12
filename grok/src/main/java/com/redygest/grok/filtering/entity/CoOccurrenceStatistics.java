@@ -56,5 +56,10 @@ public class CoOccurrenceStatistics {
 		long leastCount = sortedFreqs.get(ordinal_rank);
 		return leastCount;
 	}
+	
+	// TODO caculate the distribution of frequencies
+	private void normalizeFrequencies(){
+		
+	}
 
 }
