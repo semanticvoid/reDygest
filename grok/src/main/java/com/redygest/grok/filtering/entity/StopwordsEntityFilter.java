@@ -22,11 +22,10 @@ public class StopwordsEntityFilter implements IEntityFilter {
 		}
 		String[] entityTokens = text.split("[\\s+.]");
 		for (String token : entityTokens) {
-			if (stopWords.contains(token)) {
+			if (stopWords.contains(token.toLowerCase())) {
 				return false;
 			}
 		}
 		return true;
 	}
-
 }
