@@ -2,6 +2,7 @@ package com.redygest.grok.filtering.entity;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 import com.redygest.commons.config.ConfigReader;
@@ -17,7 +18,7 @@ public class CoOccurrenceStatistics {
 	private CoOccurrenceStatistics(List<Entity> entities) {
 		this.entities = entities;
 		ConfigReader cr = ConfigReader.getInstance();
-		this.percentile = cr.getPercentileThreshold();
+		percentile = cr.getPercentileThreshold();
 		run();
 	}
 
@@ -40,15 +41,16 @@ public class CoOccurrenceStatistics {
 		for (Entity e : entities) {
 			freqs.add(e.getFrequency());
 		}
-		Collections.sort(freqs);
-		return freqs;
+		HashSet<Long> unique = new HashSet<Long>(freqs);
+		sortedFrequencies = new ArrayList<Long>(unique);
+		Collections.sort(sortedFrequencies);
+		return sortedFrequencies;
 	}
 
 	private long computeFrequencyThreshold() {
 		if (frequencyThreshold >= 0) {
 			return frequencyThreshold;
 		}
-		double percentile = this.percentile;
 		List<Long> sortedFreqs = getSortedFrequencies();
 		int ordinal_rank = (int) Math.round((percentile / 100.0)
 				* (double) sortedFreqs.size());
@@ -56,10 +58,10 @@ public class CoOccurrenceStatistics {
 		long leastCount = sortedFreqs.get(ordinal_rank);
 		return leastCount;
 	}
-	
+
 	// TODO caculate the distribution of frequencies
-	private void normalizeFrequencies(){
-		
+	private void normalizeFrequencies() {
+
 	}
 
 }
